@@ -79,12 +79,30 @@
     });
   });
 
+  /* ---------------- Gallery thumbnail swap (model + plain shots) ---------------- */
+  document.querySelectorAll('.gallery-card').forEach(card => {
+    const main = card.querySelector('.gallery-card__main-img');
+    const thumbs = card.querySelectorAll('.gallery-thumb');
+    thumbs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (!main || !btn.dataset.src) return;
+        main.src = btn.dataset.src;
+        thumbs.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+      });
+    });
+  });
+
   /* ---------------- Style subcategory jump (e.g. Pawn styles) ---------------- */
   document.querySelectorAll('.style-select').forEach(sel => {
     sel.addEventListener('change', () => {
-      const id = sel.value;
-      if (!id) return;
-      const target = document.getElementById(id);
+      const val = sel.value;
+      if (!val) return;
+      if (val.includes('.html')) {
+        window.location.href = val;
+        return;
+      }
+      const target = document.getElementById(val);
       if (!target) return;
       target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       target.classList.add('is-highlighted');
