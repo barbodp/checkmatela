@@ -78,4 +78,17 @@
       e.stopPropagation();
     });
   });
+
+  /* ---------------- Style subcategory jump (e.g. Pawn styles) ---------------- */
+  document.querySelectorAll('.style-select').forEach(sel => {
+    sel.addEventListener('change', () => {
+      const id = sel.value;
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target.classList.add('is-highlighted');
+      setTimeout(() => target.classList.remove('is-highlighted'), 1600);
+    });
+  });
 })();

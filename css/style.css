@@ -562,6 +562,41 @@ button{ font-family:inherit; cursor:pointer; }
 .coming-soon .form-success{ color: var(--pine); }
 
 /* ============================================================
+   STYLE SUBCATEGORIES (e.g. Pawn — Slim Fit / Vest Set / Tuxedo / Tuxedo Vest Set)
+============================================================ */
+.style-bar{
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;
+  margin-top: clamp(20px,3vw,32px);
+  padding-bottom: 22px; border-bottom: 1px solid rgba(21,24,26,.1);
+}
+.style-bar__label{ font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color: var(--slate); }
+.style-select{
+  border:1px solid rgba(21,24,26,.22); background: var(--card); color: var(--ink);
+  padding:10px 14px; font-family: var(--sans); font-size:.82rem; border-radius:2px; min-width:220px;
+}
+
+.style-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: clamp(14px,2vw,20px); margin: clamp(24px,3.5vw,36px) 0 clamp(56px,7vw,88px); }
+.style-card{
+  background: var(--card); border:1px solid rgba(21,24,26,.1);
+  padding: clamp(24px,3vw,32px) 22px; text-align:center;
+  scroll-margin-top: 120px;
+  transition: border-color .35s ease, transform .35s ease, box-shadow .35s ease;
+}
+.style-card:hover{ border-color: var(--pine); transform: translateY(-4px); }
+.style-card.is-highlighted{ border-color: var(--pine); box-shadow: 0 0 0 3px rgba(30,77,59,.14); }
+.style-card__glyph{ display:block; width:34px; height:34px; margin:0 auto 16px; color: var(--pine); }
+.style-card__glyph svg{ width:100%; height:100%; display:block; }
+.style-card h4{ font-size:1.3rem; }
+.style-card p{ font-size:.84rem; color: var(--slate); margin-top:.7em; line-height:1.5; }
+.style-card__badge{
+  display:inline-block; margin-top:16px; font-size:.6rem; letter-spacing:.16em; text-transform:uppercase;
+  color: var(--brass-deep); border:1px solid rgba(173,127,60,.4); padding:5px 11px;
+}
+
+@media (max-width: 760px){ .style-grid{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 460px){ .style-grid{ grid-template-columns: 1fr; } }
+
+/* ============================================================
    REVEAL ON SCROLL
 ============================================================ */
 [data-reveal]{ opacity:0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
