@@ -53,20 +53,23 @@ export VERCEL_GLOBAL_CONFIG_DIR="$HOME/.local/vercel-config"
 - **Bishop** = Accessories (live, uses AI-generated studio product photography)
 - **Rook** = Shoes (live, uses AI-generated studio product photography)
 
-### Pawn subcategories (current status)
-Pawn has 4 style dropdown/grid entries on `pawn.html` ("Shop by Style"):
-- **Suit Vest Set** — LIVE → `pawn-suit-vest-set.html`. 4 colorways (Black, Indigo, Light Gray, Navy), $89. Source photography from `/Users/barbodp/Downloads/Magen Kids/Suit Vest Set/`.
-- **Tuxedo Vest Set** — LIVE → `pawn-tuxedo-vest-set.html`. 4 colorways (Black, Burgundy, Light Gray, Light Navy), $99. Source photography from `/Users/barbodp/Downloads/Magen Kids/Tuxedo Vest Set/`.
-- **Slim Fit** — still "Coming Soon" (no photography supplied yet).
-- **Tuxedo** (without vest) — still "Coming Soon" (no photography supplied yet).
+### Pawn subcategories (current status — all four are LIVE)
+`pawn.html` is the landing page ("Shop by Style" dropdown + four photo cards). Each style has its own page:
+- **Slim Fit** → `pawn-slim-fit.html` — 14 colorways, $129. Source: `~/Downloads/Magen Kids/Slim Fit/`.
+- **Suit Vest Set** → `pawn-suit-vest-set.html` — 4 colorways, $89. Source: `~/Downloads/Magen Kids/Suit Vest Set/`.
+- **Tuxedo** (style TX-1026) → `pawn-tuxedo.html` — 12 colorways, $139. Source: `~/Downloads/Magen Kids/Tuxedo TX-1026/`.
+- **Tuxedo Vest Set** → `pawn-tuxedo-vest-set.html` — 4 colorways, $99. Source: `~/Downloads/Magen Kids/Tuxedo Vest Set/`.
 
-The main nav has a hover dropdown under "Pawn — Kids" (all pages) linking directly to these four; on mobile it's a static inline list instead of hover.
+Prices are invented placeholders (the concept site has no real pricing) — tell the user if asked.
+The main nav has a hover dropdown under "Pawn — Kids" (all pages) linking to the four pages; on mobile it's a static inline list.
+
+The four Pawn pages are **generated** by a script (they are near-identical). The generator lives outside the repo (scratchpad) — if it's gone, edit the HTML directly or recreate it; the structure is `page shell + banner + .gallery-grid of .gallery-card`.
 
 ### Gallery product cards (`.gallery-card`, used on the two live Pawn pages)
-Each colorway shows a main image + a 6-thumbnail strip, **in this fixed order: 4 model shots, then 2 plain/product-only shots** (`model-1..4.jpg`, then `plain-1..2.jpg`). Clicking a thumbnail swaps the main image (see `.gallery-card` JS in `main.js`). Follow this same pattern (models-then-plain) if more real product photography gets added later.
+Each colorway shows a main image + a thumbnail strip, **in this fixed order: 4 model shots, then the plain/product-only shots** (`model-1..4.jpg`, then `plain-1..2.jpg`; a few colorways only have 1 plain shot). The strip uses small `thumb-N.jpg` files (160px squares) while `data-src` points at the full 900px image; clicking swaps the main image (see `.gallery-card` JS in `main.js`). Follow this same pattern (models-then-plain) if more real product photography gets added later.
 
 ### Processed image naming convention
-When new raw product photography comes in (e.g. under `~/Downloads/...`), process it into `assets/img/pawn/<line-slug>/<color-slug>/model-N.jpg` + `plain-N.jpg` (resize to ~900px max width, JPEG quality ~84, strip alpha onto white) rather than committing the raw multi-MB originals.
+When new raw product photography comes in (e.g. under `~/Downloads/...`), process it into `assets/img/pawn/<line-slug>/<color-slug>/model-N.jpg` + `plain-N.jpg` + `thumb-N.jpg` (mains ~900px max width, JPEG quality ~82, alpha flattened onto white; thumbs 160px squares — models cropped from the top, plain shots from ~30% down) rather than committing the raw multi-MB originals. Raw files use inconsistent names (case, spaces, missing `_1`/`_2`), so glob per folder instead of building filenames.
 
 ## Things NOT to redo
 - Don't revert to a dark/black overall theme — user explicitly wants light + checkerboard.

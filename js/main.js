@@ -84,6 +84,9 @@
     const main = card.querySelector('.gallery-card__main-img');
     const thumbs = card.querySelectorAll('.gallery-thumb');
     thumbs.forEach(btn => {
+      const preload = () => { if (btn.dataset.src) { const im = new Image(); im.src = btn.dataset.src; } };
+      btn.addEventListener('mouseenter', preload, { once: true });
+      btn.addEventListener('focus', preload, { once: true });
       btn.addEventListener('click', () => {
         if (!main || !btn.dataset.src) return;
         main.src = btn.dataset.src;
