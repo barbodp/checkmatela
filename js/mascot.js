@@ -1,19 +1,22 @@
-/* "Sir Checkmate" — Checkmatela's mascot: a small, glossy, inflated 3D gentleman who drifts freely around the
-   homepage like a balloon. He is NOT tied to scrolling — he wanders the screen on his own slow, looping path,
-   turns to face the way he is heading, sways and waves.
+/* "Sir Checkmate" — Checkmatela's mascot: a small, glossy, inflated 3D gentleman who floats up the screen like a
+   balloon. He is NOT tied to scrolling and not confined to the hero: he rises slowly from the bottom of the viewport to
+   the top, fades away, pauses, then floats up again from a different spot — wherever you are on the homepage.
 
    Built from primitives with three.js (vendored in js/vendor, loaded after the page has settled). The canvas is only as
    big as he is and is moved with a CSS transform, so rendering stays cheap. Click-through, sits under the header,
    skipped for reduced-motion visitors.
 
-   Tweak: size (SIZE below + .mascot-canvas in CSS), speed/route (route()), look (buildMascot()). */
+   Tweak: size (SIZE below + .mascot-canvas in CSS), pace / pauses / sway (RISE below), look (buildMascot()). */
 (() => {
   "use strict";
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const SIZE = () => (window.innerWidth < 700 ? [150, 180] : [210, 250]);   // canvas px (w, h)
   let THREE = null, renderer, scene, camera, mascot, parts, canvas;
-  let px = 0, py = 0, lastX = null, lastY = null, faceY = 0, bank = 0, lean = 0;
+  // one rise = bottom → top of the viewport. Times in seconds.
+  const RISE = { secs: [26, 34], pause: [1.5, 4], swayPx: [50, 130], swaySecs: [7, 11] };
+  const rnd = ([a, b]) => a + Math.random() * (b - a);
+  let lastX = null, lastY = null, faceY = 0, bank = 0, lean = 0, cyc = null, lastLane = -1;
 
   /* ------------------------------------------------------------------ the character */
   function buildMascot() {
@@ -147,34 +150,48 @@
     camera.aspect = w / h; camera.updateProjectionMatrix();
   }
 
-  /* The route: two slow sine waves per axis give a wandering, never-quite-repeating loop around the whole viewport. */
+  /* One rise: pick a lane (never the same third of the screen twice in a row), a pace, and a sway. */
+  function newCycle(t, delay = 0) {
+    let lane; do { lane = Math.floor(Math.random() * 3); } while (lane === lastLane); lastLane = lane;
+    const dur = rnd(RISE.secs), t0 = t + delay;
+    cyc = { t0, dur, end: t0 + dur, next: t0 + dur + rnd(RISE.pause), lane: (lane + .2 + Math.random() * .6) / 3, amp: rnd(RISE.swayPx), per: rnd(RISE.swaySecs), ph: Math.random() * 6.28 };
+  }
+  /* position (px) + fade for time t, or null while he is resting between rises */
   function route(t) {
     const [w, h] = SIZE(), vw = window.innerWidth, vh = window.innerHeight;
-    const rx = Math.max(0, (vw - w) / 2), ry = Math.max(0, (vh - h) / 2);
-    const x = rx * (.66 * Math.sin(t * .105 + 1.3) + .34 * Math.sin(t * .23 + 4.1));
-    const y = ry * (.62 * Math.sin(t * .083 + .4) + .38 * Math.sin(t * .17 + 2.2)) + 10 * Math.sin(t * 1.25);
-    return [vw / 2 - w / 2 + x, vh / 2 - h / 2 + y];
+    if (!cyc) newCycle(t, 1);
+    if (t > cyc.next) newCycle(t);
+    if (t < cyc.t0 || t > cyc.end) return null;
+    const p = (t - cyc.t0) / cyc.dur;
+    const x = Math.min(vw - w, Math.max(0, cyc.lane * vw - w / 2 + cyc.amp * Math.sin(((t - cyc.t0) / cyc.per) * 6.283 + cyc.ph)));
+    const y = vh + 20 - p * (vh + h + 40);                       // enters just below the screen, leaves above it
+    // dissolve as he nears the top of the screen (based on where he actually is, so it is always visible)
+    const fade = Math.min(1, p / .05, Math.max(0, (y + h * .55) / (vh * .3)));
+    return [x, y + 8 * Math.sin(t * 1.25), Math.max(0, fade)];
   }
 
-  let last = 0;
+  let last = 0, skew = 0;
+  window.__mascotSeek = sec => { skew += sec; };      // test hook: fast-forward the clock
   function frame(now) {
     requestAnimationFrame(frame);
     if (document.hidden) return;
     const dt = Math.min(.05, (now - last) / 1000 || .016); last = now;
-    const t = now / 1000;
-    const [x, y] = route(t);
-    const vx = lastX === null ? 0 : (x - lastX) / dt, vy = lastY === null ? 0 : (y - lastY) / dt;
+    const t = now / 1000 + skew;
+    const r = route(t);
+    if (!r) { canvas.style.visibility = 'hidden'; lastX = lastY = null; return; }
+    const [x, y, fade] = r;
+    const vx = lastX === null ? 0 : (x - lastX) / dt;
     lastX = x; lastY = y;
-    // face the direction of travel, bank into turns, lean forward when climbing/falling
-    const k = Math.min(1, dt * 2.2);
-    faceY += (Math.max(-1, Math.min(1, vx / 35)) * .95 - faceY) * k;
-    bank += (Math.max(-1, Math.min(1, -vx / 60)) * .22 - bank) * k;
-    lean += (Math.max(-1, Math.min(1, vy / 40)) * .16 - lean) * k;
-    canvas.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+    // gently turn toward the sideways drift, bank into it, and lean back a little as he climbs
+    const k = Math.min(1, dt * 2);
+    faceY += (Math.max(-1, Math.min(1, vx / 45)) * .7 - faceY) * k;
+    bank += (Math.max(-1, Math.min(1, -vx / 70)) * .2 - bank) * k;
+    canvas.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${(.9 + .1 * fade).toFixed(3)})`;
+    canvas.style.opacity = fade.toFixed(3);
     canvas.style.visibility = 'visible';
-    mascot.rotation.set(.22 + lean, faceY + Math.sin(t * .9) * .12, bank + Math.sin(t * 1.3) * .05);
+    mascot.rotation.set(.16, faceY + Math.sin(t * .9) * .14, bank + Math.sin(t * 1.3) * .06);
     mascot.scale.setScalar(.94 * (1 + .03 * Math.sin(t * 1.7)));
-    parts.arms.forEach((a, i) => { const s2 = i ? 1 : -1; a.rotation.z = s2 * (1.15 + .2 * Math.sin(t * 2.4 + i)); a.rotation.x = .14 * Math.sin(t * 2 + i * 2); });
+    parts.arms.forEach((a, i) => { const s2 = i ? 1 : -1; a.rotation.z = s2 * (1.1 + .25 * Math.sin(t * 2.2 + i)); a.rotation.x = .14 * Math.sin(t * 2 + i * 2); });
     parts.legs.forEach((l, i) => { l.rotation.x = .3 * Math.sin(t * 2.1 + i * Math.PI); l.rotation.z = (i ? 1 : -1) * .1; });
     parts.head.rotation.z = .07 * Math.sin(t * 1.4);
     parts.bow.rotation.z = .05 * Math.sin(t * 3);
