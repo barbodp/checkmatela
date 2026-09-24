@@ -2,7 +2,7 @@
 between the <!-- SHOWCASE:START --> and <!-- SHOWCASE:END --> markers.
 
 Adding products later:
-  * King (men):   add the product card to king.html + drop its photo in assets/img/products/, run
+  * King (men):   add the product to tools/catalog/king.json + drop its photo in assets/img/products/, run tools/gen_king_page.py, run
                   tools/make_king_cutouts.py, then re-run this script  -> a new slide appears automatically.
   * Pawn (kids):  new colourways show up automatically once assets/img/pawn/<line>/<colour>/hero.webp exists
                   (tools/make_hero_cutouts.py) and the colour is listed in tools/gen_pawn_pages.py.
@@ -15,6 +15,7 @@ import os, re, json, html
 from PIL import Image
 import numpy as np
 from gen_pawn_pages import LINES as PAWN
+from shoplib import swatch_hex
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INDEX = os.path.join(ROOT, "index.html")
@@ -50,40 +51,15 @@ def read(p):
 
 
 def king_products():
-    src = read("king.html")
+    """King products come from tools/catalog/king.json (same source as king.html)."""
+    cat = json.load(open(os.path.join(ROOT, "tools", "catalog", "king.json"), encoding="utf-8"))["products"]
     out = []
-    for blk in re.findall(r'<a class="product-card".*?</a>', src, re.S):
-        img = re.search(r'<img src="assets/img/products/([^"]+)\.jpg"', blk)
-        name = re.search(r"<h4>(.*?)</h4>", blk)
-        tag = re.search(r'class="piece-tag">(.*?)</span>', blk)
-        price = re.search(r'product-card__price">\$([\d,]+)', blk)
-        note = re.search(r'product-card__notation">(.*?)</span>', blk)
-        alt = re.search(r'alt="([^"]*)"', blk)
-        if not (img and name and tag and price):
+    for p in cat:
+        if not os.path.exists(os.path.join(ROOT, "assets/img/king", p["slug"] + ".webp")):
+            print("  ! no cutout for", p["slug"], "- run tools/make_king_cutouts.py; skipped")
             continue
-        slug = img.group(1)
-        if not os.path.exists(os.path.join(ROOT, "assets/img/king", slug + ".webp")):
-            print("  ! no cutout for", slug, "- run tools/make_king_cutouts.py; skipped")
-            continue
-        out.append(dict(slug=slug, name=name.group(1), tag=tag.group(1), price=price.group(1),
-                        note=note.group(1) if note else "", alt=alt.group(1) if alt else name.group(1)))
+        out.append(dict(slug=p["slug"], name=esc(p["name"]), tag=esc(p["tag"]), price=f'{p["price"]:,}', note=esc(p.get("notation", "")), alt=p["alt"]))
     return out
-
-
-def swatch_hex(path):
-    """Dominant garment colour of a cutout (ignores near-white shirt/skin) for the colour dots."""
-    im = np.asarray(Image.open(path).convert("RGBA"))
-    h, w, _ = im.shape
-    reg = im[int(h * .28):int(h * .68), int(w * .28):int(w * .72)].reshape(-1, 4)
-    reg = reg[reg[:, 3] > 200][:, :3].astype(int)
-    reg = reg[reg.min(axis=1) < 205]
-    if len(reg) == 0:
-        return "#cccccc"
-    q = reg // 32
-    keys = q[:, 0] * 64 + q[:, 1] * 8 + q[:, 2]
-    mode = np.bincount(keys).argmax()
-    m = reg[keys == mode].mean(axis=0).astype(int)
-    return "#%02x%02x%02x" % tuple(m)
 
 
 def rel(p):
@@ -124,7 +100,7 @@ def king_slides():
         src = lambda q: f"assets/img/king/{q['slug']}.webp"
         figs = (fig(src(L), 20, h=84, z=1, op=.9, d=160) + fig(src(R), 80, h=84, z=1, op=.9, d=160) +
                 fig(src(p), 50, h=97, z=2, alt=f"{p['name']} — {p['tag']}", focal=True))
-        meta = f"${p['price']}" + (f'<i></i>Opening {esc(p["note"])}' if p["note"] else "")
+        meta = f"${p['price']}" + (f'<i></i>Opening {p["note"]}' if p["note"] else "")
         slides.append(dict(cat="king", figs=figs,
                            copy=copy_block("king", p["name"], p["tag"], meta, "king.html", "Shop King")))
     return slides

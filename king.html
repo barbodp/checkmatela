@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=19">
+<link rel="stylesheet" href="css/style.css?v=22">
 </head>
 <body>
 
@@ -80,107 +80,120 @@
   </div>
 </section>
 
-<div class="container">
-  <div class="filter-bar">
-    <span class="filter-bar__count">10 openings in this collection</span>
-    <span class="filter-bar__sort">
-      Sort by
-      <select>
-        <option>Featured</option>
-        <option>Price: Low to High</option>
-        <option>Price: High to Low</option>
-        <option>Newest</option>
-      </select>
-    </span>
-  </div>
-</div>
-
-<section class="section" style="padding-top:40px">
+<!-- SHOP:START -->
+<section class="section shop-section" style="padding-top:28px">
   <div class="container">
-    <div class="product-grid" data-reveal-group>
-      <a class="product-card" href="#">
-        <div class="product-card__frame">
-          <img src="assets/img/products/sicilian-onyx-tux.jpg" alt="Onyx shawl-lapel tuxedo with bow tie">
-          <span class="product-card__notation">1. e4</span>
-          <span class="product-card__quick"><span class="btn small" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
+    <div class="shop" data-shop data-kind="king" data-noun="openings" data-facets='[{"key": "color", "label": "Colour", "swatch": true}, {"key": "style", "label": "Style"}, {"key": "pattern", "label": "Pattern"}, {"key": "occasion", "label": "Occasion"}]' data-review-facets='[["height", "Height"], ["build", "Build"], ["size", "Size bought"], ["fit", "Fit"], ["occasion", "Occasion"]]'>
+      <div class="shop-bar">
+        <button type="button" class="shop-filter-btn" aria-expanded="false">Filters <span class="shop-filter-btn__n"></span></button>
+        <span class="shop-count" aria-live="polite"></span>
+        <label class="filter-bar__sort">Sort by
+          <select class="shop-sort"><option value="featured">Featured</option><option value="price-asc">Price: Low to High</option><option value="price-desc">Price: High to Low</option><option value="name">Name: A to Z</option></select>
+        </label>
+      </div>
+      <div class="shop-chips" aria-label="Active filters"></div>
+      <div class="shop-layout">
+        <aside class="shop-filters" aria-label="Filters"></aside>
+        <div class="shop-results">
+          <div class="product-grid" data-grid>
+            <div class="product-card" data-id="king/sicilian-onyx-tux" data-name="The Sicilian" data-tag="Onyx Tuxedo" data-price="895" data-img="assets/img/products/sicilian-onyx-tux.jpg" data-f-color="Black" data-f-style="Tuxedo" data-f-pattern="Solid" data-f-occasion="Black tie|Wedding|Prom">
+              <div class="product-card__frame">
+                <img src="assets/img/products/sicilian-onyx-tux.jpg" alt="Onyx shawl-lapel tuxedo with bow tie" loading="lazy">
+                <span class="product-card__notation">1. e4</span>
+                <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
+                <button type="button" class="product-card__quick"><span class="btn small">Quick View &amp; Reviews</span></button>
+              </div>
+              <div class="product-card__meta"><div><h4>The Sicilian</h4><span class="piece-tag">Onyx Tuxedo</span></div><span class="product-card__price">$895</span></div>
+            </div>
+            <div class="product-card" data-id="king/ruy-lopez-three-piece" data-name="The Ruy Lopez" data-tag="Onyx Three-Piece" data-price="975" data-img="assets/img/products/ruy-lopez-three-piece.jpg" data-f-color="Black" data-f-style="Three-piece" data-f-pattern="Solid" data-f-occasion="Wedding|Business|Formal">
+              <div class="product-card__frame">
+                <img src="assets/img/products/ruy-lopez-three-piece.jpg" alt="Black three-piece suit" loading="lazy">
+                <span class="product-card__notation">1. e4 e5</span>
+                <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
+                <button type="button" class="product-card__quick"><span class="btn small">Quick View &amp; Reviews</span></button>
+              </div>
+              <div class="product-card__meta"><div><h4>The Ruy Lopez</h4><span class="piece-tag">Onyx Three-Piece</span></div><span class="product-card__price">$975</span></div>
+            </div>
+            <div class="product-card" data-id="king/caro-kann-navy-plaid" data-name="The Caro-Kann" data-tag="Midnight Plaid" data-price="850" data-img="assets/img/products/caro-kann-navy-plaid.jpg" data-f-color="Navy" data-f-style="Three-piece" data-f-pattern="Plaid" data-f-occasion="Business|Wedding|Formal">
+              <div class="product-card__frame">
+                <img src="assets/img/products/caro-kann-navy-plaid.jpg" alt="Navy plaid suit" loading="lazy">
+                <span class="product-card__notation">1. e4 c6</span>
+                <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
+                <button type="button" class="product-card__quick"><span class="btn small">Quick View &amp; Reviews</span></button>
+              </div>
+              <div class="product-card__meta"><div><h4>The Caro-Kann</h4><span class="piece-tag">Midnight Plaid</span></div><span class="product-card__price">$850</span></div>
+            </div>
+            <div class="product-card" data-id="king/kings-gambit-royal-plaid" data-name="The King&#x27;s Gambit" data-tag="Royal Plaid Three-Piece" data-price="925" data-img="assets/img/products/kings-gambit-royal-plaid.jpg" data-f-color="Blue" data-f-style="Three-piece" data-f-pattern="Plaid" data-f-occasion="Wedding|Prom|Formal">
+              <div class="product-card__frame">
+                <img src="assets/img/products/kings-gambit-royal-plaid.jpg" alt="Royal blue plaid three-piece suit" loading="lazy">
+                <span class="product-card__notation">1. e4 e5 2. f4</span>
+                <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
+                <button type="button" class="product-card__quick"><span class="btn small">Quick View &amp; Reviews</span></button>
+              </div>
+              <div class="product-card__meta"><div><h4>The King&#x27;s Gambit</h4><span class="piece-tag">Royal Plaid Three-Piece</span></div><span class="product-card__price">$925</span></div>
+            </div>
+            <div class="product-card" data-id="king/english-opening-charcoal" data-name="The English Opening" data-tag="Charcoal Classic" data-price="795" data-img="assets/img/products/english-opening-charcoal.jpg" data-f-color="Grey" data-f-style="Two-piece" data-f-pattern="Solid" data-f-occasion="Business|Formal">
+              <div class="product-card__frame">
+                <img src="assets/img/products/english-opening-charcoal.jpg" alt="Charcoal suit" loading="lazy">
+                <span class="product-card__notation">1. c4</span>
+                <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
+                <button type="button" class="product-card__quick"><span class="btn small">Quick View &amp; Reviews</span></button>
+              </div>
+              <div class="product-card__meta"><div><h4>The English Opening</h4><span class="piece-tag">Charcoal Classic</span></div><span class="product-card__price">$795</span></div>
+            </div>
+            <div class="product-card" data-id="king/queens-gambit-graphite" data-name="The Queen&#x27;s Gambit" data-tag="Graphite Shawl" data-price="910" data-img="assets/img/products/queens-gambit-graphite.jpg" data-f-color="Grey" data-f-style="Tuxedo" data-f-pattern="Solid" data-f-occasion="Black tie|Prom">
+              <div class="product-card__frame">
+                <img src="assets/img/products/queens-gambit-graphite.jpg" alt="Graphite suit with black shawl lapel and bow tie" loading="lazy">
+                <span class="product-card__notation">1. d4 d5 2. c4</span>
+                <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
+                <button type="button" class="product-card__quick"><span class="btn small">Quick View &amp; Reviews</span></button>
+              </div>
+              <div class="product-card__meta"><div><h4>The Queen&#x27;s Gambit</h4><span class="piece-tag">Graphite Shawl</span></div><span class="product-card__price">$910</span></div>
+            </div>
+            <div class="product-card" data-id="king/london-system-stone" data-name="The London System" data-tag="Stone Three-Piece" data-price="860" data-img="assets/img/products/london-system-stone.jpg" data-f-color="Cream" data-f-style="Three-piece" data-f-pattern="Solid" data-f-occasion="Wedding|Summer">
+              <div class="product-card__frame">
+                <img src="assets/img/products/london-system-stone.jpg" alt="Stone three-piece suit" loading="lazy">
+                <span class="product-card__notation">1. d4 2. Nf3 3. Bf4</span>
+                <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
+                <button type="button" class="product-card__quick"><span class="btn small">Quick View &amp; Reviews</span></button>
+              </div>
+              <div class="product-card__meta"><div><h4>The London System</h4><span class="piece-tag">Stone Three-Piece</span></div><span class="product-card__price">$860</span></div>
+            </div>
+            <div class="product-card" data-id="king/italian-game-bordeaux" data-name="The Italian Game" data-tag="Bordeaux Tuxedo" data-price="895" data-img="assets/img/products/italian-game-bordeaux.jpg" data-f-color="Burgundy" data-f-style="Tuxedo" data-f-pattern="Solid" data-f-occasion="Black tie|Prom|Wedding">
+              <div class="product-card__frame">
+                <img src="assets/img/products/italian-game-bordeaux.jpg" alt="Bordeaux tuxedo with bow tie" loading="lazy">
+                <span class="product-card__notation">1. e4 e5 2. Nf3</span>
+                <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
+                <button type="button" class="product-card__quick"><span class="btn small">Quick View &amp; Reviews</span></button>
+              </div>
+              <div class="product-card__meta"><div><h4>The Italian Game</h4><span class="piece-tag">Bordeaux Tuxedo</span></div><span class="product-card__price">$895</span></div>
+            </div>
+            <div class="product-card" data-id="king/french-defense-slate-check" data-name="The French Defense" data-tag="Slate Check" data-price="820" data-img="assets/img/products/french-defense-slate-check.jpg" data-f-color="Blue" data-f-style="Three-piece" data-f-pattern="Check" data-f-occasion="Business|Formal">
+              <div class="product-card__frame">
+                <img src="assets/img/products/french-defense-slate-check.jpg" alt="Slate check suit" loading="lazy">
+                <span class="product-card__notation">1. e4 e6</span>
+                <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
+                <button type="button" class="product-card__quick"><span class="btn small">Quick View &amp; Reviews</span></button>
+              </div>
+              <div class="product-card__meta"><div><h4>The French Defense</h4><span class="piece-tag">Slate Check</span></div><span class="product-card__price">$820</span></div>
+            </div>
+            <div class="product-card" data-id="king/scotch-game-dove-grey" data-name="The Scotch Game" data-tag="Dove Grey Three-Piece" data-price="840" data-img="assets/img/products/scotch-game-dove-grey.jpg" data-f-color="Grey" data-f-style="Three-piece" data-f-pattern="Solid" data-f-occasion="Wedding|Summer|Formal">
+              <div class="product-card__frame">
+                <img src="assets/img/products/scotch-game-dove-grey.jpg" alt="Dove grey three-piece suit" loading="lazy">
+                <span class="product-card__notation">1. e4 e5 2. Nf3 Nc6 3. d4</span>
+                <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
+                <button type="button" class="product-card__quick"><span class="btn small">Quick View &amp; Reviews</span></button>
+              </div>
+              <div class="product-card__meta"><div><h4>The Scotch Game</h4><span class="piece-tag">Dove Grey Three-Piece</span></div><span class="product-card__price">$840</span></div>
+            </div>
+          </div>
+          <p class="shop-empty" hidden>No pieces match those filters. <button type="button" class="shop-clear">Clear all filters</button></p>
         </div>
-        <div class="product-card__meta"><div><h4>The Sicilian</h4><span class="piece-tag">Onyx Tuxedo</span></div><span class="product-card__price">$895</span></div>
-      </a>
-      <a class="product-card" href="#">
-        <div class="product-card__frame">
-          <img src="assets/img/products/ruy-lopez-three-piece.jpg" alt="Black three-piece suit">
-          <span class="product-card__notation">1. e4 e5</span>
-          <span class="product-card__quick"><span class="btn small" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta"><div><h4>The Ruy Lopez</h4><span class="piece-tag">Onyx Three-Piece</span></div><span class="product-card__price">$975</span></div>
-      </a>
-      <a class="product-card" href="#">
-        <div class="product-card__frame">
-          <img src="assets/img/products/caro-kann-navy-plaid.jpg" alt="Navy plaid suit">
-          <span class="product-card__notation">1. e4 c6</span>
-          <span class="product-card__quick"><span class="btn small" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta"><div><h4>The Caro-Kann</h4><span class="piece-tag">Midnight Plaid</span></div><span class="product-card__price">$850</span></div>
-      </a>
-      <a class="product-card" href="#">
-        <div class="product-card__frame">
-          <img src="assets/img/products/kings-gambit-royal-plaid.jpg" alt="Royal blue plaid three-piece suit">
-          <span class="product-card__notation">1. e4 e5 2. f4</span>
-          <span class="product-card__quick"><span class="btn small" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta"><div><h4>The King's Gambit</h4><span class="piece-tag">Royal Plaid Three-Piece</span></div><span class="product-card__price">$925</span></div>
-      </a>
-      <a class="product-card" href="#">
-        <div class="product-card__frame">
-          <img src="assets/img/products/english-opening-charcoal.jpg" alt="Charcoal suit">
-          <span class="product-card__notation">1. c4</span>
-          <span class="product-card__quick"><span class="btn small" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta"><div><h4>The English Opening</h4><span class="piece-tag">Charcoal Classic</span></div><span class="product-card__price">$795</span></div>
-      </a>
-      <a class="product-card" href="#">
-        <div class="product-card__frame">
-          <img src="assets/img/products/queens-gambit-graphite.jpg" alt="Graphite suit with black shawl lapel and bow tie">
-          <span class="product-card__notation">1. d4 d5 2. c4</span>
-          <span class="product-card__quick"><span class="btn small" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta"><div><h4>The Queen's Gambit</h4><span class="piece-tag">Graphite Shawl</span></div><span class="product-card__price">$910</span></div>
-      </a>
-      <a class="product-card" href="#">
-        <div class="product-card__frame">
-          <img src="assets/img/products/london-system-stone.jpg" alt="Stone three-piece suit">
-          <span class="product-card__notation">1. d4 2. Nf3 3. Bf4</span>
-          <span class="product-card__quick"><span class="btn small" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta"><div><h4>The London System</h4><span class="piece-tag">Stone Three-Piece</span></div><span class="product-card__price">$860</span></div>
-      </a>
-      <a class="product-card" href="#">
-        <div class="product-card__frame">
-          <img src="assets/img/products/italian-game-bordeaux.jpg" alt="Bordeaux tuxedo with bow tie">
-          <span class="product-card__notation">1. e4 e5 2. Nf3</span>
-          <span class="product-card__quick"><span class="btn small" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta"><div><h4>The Italian Game</h4><span class="piece-tag">Bordeaux Tuxedo</span></div><span class="product-card__price">$895</span></div>
-      </a>
-      <a class="product-card" href="#">
-        <div class="product-card__frame">
-          <img src="assets/img/products/french-defense-slate-check.jpg" alt="Slate check suit">
-          <span class="product-card__notation">1. e4 e6</span>
-          <span class="product-card__quick"><span class="btn small" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta"><div><h4>The French Defense</h4><span class="piece-tag">Slate Check</span></div><span class="product-card__price">$820</span></div>
-      </a>
-      <a class="product-card" href="#">
-        <div class="product-card__frame">
-          <img src="assets/img/products/scotch-game-dove-grey.jpg" alt="Dove grey three-piece suit">
-          <span class="product-card__notation">1. e4 e5 2. Nf3 Nc6 3. d4</span>
-          <span class="product-card__quick"><span class="btn small" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta"><div><h4>The Scotch Game</h4><span class="piece-tag">Dove Grey Three-Piece</span></div><span class="product-card__price">$840</span></div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
+<!-- SHOP:END -->
 
 <section class="section" style="background:var(--pine-deep);color:var(--paper);text-align:center;padding:64px 0">
   <div class="container" data-reveal>
@@ -234,5 +247,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/reviews-data.js"></script>
+<script src="js/shop.js"></script>
 </body>
 </html>

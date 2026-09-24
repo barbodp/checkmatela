@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=19">
+<link rel="stylesheet" href="css/style.css?v=22">
 </head>
 <body>
 
@@ -95,26 +95,25 @@
   </div>
 </section>
 
-<div class="container">
-  <div class="filter-bar">
-    <span class="filter-bar__count">12 colorways &middot; sizes 2T&ndash;14</span>
-    <span class="filter-bar__sort">
-      Sort by
-      <select>
-        <option>Featured</option>
-        <option>Price: Low to High</option>
-        <option>Price: High to Low</option>
-      </select>
-    </span>
-  </div>
-</div>
-
-<section class="section" style="padding-top:40px">
+<section class="section shop-section" style="padding-top:28px">
   <div class="container">
-    <div class="gallery-grid" data-reveal-group>
-      <div class="gallery-card">
+    <div class="shop" data-shop data-kind="pawn" data-noun="colorways" data-facets='[{"key": "color", "label": "Colour", "swatch": true}, {"key": "tone", "label": "Shade"}]' data-review-facets='[["age", "Age"], ["height", "Height"], ["size", "Size bought"], ["fit", "Fit"], ["occasion", "Occasion"]]' data-count-suffix=" &middot; sizes 2T&ndash;14">
+      <div class="shop-bar">
+        <button type="button" class="shop-filter-btn" aria-expanded="false">Filters <span class="shop-filter-btn__n"></span></button>
+        <span class="shop-count" aria-live="polite"></span>
+        <label class="filter-bar__sort">Sort by
+          <select class="shop-sort"><option value="featured">Featured</option><option value="price-asc">Price: Low to High</option><option value="price-desc">Price: High to Low</option><option value="name">Name: A to Z</option></select>
+        </label>
+      </div>
+      <div class="shop-chips" aria-label="Active filters"></div>
+      <div class="shop-layout">
+        <aside class="shop-filters" aria-label="Filters"></aside>
+        <div class="shop-results">
+          <div class="gallery-grid" data-grid>
+      <div class="gallery-card" data-id="pawn/tuxedo/full-black" data-name="Full Black" data-tag="Tuxedo &middot; Pawn" data-price="139" data-img="assets/img/pawn/tuxedo/full-black/model-1.jpg" data-f-color="Black" data-f-tone="Dark">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo/full-black/model-1.jpg" alt="Full Black Tuxedo — front view on model">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo/full-black/model-1.jpg" aria-label="View Full Black front view on model"><img src="assets/img/pawn/tuxedo/full-black/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -128,11 +127,13 @@
           <div><h4>Full Black</h4><span class="piece-tag">Tuxedo &middot; Pawn</span></div>
           <span class="product-card__price">$139</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo/white-black" data-name="White &amp; Black" data-tag="Tuxedo &middot; Pawn" data-price="139" data-img="assets/img/pawn/tuxedo/white-black/model-1.jpg" data-f-color="White" data-f-tone="Dark">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo/white-black/model-1.jpg" alt="White &amp; Black Tuxedo — front view on model">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo/white-black/model-1.jpg" aria-label="View White &amp; Black front view on model"><img src="assets/img/pawn/tuxedo/white-black/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -146,11 +147,13 @@
           <div><h4>White &amp; Black</h4><span class="piece-tag">Tuxedo &middot; Pawn</span></div>
           <span class="product-card__price">$139</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo/full-white" data-name="Full White" data-tag="Tuxedo &middot; Pawn" data-price="139" data-img="assets/img/pawn/tuxedo/full-white/model-1.jpg" data-f-color="White" data-f-tone="Light">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo/full-white/model-1.jpg" alt="Full White Tuxedo — front view on model">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo/full-white/model-1.jpg" aria-label="View Full White front view on model"><img src="assets/img/pawn/tuxedo/full-white/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -164,11 +167,13 @@
           <div><h4>Full White</h4><span class="piece-tag">Tuxedo &middot; Pawn</span></div>
           <span class="product-card__price">$139</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo/charcoal" data-name="Charcoal" data-tag="Tuxedo &middot; Pawn" data-price="139" data-img="assets/img/pawn/tuxedo/charcoal/model-1.jpg" data-f-color="Grey" data-f-tone="Dark">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo/charcoal/model-1.jpg" alt="Charcoal Tuxedo — front view on model">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo/charcoal/model-1.jpg" aria-label="View Charcoal front view on model"><img src="assets/img/pawn/tuxedo/charcoal/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -182,11 +187,13 @@
           <div><h4>Charcoal</h4><span class="piece-tag">Tuxedo &middot; Pawn</span></div>
           <span class="product-card__price">$139</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo/shiny-charcoal" data-name="Shiny Charcoal" data-tag="Tuxedo &middot; Pawn" data-price="139" data-img="assets/img/pawn/tuxedo/shiny-charcoal/model-1.jpg" data-f-color="Grey" data-f-tone="Mid">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo/shiny-charcoal/model-1.jpg" alt="Shiny Charcoal Tuxedo — front view on model" loading="lazy">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo/shiny-charcoal/model-1.jpg" aria-label="View Shiny Charcoal front view on model"><img src="assets/img/pawn/tuxedo/shiny-charcoal/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -199,11 +206,13 @@
           <div><h4>Shiny Charcoal</h4><span class="piece-tag">Tuxedo &middot; Pawn</span></div>
           <span class="product-card__price">$139</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo/gray" data-name="Gray" data-tag="Tuxedo &middot; Pawn" data-price="139" data-img="assets/img/pawn/tuxedo/gray/model-1.jpg" data-f-color="Grey" data-f-tone="Light">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo/gray/model-1.jpg" alt="Gray Tuxedo — front view on model" loading="lazy">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo/gray/model-1.jpg" aria-label="View Gray front view on model"><img src="assets/img/pawn/tuxedo/gray/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -217,11 +226,13 @@
           <div><h4>Gray</h4><span class="piece-tag">Tuxedo &middot; Pawn</span></div>
           <span class="product-card__price">$139</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo/navy" data-name="Navy" data-tag="Tuxedo &middot; Pawn" data-price="139" data-img="assets/img/pawn/tuxedo/navy/model-1.jpg" data-f-color="Blue" data-f-tone="Dark">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo/navy/model-1.jpg" alt="Navy Tuxedo — front view on model" loading="lazy">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo/navy/model-1.jpg" aria-label="View Navy front view on model"><img src="assets/img/pawn/tuxedo/navy/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -235,11 +246,13 @@
           <div><h4>Navy</h4><span class="piece-tag">Tuxedo &middot; Pawn</span></div>
           <span class="product-card__price">$139</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo/royal-blue" data-name="Royal Blue" data-tag="Tuxedo &middot; Pawn" data-price="139" data-img="assets/img/pawn/tuxedo/royal-blue/model-1.jpg" data-f-color="Blue" data-f-tone="Mid">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo/royal-blue/model-1.jpg" alt="Royal Blue Tuxedo — front view on model" loading="lazy">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo/royal-blue/model-1.jpg" aria-label="View Royal Blue front view on model"><img src="assets/img/pawn/tuxedo/royal-blue/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -253,11 +266,13 @@
           <div><h4>Royal Blue</h4><span class="piece-tag">Tuxedo &middot; Pawn</span></div>
           <span class="product-card__price">$139</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo/red" data-name="Red" data-tag="Tuxedo &middot; Pawn" data-price="139" data-img="assets/img/pawn/tuxedo/red/model-1.jpg" data-f-color="Red" data-f-tone="Mid">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo/red/model-1.jpg" alt="Red Tuxedo — front view on model" loading="lazy">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo/red/model-1.jpg" aria-label="View Red front view on model"><img src="assets/img/pawn/tuxedo/red/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -271,11 +286,13 @@
           <div><h4>Red</h4><span class="piece-tag">Tuxedo &middot; Pawn</span></div>
           <span class="product-card__price">$139</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo/burgundy" data-name="Burgundy" data-tag="Tuxedo &middot; Pawn" data-price="139" data-img="assets/img/pawn/tuxedo/burgundy/model-1.jpg" data-f-color="Red" data-f-tone="Dark">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo/burgundy/model-1.jpg" alt="Burgundy Tuxedo — front view on model" loading="lazy">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo/burgundy/model-1.jpg" aria-label="View Burgundy front view on model"><img src="assets/img/pawn/tuxedo/burgundy/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -289,11 +306,13 @@
           <div><h4>Burgundy</h4><span class="piece-tag">Tuxedo &middot; Pawn</span></div>
           <span class="product-card__price">$139</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo/hunter-green" data-name="Hunter Green" data-tag="Tuxedo &middot; Pawn" data-price="139" data-img="assets/img/pawn/tuxedo/hunter-green/model-1.jpg" data-f-color="Green" data-f-tone="Dark">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo/hunter-green/model-1.jpg" alt="Hunter Green Tuxedo — front view on model" loading="lazy">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo/hunter-green/model-1.jpg" aria-label="View Hunter Green front view on model"><img src="assets/img/pawn/tuxedo/hunter-green/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -307,11 +326,13 @@
           <div><h4>Hunter Green</h4><span class="piece-tag">Tuxedo &middot; Pawn</span></div>
           <span class="product-card__price">$139</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo/khaki" data-name="Khaki" data-tag="Tuxedo &middot; Pawn" data-price="139" data-img="assets/img/pawn/tuxedo/khaki/model-1.jpg" data-f-color="Neutral" data-f-tone="Light">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo/khaki/model-1.jpg" alt="Khaki Tuxedo — front view on model" loading="lazy">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo/khaki/model-1.jpg" aria-label="View Khaki front view on model"><img src="assets/img/pawn/tuxedo/khaki/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -323,6 +344,11 @@
         <div class="product-card__meta" style="padding:14px 2px 0">
           <div><h4>Khaki</h4><span class="piece-tag">Tuxedo &middot; Pawn</span></div>
           <span class="product-card__price">$139</span>
+        </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
+      </div>
+          </div>
+          <p class="shop-empty" hidden>No pieces match those filters. <button type="button" class="shop-clear">Clear all filters</button></p>
         </div>
       </div>
     </div>
@@ -383,5 +409,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/reviews-data.js"></script>
+<script src="js/shop.js"></script>
 </body>
 </html>

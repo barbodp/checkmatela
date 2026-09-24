@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=19">
+<link rel="stylesheet" href="css/style.css?v=22">
 </head>
 <body>
 
@@ -95,26 +95,25 @@
   </div>
 </section>
 
-<div class="container">
-  <div class="filter-bar">
-    <span class="filter-bar__count">4 colorways &middot; sizes 2T&ndash;14</span>
-    <span class="filter-bar__sort">
-      Sort by
-      <select>
-        <option>Featured</option>
-        <option>Price: Low to High</option>
-        <option>Price: High to Low</option>
-      </select>
-    </span>
-  </div>
-</div>
-
-<section class="section" style="padding-top:40px">
+<section class="section shop-section" style="padding-top:28px">
   <div class="container">
-    <div class="gallery-grid" data-reveal-group>
-      <div class="gallery-card">
+    <div class="shop" data-shop data-kind="pawn" data-noun="colorways" data-facets='[{"key": "color", "label": "Colour", "swatch": true}, {"key": "tone", "label": "Shade"}]' data-review-facets='[["age", "Age"], ["height", "Height"], ["size", "Size bought"], ["fit", "Fit"], ["occasion", "Occasion"]]' data-count-suffix=" &middot; sizes 2T&ndash;14">
+      <div class="shop-bar">
+        <button type="button" class="shop-filter-btn" aria-expanded="false">Filters <span class="shop-filter-btn__n"></span></button>
+        <span class="shop-count" aria-live="polite"></span>
+        <label class="filter-bar__sort">Sort by
+          <select class="shop-sort"><option value="featured">Featured</option><option value="price-asc">Price: Low to High</option><option value="price-desc">Price: High to Low</option><option value="name">Name: A to Z</option></select>
+        </label>
+      </div>
+      <div class="shop-chips" aria-label="Active filters"></div>
+      <div class="shop-layout">
+        <aside class="shop-filters" aria-label="Filters"></aside>
+        <div class="shop-results">
+          <div class="gallery-grid" data-grid>
+      <div class="gallery-card" data-id="pawn/tuxedo-vest-set/black" data-name="Black" data-tag="Tuxedo Vest Set &middot; Pawn" data-price="99" data-img="assets/img/pawn/tuxedo-vest-set/black/model-1.jpg" data-f-color="Black" data-f-tone="Dark">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo-vest-set/black/model-1.jpg" alt="Black Tuxedo Vest Set — front view on model">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo-vest-set/black/model-1.jpg" aria-label="View Black front view on model"><img src="assets/img/pawn/tuxedo-vest-set/black/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -128,11 +127,13 @@
           <div><h4>Black</h4><span class="piece-tag">Tuxedo Vest Set &middot; Pawn</span></div>
           <span class="product-card__price">$99</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo-vest-set/burgundy" data-name="Burgundy" data-tag="Tuxedo Vest Set &middot; Pawn" data-price="99" data-img="assets/img/pawn/tuxedo-vest-set/burgundy/model-1.jpg" data-f-color="Red" data-f-tone="Dark">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo-vest-set/burgundy/model-1.jpg" alt="Burgundy Tuxedo Vest Set — front view on model">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo-vest-set/burgundy/model-1.jpg" aria-label="View Burgundy front view on model"><img src="assets/img/pawn/tuxedo-vest-set/burgundy/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -146,11 +147,13 @@
           <div><h4>Burgundy</h4><span class="piece-tag">Tuxedo Vest Set &middot; Pawn</span></div>
           <span class="product-card__price">$99</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo-vest-set/light-gray" data-name="Light Gray" data-tag="Tuxedo Vest Set &middot; Pawn" data-price="99" data-img="assets/img/pawn/tuxedo-vest-set/light-gray/model-1.jpg" data-f-color="Grey" data-f-tone="Mid">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo-vest-set/light-gray/model-1.jpg" alt="Light Gray Tuxedo Vest Set — front view on model">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo-vest-set/light-gray/model-1.jpg" aria-label="View Light Gray front view on model"><img src="assets/img/pawn/tuxedo-vest-set/light-gray/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -164,11 +167,13 @@
           <div><h4>Light Gray</h4><span class="piece-tag">Tuxedo Vest Set &middot; Pawn</span></div>
           <span class="product-card__price">$99</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>
 
-      <div class="gallery-card">
+      <div class="gallery-card" data-id="pawn/tuxedo-vest-set/light-navy" data-name="Light Navy" data-tag="Tuxedo Vest Set &middot; Pawn" data-price="99" data-img="assets/img/pawn/tuxedo-vest-set/light-navy/model-1.jpg" data-f-color="Blue" data-f-tone="Dark">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="assets/img/pawn/tuxedo-vest-set/light-navy/model-1.jpg" alt="Light Navy Tuxedo Vest Set — front view on model">
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
           <button class="gallery-thumb is-active" data-src="assets/img/pawn/tuxedo-vest-set/light-navy/model-1.jpg" aria-label="View Light Navy front view on model"><img src="assets/img/pawn/tuxedo-vest-set/light-navy/thumb-1.jpg" alt="" loading="lazy"></button>
@@ -181,6 +186,11 @@
         <div class="product-card__meta" style="padding:14px 2px 0">
           <div><h4>Light Navy</h4><span class="piece-tag">Tuxedo Vest Set &middot; Pawn</span></div>
           <span class="product-card__price">$99</span>
+        </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
+      </div>
+          </div>
+          <p class="shop-empty" hidden>No pieces match those filters. <button type="button" class="shop-clear">Clear all filters</button></p>
         </div>
       </div>
     </div>
@@ -241,5 +251,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/reviews-data.js"></script>
+<script src="js/shop.js"></script>
 </body>
 </html>

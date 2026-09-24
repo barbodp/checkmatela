@@ -3,11 +3,12 @@
 Run from anywhere:  python3 tools/gen_pawn_pages.py
 Reads the processed images under assets/img/pawn/ (see process_pawn_images.py and make_hero_cutouts.py).
 """
-import os, glob
+import os, glob, html
 from PIL import Image
+from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "19"
+CSS_VERSION = "22"
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
       <circle fill="currentColor" cx="50" cy="30" r="13"/>
@@ -160,6 +161,26 @@ LINES = {
 }
 ORDER = ["slim-fit", "suit-vest-set", "tuxedo", "tuxedo-vest-set"]
 
+# colour family per colourway slug (a new colourway with an unknown slug lands in "Other" until it is added here)
+COLOR_FAMILY = {
+    "black": "Black", "full-black": "Black",
+    "charcoal": "Grey", "shiny-charcoal": "Grey", "gray": "Grey", "light-gray": "Grey", "medium-gray": "Grey",
+    "navy": "Blue", "light-navy": "Blue", "royal-blue": "Blue", "sky-blue": "Blue", "indigo": "Blue", "indigo-blue": "Blue",
+    "white": "White", "full-white": "White", "white-black": "White",
+    "beige-khaki": "Neutral", "khaki": "Neutral",
+    "hunter-green": "Green", "burgundy": "Red", "red": "Red",
+}
+FACETS = [{"key": "color", "label": "Colour", "swatch": True}, {"key": "tone", "label": "Shade"}]
+REVIEW_FACETS = [["age", "Age"], ["height", "Height"], ["size", "Size bought"], ["fit", "Fit"], ["occasion", "Occasion"]]
+
+# What each cut includes — used by the "compare the four cuts" table on pawn.html. Verify against the real product specs.
+COMPARE = {
+    "slim-fit":        dict(jacket=True,  vest=True, trousers=True, shirt=True, tie="Tie",                    best="School events, weddings, church"),
+    "suit-vest-set":   dict(jacket=False, vest=True, trousers=True, shirt=True, tie="Tie",                    best="Ring bearers, family photos, warm weather"),
+    "tuxedo":          dict(jacket=True,  vest=True, trousers=True, shirt=True, tie="Bow tie",                best="Black tie, prom, formal weddings"),
+    "tuxedo-vest-set": dict(jacket=False, vest=True, trousers=True, shirt=True, tie="Tie + pocket square",    best="Black-tie events, weddings, holiday portraits"),
+}
+
 
 def gallery_card(line, slug, name, cfg, eager):
     base = f"assets/img/pawn/{line}/{slug}"
@@ -177,9 +198,14 @@ def gallery_card(line, slug, name, cfg, eager):
             f'          <button class="gallery-thumb{active}" data-src="{full}" aria-label="View {name} {alt}"><img src="{thumb}" alt="" loading="lazy"></button>'
         )
     loading = "" if eager else ' loading="lazy"'
-    return f'''      <div class="gallery-card">
+    fam = COLOR_FAMILY.get(slug, "Other")
+    hero = os.path.join(ROOT, base, "hero.webp")
+    tone = tone_of(swatch_hex(hero)) if os.path.exists(hero) else "Mid"
+    plain_name = html.unescape(name)
+    return f'''      <div class="gallery-card" data-id="pawn/{line}/{slug}" data-name="{esc(plain_name)}" data-tag="{cfg['label']} &middot; Pawn" data-price="{cfg['price']}" data-img="{base}/model-1.jpg" data-f-color="{fam}" data-f-tone="{tone}">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="{base}/model-1.jpg" alt="{name} {cfg['label']} — front view on model"{loading}>
+          <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
         </div>
         <div class="gallery-card__thumbs">
 {chr(10).join(thumbs)}
@@ -188,6 +214,7 @@ def gallery_card(line, slug, name, cfg, eager):
           <div><h4>{name}</h4><span class="piece-tag">{cfg['label']} &middot; Pawn</span></div>
           <span class="product-card__price">${cfg['price']}</span>
         </div>
+        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
       </div>'''
 
 
@@ -249,27 +276,7 @@ def build(line):
 
 {banner_html(line, cfg)}
 
-<div class="container">
-  <div class="filter-bar">
-    <span class="filter-bar__count">{len(cfg['colors'])} colorways &middot; sizes 2T&ndash;14</span>
-    <span class="filter-bar__sort">
-      Sort by
-      <select>
-        <option>Featured</option>
-        <option>Price: Low to High</option>
-        <option>Price: High to Low</option>
-      </select>
-    </span>
-  </div>
-</div>
-
-<section class="section" style="padding-top:40px">
-  <div class="container">
-    <div class="gallery-grid" data-reveal-group>
-{cards}
-    </div>
-  </div>
-</section>
+{shop_block(cards, FACETS, 'pawn', grid_class='gallery-grid', count_noun='colorways', review_facets=REVIEW_FACETS, extra_attrs=' data-count-suffix=" &middot; sizes 2T&ndash;14"')}
 
 <section class="section" style="background:var(--pine-deep);color:var(--paper);text-align:center;padding:64px 0">
   <div class="container" data-reveal>
@@ -284,11 +291,50 @@ def build(line):
 
 {FOOTER}
 '''
+    html = html.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/reviews-data.js"></script>\n<script src="js/shop.js"></script>')
     with open(os.path.join(ROOT, cfg["file"]), "w", encoding="utf-8") as f:
         f.write(html)
     print("wrote", cfg["file"], len(cfg["colors"]), "colorways")
 
 
+def landing_compare():
+    """'Compare the four cuts' table, injected into pawn.html between COMPARE:START/END."""
+    def tick(v):
+        return '<span class="cmp-yes" aria-label="Included">&#10003;</span>' if v is True else ('<span class="cmp-no" aria-label="Not included">&mdash;</span>' if v is False else v)
+    cols = ORDER
+    head = "".join(
+        f'<th scope="col"><a href="{LINES[k]["file"]}"><img src="assets/img/pawn/{k}/{LINES[k]["hero"][0]}/model-1.jpg" alt="" loading="lazy"><b>{LINES[k]["label"]}</b><span>${LINES[k]["price"]}</span></a></th>' for k in cols)
+    rows = [("Colourways", [str(len(LINES[k]["colors"])) for k in cols]), ("Sizes", ["2T&ndash;14"] * 4),
+            ("Jacket", [tick(COMPARE[k]["jacket"]) for k in cols]), ("Vest", [tick(COMPARE[k]["vest"]) for k in cols]),
+            ("Trousers", [tick(COMPARE[k]["trousers"]) for k in cols]), ("Shirt", [tick(COMPARE[k]["shirt"]) for k in cols]),
+            ("Tie", [COMPARE[k]["tie"] for k in cols]), ("Best for", [COMPARE[k]["best"] for k in cols])]
+    body = "".join(f'<tr><th scope="row">{r}</th>' + "".join(f"<td>{c}</td>" for c in cells) + "</tr>" for r, cells in rows)
+    cta = "".join(f'<td><a class="btn small" href="{LINES[k]["file"]}">Shop {LINES[k]["label"]}</a></td>' for k in cols)
+    return f'''<section class="section compare-section">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Compare</span>
+      <h2>Which cut is right?</h2>
+      <p>The four Pawn styles side by side — what each one includes and when to wear it.</p>
+    </div>
+    <div class="table-wrap" data-reveal>
+      <table class="compare-table">
+        <thead><tr><td></td>{head}</tr></thead>
+        <tbody>{body}<tr class="compare-cta"><td></td>{cta}</tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>'''
+
+
+def build_landing():
+    path = os.path.join(ROOT, "pawn.html")
+    src = open(path, encoding="utf-8").read()
+    open(path, "w", encoding="utf-8").write(replace_between(src, "<!-- COMPARE:START -->", "<!-- COMPARE:END -->", landing_compare()))
+    print("pawn.html: compare table")
+
+
 if __name__ == "__main__":
     for k in ORDER:
         build(k)
+    build_landing()
