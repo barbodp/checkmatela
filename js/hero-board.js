@@ -54,14 +54,10 @@
   /* ---------------------------------------------------------------- pieces */
   function makeMaterials() {
     const T3 = THREE, tex = c => { const t = new T3.CanvasTexture(c); t.colorSpace = T3.SRGBColorSpace; t.wrapS = t.wrapT = T3.RepeatWrapping; t.anisotropy = 8; return t; };
-    // carved wood: waxed satin finish, grain drives both colour and relief; flat shading keeps every chisel facet crisp
+    // raw, unfinished wood: matte, no clear coat, the grain drives colour and a very gentle relief. Same grain in both woods.
     const wood = (canvas, ru) => { const t = tex(canvas); t.repeat.set(ru, 1);
-      return new T3.MeshPhysicalMaterial({ map: t, bumpMap: t, bumpScale: 1.5, roughness: .48, clearcoat: .35, clearcoatRoughness: .4, flatShading: true, envMapIntensity: .95 }); };
-    const ivory = wood(woodGrainCanvas('light'), 3), ebony = wood(woodGrainCanvas('dark'), 3);
-    // polished stone for the round finials
-    const stone = kind => { const t = tex(marbleCanvas(kind)); return new T3.MeshPhysicalMaterial({ map: t, bumpMap: t, bumpScale: .6, roughness: .14, clearcoat: 1, clearcoatRoughness: .05, envMapIntensity: 1.5 }); };
-    const brass = new T3.MeshStandardMaterial({ color: 0xd8aa52, metalness: 1, roughness: .28, envMapIntensity: 1.2 });
-    return { ivory, ebony, brass, stoneL: stone('light'), stoneD: stone('dark') };
+      return new T3.MeshStandardMaterial({ map: t, bumpMap: t, bumpScale: .8, roughness: .84, metalness: 0, flatShading: true, envMapIntensity: .55 }); };
+    return { ivory: wood(woodGrainCanvas('light'), 2), ebony: wood(woodGrainCanvas('dark'), 2) };
   }
   const geoCache = {};
   function G(key, make) { return geoCache[key] || (geoCache[key] = make()); }
@@ -71,7 +67,7 @@
   /* Slim, faceted, hand-carved Staunton-inspired pieces (after the user's reference photo): low-segment lathes with flat shading give
      the cut-gem facets; round stone finials (pawn, queen, bishop), a block cross for the king, a faceted horse head for the knight,
      and a few brass rings for restrained flare. Profiles are [radius, height] polylines from the base up. */
-  const SEG = 10;
+  const SEG = 28;
   const facet = (pts, seg = SEG) => new THREE.LatheGeometry(pts.map(p => new THREE.Vector2(p[0], p[1])), seg);
   const FOOT = [[0, 0], [.35, 0], [.37, .045], [.32, .115], [.245, .15]];
   const ringG = (r, t) => new THREE.TorusGeometry(r, t, 8, 40);
@@ -86,25 +82,25 @@
       band(.83, .2); add(G('pawnBall', () => new THREE.SphereGeometry(.2, 40, 30)), ball, 0, 1.14); h = 1.34;
     } else if (type === 'rook') {
       stem('rook', [[.31, .26], [.255, .5], [.215, .84], [.27, .94], [.31, .99], [.31, 1.13], [.245, 1.14]]);
-      band(.52, .245); band(.97, .29);
-      add(G('rookIn', () => new THREE.CylinderGeometry(.22, .22, .01, 10)), new THREE.MeshStandardMaterial({ color: 0x141414, roughness: .6 }), 0, 1.145);
+      band(.97, .29);
+      add(G('rookIn', () => new THREE.CylinderGeometry(.22, .22, .01, 10)), new THREE.MeshStandardMaterial({ color: 0x1c130c, roughness: .9 }), 0, 1.145);
       for (let i = 0; i < 4; i++) { const a = i / 4 * Math.PI * 2 + Math.PI / 4, m = add(G('mer', () => new THREE.BoxGeometry(.17, .16, .11)), body, Math.sin(a) * .245, 1.2, Math.cos(a) * .245); m.rotation.y = a; }
       h = 1.3;
     } else if (type === 'bishop') {
       stem('bishopB', [[.3, .24], [.22, .42], [.15, .7], [.12, .9], [.205, .93], [.205, .98], [.12, 1.0]]);
       add(G('bishopH', () => facet([[.12, 1.0], [.2, 1.07], [.245, 1.22], [.19, 1.42], [.085, 1.57], [0, 1.63]], 8)), body);
-      band(.955, .205); band(1.02, .13);
+      band(.955, .205);
       const notch = add(G('notch', () => new THREE.BoxGeometry(.4, .028, .05)), SLIT, 0, 1.3, 0); notch.rotation.z = -.7; notch.castShadow = false;
       add(G('bishopBall', () => new THREE.SphereGeometry(.055, 24, 18)), ball, 0, 1.67); h = 1.75;
     } else if (type === 'queen') {
       stem('queenB', [[.32, .26], [.245, .5], [.165, .85], [.13, 1.08], [.265, 1.11], [.265, 1.17], [.14, 1.2]]);
       add(G('queenH', () => facet([[.14, 1.2], [.31, 1.43], [.215, 1.65], [.06, 1.79], [0, 1.82]], 8)), body);
-      band(1.14, .265); band(1.085, .14);
+      band(1.14, .265);
       add(G('queenBall', () => new THREE.SphereGeometry(.07, 28, 20)), ball, 0, 1.89); h = 1.97;
     } else if (type === 'king') {
       stem('kingB', [[.32, .26], [.245, .5], [.165, .85], [.13, 1.08], [.265, 1.11], [.265, 1.17], [.14, 1.2]]);
       add(G('kingH', () => facet([[.14, 1.2], [.27, 1.38], [.3, 1.56], [.17, 1.74], [.12, 1.8], [.12, 1.85]], 8)), body);
-      band(1.14, .265); band(1.085, .14);
+      band(1.14, .265);
       add(G('kingBlock', () => new THREE.BoxGeometry(.17, .09, .17)), trim, 0, 1.9); add(G('kv', () => new THREE.BoxGeometry(.08, .3, .08)), body, 0, 2.07); add(G('kh', () => new THREE.BoxGeometry(.25, .08, .08)), body, 0, 2.1); h = 2.24;
     } else if (type === 'knight') {
       stem('knightB', [[.3, .26], [.235, .44], [.2, .66], [.245, .71]]);
@@ -112,12 +108,12 @@
       const geo = G('knightH', () => {
         const pts = [[-.2, .72], [-.27, .96], [-.23, 1.24], [-.09, 1.44], [.05, 1.5], [.13, 1.36], [.45, 1.15], [.53, 1.03], [.48, .91], [.37, .87], [.25, .95], [.14, .91], [.21, .81], [.3, .73]];
         const shape = new THREE.Shape(pts.map(p => new THREE.Vector2(p[0], p[1])));
-        const e = new THREE.ExtrudeGeometry(shape, { depth: .26, bevelEnabled: true, bevelSize: .055, bevelThickness: .06, bevelSegments: 1, curveSegments: 1, steps: 1 });
+        const e = new THREE.ExtrudeGeometry(shape, { depth: .26, bevelEnabled: true, bevelSize: .06, bevelThickness: .07, bevelSegments: 3, curveSegments: 1, steps: 1 });
         e.translate(0, 0, -.13); return e;
       });
       const m = add(geo, body); m.rotation.y = Math.PI / 2;
       [-1, 1].forEach(sd => { const ear = add(G('ear', () => new THREE.ConeGeometry(.07, .24, 4)), body, sd * .11, 1.6, -.02); ear.rotation.z = -sd * .12; ear.rotation.x = -.15; });
-      [-1, 1].forEach(sd => { const e = add(G('eye', () => new THREE.SphereGeometry(.03, 12, 10)), trim, sd * .185, 1.24, -.13); e.castShadow = false; });
+      [-1, 1].forEach(sd => { const e = add(G('eye', () => new THREE.SphereGeometry(.026, 12, 10)), SLIT, sd * .185, 1.24, -.13); e.castShadow = false; });
       h = 1.62;
     }
     g.userData.h = h;
@@ -127,7 +123,7 @@
 
   function addPiece(type, file, rank, white, M) {
     const bodyMat = M[white ? 'ivory' : 'ebony'].clone();
-    const g = buildPiece(type, bodyMat, M.brass, white ? M.stoneL : M.stoneD);
+    const g = buildPiece(type, bodyMat, bodyMat, bodyMat);
     g.scale.setScalar(SCALE);
     g.position.set(sqx(file), TOP, sqz(rank));
     if (!white) g.rotation.y = Math.PI;
@@ -183,19 +179,17 @@
     const N = 512, c = document.createElement('canvas'); c.width = c.height = N; const g = c.getContext('2d'), img = g.createImageData(N, N), d = img.data;
     for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
       const u = x / N, v = y / N;
-      // growth rings: bands warped by low-frequency noise, so they wander and vary in width like real grain
-      const w = fbm(u * 2.2 + 4, v * .55, 4) * 6.5, ring = .5 + .5 * Math.sin((u * 9.5 + w) * Math.PI * 2), soft = ring * ring * (3 - 2 * ring);
-      const pore = vnoise(u * 170, v * 5), fibre = fbm(u * 60, v * 3, 3), tone = fbm(u * 1.4, v * .45, 4);
-      const chisel = vnoise((u + v * .55) * 110, (u - v * .55) * 8) > .78 ? 1 : 0;             // short cross-grain tool marks
+      // growth rings: wandering, uneven bands (low-frequency warp) + fine pores and fibres, identical for both woods
+      const w = fbm(u * 2.0 + 4, v * .5, 4) * 6, ring = .5 + .5 * Math.sin((u * 8 + w) * Math.PI * 2), soft = ring * ring * (3 - 2 * ring);
+      const pore = vnoise(u * 190, v * 5), fibre = fbm(u * 70, v * 2.5, 3), tone = fbm(u * 1.3, v * .4, 4);
+      const heart = .5 + .5 * Math.sin((u * 3.2 + tone * 2.4) * Math.PI);                        // broad colour drift (heartwood / sapwood)
       let r, gg, b;
-      if (kind === 'dark') {
-        const streak = Math.pow(soft, 5) * .55 + (pore > .82 ? .14 : 0);
-        const k = .8 + tone * .6 - chisel * .18 + (fibre - .5) * .3;
-        r = 30 * k + 74 * streak; gg = 23 * k + 58 * streak; b = 18 * k + 46 * streak;
-      } else {
-        const dark = Math.pow(1 - soft, 2) * .5;
-        const k = .82 + tone * .42 - chisel * .12 + (fibre - .5) * .22 + (pore > .84 ? -.08 : 0);
-        r = 226 * k - 96 * dark; gg = 196 * k - 100 * dark; b = 154 * k - 92 * dark;
+      if (kind === 'dark') {                                                                     // walnut
+        const late = 1 - soft, k = .9 + tone * .35 + (fibre - .5) * .28 + (pore > .86 ? -.16 : 0);
+        r = (84 - 44 * late + 16 * heart) * k; gg = (56 - 30 * late + 11 * heart) * k; b = (38 - 21 * late + 7 * heart) * k;
+      } else {                                                                                   // pale oak / ash
+        const late = 1 - soft, k = .92 + tone * .3 + (fibre - .5) * .22 + (pore > .86 ? -.1 : 0);
+        r = (212 - 70 * late - 10 * heart) * k; gg = (178 - 68 * late - 12 * heart) * k; b = (130 - 58 * late - 10 * heart) * k;
       }
       const i = (y * N + x) * 4; d[i] = clamp(r, 0, 255); d[i + 1] = clamp(gg, 0, 255); d[i + 2] = clamp(b, 0, 255); d[i + 3] = 255;
     }
@@ -223,7 +217,7 @@
     sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -8, right: 8, top: 8, bottom: -8, near: 1, far: 30 }); sun.shadow.bias = -.0004; sun.shadow.radius = 5;
     scene.add(sun);
 
-    FELT = new THREE.MeshStandardMaterial({ color: 0x0c0c0c, roughness: .95 }); SLIT = new THREE.MeshStandardMaterial({ color: 0x2b2b2b, roughness: .6 }); INK = new THREE.MeshBasicMaterial({ color: 0x111111 });
+    FELT = new THREE.MeshStandardMaterial({ color: 0x0c0c0c, roughness: .95 }); SLIT = new THREE.MeshStandardMaterial({ color: 0x24170e, roughness: .95 }); INK = new THREE.MeshBasicMaterial({ color: 0x111111 });
 
     // ---- the board: polished marble squares (white Carrara-style / black with faint veins) in a dark walnut frame with a brass inlay.
     // The squares are slightly see-through so the upside-down twins of the pieces read as reflections in the polish.
