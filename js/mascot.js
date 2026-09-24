@@ -16,6 +16,9 @@
   let THREE = null, renderer, scene, camera, mascot, parts, canvas;
   // one sweep = bottom → top of the viewport, crossing `cross` of the width. Times in seconds.
   const RISE = { secs: [17, 23], pause: [1, 2.5], cross: [.55, .95], swayPx: [30, 80], swaySecs: [5, 8] };
+  // the groove: one soft beat every ~2.4 s. It pulses his speed, gives him a small hop, and times his squash/nod/arms/legs.
+  const GROOVE = { beat: 2.6, surge: .11, hop: 7, squash: .04, nod: .09, arms: .3, legs: .28 };   // beat = rad/s
+  const swing = ph => Math.sin(ph) + .22 * Math.sin(2 * ph + .7);                                   // a little off-beat swing
   const rnd = ([a, b]) => a + Math.random() * (b - a);
   let lastX = null, lastY = null, faceY = 0, bank = 0, lean = 0, cyc = null, lastDir = 0;
 
@@ -164,14 +167,17 @@
     if (!cyc) newCycle(t, 1);
     if (t > cyc.next) newCycle(t);
     if (t < cyc.t0 || t > cyc.end) return null;
-    const p = (t - cyc.t0) / cyc.dur;
+    // surge/glide: warp time by the beat so his forward speed pulses around its average (position stays continuous)
+    const tw = t - GROOVE.surge * Math.cos(t * GROOVE.beat);
+    const p = Math.min(1, Math.max(0, (tw - cyc.t0) / cyc.dur));
     const sm = p * p * (3 - 2 * p), q = .5 * p + .5 * sm;              // slow start/finish, steady middle → a lazy S-curve
     const span = vw - w;
-    const x = Math.min(vw - w * .75, Math.max(-w * .25, (cyc.x0 + (cyc.x1 - cyc.x0) * q) * span + cyc.amp * Math.sin(((t - cyc.t0) / cyc.per) * 6.283 + cyc.ph)));
+    const x = Math.min(vw - w * .75, Math.max(-w * .25, (cyc.x0 + (cyc.x1 - cyc.x0) * q) * span + cyc.amp * Math.sin(((tw - cyc.t0) / cyc.per) * 6.283 + cyc.ph)));
     const y = vh + 20 - p * (vh + h + 40);                              // enters just below the screen, leaves above it
     // dissolve as he nears the top of the screen (based on where he actually is, so it is always visible)
     const fade = Math.min(1, p / .05, Math.max(0, (y + h * .55) / (vh * .3)));
-    return [x, y + 8 * Math.sin(t * 1.25), Math.max(0, fade)];
+    const hop = GROOVE.hop * (1 - Math.cos(t * GROOVE.beat)) / 2;         // a soft lift on every beat
+    return [x, y - hop, Math.max(0, fade)];
   }
 
   let last = 0, skew = 0;
@@ -193,12 +199,16 @@
     canvas.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${(.9 + .1 * fade).toFixed(3)})`;
     canvas.style.opacity = fade.toFixed(3);
     canvas.style.visibility = 'visible';
-    mascot.rotation.set(.16, faceY + Math.sin(t * .9) * .14, bank + Math.sin(t * 1.3) * .06);
-    mascot.scale.setScalar(.94 * (1 + .03 * Math.sin(t * 1.7)));
-    parts.arms.forEach((a, i) => { const s2 = i ? 1 : -1; a.rotation.z = s2 * (1.1 + .25 * Math.sin(t * 2.2 + i)); a.rotation.x = .14 * Math.sin(t * 2 + i * 2); });
-    parts.legs.forEach((l, i) => { l.rotation.x = .3 * Math.sin(t * 2.1 + i * Math.PI); l.rotation.z = (i ? 1 : -1) * .1; });
+    const ph = t * GROOVE.beat, sw = swing(ph);
+    mascot.rotation.set(.16 + GROOVE.nod * .4 * sw, faceY + Math.sin(t * .9) * .14, bank + Math.sin(t * 1.3) * .06);
+    // squash & stretch on the beat (stretches as he lifts, settles between beats)
+    const st = 1 + GROOVE.squash * (1 - Math.cos(ph)) / 2 - GROOVE.squash * .5;
+    mascot.scale.set(.94 / Math.sqrt(st), .94 * st, .94 / Math.sqrt(st));
+    parts.arms.forEach((a, i) => { const s2 = i ? 1 : -1; a.rotation.z = s2 * (1.1 - GROOVE.arms * (.5 - .5 * Math.cos(ph)) + .12 * Math.sin(t * 2.2 + i)); a.rotation.x = .14 * Math.sin(t * 2 + i * 2); });
+    parts.legs.forEach((l, i) => { l.rotation.x = GROOVE.legs * Math.sin(ph + i * Math.PI); l.rotation.z = (i ? 1 : -1) * .1; });
     parts.head.rotation.z = .07 * Math.sin(t * 1.4);
-    parts.bow.rotation.z = .05 * Math.sin(t * 3);
+    parts.head.rotation.x = GROOVE.nod * sw;
+    parts.bow.rotation.z = .06 * sw;
     renderer.render(scene, camera);
   }
 
