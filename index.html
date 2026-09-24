@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=23">
+<link rel="stylesheet" href="css/style.css?v=25">
 </head>
 <body>
 
@@ -107,6 +107,20 @@
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
+
+<!-- ============ HERO — interactive 3D chessboard (js/hero-board.js). PREVIEW: pieces are the navigation ============ -->
+<section class="hero-board" id="heroBoard" aria-label="Choose a collection by choosing a chess piece">
+  <canvas class="hb-canvas" aria-hidden="true"></canvas>
+  <div class="hb-tip" aria-hidden="true"></div>
+  <div class="hb-copy">
+    <span class="hb-eyebrow">Checkmatela — Formal wear</span>
+    <h1>Every move,<br><em>tailored.</em></h1>
+    <p class="hb-sub">Choose a piece and make your first move.</p>
+    <p class="hb-hint">[ Hover to preview · Click to move ]</p>
+  </div>
+  <nav class="hb-keys" aria-label="Collections"><a class="hb-key" data-piece="king" href="king.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-king" fill="currentColor"/></svg><b>King</b><span>Men</span></a><a class="hb-key" data-piece="queen" href="queen.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-queen" fill="currentColor"/></svg><b>Queen</b><span>Women</span></a><a class="hb-key" data-piece="pawn" href="pawn.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-pawn" fill="currentColor"/></svg><b>Pawn</b><span>Kids</span></a><a class="hb-key" data-piece="bishop" href="bishop.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-bishop" fill="currentColor"/></svg><b>Bishop</b><span>Accessories</span></a><a class="hb-key" data-piece="rook" href="rook.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-rook" fill="currentColor"/></svg><b>Rook</b><span>Shoes</span></a><a class="hb-key" data-piece="knight" href="book-a-fitting.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-knight" fill="currentColor"/></svg><b>Knight</b><span>Book a fitting</span></a></nav>
+  <div class="hb-wipe" aria-hidden="true"></div>
+</section>
 
 <!-- ============ HOMEPAGE SHOWCASE — rotating product hero (generated: tools/gen_home_showcase.py) ============ -->
 <!-- SHOWCASE:START -->
@@ -753,6 +767,7 @@
 
 <script src="js/main.js"></script>
 <script src="js/showcase.js"></script>
+<script type="module" src="js/hero-board.js"></script>
 <script type="module" src="js/mascot.js"></script>
 </body>
 </html>
