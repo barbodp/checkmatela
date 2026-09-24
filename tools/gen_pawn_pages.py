@@ -7,7 +7,7 @@ import os, glob
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "15"
+CSS_VERSION = "16"
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
       <circle fill="currentColor" cx="50" cy="30" r="13"/>
@@ -77,15 +77,15 @@ FOOTER = '''<footer class="site-footer">
       <li><a href="rook.html">Rook — Shoes</a></li>
     </ul></div>
     <div class="footer-col"><h5>Company</h5><ul>
-      <li><a href="#">Our Story</a></li><li><a href="#">Master Tailors</a></li><li><a href="#">Sustainability</a></li><li><a href="#">Press</a></li>
+      <li><a href="our-story.html">Our Story</a></li><li><a href="master-tailors.html">Master Tailors</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="press.html">Press</a></li>
     </ul></div>
     <div class="footer-col"><h5>Service</h5><ul>
-      <li><a href="#">Book a Fitting</a></li><li><a href="#">Size Guide</a></li><li><a href="#">Alterations</a></li><li><a href="#">Shipping &amp; Returns</a></li>
+      <li><a href="book-a-fitting.html">Book a Fitting</a></li><li><a href="size-guide.html">Size Guide</a></li><li><a href="alterations.html">Alterations</a></li><li><a href="shipping-returns.html">Shipping &amp; Returns</a></li>
     </ul></div>
     <div class="footer-col"><h5>Contact</h5><ul>
-      <li><a href="mailto:concierge@checkmatela.com">concierge@checkmatela.com</a></li>
-      <li><a href="tel:+18885550142">+1 (888) 555-0142</a></li>
-      <li>New York · Los Angeles · Toronto</li>
+      <li><a href="mailto:suit.shop.dtla@gmail.com">suit.shop.dtla@gmail.com</a></li>
+      <li><a href="tel:+13108906991">+1 (310) 890-6991</a></li>
+      <li>Los Angeles</li>
     </ul></div>
   </div>
   <div class="checker-strip"></div>
@@ -107,9 +107,9 @@ ANNOUNCE = '''<div class="announce">
       <span style="--n:2">Free white-glove shipping over $500</span>
     </div>
     <div class="announce__links">
-      <a href="tel:+18885550142">+1 (888) 555-0142</a>
-      <a href="#">Size Guide</a>
-      <a href="#">Book a Fitting</a>
+      <a href="tel:+13108906991">+1 (310) 890-6991</a>
+      <a href="size-guide.html">Size Guide</a>
+      <a href="book-a-fitting.html">Book a Fitting</a>
     </div>
   </div>
 </div>'''

@@ -112,4 +112,16 @@
       setTimeout(() => target.classList.remove('is-highlighted'), 1600);
     });
   });
+
+  /* ---------------- mailto forms (Book a Fitting): no backend, so the request opens in the visitor's email app ---------------- */
+  document.querySelectorAll('form[data-mailto]').forEach(form => {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const lines = [...new FormData(form).entries()].filter(([, v]) => String(v).trim()).map(([k, v]) => `${k}: ${v}`);
+      const href = `mailto:${form.dataset.mailto}?subject=${encodeURIComponent(form.dataset.subject || 'Checkmatela request')}&body=${encodeURIComponent(lines.join('\n'))}`;
+      const ok = form.querySelector('.fit-form__ok');
+      if (ok) ok.hidden = false;
+      window.location.href = href;
+    });
+  });
 })();
