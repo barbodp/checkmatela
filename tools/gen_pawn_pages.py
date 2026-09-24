@@ -7,7 +7,7 @@ import os, glob
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "9"
+CSS_VERSION = "14"
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
       <circle fill="currentColor" cx="50" cy="30" r="13"/>
@@ -100,15 +100,17 @@ FOOTER = '''<footer class="site-footer">
 </html>'''
 
 ANNOUNCE = '''<div class="announce">
-  <div class="announce__track">
-    <span>Complimentary alterations on every order</span>
-    <span>1.e4 — the opening move of the season</span>
-    <span>Free white-glove shipping over $500</span>
-    <span>Book a private fitting in three cities</span>
-    <span>Complimentary alterations on every order</span>
-    <span>1.e4 — the opening move of the season</span>
-    <span>Free white-glove shipping over $500</span>
-    <span>Book a private fitting in three cities</span>
+  <div class="announce__inner">
+    <div class="announce__msgs">
+      <a href="pawn.html" style="--n:0">Now open — the Pawn kids collection</a>
+      <span style="--n:1">Complimentary alterations on every order</span>
+      <span style="--n:2">Free white-glove shipping over $500</span>
+    </div>
+    <div class="announce__links">
+      <a href="tel:+18885550142">+1 (888) 555-0142</a>
+      <a href="#">Size Guide</a>
+      <a href="#">Book a Fitting</a>
+    </div>
   </div>
 </div>'''
 
@@ -287,5 +289,6 @@ def build(line):
     print("wrote", cfg["file"], len(cfg["colors"]), "colorways")
 
 
-for k in ORDER:
-    build(k)
+if __name__ == "__main__":
+    for k in ORDER:
+        build(k)

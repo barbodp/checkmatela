@@ -33,12 +33,13 @@ export VERCEL_GLOBAL_CONFIG_DIR="$HOME/.local/vercel-config"
 - **Palette:** pine green `--pine` (primary accent, buttons, links), brass/gold `--brass` (metallic accent), burgundy `--burgundy` (jewel accent, prices, swatches). Full token list at the top of `css/style.css`.
 - **Fonts:** Cormorant Garamond (serif, display/headings) + Jost (sans, UI/body), via Google Fonts.
 - **Chess glyphs:** hand-built uniform Staunton-style SVG symbols (king/queen/bishop/knight/rook/pawn) defined inline in each page's `<svg><defs>` block — consistent base/collar/stem proportions modeled on a real Staunton set. Don't reintroduce the old crude/inconsistent glyph shapes.
-- **CSS cache-busting:** `css/style.css?v=N` query param on every page — bump `N` on every CSS change and update it across *all* HTML files (`sed` one-liner), or browsers will serve stale styles.
+- **CSS cache-busting:** `css/style.css?v=N` query param on every page — bump `N` on every CSS change and update it across *all* HTML files (`sed` one-liner) **and** `CSS_VERSION` in `tools/gen_pawn_pages.py`, or browsers will serve stale styles. Currently **v=14**.
 
 ## Site architecture
 
 - `index.html` — homepage:
-  - **Board scene**: hero copy + a lineup of 5 uniform-size model photos + the 5 category cards, all sharing one continuous checkerboard background/fade (not separate sections) — this was an explicit redesign, don't split it back apart.
+  - **Showcase hero** (`#showcase`, generated): a rotating product carousel on a light checkerboard — copy on the left, full-figure cutouts standing on a chip/controls bar on the right. Slides interleave King (every suit in `king.html`), Pawn (4 lines, colourway swatches auto-cycle inside the slide), Bishop (3 accessories) and Rook (shoes), after a welcome slide with the `<h1>` "Every move, tailored.". Transition is a **chessboard wipe** (dark/light squares scale in and out diagonally) with staggered text and figures; auto-advances via a CSS progress line (pauses on hover/focus/hidden tab/off-screen), category chips, arrows, swipe and arrow keys, `prefers-reduced-motion` = crossfade. Markup lives between `<!-- SHOWCASE:START/END -->` in `index.html` and is written by `tools/gen_home_showcase.py`; behaviour is `js/showcase.js`. **Don't hand-edit that block — re-run the generator.**
+  - Under it: the trust strip and a compact "Shop by piece" category row (`.categories`, five cards on plain ivory). The old 5-model lineup + big checker area was removed on purpose (user: too much empty space) — don't bring it back.
   - **Exploding suit diagram** (`#diagram`): real studio product photography (not illustrations) for jacket/shirt/trousers/shoes/bow tie/pocket square/cufflinks, laid out in fixed "worn" anatomical positions (neck/shoulders/waist/legs/feet, symmetric left-right pairs), explodes via IntersectionObserver-triggered CSS transform (no scroll-scrubbing) the moment the section scrolls into view. Pieces are real photos in `assets/img/diagram/`.
   - Featured product grid, brand story, quotes, newsletter, footer.
 - `king.html`, `queen.html`, `pawn.html`, `bishop.html`, `rook.html` — the five category pages.
@@ -75,17 +76,23 @@ When new raw product photography comes in (e.g. under `~/Downloads/...`), proces
 ### Category heroes (`.cat-hero`)
 Every category page (King, Queen, Pawn landing, the four Pawn style pages, Bishop, Rook) uses the same hero: a **light checkerboard scene** (same board as the homepage) with copy in a frosted plate on the left and **full-figure transparent cutouts standing on the bottom edge** on the right — nothing may be cropped (the old dark banner cropped the models at the waist; the user explicitly asked for whole figures). Variants: default = row of uniform-height standing figures (they shrink together to fit, bottom-aligned), `--objects` (Bishop still-life: bow tie, cufflinks, pocket square), `--single` (Rook: shoes), `--glyph` (Queen: large translucent queen piece while there is no photography). The old `.page-banner` CSS is now unused.
 - Cutouts are WebP with alpha: kids at `assets/img/pawn/<line>/<colour>/hero.webp`, men/accessories/shoes at `assets/img/hero/cat-*.webp`.
-- To add a hero figure for a new colourway: add it to `KIDS` in `tools/make_hero_cutouts.py`, run it, then list its colour in `hero=[...]` for that line in `tools/gen_pawn_pages.py`. Pick **dark/mid colourways** — the cutout pipeline deletes light-grey pixels in the bottom 20% of the frame to remove the floor shadow, so light-grey/white trousers get eaten.
+- Every Pawn colourway now has a `hero.webp` cutout (`make_hero_cutouts.py` iterates `process_pawn_images.LINES`, so new colourways are cut automatically). Light/white colourways work because `cutlib` only removes the floor shadow if it is soft grey *connected to the background through smooth (low-gradient) pixels*. Regenerate hero figures on a category page by listing the colour in `hero=[...]` in `tools/gen_pawn_pages.py`.
 
 ### Tools (`tools/`)
 Run from the repo root; they need `pip install --user pillow numpy scipy` (numpy/scipy are only for the cutouts).
 - `process_pawn_images.py` — raw `~/Downloads/Magen Kids/...` → `assets/img/pawn/.../{model,plain,thumb}-N.jpg`.
 - `make_hero_cutouts.py` (+ `cutlib.py`) — background removal for the hero figures. The kid photos are AI-style renders on a noisy near-white background; white shirts must survive, so it flood-fills only *neutral, near-white* pixels connected to the border, then also removes enclosed background pockets (between arm and torso) whose colour matches the true background (shirt whites are slightly tinted), strips floor shadows, defringes and feathers the edge.
-- `gen_pawn_pages.py` — regenerates the four Pawn pages from the processed images.
+- `gen_pawn_pages.py` — regenerates the four Pawn pages from the processed images (import-safe; also owns the shared announcement-bar HTML, kept in sync by hand across pages).
+- `make_king_cutouts.py` — cuts every `assets/img/products/*.jpg` (men's studio shots) into `assets/img/king/<name>.webp` for the showcase.
+- `gen_home_showcase.py` — builds the homepage showcase. **Adding products:** King → add the card to `king.html` + photo in `assets/img/products/`, run `make_king_cutouts.py`, then this script. Pawn → new colourways appear automatically (after `process_pawn_images.py` / `make_hero_cutouts.py` and listing them in `gen_pawn_pages.py`). Bishop/Rook → add to `OBJECTS` in the script. Queen → add a builder once it has photography.
+
+### Announcement bar (`.announce`, every page)
+Calm two-part bar (no marquee): rotating promises on the left (Pawn now open / free alterations / free shipping over $500), service links on the right (phone, Size Guide, Book a Fitting); links hide on mobile. Same markup on all 10 pages and in `gen_pawn_pages.py` — change all together.
 
 ## Things NOT to redo
 - Don't revert to a dark/black overall theme — user explicitly wants light + checkerboard.
 - Don't make the exploding-diagram pieces illustrated/sketched again — must be real photography.
 - Don't make the exploding-diagram scroll-scrubbed again — it triggers once on scroll-into-view.
+- Don't turn the homepage hero back into a static lineup — it is the rotating showcase.
 - Don't give the hero models mismatched sizes again — they should be uniform.
 - Don't crop category hero images (`object-fit: cover` banners) — show the whole figure.
