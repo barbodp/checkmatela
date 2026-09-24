@@ -212,6 +212,19 @@
   }));
   $$('[data-preview]').forEach(button=>button.addEventListener('click',()=>showProduct(button.dataset.preview)));
   $$('[data-info="imagery"]').forEach(button=>button.addEventListener('click',()=>showDialog('<div class="dialog-body"><span class="eyebrow">About this concept</span><h2 id="dialogTitle">A first look at Checkmatela.</h2><p class="info-copy">The men’s collection uses photography supplied in the Antonio Uomo product folder. The kids’ collection uses photography supplied in the Magen Kids product folder. Accessory, footwear, and individual suit-component visuals are AI-generated concept imagery used to demonstrate the brand direction.</p><p class="dialog-note">Names, pricing, and sizing illustrate a possible store experience. Women’s formal wear is presented as a coming-soon collection.</p></div>')));
+
+  // A fitting inquiry is reviewed and sent by the visitor in their email app.
+  $$('form[data-mailto]').forEach(form => form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const lines = [...new FormData(form).entries()].filter(([, value]) => String(value).trim()).map(([key,value]) => `${key}: ${value}`);
+    const subject = encodeURIComponent(form.dataset.subject || 'Checkmatela inquiry');
+    const body = encodeURIComponent(lines.join('\n'));
+    const status = $('.fit-form__ok',form);
+    if (status) { status.hidden=false; status.setAttribute('role','status'); status.textContent='Your email app will open a draft. Review and send it there; no appointment is confirmed yet.'; }
+    location.href = `mailto:${form.dataset.mailto}?subject=${subject}&body=${body}`;
+  }));
+
   const linkedProduct=decodeURIComponent(location.hash.slice(1));
   if (products.has(linkedProduct)) showProduct(linkedProduct);
 })();

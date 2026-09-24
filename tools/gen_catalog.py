@@ -1,5 +1,5 @@
-"""Build the browser catalog from authored King cards and the Pawn configuration.
-Run after gen_pawn_pages.py. No third-party parser or build server required.
+"""Build the browser catalog from the King catalog and Pawn configuration.
+Run after gen_king_page.py and gen_pawn_pages.py. No third-party parser or build server required.
 """
 import re
 import json
@@ -9,20 +9,12 @@ from gen_pawn_pages import LINES, ORDER
 
 ROOT = Path(__file__).resolve().parent.parent
 catalog = []
-king = (ROOT / 'king.html').read_text()
-for match in re.finditer(r'<a class="product-card"[^>]*>.*?</a>', king, re.S):
-    card = match.group()
-    image = re.search(r'<img src="([^"]+)"', card).group(1)
-    name = html.unescape(re.search(r'<h4>(.*?)</h4>', card).group(1))
-    tag = html.unescape(re.search(r'class="piece-tag">(.*?)</span>', card).group(1))
-    price = int(re.search(r'class="product-card__price">\$(\d+)', card).group(1))
-    ident = 'king-' + Path(image).stem
-    catalog.append(dict(id=ident, name=name, tag=tag, category='King · Men', price=price, image=image,
-                        page='king.html', sizes=['36R', '38R', '40R', '42R', '44R', '46R'],
+king = json.loads((ROOT / 'tools/catalog/king.json').read_text())['products']
+for item in king:
+    catalog.append(dict(id='king-'+item['slug'], name=item['name'], tag=item['tag'], category='King · Men', price=item['price'],
+                        image=f"assets/img/products/{item['slug']}.jpg", page='king.html', sizes=['36R','38R','40R','42R','44R','46R'],
+                        color=item['color'], pattern=item['pattern'], style=item['style'], occasion=item['occasion'],
                         description='A considered opening for weddings, celebrations, and evenings worth dressing for. Discover a silhouette with presence, from the first entrance to the last dance.'))
-    card = re.sub(r'<a class="product-card"[^>]*>', f'<a class="product-card" href="#{ident}" id="{ident}" data-product="{ident}">', card, count=1)
-    king = king.replace(match.group(), card)
-(ROOT / 'king.html').write_text(king)
 for line in ORDER:
     cfg = LINES[line]
     for color, label in cfg['colors']:

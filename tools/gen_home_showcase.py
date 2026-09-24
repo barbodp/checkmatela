@@ -2,7 +2,7 @@
 between the <!-- SHOWCASE:START --> and <!-- SHOWCASE:END --> markers.
 
 Adding products later:
-  * King (men):   add the product card to king.html + drop its photo in assets/img/products/, run
+  * King (men):   add the product to tools/catalog/king.json + drop its photo in assets/img/products/, run tools/gen_king_page.py, run
                   tools/make_king_cutouts.py, then re-run this script  -> a new slide appears automatically.
   * Pawn (kids):  new colourways show up automatically once assets/img/pawn/<line>/<colour>/hero.webp exists
                   (tools/make_hero_cutouts.py) and the colour is listed in tools/gen_pawn_pages.py.
@@ -15,6 +15,7 @@ import os, re, json, html
 from PIL import Image
 import numpy as np
 from gen_pawn_pages import LINES as PAWN
+from shoplib import swatch_hex
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INDEX = os.path.join(ROOT, "index.html")
@@ -50,40 +51,15 @@ def read(p):
 
 
 def king_products():
-    src = read("king.html")
+    """King products come from tools/catalog/king.json (same source as king.html)."""
+    cat = json.load(open(os.path.join(ROOT, "tools", "catalog", "king.json"), encoding="utf-8"))["products"]
     out = []
-    for blk in re.findall(r'<a class="product-card".*?</a>', src, re.S):
-        img = re.search(r'<img src="assets/img/products/([^"]+)\.jpg"', blk)
-        name = re.search(r"<h4>(.*?)</h4>", blk)
-        tag = re.search(r'class="piece-tag">(.*?)</span>', blk)
-        price = re.search(r'product-card__price">\$([\d,]+)', blk)
-        note = re.search(r'product-card__notation">(.*?)</span>', blk)
-        alt = re.search(r'alt="([^"]*)"', blk)
-        if not (img and name and tag and price):
+    for p in cat:
+        if not os.path.exists(os.path.join(ROOT, "assets/img/king", p["slug"] + ".webp")):
+            print("  ! no cutout for", p["slug"], "- run tools/make_king_cutouts.py; skipped")
             continue
-        slug = img.group(1)
-        if not os.path.exists(os.path.join(ROOT, "assets/img/king", slug + ".webp")):
-            print("  ! no cutout for", slug, "- run tools/make_king_cutouts.py; skipped")
-            continue
-        out.append(dict(slug=slug, name=name.group(1), tag=tag.group(1), price=price.group(1),
-                        note=note.group(1) if note else "", alt=alt.group(1) if alt else name.group(1)))
+        out.append(dict(slug=p["slug"], name=esc(p["name"]), tag=esc(p["tag"]), price=f'{p["price"]:,}', note=esc(p.get("notation", "")), alt=p["alt"]))
     return out
-
-
-def swatch_hex(path):
-    """Dominant garment colour of a cutout (ignores near-white shirt/skin) for the colour dots."""
-    im = np.asarray(Image.open(path).convert("RGBA"))
-    h, w, _ = im.shape
-    reg = im[int(h * .28):int(h * .68), int(w * .28):int(w * .72)].reshape(-1, 4)
-    reg = reg[reg[:, 3] > 200][:, :3].astype(int)
-    reg = reg[reg.min(axis=1) < 205]
-    if len(reg) == 0:
-        return "#cccccc"
-    q = reg // 32
-    keys = q[:, 0] * 64 + q[:, 1] * 8 + q[:, 2]
-    mode = np.bincount(keys).argmax()
-    m = reg[keys == mode].mean(axis=0).astype(int)
-    return "#%02x%02x%02x" % tuple(m)
 
 
 def rel(p):
@@ -106,19 +82,13 @@ def fig(src, x, h=None, w=None, z=1, op=1, alt="", focal=False, d=0, extra="", b
 
 def copy_block(cat, title, sub, meta, cta_href, cta_label, extra="", h="h2"):
     label, dept, gid, _ = CATS[cat]
-    n = CHIP_ORDER.index(cat) + 1
-    sub_html = f'\n        <p class="sc-sub">{sub}</p>' if sub else ""
     return f'''<div class="sc-copy" data-cat="{cat}">
-        <span class="sc-eyebrow">{glyph(gid)}<u>Chapter {n:02d}: <em>{label}</em> — {dept}</u></span>
-        <{h} class="sc-title">{title}</{h}>{sub_html}
+        <span class="sc-eyebrow">{glyph(gid)}{label} — {dept}</span>
+        <{h} class="sc-title">{title}</{h}>
+        <p class="sc-sub">{sub}</p>
         <p class="sc-meta">{meta}</p>{extra}
-        <div class="sc-cta"><a href="{cta_href}" class="btn">{cta_label}</a></div>
+        <div class="sc-cta"><a href="{cta_href}" class="btn">{cta_label} {ARROW}</a></div>
       </div>'''
-
-
-def named(name, tag, connector="in"):
-    """Editorial two-line title: 'The Sicilian' / indented '*in* Onyx Tuxedo'."""
-    return f'{name}<span class="sc-line"><em>{connector}</em> {tag}</span>'
 
 
 def king_slides():
@@ -130,9 +100,9 @@ def king_slides():
         src = lambda q: f"assets/img/king/{q['slug']}.webp"
         figs = (fig(src(L), 20, h=84, z=1, op=.9, d=160) + fig(src(R), 80, h=84, z=1, op=.9, d=160) +
                 fig(src(p), 50, h=97, z=2, alt=f"{p['name']} — {p['tag']}", focal=True))
-        meta = f"[ ${p['price']} ]" + (f'<i></i>Opening {esc(p["note"])}' if p["note"] else "")
+        meta = f"${p['price']}" + (f'<i></i>Opening {p["note"]}' if p["note"] else "")
         slides.append(dict(cat="king", figs=figs,
-                           copy=copy_block("king", named(p["name"], p["tag"]), "", meta, "king.html", "Shop King")))
+                           copy=copy_block("king", p["name"], p["tag"], meta, "king.html", "Shop King")))
     return slides
 
 
@@ -154,8 +124,8 @@ def pawn_slides():
         dots = "".join(f'<button type="button" class="sc-dot{" is-on" if i == start else ""}" style="--c:{c["h"]}" data-i="{i}" aria-label="{esc(c["n"])}"></button>' for i, c in enumerate(data))
         extra = f'\n        <div class="sc-colors"><span class="sc-colorname">{esc(data[start]["n"])}</span><span class="sc-dots">{dots}</span></div>'
         intro = re.split(r"(?<=[.!?—])\s", cfg["intro"])[0].rstrip("—").strip()
-        meta = f"[ From ${cfg['price']} ]<i></i>{m} colourways"
-        c = copy_block("pawn", named(cfg["label"], f"{m} colours"), esc(intro), meta, cfg["file"], f"Shop {cfg['label']}", extra)
+        meta = f"From ${cfg['price']}<i></i>{m} colourways"
+        c = copy_block("pawn", cfg["label"], esc(intro), meta, cfg["file"], f"Shop {cfg['label']}", extra)
         slides.append(dict(cat="pawn", figs=figs, copy=c, attrs=f"data-colors='{json.dumps(data)}' data-base=\"{base}\" data-start=\"{start}\""))
     return slides
 
@@ -171,7 +141,7 @@ def object_slides(cat):
             for q, (x, b) in zip(others, pos):
                 figs += fig(q["img"], x, w=q["w"] * .5, z=1, op=.92, d=160, b=b)
         figs += fig(p["img"], 50, w=p["w"], z=2, alt=p["alt"], focal=True, b=24 if len(items) > 1 else 14)
-        slides.append(dict(cat=cat, figs=figs, copy=copy_block(cat, named(p["name"], p["tag"]), "", f"[ ${p['price']} ]", CATS[cat][3], f"Shop {CATS[cat][0]}")))
+        slides.append(dict(cat=cat, figs=figs, copy=copy_block(cat, p["name"], p["tag"], f"${p['price']}", CATS[cat][3], f"Shop {CATS[cat][0]}")))
     return slides
 
 
@@ -184,10 +154,10 @@ def welcome_slide():
         else:
             figs += fig(f"assets/img/pawn/{ref}/hero.webp", x, h=72, z=2, op=1, d=(x // 4) * 6, alt="")
     copy = f'''<div class="sc-copy sc-copy--welcome" data-cat="welcome">
-        <span class="sc-eyebrow">{glyph("glyph-king")}<u>Checkmatela — <em>Formal</em> wear<span class="sc-hide-sm">&nbsp;<em>for</em> every piece</span></u></span>
+        <span class="sc-eyebrow">{glyph("glyph-king")}Checkmatela — Formal wear<span class="sc-hide-sm">&nbsp;for every piece</span></span>
         <h1 class="sc-title">Every move,<br><em>tailored.</em></h1>
         <p class="sc-sub">Suits, tuxedos, accessories and shoes cut with a grandmaster's precision — for men, boys and every moment that decides everything.</p>
-        <div class="sc-cta"><a href="king.html" class="btn">Shop the collection</a><a href="#diagram" class="btn">Explore the set</a></div>
+        <div class="sc-cta"><a href="king.html" class="btn">Shop The Collection {ARROW}</a><a href="#diagram" class="btn dark-ghost">Explore The Set</a></div>
       </div>'''
     return dict(cat="welcome", figs=figs, copy=copy)
 
@@ -214,7 +184,7 @@ def build():
         copies.append(s["copy"].replace('class="sc-copy', f'data-i="{i}" class="sc-copy' + (" is-active" if i == 0 else ""), 1))
     # first slide: real src (+ high priority) so the hero paints straight away; the rest lazy-load from showcase.js
     stages[0] = stages[0].replace('<img data-src="', '<img fetchpriority="high" src="')
-    chips = "".join(f'''<button type="button" class="sc-chip" data-cat="{k}"><span class="sc-chip__n">{CHIP_ORDER.index(k) + 1:02d}</span><span>{CATS[k][0]}</span></button>'''
+    chips = "".join(f'''<button type="button" class="sc-chip" data-cat="{k}">{glyph(CATS[k][2])}<span>{CATS[k][0]}</span></button>'''
                     for k in CHIP_ORDER)
     return f'''<section class="showcase" id="showcase" aria-roledescription="carousel" aria-label="Featured Checkmatela collection" data-count="{len(seq)}">
   <div class="showcase__bg"></div>

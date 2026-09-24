@@ -1,0 +1,25 @@
+{
+  "_note": "King (men) catalog — the single source for king.html and the shared browser catalog. Add a product here (+ its photo in assets/img/products/ and a cutout via tools/make_king_cutouts.py), then run tools/gen_king_page.py and tools/gen_catalog.py. color/pattern/style/occasion values become filter options automatically. Attribute values below are first-pass guesses from the product names/photos — correct them freely.",
+  "products": [
+    {"slug": "sicilian-onyx-tux", "name": "The Sicilian", "tag": "Onyx Tuxedo", "price": 895, "notation": "1. e4", "alt": "Onyx shawl-lapel tuxedo with bow tie",
+     "color": "Black", "pattern": "Solid", "style": "Tuxedo", "occasion": ["Black tie", "Wedding", "Prom"]},
+    {"slug": "ruy-lopez-three-piece", "name": "The Ruy Lopez", "tag": "Onyx Three-Piece", "price": 975, "notation": "1. e4 e5", "alt": "Black three-piece suit",
+     "color": "Black", "pattern": "Solid", "style": "Three-piece", "occasion": ["Wedding", "Business", "Formal"]},
+    {"slug": "caro-kann-navy-plaid", "name": "The Caro-Kann", "tag": "Midnight Plaid", "price": 850, "notation": "1. e4 c6", "alt": "Navy plaid suit",
+     "color": "Navy", "pattern": "Plaid", "style": "Three-piece", "occasion": ["Business", "Wedding", "Formal"]},
+    {"slug": "kings-gambit-royal-plaid", "name": "The King's Gambit", "tag": "Royal Plaid Three-Piece", "price": 925, "notation": "1. e4 e5 2. f4", "alt": "Royal blue plaid three-piece suit",
+     "color": "Blue", "pattern": "Plaid", "style": "Three-piece", "occasion": ["Wedding", "Prom", "Formal"]},
+    {"slug": "english-opening-charcoal", "name": "The English Opening", "tag": "Charcoal Classic", "price": 795, "notation": "1. c4", "alt": "Charcoal suit",
+     "color": "Grey", "pattern": "Solid", "style": "Two-piece", "occasion": ["Business", "Formal"]},
+    {"slug": "queens-gambit-graphite", "name": "The Queen's Gambit", "tag": "Graphite Shawl", "price": 910, "notation": "1. d4 d5 2. c4", "alt": "Graphite suit with black shawl lapel and bow tie",
+     "color": "Grey", "pattern": "Solid", "style": "Tuxedo", "occasion": ["Black tie", "Prom"]},
+    {"slug": "london-system-stone", "name": "The London System", "tag": "Stone Three-Piece", "price": 860, "notation": "1. d4 2. Nf3 3. Bf4", "alt": "Stone three-piece suit",
+     "color": "Cream", "pattern": "Solid", "style": "Three-piece", "occasion": ["Wedding", "Summer"]},
+    {"slug": "italian-game-bordeaux", "name": "The Italian Game", "tag": "Bordeaux Tuxedo", "price": 895, "notation": "1. e4 e5 2. Nf3", "alt": "Bordeaux tuxedo with bow tie",
+     "color": "Burgundy", "pattern": "Solid", "style": "Tuxedo", "occasion": ["Black tie", "Prom", "Wedding"]},
+    {"slug": "french-defense-slate-check", "name": "The French Defense", "tag": "Slate Check", "price": 820, "notation": "1. e4 e6", "alt": "Slate check suit",
+     "color": "Blue", "pattern": "Check", "style": "Three-piece", "occasion": ["Business", "Formal"]},
+    {"slug": "scotch-game-dove-grey", "name": "The Scotch Game", "tag": "Dove Grey Three-Piece", "price": 840, "notation": "1. e4 e5 2. Nf3 Nc6 3. d4", "alt": "Dove grey three-piece suit",
+     "color": "Grey", "pattern": "Solid", "style": "Three-piece", "occasion": ["Wedding", "Summer", "Formal"]}
+  ]
+}

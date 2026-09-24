@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "18"
+CSS_VERSION = "19"
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
       <circle fill="currentColor" cx="50" cy="30" r="13"/>
@@ -206,8 +206,8 @@ def build(line):
 
 </main>
 {FOOTER}
-<script src="js/catalog.js?v=18"></script>
-<script src="js/main.js?v=18"></script>
+<script src="js/catalog.js?v=19"></script>
+<script src="js/main.js?v=19"></script>
 </body>
 </html>
 '''

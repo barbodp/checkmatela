@@ -16,6 +16,14 @@ window.CHECKMATELA_CATALOG = [
       "44R",
       "46R"
     ],
+    "color": "Black",
+    "pattern": "Solid",
+    "style": "Tuxedo",
+    "occasion": [
+      "Black tie",
+      "Wedding",
+      "Prom"
+    ],
     "description": "A considered opening for weddings, celebrations, and evenings worth dressing for. Discover a silhouette with presence, from the first entrance to the last dance."
   },
   {
@@ -33,6 +41,14 @@ window.CHECKMATELA_CATALOG = [
       "42R",
       "44R",
       "46R"
+    ],
+    "color": "Black",
+    "pattern": "Solid",
+    "style": "Three-piece",
+    "occasion": [
+      "Wedding",
+      "Business",
+      "Formal"
     ],
     "description": "A considered opening for weddings, celebrations, and evenings worth dressing for. Discover a silhouette with presence, from the first entrance to the last dance."
   },
@@ -52,6 +68,14 @@ window.CHECKMATELA_CATALOG = [
       "44R",
       "46R"
     ],
+    "color": "Navy",
+    "pattern": "Plaid",
+    "style": "Three-piece",
+    "occasion": [
+      "Business",
+      "Wedding",
+      "Formal"
+    ],
     "description": "A considered opening for weddings, celebrations, and evenings worth dressing for. Discover a silhouette with presence, from the first entrance to the last dance."
   },
   {
@@ -69,6 +93,14 @@ window.CHECKMATELA_CATALOG = [
       "42R",
       "44R",
       "46R"
+    ],
+    "color": "Blue",
+    "pattern": "Plaid",
+    "style": "Three-piece",
+    "occasion": [
+      "Wedding",
+      "Prom",
+      "Formal"
     ],
     "description": "A considered opening for weddings, celebrations, and evenings worth dressing for. Discover a silhouette with presence, from the first entrance to the last dance."
   },
@@ -88,6 +120,13 @@ window.CHECKMATELA_CATALOG = [
       "44R",
       "46R"
     ],
+    "color": "Grey",
+    "pattern": "Solid",
+    "style": "Two-piece",
+    "occasion": [
+      "Business",
+      "Formal"
+    ],
     "description": "A considered opening for weddings, celebrations, and evenings worth dressing for. Discover a silhouette with presence, from the first entrance to the last dance."
   },
   {
@@ -105,6 +144,13 @@ window.CHECKMATELA_CATALOG = [
       "42R",
       "44R",
       "46R"
+    ],
+    "color": "Grey",
+    "pattern": "Solid",
+    "style": "Tuxedo",
+    "occasion": [
+      "Black tie",
+      "Prom"
     ],
     "description": "A considered opening for weddings, celebrations, and evenings worth dressing for. Discover a silhouette with presence, from the first entrance to the last dance."
   },
@@ -124,6 +170,13 @@ window.CHECKMATELA_CATALOG = [
       "44R",
       "46R"
     ],
+    "color": "Cream",
+    "pattern": "Solid",
+    "style": "Three-piece",
+    "occasion": [
+      "Wedding",
+      "Summer"
+    ],
     "description": "A considered opening for weddings, celebrations, and evenings worth dressing for. Discover a silhouette with presence, from the first entrance to the last dance."
   },
   {
@@ -141,6 +194,14 @@ window.CHECKMATELA_CATALOG = [
       "42R",
       "44R",
       "46R"
+    ],
+    "color": "Burgundy",
+    "pattern": "Solid",
+    "style": "Tuxedo",
+    "occasion": [
+      "Black tie",
+      "Prom",
+      "Wedding"
     ],
     "description": "A considered opening for weddings, celebrations, and evenings worth dressing for. Discover a silhouette with presence, from the first entrance to the last dance."
   },
@@ -160,6 +221,13 @@ window.CHECKMATELA_CATALOG = [
       "44R",
       "46R"
     ],
+    "color": "Blue",
+    "pattern": "Check",
+    "style": "Three-piece",
+    "occasion": [
+      "Business",
+      "Formal"
+    ],
     "description": "A considered opening for weddings, celebrations, and evenings worth dressing for. Discover a silhouette with presence, from the first entrance to the last dance."
   },
   {
@@ -177,6 +245,14 @@ window.CHECKMATELA_CATALOG = [
       "42R",
       "44R",
       "46R"
+    ],
+    "color": "Grey",
+    "pattern": "Solid",
+    "style": "Three-piece",
+    "occasion": [
+      "Wedding",
+      "Summer",
+      "Formal"
     ],
     "description": "A considered opening for weddings, celebrations, and evenings worth dressing for. Discover a silhouette with presence, from the first entrance to the last dance."
   },
