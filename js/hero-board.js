@@ -53,68 +53,80 @@
 
   /* ---------------------------------------------------------------- pieces */
   function makeMaterials() {
-    const T3 = THREE, tex = c => { const t = new T3.CanvasTexture(c); t.colorSpace = T3.SRGBColorSpace; t.wrapS = t.wrapT = T3.RepeatWrapping; t.anisotropy = 8; return t; };
-    // raw, unfinished wood: matte, no clear coat, the grain drives colour and a very gentle relief. Same grain in both woods.
-    const wood = (canvas, ru) => { const t = tex(canvas); t.repeat.set(ru, 1);
-      return new T3.MeshStandardMaterial({ map: t, bumpMap: t, bumpScale: .8, roughness: .84, metalness: 0, flatShading: true, envMapIntensity: .55 }); };
-    return { ivory: wood(woodGrainCanvas('light'), 2), ebony: wood(woodGrainCanvas('dark'), 2) };
+    const T3 = THREE, tex = (c, rx = 1, ry = 1) => { const t = new T3.CanvasTexture(c); t.colorSpace = T3.SRGBColorSpace; t.wrapS = t.wrapT = T3.RepeatWrapping; t.anisotropy = 8; t.repeat.set(rx, ry); return t; };
+    // white = honed travertine: cream, porous, pitted, satin-matte. black = polished black stone: deep, glossy, faintly mottled.
+    const tt = tex(travertineCanvas(), 1.4, 1), bt = tex(blackStoneCanvas(), 1, 1);
+    const ivory = new T3.MeshStandardMaterial({ map: tt, bumpMap: tt, color: 0xd8cdb6, bumpScale: 4.2, roughness: .62, metalness: 0, envMapIntensity: .65 });
+    const ebony = new T3.MeshPhysicalMaterial({ map: bt, color: 0xffffff, roughness: .07, clearcoat: 1, clearcoatRoughness: .03, envMapIntensity: 1.7 });
+    return { ivory, ebony, travertine: tt, blackStone: bt };
   }
   const geoCache = {};
   function G(key, make) { return geoCache[key] || (geoCache[key] = make()); }
   const lathe = (pts, seg = 40) => new THREE.LatheGeometry(new THREE.SplineCurve(pts.map(p => new THREE.Vector2(p[0], p[1]))).getPoints(40), seg);
   const cyl = (rt, rb, h, seg = 40) => new THREE.CylinderGeometry(rt, rb, h, seg);
 
-  /* Slim, faceted, hand-carved Staunton-inspired pieces (after the user's reference photo): low-segment lathes with flat shading give
-     the cut-gem facets; round stone finials (pawn, queen, bishop), a block cross for the king, a faceted horse head for the knight,
-     and a few brass rings for restrained flare. Profiles are [radius, height] polylines from the base up. */
-  const SEG = 28;
-  const facet = (pts, seg = SEG) => new THREE.LatheGeometry(pts.map(p => new THREE.Vector2(p[0], p[1])), seg);
-  const FOOT = [[0, 0], [.35, 0], [.37, .045], [.32, .115], [.245, .15]];
-  const ringG = (r, t) => new THREE.TorusGeometry(r, t, 8, 40);
+  /* Turned stone pieces after the user's reference photo: stout-but-elegant Staunton forms with a ribbed, stepped foot,
+     incised rings, a ball-headed pawn, crenellated rook, crowned queen/king, mitred bishop and a carved knight. Every part is
+     a smooth lathe (profiles are [radius, height] control points) so there are no flat primitives; the surface character comes
+     from the travertine / black-stone textures. */
+  const spline = (pts, n = 56) => new THREE.SplineCurve(pts.map(p => new THREE.Vector2(p[0], p[1]))).getPoints(n);
+  const turn = (pts, seg = 56) => new THREE.LatheGeometry(pts.map(p => new THREE.Vector2(p[0], p[1])), seg);
+  const smoothTurn = (pts, seg = 56, n = 56) => new THREE.LatheGeometry(spline(pts, n), seg);
+  const footPts = () => { const pts = [[0, 0], [.4, 0], [.425, .022]]; for (let i = 0; i <= 56; i++) { const t = i / 56, y = .035 + .215 * t; pts.push([.425 + (.285 - .425) * t + .022 * Math.pow(Math.max(0, Math.sin(t * 5 * Math.PI)), .55) - .01 * t, y]); } return pts; };   // stepped, ribbed foot
+  const beadG = (r, t) => new THREE.TorusGeometry(r, t, 12, 56);
   function buildPiece(type, body, trim, ball) {
     const g = new THREE.Group(), add = (geo, mat, x = 0, y = 0, z = 0) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); m.castShadow = m.receiveShadow = true; g.add(m); return m; };
-    const band = (y, r, t = .014) => { const m = add(G('rg' + r + t, () => ringG(r, t)), trim, 0, y); m.rotation.x = Math.PI / 2; m.castShadow = false; return m; };
-    const stem = (key, pts) => add(G(key, () => facet(FOOT.concat(pts))), body);
-    add(G('felt', () => new THREE.CylinderGeometry(.32, .32, .012, 10)), FELT, 0, .006);
+    const ring = (y, r, t = .016) => { const m = add(G('bd' + r + t, () => beadG(r, t)), body, 0, y); m.rotation.x = Math.PI / 2; m.castShadow = false; return m; };   // incised/raised ring
+    const plate = (y, r, h = .05) => { add(G('pl' + r + h, () => new THREE.CylinderGeometry(r, r * 1.03, h, 56)), body, 0, y); ring(y + h / 2, r * .985, h * .45); ring(y - h / 2, r * 1.0, h * .4); };
+    add(G('felt', () => new THREE.CylinderGeometry(.33, .33, .012, 40)), FELT, 0, .006);
+    add(G('foot', () => turn(footPts())), body);
     let h = 1;
     if (type === 'pawn') {
-      stem('pawn', [[.29, .25], [.235, .4], [.15, .62], [.115, .78], [.2, .81], [.2, .86], [.12, .89], [.085, .92], [.085, .98]]);
-      band(.83, .2); add(G('pawnBall', () => new THREE.SphereGeometry(.2, 40, 30)), ball, 0, 1.14); h = 1.34;
+      add(G('pawnB', () => smoothTurn([[.285, .25], [.245, .34], [.185, .54], [.15, .74], [.135, .84]])), body);
+      ring(.5, .205, .02); ring(.63, .17, .017);
+      plate(.86, .235); add(G('pawnN', () => new THREE.CylinderGeometry(.1, .12, .07, 40)), body, 0, .935);
+      add(G('pawnBall', () => new THREE.SphereGeometry(.225, 56, 40)), ball, 0, 1.1); h = 1.33;
     } else if (type === 'rook') {
-      stem('rook', [[.31, .26], [.255, .5], [.215, .84], [.27, .94], [.31, .99], [.31, 1.13], [.245, 1.14]]);
-      band(.97, .29);
-      add(G('rookIn', () => new THREE.CylinderGeometry(.22, .22, .01, 10)), new THREE.MeshStandardMaterial({ color: 0x1c130c, roughness: .9 }), 0, 1.145);
-      for (let i = 0; i < 4; i++) { const a = i / 4 * Math.PI * 2 + Math.PI / 4, m = add(G('mer', () => new THREE.BoxGeometry(.17, .16, .11)), body, Math.sin(a) * .245, 1.2, Math.cos(a) * .245); m.rotation.y = a; }
-      h = 1.3;
+      add(G('rookB', () => smoothTurn([[.285, .25], [.27, .36], [.25, .62], [.235, .86]])), body);
+      ring(.5, .262, .02); ring(.6, .255, .017);
+      add(G('rookTop', () => smoothTurn([[.235, .86], [.29, .93], [.315, 1.02], [.315, 1.16]])), body);
+      add(G('rookCap', () => new THREE.CylinderGeometry(.315, .315, .012, 56)), body, 0, 1.16);
+      add(G('rookIn', () => new THREE.CylinderGeometry(.22, .22, .01, 40)), new THREE.MeshStandardMaterial({ color: 0x6f5e46, roughness: .9 }), 0, 1.166);
+      for (let i = 0; i < 6; i++) { const a = i / 6 * Math.PI * 2, m = add(G('mer', () => new THREE.BoxGeometry(.15, .16, .12)), body, Math.sin(a) * .265, 1.24, Math.cos(a) * .265); m.rotation.y = a; m.scale.set(1, 1, 1); }
+      h = 1.34;
     } else if (type === 'bishop') {
-      stem('bishopB', [[.3, .24], [.22, .42], [.15, .7], [.12, .9], [.205, .93], [.205, .98], [.12, 1.0]]);
-      add(G('bishopH', () => facet([[.12, 1.0], [.2, 1.07], [.245, 1.22], [.19, 1.42], [.085, 1.57], [0, 1.63]], 8)), body);
-      band(.955, .205);
-      const notch = add(G('notch', () => new THREE.BoxGeometry(.4, .028, .05)), SLIT, 0, 1.3, 0); notch.rotation.z = -.7; notch.castShadow = false;
-      add(G('bishopBall', () => new THREE.SphereGeometry(.055, 24, 18)), ball, 0, 1.67); h = 1.75;
+      add(G('bishopB', () => smoothTurn([[.285, .25], [.235, .38], [.17, .62], [.13, .86], [.115, .98]])), body);
+      ring(.5, .205, .018); plate(1.0, .205, .045);
+      add(G('bishopH', () => smoothTurn([[.115, 1.02], [.2, 1.08], [.235, 1.24], [.2, 1.42], [.11, 1.56], [.03, 1.62]], 56, 60)), body);
+      add(G('bishopTip', () => new THREE.SphereGeometry(.058, 32, 24)), ball, 0, 1.66);
+      const cut = add(G('cut', () => new THREE.BoxGeometry(.4, .028, .06)), SLIT, 0, 1.3, 0); cut.rotation.z = -.7; cut.castShadow = false; h = 1.74;
     } else if (type === 'queen') {
-      stem('queenB', [[.32, .26], [.245, .5], [.165, .85], [.13, 1.08], [.265, 1.11], [.265, 1.17], [.14, 1.2]]);
-      add(G('queenH', () => facet([[.14, 1.2], [.31, 1.43], [.215, 1.65], [.06, 1.79], [0, 1.82]], 8)), body);
-      band(1.14, .265);
-      add(G('queenBall', () => new THREE.SphereGeometry(.07, 28, 20)), ball, 0, 1.89); h = 1.97;
+      add(G('queenB', () => smoothTurn([[.285, .25], [.255, .38], [.19, .72], [.145, 1.0], [.125, 1.1]])), body);
+      ring(.52, .215, .02); ring(.66, .185, .017); plate(1.13, .27, .05);
+      add(G('queenH', () => smoothTurn([[.125, 1.11], [.2, 1.2], [.28, 1.37], [.3, 1.5], [.26, 1.57]], 56, 60)), body);
+      for (let i = 0; i < 10; i++) { const a = i / 10 * Math.PI * 2; add(G('qb', () => new THREE.SphereGeometry(.042, 20, 16)), body, Math.sin(a) * .265, 1.585, Math.cos(a) * .265); }
+      add(G('queenTop', () => new THREE.SphereGeometry(.09, 32, 24)), ball, 0, 1.67); h = 1.78;
     } else if (type === 'king') {
-      stem('kingB', [[.32, .26], [.245, .5], [.165, .85], [.13, 1.08], [.265, 1.11], [.265, 1.17], [.14, 1.2]]);
-      add(G('kingH', () => facet([[.14, 1.2], [.27, 1.38], [.3, 1.56], [.17, 1.74], [.12, 1.8], [.12, 1.85]], 8)), body);
-      band(1.14, .265);
-      add(G('kingBlock', () => new THREE.BoxGeometry(.17, .09, .17)), trim, 0, 1.9); add(G('kv', () => new THREE.BoxGeometry(.08, .3, .08)), body, 0, 2.07); add(G('kh', () => new THREE.BoxGeometry(.25, .08, .08)), body, 0, 2.1); h = 2.24;
+      add(G('kingB', () => smoothTurn([[.285, .25], [.255, .38], [.19, .72], [.145, 1.0], [.125, 1.1]])), body);
+      ring(.52, .215, .02); ring(.66, .185, .017); plate(1.13, .27, .05);
+      add(G('kingH', () => smoothTurn([[.125, 1.11], [.2, 1.2], [.275, 1.36], [.295, 1.52], [.25, 1.62]], 56, 60)), body);
+      add(G('kingDisc', () => new THREE.CylinderGeometry(.215, .235, .05, 56)), body, 0, 1.64);
+      add(G('kingCross', () => { const sh = new THREE.Shape([[-.045, 0], [.045, 0], [.045, .17], [.14, .17], [.14, .25], [.045, .25], [.045, .36], [-.045, .36], [-.045, .25], [-.14, .25], [-.14, .17], [-.045, .17]].map(p => new THREE.Vector2(p[0], p[1])));
+        const e = new THREE.ExtrudeGeometry(sh, { depth: .09, bevelEnabled: true, bevelSize: .014, bevelThickness: .014, bevelSegments: 3, curveSegments: 1 }); e.translate(0, 0, -.045); return e; }), body, 0, 1.665);
+      h = 2.05;
     } else if (type === 'knight') {
-      stem('knightB', [[.3, .26], [.235, .44], [.2, .66], [.245, .71]]);
-      band(.72, .245);
+      add(G('knightB', () => smoothTurn([[.285, .25], [.245, .4], [.205, .6], [.235, .7]])), body);
+      ring(.5, .225, .018); plate(.72, .25, .05);
       const geo = G('knightH', () => {
-        const pts = [[-.2, .72], [-.27, .96], [-.23, 1.24], [-.09, 1.44], [.05, 1.5], [.13, 1.36], [.45, 1.15], [.53, 1.03], [.48, .91], [.37, .87], [.25, .95], [.14, .91], [.21, .81], [.3, .73]];
-        const shape = new THREE.Shape(pts.map(p => new THREE.Vector2(p[0], p[1])));
-        const e = new THREE.ExtrudeGeometry(shape, { depth: .26, bevelEnabled: true, bevelSize: .06, bevelThickness: .07, bevelSegments: 3, curveSegments: 1, steps: 1 });
+        const pts = [[-.2, .75], [-.27, .98], [-.23, 1.26], [-.1, 1.46], [.04, 1.52], [.12, 1.38], [.44, 1.17], [.53, 1.05], [.48, .93], [.37, .89], [.25, .97], [.14, .93], [.21, .83], [.3, .76]];
+        const shape = new THREE.Shape(new THREE.SplineCurve(pts.concat([pts[0]]).map(p => new THREE.Vector2(p[0], p[1]))).getPoints(120));
+        const e = new THREE.ExtrudeGeometry(shape, { depth: .26, bevelEnabled: true, bevelSize: .075, bevelThickness: .08, bevelSegments: 6, curveSegments: 20 });
         e.translate(0, 0, -.13); return e;
       });
       const m = add(geo, body); m.rotation.y = Math.PI / 2;
-      [-1, 1].forEach(sd => { const ear = add(G('ear', () => new THREE.ConeGeometry(.07, .24, 4)), body, sd * .11, 1.6, -.02); ear.rotation.z = -sd * .12; ear.rotation.x = -.15; });
-      [-1, 1].forEach(sd => { const e = add(G('eye', () => new THREE.SphereGeometry(.026, 12, 10)), SLIT, sd * .185, 1.24, -.13); e.castShadow = false; });
-      h = 1.62;
+      [-1, 1].forEach(sd => { const ear = add(G('ear', () => new THREE.ConeGeometry(.065, .23, 20)), body, sd * .1, 1.63, -.03); ear.rotation.z = -sd * .1; ear.rotation.x = -.16; });
+      [-1, 1].forEach(sd => { const e = add(G('eye', () => new THREE.SphereGeometry(.026, 12, 10)), SLIT, sd * .19, 1.26, -.13); e.castShadow = false; });
+      h = 1.66;
     }
     g.userData.h = h;
     return g;
@@ -123,6 +135,8 @@
 
   function addPiece(type, file, rank, white, M) {
     const bodyMat = M[white ? 'ivory' : 'ebony'].clone();
+    // every piece gets its own slice of the stone, so no two pawns share the same pits
+    const t1 = M[white ? 'travertine' : 'blackStone'].clone(); t1.offset.set(Math.random(), Math.random()); t1.rotation = Math.random() * .6; t1.needsUpdate = true; bodyMat.map = t1; if (white) bodyMat.bumpMap = t1;
     const g = buildPiece(type, bodyMat, bodyMat, bodyMat);
     g.scale.setScalar(SCALE);
     g.position.set(sqx(file), TOP, sqz(rank));
@@ -175,25 +189,37 @@
     }
     g.putImageData(img, 0, 0); return c;
   }
-  function woodGrainCanvas(kind) {
+  const rngOf = seed => () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  function travertineCanvas() {
     const N = 512, c = document.createElement('canvas'); c.width = c.height = N; const g = c.getContext('2d'), img = g.createImageData(N, N), d = img.data;
     for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
-      const u = x / N, v = y / N;
-      // growth rings: wandering, uneven bands (low-frequency warp) + fine pores and fibres, identical for both woods
-      const w = fbm(u * 2.0 + 4, v * .5, 4) * 6, ring = .5 + .5 * Math.sin((u * 8 + w) * Math.PI * 2), soft = ring * ring * (3 - 2 * ring);
-      const pore = vnoise(u * 190, v * 5), fibre = fbm(u * 70, v * 2.5, 3), tone = fbm(u * 1.3, v * .4, 4);
-      const heart = .5 + .5 * Math.sin((u * 3.2 + tone * 2.4) * Math.PI);                        // broad colour drift (heartwood / sapwood)
-      let r, gg, b;
-      if (kind === 'dark') {                                                                     // walnut
-        const late = 1 - soft, k = .9 + tone * .35 + (fibre - .5) * .28 + (pore > .86 ? -.16 : 0);
-        r = (84 - 44 * late + 16 * heart) * k; gg = (56 - 30 * late + 11 * heart) * k; b = (38 - 21 * late + 7 * heart) * k;
-      } else {                                                                                   // pale oak / ash
-        const late = 1 - soft, k = .92 + tone * .3 + (fibre - .5) * .22 + (pore > .86 ? -.1 : 0);
-        r = (212 - 70 * late - 10 * heart) * k; gg = (178 - 68 * late - 12 * heart) * k; b = (130 - 58 * late - 10 * heart) * k;
-      }
-      const i = (y * N + x) * 4; d[i] = clamp(r, 0, 255); d[i + 1] = clamp(gg, 0, 255); d[i + 2] = clamp(b, 0, 255); d[i + 3] = 255;
+      const u = x / N, v = y / N, tone = fbm(u * 2.4, v * 2.4, 4), strata = fbm(u * 2.5, v * 30, 4), grain = fbm(u * 110, v * 110, 2);
+      const k = .9 + tone * .22 + (strata - .5) * .2 + (grain - .5) * .07;
+      const i = (y * N + x) * 4; d[i] = clamp(226 * k, 0, 255); d[i + 1] = clamp(211 * k, 0, 255); d[i + 2] = clamp(182 * k - strata * 6, 0, 255); d[i + 3] = 255;
     }
-    g.putImageData(img, 0, 0); return c;
+    g.putImageData(img, 0, 0);
+    const rnd = rngOf(11);
+    // thin bedding lines (travertine is laid down in strata)
+    for (let i = 0; i < 14; i++) { const y = rnd() * N, len = 80 + rnd() * 300, x = rnd() * N; g.strokeStyle = `rgba(150,128,96,${.05 + rnd() * .1})`; g.lineWidth = .6 + rnd() * 1.4; g.beginPath(); g.moveTo(x, y); g.lineTo(x + len, y + (rnd() - .5) * 5); g.stroke(); }
+    // the pits and voids: elongated along the bedding, dark inside, lit rim on the upper edge
+    const pit = (cx, cy, rx, ry) => {
+      g.save(); g.translate(cx, cy); g.rotate((rnd() - .5) * .35);
+      const gr = g.createRadialGradient(-rx * .12, -ry * .18, 0, 0, 0, Math.max(rx, ry) * 1.15); gr.addColorStop(0, 'rgba(134,112,84,.92)'); gr.addColorStop(.55, 'rgba(166,144,112,.8)'); gr.addColorStop(1, 'rgba(190,170,138,0)');
+      g.scale(1, ry / rx); g.beginPath(); g.arc(0, 0, rx, 0, Math.PI * 2); g.fillStyle = gr; g.fill();
+      g.beginPath(); g.arc(0, 0, rx * 1.02, Math.PI * 1.05, Math.PI * 1.95); g.strokeStyle = 'rgba(248,238,216,.55)'; g.lineWidth = Math.max(.7, rx * .16); g.stroke(); g.restore();
+    };
+    for (let i = 0; i < 520; i++) { const big = rnd() < .06, rx = big ? 6 + rnd() * 9 : 1.4 + rnd() * rnd() * 6, ry = rx * (.38 + rnd() * .45); const x = rnd() * N, y = rnd() * N; pit(x, y, rx, ry); if (x < 16) pit(x + N, y, rx, ry); if (x > N - 16) pit(x - N, y, rx, ry); if (y < 16) pit(x, y + N, rx, ry); if (y > N - 16) pit(x, y - N, rx, ry); }
+    return c;
+  }
+  function blackStoneCanvas() {
+    const N = 512, c = document.createElement('canvas'); c.width = c.height = N; const g = c.getContext('2d'), img = g.createImageData(N, N), d = img.data, rnd = rngOf(23);
+    for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+      const u = x / N, v = y / N, n = fbm(u * 5, v * 5, 4), m = fbm(u * 40, v * 40, 3), vein = Math.pow(1 - Math.abs(Math.sin((u * 3 + v * 1.6 + fbm(u * 3, v * 3, 3) * 2.2) * Math.PI)), 26);
+      const k = 8 + n * 7 + m * 3 + vein * 7, i = (y * N + x) * 4; d[i] = k; d[i + 1] = k; d[i + 2] = k + 1; d[i + 3] = 255;
+    }
+    g.putImageData(img, 0, 0);
+    for (let i = 0; i < 90; i++) { g.fillStyle = `rgba(190,190,190,${.05 + rnd() * .12})`; g.beginPath(); g.arc(rnd() * N, rnd() * N, .5 + rnd() * 1.1, 0, 7); g.fill(); }   // faint mineral flecks
+    return c;
   }
   function woodCanvas() {
     const W = 512, H = 128, c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'), img = g.createImageData(W, H), d = img.data;
@@ -219,29 +245,27 @@
 
     FELT = new THREE.MeshStandardMaterial({ color: 0x0c0c0c, roughness: .95 }); SLIT = new THREE.MeshStandardMaterial({ color: 0x24170e, roughness: .95 }); INK = new THREE.MeshBasicMaterial({ color: 0x111111 });
 
-    // ---- the board: polished marble squares (white Carrara-style / black with faint veins) in a dark walnut frame with a brass inlay.
-    // The squares are slightly see-through so the upside-down twins of the pieces read as reflections in the polish.
-    const marble = kind => { const t = new THREE.CanvasTexture(marbleCanvas(kind)); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.anisotropy = 4; return t; };
-    const texL = marble('light'), texD = marble('dark');
-    const variants = (tex, base, opacity) => Array.from({ length: 6 }, (_, i) => { const t = tex.clone(); t.needsUpdate = true; t.repeat.set(.5, .5); t.offset.set((i % 3) * .25 + .0, Math.floor(i / 3) * .5); t.center.set(.5, .5); t.rotation = (i % 4) * Math.PI / 2;
-      return new THREE.MeshPhysicalMaterial({ map: t, color: base, roughness: .06, clearcoat: 1, clearcoatRoughness: .02, transparent: true, opacity, envMapIntensity: 1.4 }); });
-    const lights = variants(texL, 0xffffff, .94), darks = variants(texD, 0xffffff, .72);
+    // ---- the board: honed travertine squares (matte, pitted) and polished black-stone squares in a chunky travertine slab.
+    // Only the polished black squares are see-through, so the upside-down twins of the pieces read as reflections in them.
+    const mk = (canvas, rx, ry) => { const t = new THREE.CanvasTexture(canvas); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.anisotropy = 8; t.repeat.set(rx, ry); return t; };
+    const travTex = mk(travertineCanvas(), .5, .5), stoneTex = mk(blackStoneCanvas(), .5, .5);
+    const vary = (tex, i) => { const t = tex.clone(); t.needsUpdate = true; t.center.set(.5, .5); t.rotation = (i % 4) * Math.PI / 2; t.offset.set((i % 3) * .3, Math.floor(i / 3) * .5 + i * .07); return t; };
+    const lights = Array.from({ length: 6 }, (_, i) => { const t = vary(travTex, i); return new THREE.MeshStandardMaterial({ map: t, bumpMap: t, color: 0xcdc1a9, bumpScale: 3.6, roughness: .6, metalness: 0, envMapIntensity: .7 }); });
+    const darks = Array.from({ length: 6 }, (_, i) => new THREE.MeshPhysicalMaterial({ map: vary(stoneTex, i), roughness: .05, clearcoat: 1, clearcoatRoughness: .02, transparent: true, opacity: .8, envMapIntensity: 1.6 }));
     const sqGeo = new THREE.BoxGeometry(.995, .06, .995);
     for (let f = 0; f < 8; f++) for (let r = 0; r < 8; r++) {
-      const set = (f + r) % 2 ? lights : darks, m = new THREE.Mesh(sqGeo, set[(f * 7 + r * 3) % set.length]);
-      m.position.set(sqx(f), TOP - .03, sqz(r)); m.receiveShadow = true; m.renderOrder = 2; scene.add(m);
+      const light = (f + r) % 2, set = light ? lights : darks, m = new THREE.Mesh(sqGeo, set[(f * 7 + r * 3) % set.length]);
+      m.position.set(sqx(f), TOP - .03, sqz(r)); m.receiveShadow = true; m.renderOrder = light ? 0 : 2; scene.add(m);
     }
-    const wood = new THREE.CanvasTexture(woodCanvas()); wood.colorSpace = THREE.SRGBColorSpace; wood.wrapS = wood.wrapT = THREE.RepeatWrapping;
-    const woodM = new THREE.MeshPhysicalMaterial({ map: wood, color: 0x8f7a6a, roughness: .3, clearcoat: .9, clearcoatRoughness: .08, envMapIntensity: 1.1 });
-    const brass = new THREE.MeshStandardMaterial({ color: 0xd8aa52, metalness: 1, roughness: .2 });
-    const W = 8, B = .55, H = .24;
-    // dark skirt under the frame: hides the reflection twins from the sides so they only show through the marble
+    const slabT = mk(travertineCanvas(), 3, .5); slabT.rotation = 0;
+    const slabM = new THREE.MeshStandardMaterial({ map: slabT, bumpMap: slabT, color: 0xc4b89e, bumpScale: 3.2, roughness: .66, envMapIntensity: .7 });
+    const W = 8, B = .7, H = .32;
+    // dark skirt under the slab: hides the reflection twins from the sides so they only show through the black stone
     { const wallM = new THREE.MeshBasicMaterial({ color: 0x070809, side: THREE.DoubleSide }), hh = 3.4, yy = TOP - hh / 2 - .05, o = W / 2 + B - .02;
       [[0, -o, W + B * 2, .02], [0, o, W + B * 2, .02], [-o, 0, .02, W + B * 2], [o, 0, .02, W + B * 2]].forEach(([x, z, w, d]) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, hh, d), wallM); m.position.set(x, yy, z); scene.add(m); }); }
     [[0, -(W / 2 + B / 2), W + B * 2, B], [0, W / 2 + B / 2, W + B * 2, B], [-(W / 2 + B / 2), 0, B, W], [W / 2 + B / 2, 0, B, W]].forEach(([x, z, w, d]) => {
-      const m = new THREE.Mesh(new THREE.BoxGeometry(w, H, d), woodM); m.position.set(x, TOP + .02 - H / 2 + .03, z); m.castShadow = m.receiveShadow = true; scene.add(m);
+      const m = new THREE.Mesh(new THREE.BoxGeometry(w, H, d), slabM); m.position.set(x, TOP + .01 - H / 2 + .03, z); m.castShadow = m.receiveShadow = true; scene.add(m);
     });
-    [[0, -W / 2 - .02, W + .06, .03], [0, W / 2 + .02, W + .06, .03], [-W / 2 - .02, 0, .03, W], [W / 2 + .02, 0, .03, W]].forEach(([x, z, w, d]) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, .02, d), brass); m.position.set(x, TOP + .056, z); scene.add(m); });
     ring = new THREE.Mesh(new THREE.RingGeometry(.5, .62, 56), new THREE.MeshBasicMaterial({ color: 0xd8aa52, transparent: true, opacity: 0, side: THREE.DoubleSide, fog: false })); ring.rotation.x = -Math.PI / 2; ring.position.y = TOP + .004; ring.renderOrder = 3; scene.add(ring);
 
     // soft contact shadow under every piece (grounds them, like ambient occlusion)
@@ -263,7 +287,7 @@
     camera.aspect = w / h;
     const wide = w > 900, usable = wide ? .66 : .98;
     const t = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
-    camState.dist = 5.4 / (t * camera.aspect * usable);
+    camState.dist = 5.6 / (t * camera.aspect * usable);
     scene.fog.near = camState.dist * .95; scene.fog.far = camState.dist * 2.15;
     camera.setViewOffset(w, h, wide ? -w * .15 : 0, wide ? h * .03 : -h * .1, w, h);
     camera.updateProjectionMatrix();
