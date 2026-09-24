@@ -27,7 +27,7 @@
   // how each type moves when clicked (from the start position, over the pieces in front): [file delta, rank delta, hop height]
   const MOVES = { pawn: () => [0, 2, .6], rook: () => [0, 3, 1.6], bishop: f => [f < 4 ? 2 : -2, 2, 1.3], queen: () => [3, 3, 1.4], king: () => [0, 2, 1.3], knight: f => [f < 4 ? 1 : -1, 2, 1.5] };
   const PREFER = { king: 4, queen: 3, bishop: 5, rook: 7, knight: 6, pawn: 4 };   // which piece the key row / hover shortcuts refer to
-  const SCALE = 1.08;
+  const SCALE = 1.0;
 
   let THREE = null, renderer, scene, camera, ring, envTex;
   const mirrors = [];
@@ -53,68 +53,72 @@
 
   /* ---------------------------------------------------------------- pieces */
   function makeMaterials() {
-    const T3 = THREE;
-    // white = silvery ivory lacquer, black = deep piano-black lacquer; both very glossy so the studio lights streak across them
-    const ivory = new T3.MeshPhysicalMaterial({ color: 0xc4c1ba, roughness: .1, clearcoat: 1, clearcoatRoughness: .03, envMapIntensity: 1.9 });
-    const ebony = new T3.MeshPhysicalMaterial({ color: 0x0b0b0d, roughness: .12, clearcoat: 1, clearcoatRoughness: .03, envMapIntensity: 1.7 });
-    const brass = new T3.MeshStandardMaterial({ color: 0xd8aa52, metalness: 1, roughness: .16, envMapIntensity: 1.3 });
-    return { ivory, ebony, brass };
+    const T3 = THREE, tex = c => { const t = new T3.CanvasTexture(c); t.colorSpace = T3.SRGBColorSpace; t.wrapS = t.wrapT = T3.RepeatWrapping; t.anisotropy = 8; return t; };
+    // carved wood: waxed satin finish, grain drives both colour and relief; flat shading keeps every chisel facet crisp
+    const wood = (canvas, ru) => { const t = tex(canvas); t.repeat.set(ru, 1);
+      return new T3.MeshPhysicalMaterial({ map: t, bumpMap: t, bumpScale: 1.5, roughness: .48, clearcoat: .35, clearcoatRoughness: .4, flatShading: true, envMapIntensity: .95 }); };
+    const ivory = wood(woodGrainCanvas('light'), 3), ebony = wood(woodGrainCanvas('dark'), 3);
+    // polished stone for the round finials
+    const stone = kind => { const t = tex(marbleCanvas(kind)); return new T3.MeshPhysicalMaterial({ map: t, bumpMap: t, bumpScale: .6, roughness: .14, clearcoat: 1, clearcoatRoughness: .05, envMapIntensity: 1.5 }); };
+    const brass = new T3.MeshStandardMaterial({ color: 0xd8aa52, metalness: 1, roughness: .28, envMapIntensity: 1.2 });
+    return { ivory, ebony, brass, stoneL: stone('light'), stoneD: stone('dark') };
   }
   const geoCache = {};
   function G(key, make) { return geoCache[key] || (geoCache[key] = make()); }
   const lathe = (pts, seg = 40) => new THREE.LatheGeometry(new THREE.SplineCurve(pts.map(p => new THREE.Vector2(p[0], p[1]))).getPoints(40), seg);
   const cyl = (rt, rb, h, seg = 40) => new THREE.CylinderGeometry(rt, rb, h, seg);
 
-  const ring3 = (r, tube) => new THREE.TorusGeometry(r, tube, 14, 56);
-  function buildPiece(type, body, trim) {
+  /* Slim, faceted, hand-carved Staunton-inspired pieces (after the user's reference photo): low-segment lathes with flat shading give
+     the cut-gem facets; round stone finials (pawn, queen, bishop), a block cross for the king, a faceted horse head for the knight,
+     and a few brass rings for restrained flare. Profiles are [radius, height] polylines from the base up. */
+  const SEG = 10;
+  const facet = (pts, seg = SEG) => new THREE.LatheGeometry(pts.map(p => new THREE.Vector2(p[0], p[1])), seg);
+  const FOOT = [[0, 0], [.35, 0], [.37, .045], [.32, .115], [.245, .15]];
+  const ringG = (r, t) => new THREE.TorusGeometry(r, t, 8, 40);
+  function buildPiece(type, body, trim, ball) {
     const g = new THREE.Group(), add = (geo, mat, x = 0, y = 0, z = 0) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); m.castShadow = m.receiveShadow = true; g.add(m); return m; };
-    const bead = (y, r, t, mat = body) => { const m = add(G('bd' + r + t, () => ring3(r, t)), mat, 0, y); m.rotation.x = Math.PI / 2; return m; };
-    // felt pad + stepped, beaded base (shared by every piece)
-    add(G('felt', () => cyl(.37, .37, .012)), FELT, 0, .006);
-    add(G('b1', () => cyl(.42, .445, .07)), body, 0, .045);
-    add(G('b2', () => cyl(.36, .385, .075)), body, 0, .12); bead(.165, .34, .03);
+    const band = (y, r, t = .014) => { const m = add(G('rg' + r + t, () => ringG(r, t)), trim, 0, y); m.rotation.x = Math.PI / 2; m.castShadow = false; return m; };
+    const stem = (key, pts) => add(G(key, () => facet(FOOT.concat(pts))), body);
+    add(G('felt', () => new THREE.CylinderGeometry(.32, .32, .012, 10)), FELT, 0, .006);
     let h = 1;
     if (type === 'pawn') {
-      add(G('pawnB', () => lathe([[.3, .16], [.235, .26], [.17, .42], [.135, .58], [.125, .66]])), body);
-      bead(.69, .16, .035, trim); add(G('pawnC', () => cyl(.205, .215, .04)), body, 0, .74);
-      add(G('pawnN', () => cyl(.1, .13, .07)), body, 0, .8); add(G('pawnH', () => new THREE.SphereGeometry(.205, 40, 30)), body, 0, .95); h = 1.15;
+      stem('pawn', [[.29, .25], [.235, .4], [.15, .62], [.115, .78], [.2, .81], [.2, .86], [.12, .89], [.085, .92], [.085, .98]]);
+      band(.83, .2); add(G('pawnBall', () => new THREE.SphereGeometry(.2, 40, 30)), ball, 0, 1.14); h = 1.34;
     } else if (type === 'rook') {
-      add(G('rookB', () => lathe([[.335, .16], [.275, .27], [.235, .5], [.215, .75], [.25, .86]])), body);
-      bead(.6, .235, .028); bead(.86, .27, .03, trim);
-      add(G('rookT', () => cyl(.325, .28, .2)), body, 0, .98);
-      add(G('rookIn', () => cyl(.23, .23, .01)), new THREE.MeshStandardMaterial({ color: 0x1a1a1a, roughness: .5 }), 0, 1.075);
-      for (let i = 0; i < 6; i++) { const a = i / 6 * Math.PI * 2, m = add(G('mer', () => new THREE.BoxGeometry(.15, .15, .13)), body, Math.sin(a) * .265, 1.13, Math.cos(a) * .265); m.rotation.y = a; }
-      h = 1.25;
+      stem('rook', [[.31, .26], [.255, .5], [.215, .84], [.27, .94], [.31, .99], [.31, 1.13], [.245, 1.14]]);
+      band(.52, .245); band(.97, .29);
+      add(G('rookIn', () => new THREE.CylinderGeometry(.22, .22, .01, 10)), new THREE.MeshStandardMaterial({ color: 0x141414, roughness: .6 }), 0, 1.145);
+      for (let i = 0; i < 4; i++) { const a = i / 4 * Math.PI * 2 + Math.PI / 4, m = add(G('mer', () => new THREE.BoxGeometry(.17, .16, .11)), body, Math.sin(a) * .245, 1.2, Math.cos(a) * .245); m.rotation.y = a; }
+      h = 1.3;
     } else if (type === 'bishop') {
-      add(G('bisB', () => lathe([[.325, .16], [.225, .32], [.155, .55], [.125, .78]])), body);
-      bead(.6, .16, .028); bead(.82, .175, .04, trim); add(G('bisC', () => cyl(.205, .215, .04)), body, 0, .88);
-      add(G('bisH', () => lathe([[0, .9], [.17, .945], [.24, 1.1], [.225, 1.27], [.135, 1.44], [.05, 1.52], [0, 1.54]], 48)), body);
-      add(G('bisT', () => new THREE.SphereGeometry(.065, 24, 18)), trim, 0, 1.6);
-      const slit = add(G('slit', () => new THREE.BoxGeometry(.44, .028, .036)), SLIT, 0, 1.2, .0); slit.rotation.z = -.75; slit.castShadow = false;
-      h = 1.66;
+      stem('bishopB', [[.3, .24], [.22, .42], [.15, .7], [.12, .9], [.205, .93], [.205, .98], [.12, 1.0]]);
+      add(G('bishopH', () => facet([[.12, 1.0], [.2, 1.07], [.245, 1.22], [.19, 1.42], [.085, 1.57], [0, 1.63]], 8)), body);
+      band(.955, .205); band(1.02, .13);
+      const notch = add(G('notch', () => new THREE.BoxGeometry(.4, .028, .05)), SLIT, 0, 1.3, 0); notch.rotation.z = -.7; notch.castShadow = false;
+      add(G('bishopBall', () => new THREE.SphereGeometry(.055, 24, 18)), ball, 0, 1.67); h = 1.75;
     } else if (type === 'queen') {
-      add(G('queB', () => lathe([[.34, .16], [.235, .38], [.165, .7], [.14, .96]])), body);
-      bead(.62, .18, .03); bead(.99, .2, .04, trim); bead(1.06, .19, .03);
-      add(G('queH', () => lathe([[.17, 1.09], [.23, 1.23], [.275, 1.38], [.255, 1.48]], 48)), body);
-      for (let i = 0; i < 9; i++) { const a = i / 9 * Math.PI * 2; add(G('qs', () => new THREE.ConeGeometry(.04, .14, 14)), trim, Math.sin(a) * .245, 1.55, Math.cos(a) * .245); }
-      add(G('queT', () => new THREE.SphereGeometry(.09, 24, 18)), trim, 0, 1.65); h = 1.78;
+      stem('queenB', [[.32, .26], [.245, .5], [.165, .85], [.13, 1.08], [.265, 1.11], [.265, 1.17], [.14, 1.2]]);
+      add(G('queenH', () => facet([[.14, 1.2], [.31, 1.43], [.215, 1.65], [.06, 1.79], [0, 1.82]], 8)), body);
+      band(1.14, .265); band(1.085, .14);
+      add(G('queenBall', () => new THREE.SphereGeometry(.07, 28, 20)), ball, 0, 1.89); h = 1.97;
     } else if (type === 'king') {
-      add(G('kinB', () => lathe([[.34, .16], [.235, .38], [.165, .7], [.14, .96]])), body);
-      bead(.62, .18, .03); bead(.99, .2, .04, trim); bead(1.06, .19, .03);
-      add(G('kinH', () => lathe([[.17, 1.09], [.24, 1.26], [.28, 1.43], [.25, 1.55]], 48)), body);
-      add(G('kinT', () => cyl(.21, .235, .06)), body, 0, 1.6); bead(1.64, .2, .03, trim);
-      add(G('kv', () => new THREE.BoxGeometry(.08, .34, .08)), trim, 0, 1.87); add(G('kh', () => new THREE.BoxGeometry(.26, .08, .08)), trim, 0, 1.9); h = 2.06;
+      stem('kingB', [[.32, .26], [.245, .5], [.165, .85], [.13, 1.08], [.265, 1.11], [.265, 1.17], [.14, 1.2]]);
+      add(G('kingH', () => facet([[.14, 1.2], [.27, 1.38], [.3, 1.56], [.17, 1.74], [.12, 1.8], [.12, 1.85]], 8)), body);
+      band(1.14, .265); band(1.085, .14);
+      add(G('kingBlock', () => new THREE.BoxGeometry(.17, .09, .17)), trim, 0, 1.9); add(G('kv', () => new THREE.BoxGeometry(.08, .3, .08)), body, 0, 2.07); add(G('kh', () => new THREE.BoxGeometry(.25, .08, .08)), body, 0, 2.1); h = 2.24;
     } else if (type === 'knight') {
-      add(G('knB', () => lathe([[.315, .16], [.235, .34], [.205, .56]])), body);
-      bead(.4, .22, .028); bead(.6, .22, .035, trim); add(G('knC', () => cyl(.245, .255, .04)), body, 0, .64);
-      const geo = G('knH', () => {
-        const pts = [[-.2, .66], [-.26, .84], [-.24, 1.06], [-.14, 1.24], [-.02, 1.33], [.02, 1.46], [.09, 1.35], [.2, 1.24], [.42, 1.04], [.46, .93], [.37, .87], [.26, .93], [.14, .89], [.22, .79], [.3, .69], [-.2, .66]];
-        const shape = new THREE.Shape(new THREE.SplineCurve(pts.map(p => new THREE.Vector2(p[0], p[1]))).getPoints(110));
-        const e = new THREE.ExtrudeGeometry(shape, { depth: .24, bevelEnabled: true, bevelSize: .055, bevelThickness: .055, bevelSegments: 5, curveSegments: 14 });
-        e.translate(0, 0, -.12); return e;
+      stem('knightB', [[.3, .26], [.235, .44], [.2, .66], [.245, .71]]);
+      band(.72, .245);
+      const geo = G('knightH', () => {
+        const pts = [[-.2, .72], [-.27, .96], [-.23, 1.24], [-.09, 1.44], [.05, 1.5], [.13, 1.36], [.45, 1.15], [.53, 1.03], [.48, .91], [.37, .87], [.25, .95], [.14, .91], [.21, .81], [.3, .73]];
+        const shape = new THREE.Shape(pts.map(p => new THREE.Vector2(p[0], p[1])));
+        const e = new THREE.ExtrudeGeometry(shape, { depth: .26, bevelEnabled: true, bevelSize: .055, bevelThickness: .06, bevelSegments: 1, curveSegments: 1, steps: 1 });
+        e.translate(0, 0, -.13); return e;
       });
-      const m = add(geo, body); m.rotation.y = Math.PI / 2; h = 1.5;
-      [-1, 1].forEach(sd => { const e = add(G('eye', () => new THREE.SphereGeometry(.032, 14, 10)), INK, sd * .18, 1.24, -.11); e.castShadow = false; });
+      const m = add(geo, body); m.rotation.y = Math.PI / 2;
+      [-1, 1].forEach(sd => { const ear = add(G('ear', () => new THREE.ConeGeometry(.07, .24, 4)), body, sd * .11, 1.6, -.02); ear.rotation.z = -sd * .12; ear.rotation.x = -.15; });
+      [-1, 1].forEach(sd => { const e = add(G('eye', () => new THREE.SphereGeometry(.03, 12, 10)), trim, sd * .185, 1.24, -.13); e.castShadow = false; });
+      h = 1.62;
     }
     g.userData.h = h;
     return g;
@@ -123,8 +127,7 @@
 
   function addPiece(type, file, rank, white, M) {
     const bodyMat = M[white ? 'ivory' : 'ebony'].clone();
-    const trim = white ? M.brass : bodyMat;
-    const g = buildPiece(type, bodyMat, trim);
+    const g = buildPiece(type, bodyMat, M.brass, white ? M.stoneL : M.stoneD);
     g.scale.setScalar(SCALE);
     g.position.set(sqx(file), TOP, sqz(rank));
     if (!white) g.rotation.y = Math.PI;
@@ -172,6 +175,28 @@
       let r, gg, b;
       if (kind === 'light') { const base = 214 + n * 26 - 14; r = base - vein * 74 - vein2 * 30; gg = base - 2 - vein * 72 - vein2 * 30; b = base - 8 - vein * 62 - vein2 * 26; }
       else { const base = 9 + n * 12; r = base + vein * 46 + vein2 * 14; gg = base + vein * 43 + vein2 * 12; b = base + 1 + vein * 38 + vein2 * 10; }
+      const i = (y * N + x) * 4; d[i] = clamp(r, 0, 255); d[i + 1] = clamp(gg, 0, 255); d[i + 2] = clamp(b, 0, 255); d[i + 3] = 255;
+    }
+    g.putImageData(img, 0, 0); return c;
+  }
+  function woodGrainCanvas(kind) {
+    const N = 512, c = document.createElement('canvas'); c.width = c.height = N; const g = c.getContext('2d'), img = g.createImageData(N, N), d = img.data;
+    for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+      const u = x / N, v = y / N;
+      // growth rings: bands warped by low-frequency noise, so they wander and vary in width like real grain
+      const w = fbm(u * 2.2 + 4, v * .55, 4) * 6.5, ring = .5 + .5 * Math.sin((u * 9.5 + w) * Math.PI * 2), soft = ring * ring * (3 - 2 * ring);
+      const pore = vnoise(u * 170, v * 5), fibre = fbm(u * 60, v * 3, 3), tone = fbm(u * 1.4, v * .45, 4);
+      const chisel = vnoise((u + v * .55) * 110, (u - v * .55) * 8) > .78 ? 1 : 0;             // short cross-grain tool marks
+      let r, gg, b;
+      if (kind === 'dark') {
+        const streak = Math.pow(soft, 5) * .55 + (pore > .82 ? .14 : 0);
+        const k = .8 + tone * .6 - chisel * .18 + (fibre - .5) * .3;
+        r = 30 * k + 74 * streak; gg = 23 * k + 58 * streak; b = 18 * k + 46 * streak;
+      } else {
+        const dark = Math.pow(1 - soft, 2) * .5;
+        const k = .82 + tone * .42 - chisel * .12 + (fibre - .5) * .22 + (pore > .84 ? -.08 : 0);
+        r = 226 * k - 96 * dark; gg = 196 * k - 100 * dark; b = 154 * k - 92 * dark;
+      }
       const i = (y * N + x) * 4; d[i] = clamp(r, 0, 255); d[i + 1] = clamp(gg, 0, 255); d[i + 2] = clamp(b, 0, 255); d[i + 3] = 255;
     }
     g.putImageData(img, 0, 0); return c;
@@ -351,7 +376,7 @@
 
   /* ---------------------------------------------------------------- start */
   const webgl = (() => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) { return false; } })();
-  window.__hb = { advance(sec) { for (let i = 0; i < Math.round(sec / .02); i++) update(.02); }, get state() { return { busy, hovered: hovered && hovered.type, pieces: pieces.length }; }, noNav: false, hover(t) { setHover(home(t)); }, click(t) { return choose(home(t)); } };
+  window.__hb = { advance(sec) { for (let i = 0; i < Math.round(sec / .02); i++) update(.02); }, get state() { return { busy, hovered: hovered && hovered.type, pieces: pieces.length }; }, noNav: false, zoom(t, k = .9, fov = 17) { const p = home(t); dive = { to: new THREE.Vector3(p.home.x + .3, TOP + p.h * .8, p.home.z + 3.6), look: new THREE.Vector3(p.home.x, TOP + p.h * .62, p.home.z), fov, k }; }, unzoom() { dive = null; }, hover(t) { setHover(home(t)); }, click(t) { return choose(home(t)); } };
   keys.forEach(k => k.addEventListener('click', e => { if (!root.classList.contains('is-ready')) return; }));
   if (!webgl || reduce) { root.classList.add('is-fallback'); return; }
   boot().catch(err => { console.error('hero-board:', err); root.classList.add('is-fallback'); });
