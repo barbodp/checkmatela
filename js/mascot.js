@@ -1,38 +1,19 @@
-/* "Sir Checkmate" — Checkmatela's mascot: a glossy, inflated 3D gentleman who floats across the homepage like a
-   balloon as you scroll (tumbling, swooping toward the camera and away again).
+/* "Sir Checkmate" — Checkmatela's mascot: a small, glossy, inflated 3D gentleman who drifts freely around the
+   homepage like a balloon. He is NOT tied to scrolling — he wanders the screen on his own slow, looping path,
+   turns to face the way he is heading, sways and waves.
 
-   Built from primitives with three.js (lazy-loaded from js/vendor only when the flight is near the viewport).
-   The flight runs between #flightStart (top) and #flightEnd (bottom) on the homepage.
+   Built from primitives with three.js (vendored in js/vendor, loaded after the page has settled). The canvas is only as
+   big as he is and is moved with a CSS transform, so rendering stays cheap. Click-through, sits under the header,
+   skipped for reduced-motion visitors.
 
-   Tweak the look in buildMascot() (colours/materials), the path in pose(). Debug: open the page with #mascot=0.5
-   to freeze the flight at 50%. */
+   Tweak: size (SIZE below + .mascot-canvas in CSS), speed/route (route()), look (buildMascot()). */
 (() => {
   "use strict";
-  const startEl = document.getElementById('flightStart');
-  const endEl = document.getElementById('flightEnd');
-  if (!startEl || !endEl) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const debug = /mascot=([\d.]+)/.exec(location.hash);
-  const forced = debug ? parseFloat(debug[1]) : null;
-
-  let THREE = null, renderer, scene, camera, mascot, parts, running = false, loading = false;
-  let target = 0, cur = 0, last = 0, canvas;
-
-  const pageTop = el => el.getBoundingClientRect().top + window.scrollY;
-  const zone = () => {
-    const vh = window.innerHeight;
-    const a = pageTop(startEl) - vh * 0.35, b = pageTop(endEl) - vh * 0.45;
-    return [a, Math.max(b, a + vh * 1.6)];
-  };
-  const measure = () => {
-    const [a, b] = zone();
-    target = forced !== null ? forced : Math.min(1, Math.max(0, (window.scrollY - a) / (b - a)));
-  };
-  const inRange = () => {
-    const [a, b] = zone(), vh = window.innerHeight;
-    return forced !== null || (window.scrollY > a - vh * 0.5 && window.scrollY < b + vh * 0.6);
-  };
+  const SIZE = () => (window.innerWidth < 700 ? [150, 180] : [210, 250]);   // canvas px (w, h)
+  let THREE = null, renderer, scene, camera, mascot, parts, canvas;
+  let px = 0, py = 0, lastX = null, lastY = null, faceY = 0, bank = 0, lean = 0;
 
   /* ------------------------------------------------------------------ the character */
   function buildMascot() {
@@ -134,7 +115,6 @@
   }
 
   async function boot() {
-    if (loading) return; loading = true;
     THREE = await import('./vendor/three-0.159.module.min.js');
     canvas = document.createElement('canvas');
     canvas.className = 'mascot-canvas'; canvas.setAttribute('aria-hidden', 'true');
@@ -151,57 +131,57 @@
     scene.environment = pm.fromScene(makeEnv(), .03).texture;
     const key = new THREE.DirectionalLight(0xffffff, 1.6); key.position.set(-4, 6, 8); scene.add(key);
     const rim = new THREE.DirectionalLight(0xffe7c2, .8); rim.position.set(6, 2, -4); scene.add(rim);
-    parts = buildMascot(); mascot = new THREE.Group(); mascot.add(parts.g); scene.add(mascot);
+    parts = buildMascot();
+    parts.g.position.y = -1.4;                       // centre the figure in the frame
+    mascot = new THREE.Group(); mascot.add(parts.g); scene.add(mascot);
     resize(); window.addEventListener('resize', resize);
-    measure(); cur = target; start();
+    window.__mascotFrame = frame;                    // test hook
+    requestAnimationFrame(frame);
   }
 
   function resize() {
-    if (!renderer) return;
-    const w = window.innerWidth, h = window.innerHeight;
+    const [w, h] = SIZE();
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(w, h, false);
+    canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
     camera.aspect = w / h; camera.updateProjectionMatrix();
   }
 
-  /* the flight: bottom-left → across the page → top-right, looming toward the camera mid-way */
-  function pose(p, t) {
-    const aspect = camera.aspect, portrait = aspect < 1;
-    const fit = portrait ? Math.max(.42, aspect * .95) : 1;             // keep him on screen on phones
-    const halfW = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * 16 * aspect;
-    const s = Math.sin(Math.PI * p);
-    const x = (-1.15 + 2.3 * p) * halfW * .95 + Math.sin(p * Math.PI * 2.4) * .5;
-    const y = -8.5 + 17 * p + Math.sin(p * Math.PI * 3.1) * 1.1;
-    const z = -6 + 9 * Math.pow(s, 1.3);
-    mascot.position.set(x, y, z);
-    mascot.scale.setScalar(.62 * fit * (1 + .62 * Math.pow(s, 2.4)) * (1 + .04 * Math.sin(t * 1.7)));  // breathing, balloon-like
-    mascot.rotation.set(.42 + .22 * Math.sin(p * Math.PI) - .1 * (p - .5), (p - .5) * 3.1 + Math.sin(t * .9) * .08, (.5 - p) * .9 + Math.sin(t * 1.3) * .05);
-    parts.arms.forEach((a, i) => { const s2 = i ? 1 : -1; a.rotation.z = s2 * (1.2 + .16 * Math.sin(t * 2.6 + i)); a.rotation.x = .12 * Math.sin(t * 2 + i * 2); });
-    parts.legs.forEach((l, i) => { l.rotation.x = .3 * Math.sin(t * 2.2 + i * Math.PI); l.rotation.z = (i ? 1 : -1) * .1; });
-    parts.head.rotation.z = .06 * Math.sin(t * 1.4);
-    parts.bow.rotation.z = .05 * Math.sin(t * 3);
+  /* The route: two slow sine waves per axis give a wandering, never-quite-repeating loop around the whole viewport. */
+  function route(t) {
+    const [w, h] = SIZE(), vw = window.innerWidth, vh = window.innerHeight;
+    const rx = Math.max(0, (vw - w) / 2), ry = Math.max(0, (vh - h) / 2);
+    const x = rx * (.66 * Math.sin(t * .105 + 1.3) + .34 * Math.sin(t * .23 + 4.1));
+    const y = ry * (.62 * Math.sin(t * .083 + .4) + .38 * Math.sin(t * .17 + 2.2)) + 10 * Math.sin(t * 1.25);
+    return [vw / 2 - w / 2 + x, vh / 2 - h / 2 + y];
   }
 
+  let last = 0;
   function frame(now) {
-    if (!running) return;
-    const dt = Math.min(50, now - last || 16); last = now;
-    if (!inRange()) { canvas.style.visibility = 'hidden'; running = false; return; }
-    measure();
-    cur += (target - cur) * Math.min(1, dt * .006);
-    const p = Math.min(1, Math.max(0, cur));
-    if (p <= .002 || p >= .998) canvas.style.visibility = 'hidden';
-    else {
-      canvas.style.visibility = 'visible';
-      pose(p, now / 1000);
-      renderer.render(scene, camera);
-    }
     requestAnimationFrame(frame);
+    if (document.hidden) return;
+    const dt = Math.min(.05, (now - last) / 1000 || .016); last = now;
+    const t = now / 1000;
+    const [x, y] = route(t);
+    const vx = lastX === null ? 0 : (x - lastX) / dt, vy = lastY === null ? 0 : (y - lastY) / dt;
+    lastX = x; lastY = y;
+    // face the direction of travel, bank into turns, lean forward when climbing/falling
+    const k = Math.min(1, dt * 2.2);
+    faceY += (Math.max(-1, Math.min(1, vx / 35)) * .95 - faceY) * k;
+    bank += (Math.max(-1, Math.min(1, -vx / 60)) * .22 - bank) * k;
+    lean += (Math.max(-1, Math.min(1, vy / 40)) * .16 - lean) * k;
+    canvas.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+    canvas.style.visibility = 'visible';
+    mascot.rotation.set(.22 + lean, faceY + Math.sin(t * .9) * .12, bank + Math.sin(t * 1.3) * .05);
+    mascot.scale.setScalar(.94 * (1 + .03 * Math.sin(t * 1.7)));
+    parts.arms.forEach((a, i) => { const s2 = i ? 1 : -1; a.rotation.z = s2 * (1.15 + .2 * Math.sin(t * 2.4 + i)); a.rotation.x = .14 * Math.sin(t * 2 + i * 2); });
+    parts.legs.forEach((l, i) => { l.rotation.x = .3 * Math.sin(t * 2.1 + i * Math.PI); l.rotation.z = (i ? 1 : -1) * .1; });
+    parts.head.rotation.z = .07 * Math.sin(t * 1.4);
+    parts.bow.rotation.z = .05 * Math.sin(t * 3);
+    renderer.render(scene, camera);
   }
-  function start() { if (!running && renderer) { running = true; last = 0; requestAnimationFrame(frame); } }
 
-  const check = () => { if (inRange()) { THREE ? start() : boot(); } };
-  window.addEventListener('scroll', check, { passive: true });
-  window.addEventListener('resize', check);
-  window.__mascot = { set: p => { target = cur = p; } };
-  check();
+  // start once the page has settled so the hero paints first
+  const go = () => setTimeout(boot, 800);
+  if (document.readyState === 'complete') go(); else window.addEventListener('load', go, { once: true });
 })();
