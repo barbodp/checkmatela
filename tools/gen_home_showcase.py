@@ -106,13 +106,19 @@ def fig(src, x, h=None, w=None, z=1, op=1, alt="", focal=False, d=0, extra="", b
 
 def copy_block(cat, title, sub, meta, cta_href, cta_label, extra="", h="h2"):
     label, dept, gid, _ = CATS[cat]
+    n = CHIP_ORDER.index(cat) + 1
+    sub_html = f'\n        <p class="sc-sub">{sub}</p>' if sub else ""
     return f'''<div class="sc-copy" data-cat="{cat}">
-        <span class="sc-eyebrow">{glyph(gid)}{label} — {dept}</span>
-        <{h} class="sc-title">{title}</{h}>
-        <p class="sc-sub">{sub}</p>
+        <span class="sc-eyebrow">{glyph(gid)}<u>Chapter {n:02d}: <em>{label}</em> — {dept}</u></span>
+        <{h} class="sc-title">{title}</{h}>{sub_html}
         <p class="sc-meta">{meta}</p>{extra}
-        <div class="sc-cta"><a href="{cta_href}" class="btn">{cta_label} {ARROW}</a></div>
+        <div class="sc-cta"><a href="{cta_href}" class="btn">{cta_label}</a></div>
       </div>'''
+
+
+def named(name, tag, connector="in"):
+    """Editorial two-line title: 'The Sicilian' / indented '*in* Onyx Tuxedo'."""
+    return f'{name}<span class="sc-line"><em>{connector}</em> {tag}</span>'
 
 
 def king_slides():
@@ -124,9 +130,9 @@ def king_slides():
         src = lambda q: f"assets/img/king/{q['slug']}.webp"
         figs = (fig(src(L), 20, h=84, z=1, op=.9, d=160) + fig(src(R), 80, h=84, z=1, op=.9, d=160) +
                 fig(src(p), 50, h=97, z=2, alt=f"{p['name']} — {p['tag']}", focal=True))
-        meta = f"${p['price']}" + (f'<i></i>Opening {esc(p["note"])}' if p["note"] else "")
+        meta = f"[ ${p['price']} ]" + (f'<i></i>Opening {esc(p["note"])}' if p["note"] else "")
         slides.append(dict(cat="king", figs=figs,
-                           copy=copy_block("king", p["name"], p["tag"], meta, "king.html", "Shop King")))
+                           copy=copy_block("king", named(p["name"], p["tag"]), "", meta, "king.html", "Shop King")))
     return slides
 
 
@@ -148,8 +154,8 @@ def pawn_slides():
         dots = "".join(f'<button type="button" class="sc-dot{" is-on" if i == start else ""}" style="--c:{c["h"]}" data-i="{i}" aria-label="{esc(c["n"])}"></button>' for i, c in enumerate(data))
         extra = f'\n        <div class="sc-colors"><span class="sc-colorname">{esc(data[start]["n"])}</span><span class="sc-dots">{dots}</span></div>'
         intro = re.split(r"(?<=[.!?—])\s", cfg["intro"])[0].rstrip("—").strip()
-        meta = f"From ${cfg['price']}<i></i>{m} colourways"
-        c = copy_block("pawn", cfg["label"], esc(intro), meta, cfg["file"], f"Shop {cfg['label']}", extra)
+        meta = f"[ From ${cfg['price']} ]<i></i>{m} colourways"
+        c = copy_block("pawn", named(cfg["label"], f"{m} colours"), esc(intro), meta, cfg["file"], f"Shop {cfg['label']}", extra)
         slides.append(dict(cat="pawn", figs=figs, copy=c, attrs=f"data-colors='{json.dumps(data)}' data-base=\"{base}\" data-start=\"{start}\""))
     return slides
 
@@ -165,7 +171,7 @@ def object_slides(cat):
             for q, (x, b) in zip(others, pos):
                 figs += fig(q["img"], x, w=q["w"] * .5, z=1, op=.92, d=160, b=b)
         figs += fig(p["img"], 50, w=p["w"], z=2, alt=p["alt"], focal=True, b=24 if len(items) > 1 else 14)
-        slides.append(dict(cat=cat, figs=figs, copy=copy_block(cat, p["name"], p["tag"], f"${p['price']}", CATS[cat][3], f"Shop {CATS[cat][0]}")))
+        slides.append(dict(cat=cat, figs=figs, copy=copy_block(cat, named(p["name"], p["tag"]), "", f"[ ${p['price']} ]", CATS[cat][3], f"Shop {CATS[cat][0]}")))
     return slides
 
 
@@ -178,10 +184,10 @@ def welcome_slide():
         else:
             figs += fig(f"assets/img/pawn/{ref}/hero.webp", x, h=72, z=2, op=1, d=(x // 4) * 6, alt="")
     copy = f'''<div class="sc-copy sc-copy--welcome" data-cat="welcome">
-        <span class="sc-eyebrow">{glyph("glyph-king")}Checkmatela — Formal wear<span class="sc-hide-sm">&nbsp;for every piece</span></span>
+        <span class="sc-eyebrow">{glyph("glyph-king")}<u>Checkmatela — <em>Formal</em> wear<span class="sc-hide-sm">&nbsp;<em>for</em> every piece</span></u></span>
         <h1 class="sc-title">Every move,<br><em>tailored.</em></h1>
         <p class="sc-sub">Suits, tuxedos, accessories and shoes cut with a grandmaster's precision — for men, boys and every moment that decides everything.</p>
-        <div class="sc-cta"><a href="king.html" class="btn">Shop The Collection {ARROW}</a><a href="#diagram" class="btn dark-ghost">Explore The Set</a></div>
+        <div class="sc-cta"><a href="king.html" class="btn">Shop the collection</a><a href="#diagram" class="btn">Explore the set</a></div>
       </div>'''
     return dict(cat="welcome", figs=figs, copy=copy)
 
@@ -208,7 +214,7 @@ def build():
         copies.append(s["copy"].replace('class="sc-copy', f'data-i="{i}" class="sc-copy' + (" is-active" if i == 0 else ""), 1))
     # first slide: real src (+ high priority) so the hero paints straight away; the rest lazy-load from showcase.js
     stages[0] = stages[0].replace('<img data-src="', '<img fetchpriority="high" src="')
-    chips = "".join(f'''<button type="button" class="sc-chip" data-cat="{k}">{glyph(CATS[k][2])}<span>{CATS[k][0]}</span></button>'''
+    chips = "".join(f'''<button type="button" class="sc-chip" data-cat="{k}"><span class="sc-chip__n">{CHIP_ORDER.index(k) + 1:02d}</span><span>{CATS[k][0]}</span></button>'''
                     for k in CHIP_ORDER)
     return f'''<section class="showcase" id="showcase" aria-roledescription="carousel" aria-label="Featured Checkmatela collection" data-count="{len(seq)}">
   <div class="showcase__bg"></div>
@@ -227,7 +233,7 @@ def build():
       <div class="sc-chips" role="group" aria-label="Jump to a collection">{chips}</div>
       <div class="sc-nav">
         <button type="button" class="sc-arrow" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 5l-7 7 7 7"/></svg></button>
-        <span class="sc-count"><b>01</b> / {len(seq):02d}</span>
+        <span class="sc-count">[ <b>01</b> / {len(seq):02d} ]</span>
         <button type="button" class="sc-arrow" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
       </div>
     </div>

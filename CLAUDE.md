@@ -89,6 +89,9 @@ Run from the repo root; they need `pip install --user pillow numpy scipy` (numpy
 ### Announcement bar (`.announce`, every page)
 Calm two-part bar (no marquee): rotating promises on the left (Pawn now open / free alterations / free shipping over $500), service links on the right (phone, Size Guide, Book a Fitting); links hide on mobile. Same markup on all 10 pages and in `gen_pawn_pages.py` — change all together.
 
+### Editorial layer (branch `editorial-preview`, inspired by stripe.press — not merged to `main` unless the user approves)
+Appended as the last block of `css/style.css`: IBM Plex Mono `[ bracketed ]` labels (announce bar, nav, CTAs, chips), paper-grain overlay, dashed column rules, underlined small-caps labels with an italic word, condensed tight-tracked serif titles with italic connectors (`The Sicilian / *in* Onyx Tuxedo`), a slash-numeral "The Board" index (`#index`, `js/index-editorial.js`) replacing the card row, and a **balloon chapter** (`#chapter`, `js/balloon.js`): a fixed, clip-path-clipped layer where a King cutout drifts up past the screen (smoothed, swaying, tilting, dashed string) as the section scrolls, with text pages sliding over it.
+
 ## Things NOT to redo
 - Don't revert to a dark/black overall theme — user explicitly wants light + checkerboard.
 - Don't make the exploding-diagram pieces illustrated/sketched again — must be real photography.
