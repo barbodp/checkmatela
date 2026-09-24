@@ -1,22 +1,23 @@
 /* "Sir Checkmate" — Checkmatela's mascot: a small, glossy, inflated 3D gentleman who floats up the screen like a
-   balloon. He is NOT tied to scrolling and not confined to the hero: he rises slowly from the bottom of the viewport to
-   the top, fades away, pauses, then floats up again from a different spot — wherever you are on the homepage.
+   balloon. He is NOT tied to scrolling and not confined to the hero: he sweeps diagonally from the bottom of the viewport to
+   the top — crossing most of the screen's width in a curving S — fades away near the top, pauses, then sets off again
+   from the opposite side, so over time he covers the whole homepage.
 
    Built from primitives with three.js (vendored in js/vendor, loaded after the page has settled). The canvas is only as
    big as he is and is moved with a CSS transform, so rendering stays cheap. Click-through, sits under the header,
    skipped for reduced-motion visitors.
 
-   Tweak: size (SIZE below + .mascot-canvas in CSS), pace / pauses / sway (RISE below), look (buildMascot()). */
+   Tweak: size (SIZE below + .mascot-canvas in CSS), pace / pauses / sway / crossing width (RISE below), look (buildMascot()). */
 (() => {
   "use strict";
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const SIZE = () => (window.innerWidth < 700 ? [150, 180] : [210, 250]);   // canvas px (w, h)
   let THREE = null, renderer, scene, camera, mascot, parts, canvas;
-  // one rise = bottom → top of the viewport. Times in seconds.
-  const RISE = { secs: [26, 34], pause: [1.5, 4], swayPx: [50, 130], swaySecs: [7, 11] };
+  // one sweep = bottom → top of the viewport, crossing `cross` of the width. Times in seconds.
+  const RISE = { secs: [17, 23], pause: [1, 2.5], cross: [.55, .95], swayPx: [30, 80], swaySecs: [5, 8] };
   const rnd = ([a, b]) => a + Math.random() * (b - a);
-  let lastX = null, lastY = null, faceY = 0, bank = 0, lean = 0, cyc = null, lastLane = -1;
+  let lastX = null, lastY = null, faceY = 0, bank = 0, lean = 0, cyc = null, lastDir = 0;
 
   /* ------------------------------------------------------------------ the character */
   function buildMascot() {
@@ -150,21 +151,24 @@
     camera.aspect = w / h; camera.updateProjectionMatrix();
   }
 
-  /* One rise: pick a lane (never the same third of the screen twice in a row), a pace, and a sway. */
+  /* One sweep: alternate direction (bottom-left → top-right, then bottom-right → top-left), random start and crossing width. */
   function newCycle(t, delay = 0) {
-    let lane; do { lane = Math.floor(Math.random() * 3); } while (lane === lastLane); lastLane = lane;
+    const dir = lastDir ? -lastDir : (Math.random() < .5 ? 1 : -1); lastDir = dir;
+    const cross = rnd(RISE.cross), x0 = dir > 0 ? Math.random() * (1 - cross) : cross + Math.random() * (1 - cross);
     const dur = rnd(RISE.secs), t0 = t + delay;
-    cyc = { t0, dur, end: t0 + dur, next: t0 + dur + rnd(RISE.pause), lane: (lane + .2 + Math.random() * .6) / 3, amp: rnd(RISE.swayPx), per: rnd(RISE.swaySecs), ph: Math.random() * 6.28 };
+    cyc = { t0, dur, end: t0 + dur, next: t0 + dur + rnd(RISE.pause), x0, x1: x0 + dir * cross, amp: rnd(RISE.swayPx), per: rnd(RISE.swaySecs), ph: Math.random() * 6.28 };
   }
-  /* position (px) + fade for time t, or null while he is resting between rises */
+  /* position (px) + fade for time t, or null while he is resting between sweeps */
   function route(t) {
     const [w, h] = SIZE(), vw = window.innerWidth, vh = window.innerHeight;
     if (!cyc) newCycle(t, 1);
     if (t > cyc.next) newCycle(t);
     if (t < cyc.t0 || t > cyc.end) return null;
     const p = (t - cyc.t0) / cyc.dur;
-    const x = Math.min(vw - w, Math.max(0, cyc.lane * vw - w / 2 + cyc.amp * Math.sin(((t - cyc.t0) / cyc.per) * 6.283 + cyc.ph)));
-    const y = vh + 20 - p * (vh + h + 40);                       // enters just below the screen, leaves above it
+    const sm = p * p * (3 - 2 * p), q = .5 * p + .5 * sm;              // slow start/finish, steady middle → a lazy S-curve
+    const span = vw - w;
+    const x = Math.min(vw - w * .75, Math.max(-w * .25, (cyc.x0 + (cyc.x1 - cyc.x0) * q) * span + cyc.amp * Math.sin(((t - cyc.t0) / cyc.per) * 6.283 + cyc.ph)));
+    const y = vh + 20 - p * (vh + h + 40);                              // enters just below the screen, leaves above it
     // dissolve as he nears the top of the screen (based on where he actually is, so it is always visible)
     const fade = Math.min(1, p / .05, Math.max(0, (y + h * .55) / (vh * .3)));
     return [x, y + 8 * Math.sin(t * 1.25), Math.max(0, fade)];
@@ -182,10 +186,10 @@
     const [x, y, fade] = r;
     const vx = lastX === null ? 0 : (x - lastX) / dt;
     lastX = x; lastY = y;
-    // gently turn toward the sideways drift, bank into it, and lean back a little as he climbs
+    // turn toward the direction he is travelling and bank into the curve
     const k = Math.min(1, dt * 2);
-    faceY += (Math.max(-1, Math.min(1, vx / 45)) * .7 - faceY) * k;
-    bank += (Math.max(-1, Math.min(1, -vx / 70)) * .2 - bank) * k;
+    faceY += (Math.max(-1, Math.min(1, vx / 60)) * .85 - faceY) * k;
+    bank += (Math.max(-1, Math.min(1, -vx / 90)) * .28 - bank) * k;
     canvas.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${(.9 + .1 * fade).toFixed(3)})`;
     canvas.style.opacity = fade.toFixed(3);
     canvas.style.visibility = 'visible';
