@@ -859,3 +859,62 @@ button{ font-family:inherit; cursor:pointer; }
   .footer-brand{ grid-column: auto; }
   .explode-stage{ height: clamp(420px, 90vw, 560px); }
 }
+
+
+/* ============================================================
+   TYPOGRAPHY — labels & fonts borrowed from stripe.press
+   IBM Plex Mono for small UI labels ([ bracketed ] calls to action), underlined small-caps serif
+   section labels, and tighter display serif. Layout and colours are unchanged.
+============================================================ */
+:root{ --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; }
+h1, h2{ letter-spacing:-.03em; }
+h1 em, h2 em{ font-weight:400; }
+
+/* small underlined caps labels */
+.eyebrow, .sc-eyebrow{
+  font-family: var(--serif); font-size:.95rem; letter-spacing:.02em; text-transform:uppercase; font-weight:500;
+  text-decoration: underline; text-decoration-thickness:1px; text-underline-offset:4px;
+}
+.eyebrow::before{ display:none; }
+.sc-eyebrow svg{ width:16px; height:16px; }
+
+/* mono UI text */
+.announce, .main-nav a, .btn, .piece-tag, .product-card__notation, .product-card__price, .piece-card__rank, .piece-card__link,
+.sc-meta, .sc-chip, .sc-count, .sc-colorname, .strip__item, .footer-col h5, .footer-bottom, .crumbs, .swatch-label{
+  font-family: var(--mono);
+}
+.announce{ font-size:.68rem; letter-spacing:.06em; }
+.main-nav a{ font-size:.66rem; letter-spacing:.05em; font-weight:400; }
+@media (max-width: 1240px){ .main-nav a{ font-size:.6rem; letter-spacing:.02em; } .main-nav{ gap:14px; } }
+.btn{ font-size:.74rem; letter-spacing:.08em; font-weight:400; }
+.piece-tag, .product-card__notation, .piece-card__rank, .piece-card__link{ letter-spacing:.06em; }
+.product-card__price{ font-size:.95rem; letter-spacing:.02em; }
+.strip__item{ font-size:.7rem; letter-spacing:.04em; }
+.strip__item b{ font-family: var(--serif); }
+.footer-col h5{ font-size:.72rem; letter-spacing:.08em; font-weight:500; text-transform:uppercase; }
+.footer-bottom{ font-size:.7rem; letter-spacing:.04em; }
+
+/* announce links in [ brackets ] */
+.announce__links a::before{ content:"[ "; }
+.announce__links a::after{ content:" ]"; }
+.announce__links a + a{ padding-left:0; }
+.announce__links a + a::before{ position:static; width:auto; height:auto; background:none; transform:none; }
+
+/* showcase */
+.sc-title{ font-weight:500; letter-spacing:-.04em; line-height:.92; }
+.sc-title em{ font-weight:400; }
+.sc-meta{ font-size:.8rem; letter-spacing:.04em; text-transform:uppercase; font-weight:400; color: var(--ink); }
+.sc-meta i{ width:3px; height:3px; transform:none; border-radius:50%; background: var(--ink); opacity:.5; }
+.sc-cta .btn{
+  background:none; border:0; padding:.2em 0; border-radius:0; color: var(--ink);
+  font-size:.8rem; letter-spacing:.03em; text-transform:uppercase;
+}
+.sc-cta .btn svg{ display:none; }
+.sc-cta .btn::before{ content:"[\00a0"; }
+.sc-cta .btn::after{ content:"\00a0\2192\00a0]"; }
+.sc-cta .btn:hover{ background:none; color: var(--pine); transform:none; text-decoration:underline; text-underline-offset:5px; }
+.sc-cta .btn.dark-ghost:hover{ background:none; color: var(--pine); }
+.sc-chip{ font-size:.68rem; letter-spacing:.06em; }
+.sc-count{ font-size:.68rem; letter-spacing:.03em; min-width:8em; white-space:nowrap; }
+.sc-count b{ font-family: inherit; font-size:inherit; font-weight:500; }
+.sc-colorname{ font-size:.68rem; letter-spacing:.05em; }
