@@ -4,10 +4,11 @@ Run from anywhere:  python3 tools/gen_pawn_pages.py
 Reads the processed images under assets/img/pawn/ (see process_pawn_images.py and make_hero_cutouts.py).
 """
 import os, glob
+from pathlib import Path
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "16"
+CSS_VERSION = "18"
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
       <circle fill="currentColor" cx="50" cy="30" r="13"/>
@@ -26,93 +27,11 @@ GLYPH_KING = '''    <symbol id="glyph-king" viewBox="0 0 100 130">
       <path fill="currentColor" d="M22 108 H78 L74 128 H26 Z"/>
     </symbol>'''
 
-HEADER = '''<header class="site-header" id="siteHeader">
-  <a href="index.html" class="brand">
-    <span class="glyph"><svg viewBox="0 0 100 100"><use href="#glyph-king" fill="currentColor"/></svg></span>
-    Checkmatela
-    <small style="margin-left:2px">FORMAL WEAR</small>
-  </a>
-  <nav class="main-nav" id="mainNav">
-    <a href="king.html">King — Men</a>
-    <a href="queen.html">Queen — Women</a>
-    <div class="nav-item has-dropdown">
-      <a href="pawn.html">Pawn — Kids</a>
-      <div class="nav-dropdown">
-        <a href="pawn-slim-fit.html">Slim Fit</a>
-        <a href="pawn-suit-vest-set.html">Suit Vest Set</a>
-        <a href="pawn-tuxedo.html">Tuxedo</a>
-        <a href="pawn-tuxedo-vest-set.html">Tuxedo Vest Set</a>
-      </div>
-    </div>
-    <a href="bishop.html">Bishop — Accessories</a>
-    <a href="rook.html">Rook — Shoes</a>
-  </nav>
-  <div class="header-actions">
-    <button class="icon-btn search-ic" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
-    <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></button>
-    <button class="icon-btn" aria-label="Bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 13H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></button>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
-</header>'''
+HEADER = (Path(ROOT) / "tools/partials/header.html").read_text()
 
-FOOTER = '''<footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="brand">
-        <span class="glyph"><svg viewBox="0 0 100 100"><use href="#glyph-king" fill="currentColor"/></svg></span>
-        Checkmatela
-      </a>
-      <p>Chess-inspired formal wear, tailored for the moments that decide everything. Every move, considered.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 17c1-4 1-9 3-9s2 3 1 5-3 2-3-1"/></svg></a>
-        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
-      </div>
-    </div>
-    <div class="footer-col"><h5>The Board</h5><ul>
-      <li><a href="king.html">King — Men</a></li>
-      <li><a href="queen.html">Queen — Women</a></li>
-      <li><a href="pawn.html">Pawn — Kids</a></li>
-      <li><a href="bishop.html">Bishop — Accessories</a></li>
-      <li><a href="rook.html">Rook — Shoes</a></li>
-    </ul></div>
-    <div class="footer-col"><h5>Company</h5><ul>
-      <li><a href="#">Our Story</a></li><li><a href="#">Master Tailors</a></li><li><a href="#">Sustainability</a></li><li><a href="#">Press</a></li>
-    </ul></div>
-    <div class="footer-col"><h5>Service</h5><ul>
-      <li><a href="#">Book a Fitting</a></li><li><a href="#">Size Guide</a></li><li><a href="#">Alterations</a></li><li><a href="#">Shipping &amp; Returns</a></li>
-    </ul></div>
-    <div class="footer-col"><h5>Contact</h5><ul>
-      <li><a href="mailto:concierge@checkmatela.com">concierge@checkmatela.com</a></li>
-      <li><a href="tel:+18885550142">+1 (888) 555-0142</a></li>
-      <li>New York · Los Angeles · Toronto</li>
-    </ul></div>
-  </div>
-  <div class="checker-strip"></div>
-  <div class="container footer-bottom">
-    <span>© 2026 Checkmatela. All moves reserved.</span>
-    <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>
-  </div>
-</footer>
+FOOTER = (Path(ROOT) / "tools/partials/footer.html").read_text()
 
-<script src="js/main.js"></script>
-</body>
-</html>'''
-
-ANNOUNCE = '''<div class="announce">
-  <div class="announce__inner">
-    <div class="announce__msgs">
-      <a href="pawn.html" style="--n:0">Now open — the Pawn kids collection</a>
-      <span style="--n:1">Complimentary alterations on every order</span>
-      <span style="--n:2">Free white-glove shipping over $500</span>
-    </div>
-    <div class="announce__links">
-      <a href="tel:+18885550142">+1 (888) 555-0142</a>
-      <a href="#">Size Guide</a>
-      <a href="#">Book a Fitting</a>
-    </div>
-  </div>
-</div>'''
+ANNOUNCE = (Path(ROOT) / "tools/partials/announce.html").read_text()
 
 MODEL_ALTS = {1: "front view on model", 2: "angled pose on model", 3: "back view on model", 4: "trouser detail on model"}
 PLAIN_ALTS = {1: "product only, front", 2: "product only, flat detail"}
@@ -177,7 +96,7 @@ def gallery_card(line, slug, name, cfg, eager):
             f'          <button class="gallery-thumb{active}" data-src="{full}" aria-label="View {name} {alt}"><img src="{thumb}" alt="" loading="lazy"></button>'
         )
     loading = "" if eager else ' loading="lazy"'
-    return f'''      <div class="gallery-card">
+    return f'''      <div class="gallery-card" id="pawn-{line}-{slug}" data-product="pawn-{line}-{slug}">
         <div class="gallery-card__frame">
           <img class="gallery-card__main-img" src="{base}/model-1.jpg" alt="{name} {cfg['label']} — front view on model"{loading}>
         </div>
@@ -188,6 +107,7 @@ def gallery_card(line, slug, name, cfg, eager):
           <div><h4>{name}</h4><span class="piece-tag">{cfg['label']} &middot; Pawn</span></div>
           <span class="product-card__price">${cfg['price']}</span>
         </div>
+        <button class="gallery-preview text-link" data-preview="pawn-{line}-{slug}">Explore this piece ↗</button>
       </div>'''
 
 
@@ -205,7 +125,7 @@ def banner_html(line, cfg):
   <div class="cat-hero__inner">
     <div class="cat-hero__copy">
       <div class="crumbs"><a href="index.html">Home</a> <span>/</span> <a href="pawn.html">Pawn</a> <span>/</span> <span>{cfg['label']}</span></div>
-      <span class="cat-hero__glyph"><svg viewBox="0 0 100 100"><use href="#glyph-pawn" fill="currentColor"/></svg></span>
+      <span class="cat-hero__glyph"><svg viewBox="0 0 100 130"><use href="#glyph-pawn" fill="currentColor"/></svg></span>
       <h1>{cfg['label']}</h1>
       <p>{cfg['intro']}</p>
     </div>
@@ -231,10 +151,11 @@ def build(line):
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230c0c0d%22/><text x=%2250%22 y=%2268%22 font-size=%2264%22 text-anchor=%22middle%22 fill=%22%23d9b876%22>&#9823;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v={CSS_VERSION}">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <svg width="0" height="0" style="position:absolute">
   <defs>
@@ -247,6 +168,7 @@ def build(line):
 
 {HEADER}
 
+<main id="main">
 {banner_html(line, cfg)}
 
 <div class="container">
@@ -254,7 +176,7 @@ def build(line):
     <span class="filter-bar__count">{len(cfg['colors'])} colorways &middot; sizes 2T&ndash;14</span>
     <span class="filter-bar__sort">
       Sort by
-      <select>
+      <select aria-label="Sort products">
         <option>Featured</option>
         <option>Price: Low to High</option>
         <option>Price: High to Low</option>
@@ -282,7 +204,12 @@ def build(line):
   </div>
 </section>
 
+</main>
 {FOOTER}
+<script src="js/catalog.js?v=18"></script>
+<script src="js/main.js?v=18"></script>
+</body>
+</html>
 '''
     with open(os.path.join(ROOT, cfg["file"]), "w", encoding="utf-8") as f:
         f.write(html)
