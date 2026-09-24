@@ -20,16 +20,17 @@
 
   const DEST = { king: 'king.html', queen: 'queen.html', pawn: 'pawn.html', bishop: 'bishop.html', rook: 'rook.html', knight: 'book-a-fitting.html' };
   const LABEL = { king: 'King — Men', queen: 'Queen — Women', pawn: 'Pawn — Kids', bishop: 'Bishop — Accessories', rook: 'Rook — Shoes', knight: 'Knight — Book a fitting' };
-  // [type, file 0-7 (a-h), rank 0-7 (1-8)] — white pieces are clickable, black ones are scenery. Landing squares are kept empty.
-  const WHITE = [['rook', 0, 0], ['bishop', 2, 0], ['queen', 3, 0], ['king', 4, 0], ['bishop', 5, 0], ['knight', 6, 0], ['rook', 7, 0],
-                 ['pawn', 1, 1], ['pawn', 3, 1], ['pawn', 5, 1], ['pawn', 6, 1], ['pawn', 7, 1]];
-  const BLACK = [['rook', 0, 7], ['bishop', 2, 7], ['queen', 3, 7], ['king', 4, 7], ['bishop', 5, 7], ['knight', 6, 7], ['rook', 7, 7],
-                 ['pawn', 0, 6], ['pawn', 2, 6], ['pawn', 4, 6], ['pawn', 6, 6], ['pawn', 7, 6], ['pawn', 3, 4], ['knight', 2, 5]];
-  // how each type moves when clicked: [file delta, rank delta] and how high it hops
-  const MOVES = { pawn: [0, 2, .55], rook: [0, 3, 1.5], bishop: [2, 2, 1.1], queen: [3, 3, 1.1], king: [0, 1, .7], knight: [-1, 2, 1.3] };
-  const MOVE_BISHOP_LEFT = -2;                                  // the f1 bishop goes up-left, the c1 bishop up-right
+  // [type, file 0-7 (a-h), rank 0-7 (1-8)]. White = the six clickable pieces, one per destination, spaced so each reads clearly.
+  // Black = scenery (kept behind). A toppled black king lies mid-board — checkmate. Landing squares of the moves below stay empty.
+  const WHITE = [['pawn', 1, 1], ['bishop', 4, 1], ['rook', 6, 1], ['knight', 1, 4], ['queen', 3, 4], ['king', 5, 4]];
+  const BLACK = [['king', 4, 7], ['queen', 2, 6], ['bishop', 6, 6], ['pawn', 3, 7], ['rook', 0, 7], ['pawn', 7, 5]];
+  const FALLEN = { type: 'king', file: 3.3, rank: 5.7, yaw: .55 };
+  // how each type moves when clicked: [file delta, rank delta, hop height]
+  const MOVES = { pawn: [0, 2, .6], rook: [0, 3, 1.5], bishop: [2, 2, 1.2], queen: [2, 2, 1.2], king: [0, 1, .8], knight: [-1, 2, 1.4] };
+  const SCALE = 1.32;                                            // pieces are drawn a bit oversized so each one reads clearly
 
-  let THREE = null, renderer, scene, camera, ground, ring, envTex;
+  let THREE = null, renderer, scene, camera, ring, envTex;
+  const mirrors = [];
   const pieces = [];                                             // all pieces {type,color,group,file,rank,home,mat,...}
   const interactive = [];                                        // white pieces
   let hovered = null, busy = false, T = 0, tweens = [], pointer = { x: 0, y: 0, in: false }, camState = { x: 0, y: 0 };
@@ -52,9 +53,10 @@
   /* ---------------------------------------------------------------- pieces */
   function makeMaterials() {
     const T3 = THREE;
-    const ivory = new T3.MeshPhysicalMaterial({ color: 0xf3ead6, roughness: .34, clearcoat: .7, clearcoatRoughness: .18 });
-    const ebony = new T3.MeshPhysicalMaterial({ color: 0x18191b, roughness: .26, clearcoat: 1, clearcoatRoughness: .1 });
-    const brass = new T3.MeshStandardMaterial({ color: 0xd8aa52, metalness: 1, roughness: .22 });
+    // white = silvery ivory lacquer, black = deep piano-black lacquer; both very glossy so the studio lights streak across them
+    const ivory = new T3.MeshPhysicalMaterial({ color: 0xc4c1ba, roughness: .1, clearcoat: 1, clearcoatRoughness: .03, envMapIntensity: 1.9 });
+    const ebony = new T3.MeshPhysicalMaterial({ color: 0x0b0b0d, roughness: .12, clearcoat: 1, clearcoatRoughness: .03, envMapIntensity: 1.7 });
+    const brass = new T3.MeshStandardMaterial({ color: 0xd8aa52, metalness: 1, roughness: .16, envMapIntensity: 1.3 });
     return { ivory, ebony, brass };
   }
   const geoCache = {};
@@ -115,51 +117,67 @@
 
   function addPiece(type, file, rank, white, M) {
     const bodyMat = M[white ? 'ivory' : 'ebony'].clone();
-    const trim = white ? M.brass : M.brass;
-    const g = buildPiece(type, bodyMat, white ? trim : new THREE.MeshPhysicalMaterial({ color: 0x2a2c2e, roughness: .3, clearcoat: 1 }));
+    const trim = white ? M.brass : bodyMat;
+    const g = buildPiece(type, bodyMat, trim);
+    g.scale.setScalar(SCALE);
     g.position.set(sqx(file), TOP, sqz(rank));
     if (!white) g.rotation.y = Math.PI;
     if (type === 'knight') g.rotation.y += (white ? 1 : -1) * (file > 3 ? -.75 : .75);
     scene.add(g);
-    const p = { type, white, group: g, file, rank, mat: bodyMat, home: g.position.clone(), homeRot: g.rotation.y, lift: 0, glow: 0, h: g.userData.h };
+    addMirror(g);                                   // clone before userData.piece is set (clone() serialises userData)
+    const p = { type, white, group: g, file, rank, mat: bodyMat, home: g.position.clone(), homeRot: g.rotation.y, lift: 0, glow: 0, h: g.userData.h * SCALE };
     g.traverse(o => { if (o.isMesh) o.userData.piece = p; });
     pieces.push(p); if (white) interactive.push(p);
     return p;
   }
 
+  /* Glossy-floor reflection: a darker, upside-down twin of every piece under the (slightly see-through) board. */
+  const reflectM = () => new THREE.Matrix4().makeTranslation(0, 2 * TOP, 0).multiply(new THREE.Matrix4().makeScale(1, -1, 1));
+  function addMirror(src) {
+    const m = src.clone(true);
+    m.traverse(o => { if (o.isMesh) { o.castShadow = o.receiveShadow = false; o.material = o.material.clone(); if (o.material.color) o.material.color.multiplyScalar(.72); if (o.material.emissive) o.material.emissive.setHex(0); } });
+    m.matrixAutoUpdate = false; scene.add(m); mirrors.push([src, m]);
+  }
+  function syncMirrors() { const R = reflectM(); for (const [src, m] of mirrors) { src.updateMatrixWorld(true); m.matrix.copy(R).multiply(src.matrixWorld); m.matrixWorldNeedsUpdate = true; } }
+
   /* ---------------------------------------------------------------- scene */
   function makeEnv() {
     const s = new THREE.Scene();
-    s.add(new THREE.Mesh(new THREE.BoxGeometry(40, 40, 40), new THREE.MeshBasicMaterial({ color: 0xc9cdd0, side: THREE.BackSide })));
+    s.add(new THREE.Mesh(new THREE.BoxGeometry(50, 50, 50), new THREE.MeshBasicMaterial({ color: 0x0a0b0c, side: THREE.BackSide })));
     const panel = (w, h, pos, rot, c) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: new THREE.Color(c, c, c), side: THREE.DoubleSide })); m.position.set(...pos); m.rotation.set(...rot); s.add(m); };
-    panel(16, 16, [0, 14, 0], [Math.PI / 2, 0, 0], 7); panel(6, 12, [-12, 4, 6], [0, Math.PI / 2.3, 0], 4); panel(5, 9, [12, 3, 4], [0, -Math.PI / 2.3, 0], 2.2);
+    panel(30, 8, [0, 16, -2], [Math.PI / 2, 0, 0], 16);                       // overhead softbox
+    panel(2.6, 20, [-13, 6, 6], [0, Math.PI / 2.2, 0], 20); panel(2.6, 20, [-6, 6, 14], [0, Math.PI / 1.5, 0], 14);   // tall strips, left / front-left
+    panel(2.6, 20, [13, 6, 4], [0, -Math.PI / 2.2, 0], 12);                    // strip, right
+    panel(12, 3, [0, 3, -16], [0, 0, 0], 5);                                  // back wall glow
     return s;
   }
 
   async function boot() {
     THREE = await import('./vendor/three-0.159.module.min.js');
     renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-    renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.02;
+    renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = .98;
     renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap; renderer.setClearColor(0, 0);
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(30, 1, .1, 100);
-    const pm = new THREE.PMREMGenerator(renderer); envTex = pm.fromScene(makeEnv(), .03).texture; scene.environment = envTex;
-    const sun = new THREE.DirectionalLight(0xffffff, 2.1); sun.position.set(-5, 10, 6); sun.castShadow = true;
-    sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -7, right: 7, top: 7, bottom: -7, near: 1, far: 30 }); sun.shadow.bias = -.0004; sun.shadow.radius = 4;
-    scene.add(sun); const fill = new THREE.DirectionalLight(0xffe9c8, .5); fill.position.set(6, 4, -3); scene.add(fill);
+    scene.fog = new THREE.Fog(0x060708, 20, 40);                     // distant squares fade into the dark, like the reference
+    camera = new THREE.PerspectiveCamera(28, 1, .1, 100);
+    const pm = new THREE.PMREMGenerator(renderer); envTex = pm.fromScene(makeEnv(), .02).texture; scene.environment = envTex;
+    const sun = new THREE.DirectionalLight(0xffffff, 1.5); sun.position.set(-6, 9, 7); sun.castShadow = true;
+    sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -8, right: 8, top: 8, bottom: -8, near: 1, far: 30 }); sun.shadow.bias = -.0004; sun.shadow.radius = 5;
+    scene.add(sun);
 
-    // board: dark-pine frame, brass inlay line, 8×8 squares
-    const frame = new THREE.Mesh(new THREE.BoxGeometry(8.7, .3, 8.7), new THREE.MeshPhysicalMaterial({ color: 0x0f2e22, roughness: .4, clearcoat: .6 })); frame.position.y = -.05; frame.castShadow = frame.receiveShadow = true; scene.add(frame);
-    const brass = new THREE.MeshStandardMaterial({ color: 0xd8aa52, metalness: 1, roughness: .25 });
-    [[0, -4.03, 8.1, .05], [0, 4.03, 8.1, .05], [-4.03, 0, .05, 8.1], [4.03, 0, .05, 8.1]].forEach(([x, z, w, d]) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, .02, d), brass); m.position.set(x, .105, z); scene.add(m); });
-    const light = new THREE.MeshPhysicalMaterial({ color: 0xf1e9d8, roughness: .5, clearcoat: .3 }), dark = new THREE.MeshPhysicalMaterial({ color: 0x141517, roughness: .55, clearcoat: .2, envMapIntensity: .55 });
+    // board: a glossy black-and-white checker that runs on past the 8x8 edge and fades into the dark; slightly see-through so the
+    // upside-down twins of the pieces read as reflections
+    const light = new THREE.MeshPhysicalMaterial({ color: 0xb9b6ae, roughness: .06, clearcoat: 1, clearcoatRoughness: .02, transparent: true, opacity: .93, envMapIntensity: 1.5 });
+    const dark = new THREE.MeshPhysicalMaterial({ color: 0x040405, roughness: .05, clearcoat: 1, clearcoatRoughness: .02, transparent: true, opacity: .7, envMapIntensity: 1.4 });
     const sqGeo = new THREE.BoxGeometry(1, .06, 1);
-    for (let f = 0; f < 8; f++) for (let r = 0; r < 8; r++) { const m = new THREE.Mesh(sqGeo, (f + r) % 2 ? light : dark); m.position.set(sqx(f), TOP - .03, sqz(r)); m.receiveShadow = true; scene.add(m); }
-    ground = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.ShadowMaterial({ opacity: .16 })); ground.rotation.x = -Math.PI / 2; ground.position.y = -.2; ground.receiveShadow = true; scene.add(ground);
-    ring = new THREE.Mesh(new THREE.RingGeometry(.37, .47, 56), new THREE.MeshBasicMaterial({ color: 0xd8aa52, transparent: true, opacity: 0, side: THREE.DoubleSide })); ring.rotation.x = -Math.PI / 2; ring.position.y = TOP + .004; scene.add(ring);
+    for (let f = -3; f < 11; f++) for (let r = -3; r < 11; r++) { const m = new THREE.Mesh(sqGeo, (((f + r) % 2) + 2) % 2 ? light : dark); m.position.set(sqx(f), TOP - .03, sqz(r)); m.receiveShadow = true; scene.add(m); }
+    ring = new THREE.Mesh(new THREE.RingGeometry(.5, .62, 56), new THREE.MeshBasicMaterial({ color: 0xd8aa52, transparent: true, opacity: 0, side: THREE.DoubleSide, fog: false })); ring.rotation.x = -Math.PI / 2; ring.position.y = TOP + .004; scene.add(ring);
 
     const M = makeMaterials();
     WHITE.forEach(([t, f, r]) => addPiece(t, f, r, true, M)); BLACK.forEach(([t, f, r]) => addPiece(t, f, r, false, M));
+    // the toppled black king (scenery): lies on its side, mid-board
+    { const g = buildPiece(FALLEN.type, M.ebony.clone(), M.ebony); g.scale.setScalar(SCALE); const holder = new THREE.Group();
+      g.rotation.z = Math.PI / 2; g.position.y = .43 * SCALE; holder.add(g); holder.position.set(sqx(FALLEN.file), TOP, sqz(FALLEN.rank)); holder.rotation.y = FALLEN.yaw; scene.add(holder); addMirror(holder); }
     fit(); new ResizeObserver(fit).observe(root);
     bindEvents();
     root.classList.add('is-ready');
@@ -171,11 +189,11 @@
     const w = root.clientWidth, h = root.clientHeight;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); renderer.setSize(w, h, false);
     camera.aspect = w / h;
-    const wide = w > 900, usable = wide ? .5 : .92;
+    const wide = w > 900, usable = wide ? .6 : .98;
     const t = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
-    const dH = 5.0 / (t * camera.aspect * usable), dV = 5.9 / t;
-    camState.dist = Math.max(dH, wide ? dV : dH);
-    camera.setViewOffset(w, h, wide ? -w * .155 : 0, wide ? h * .07 : -h * .1, w, h);
+    camState.dist = 4.9 / (t * camera.aspect * usable);
+    scene.fog.near = camState.dist * .95; scene.fog.far = camState.dist * 2.15;
+    camera.setViewOffset(w, h, wide ? -w * .15 : 0, wide ? h * .03 : -h * .1, w, h);
     camera.updateProjectionMatrix();
   }
 
@@ -221,7 +239,7 @@
     if (reduce) { go(url); return; }
     tip.textContent = LABEL[p.type]; tip.classList.add('is-on'); root.classList.add('is-moving');
     const g = p.group, x0 = p.home.x, z0 = p.home.z;
-    let [df, dr, hop] = MOVES[p.type]; if (p.type === 'bishop' && p.file === 5) df = MOVE_BISHOP_LEFT;
+    const [df, dr, hop] = MOVES[p.type];
     const x1 = sqx(p.file + df), z1 = sqz(p.rank + dr);
     ring.material.opacity = 0;
     // 1) lift & spin, 2) glide along the move with an arc, 3) settle
@@ -241,13 +259,13 @@
 
   /* ---------------------------------------------------------------- frame loop */
   function placeCamera(dt) {
-    const el = THREE.MathUtils.degToRad(40), d = camState.dist;
+    const el = THREE.MathUtils.degToRad(29), d = camState.dist;
     camState.x += ((pointer.in ? pointer.x : 0) - camState.x) * Math.min(1, dt * 2.2); camState.y += ((pointer.in ? pointer.y : 0) - camState.y) * Math.min(1, dt * 2.2);
     const yaw = camState.x * .09 + Math.sin(T * .18) * .035, elv = el + camState.y * .03;
-    const target = new THREE.Vector3(0, .5, .35), pos = new THREE.Vector3(Math.sin(yaw) * Math.cos(elv) * d, Math.sin(elv) * d + .5, Math.cos(yaw) * Math.cos(elv) * d + .35);
+    const target = new THREE.Vector3(0, .8, .6), pos = new THREE.Vector3(Math.sin(yaw) * Math.cos(elv) * d, Math.sin(elv) * d + .8, Math.cos(yaw) * Math.cos(elv) * d + .6);
     if (dive) {
       const k = easeIO(dive.k || 0);
-      camera.position.lerpVectors(pos, dive.to, k); target.lerp(dive.look, k); camera.fov = lerp(30, dive.fov, k); camera.updateProjectionMatrix();
+      camera.position.lerpVectors(pos, dive.to, k); target.lerp(dive.look, k); camera.fov = lerp(28, dive.fov, k); camera.updateProjectionMatrix();
     } else camera.position.copy(pos);
     camera.lookAt(target);
   }
@@ -262,7 +280,7 @@
       p.mat.emissive.setHex(0xb8862e); p.mat.emissiveIntensity = p.glow;
     }
     // hover ring on the square + label following the piece
-    if (hovered && !busy) { ring.position.set(hovered.home.x, TOP + .004, hovered.home.z); ring.material.opacity += (.9 - ring.material.opacity) * Math.min(1, dt * 10); }
+    if (hovered && !busy) { ring.position.set(hovered.home.x, TOP + .004, hovered.home.z); ring.material.opacity += (.95 - ring.material.opacity) * Math.min(1, dt * 10); }
     else ring.material.opacity += (0 - ring.material.opacity) * Math.min(1, dt * 10);
     // idle: every few seconds one piece nudges to say "I'm clickable"
     if (!busy && !hovered && T > idleAt) { const p = interactive[Math.floor(Math.random() * interactive.length)]; p.nudge = T; idleAt = T + 3.5 + Math.random() * 3; }
@@ -271,6 +289,7 @@
       const p = hovered || interactive.find(q => q.group.position.y > TOP + .3);
       if (p) { const v = p.group.position.clone(); v.y += p.h + .35; v.project(camera); const r = canvas.getBoundingClientRect(); tip.style.transform = `translate(${((v.x + 1) / 2) * r.width}px, ${((1 - v.y) / 2) * r.height}px) translate(-50%, -100%)`; }
     }
+    syncMirrors();
     renderer.render(scene, camera);
   }
   let last = 0;
@@ -281,5 +300,5 @@
   window.__hb = { advance(sec) { for (let i = 0; i < Math.round(sec / .02); i++) update(.02); }, get state() { return { busy, hovered: hovered && hovered.type, pieces: pieces.length }; }, noNav: false, hover(t) { setHover(home(t)); }, click(t) { return choose(home(t)); } };
   keys.forEach(k => k.addEventListener('click', e => { if (!root.classList.contains('is-ready')) return; }));
   if (!webgl || reduce) { root.classList.add('is-fallback'); return; }
-  boot().catch(() => root.classList.add('is-fallback'));
+  boot().catch(err => { console.error('hero-board:', err); root.classList.add('is-fallback'); });
 })();
