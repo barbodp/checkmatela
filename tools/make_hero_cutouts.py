@@ -13,23 +13,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG = os.path.join(ROOT, "assets", "img")
 SRC = os.path.expanduser("~/Downloads/Magen Kids")
 
-# (line slug, colour slug, raw top folder, raw model folder, raw colour folder)
-KIDS = [
-    ("slim-fit", "navy", "Slim Fit", "Slim Fit w: Models", "Navy"),
-    ("slim-fit", "burgundy", "Slim Fit", "Slim Fit w: Models", "Burgundy"),
-    ("slim-fit", "hunter-green", "Slim Fit", "Slim Fit w: Models", "Hunter Green"),
-    ("suit-vest-set", "black", "Suit Vest Set", "Suit Vest Set w: Models", "Black"),
-    ("suit-vest-set", "indigo", "Suit Vest Set", "Suit Vest Set w: Models", "Indigo"),
-    ("suit-vest-set", "navy", "Suit Vest Set", "Suit Vest Set w: Models", "Navy"),
-    ("tuxedo", "full-black", "Tuxedo TX-1026", "Tuxedo TX-1026 w: Models", "Full-Black"),
-    ("tuxedo", "red", "Tuxedo TX-1026", "Tuxedo TX-1026 w: Models", "Red"),
-    ("tuxedo", "royal-blue", "Tuxedo TX-1026", "Tuxedo TX-1026 w: Models", "Royal-Blue"),
-    ("tuxedo-vest-set", "black", "Tuxedo Vest Set", "Tuxedo Vest Set w: Models", "Black"),
-    ("tuxedo-vest-set", "burgundy", "Tuxedo Vest Set", "Tuxedo Vest Set w: Models", "Burgundy"),
-    ("tuxedo-vest-set", "light-navy", "Tuxedo Vest Set", "Tuxedo Vest Set w: Models", "Light Navy"),
-]
-# NOTE: the foot-shadow rule in cutlib removes light-grey pixels in the bottom 20% of the frame,
-# so avoid light-grey / white trousers for hero figures (use the darker colourways).
+# Every colourway of every Pawn line gets a cutout (the showcase and category heroes pick from these).
+from process_pawn_images import LINES as PAWN_LINES
+KIDS = [(line, slug, top, mdir, model_folder)
+        for line, (top, mdir, colours) in PAWN_LINES.items()
+        for _plain, model_folder, slug in colours]
 
 
 def bbox_crop(im):

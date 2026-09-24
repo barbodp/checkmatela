@@ -26,11 +26,18 @@ def make_alpha(arr, near=247, sat=10, pocket_tol=1.8, shadow_band=0.80):
         elif s < 1000 and abs(mean[2] - mean[0]) < 1.0 and abs(mean[2] - mean[1]) < 1.0 and mean.min() >= 249:
             bg |= m   # thin neutral slivers between arm and body
     fg = ~bg
-    # floor shadow: neutral light-grey pixels in the bottom band become background
+    # floor shadow: soft neutral grey that is connected to the background through smooth (low-gradient)
+    # pixels. Garment edges are hard steps, so light-grey / white trousers are not eaten.
     y0 = int(h * shadow_band)
     lum = arr.mean(axis=2)
-    shadow = np.zeros_like(fg)
-    shadow[y0:] = ((mx - mn) <= 14)[y0:] & (lum >= 170)[y0:]
+    gy, gx = np.gradient(ndi.gaussian_filter(lum, 1.0))
+    smooth = np.hypot(gx, gy) < 2.5
+    soft = np.zeros_like(fg)
+    soft[y0:] = (((mx - mn) <= 14) & (lum >= 150) & smooth)[y0:]
+    seed = ndi.binary_dilation(bg, iterations=1)
+    lab_s, _ = ndi.label(soft | bg)
+    ids = np.unique(lab_s[seed & (soft | bg)]); ids = ids[ids > 0]
+    shadow = np.isin(lab_s, ids) & soft
     fg &= ~shadow
     # keep the largest connected piece only (drops stray specks)
     lab2, n2 = ndi.label(fg)
