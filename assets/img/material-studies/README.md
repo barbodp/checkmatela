@@ -12,7 +12,7 @@
 
 Textures generated with the built-in image-generation tool on 2026-09-24. JPEG copies are saved here; the generated originals remain in Codex's generated-images directory. The textures are synthetic photographic material studies, not scans of the user's physical references. Meshes are authored in `js/material-study.js` and rendered by the existing local Three.js 0.159 module. The models are actual interactive geometry, not image planes. World-space texture mapping supplies surface color and bump relief; the finish uses nonmetallic rough materials and soft shadows.
 
-The sample stylesheet is standalone and has its own versioned URL (`material-study.css?v=1`). Shared storefront styles and the homepage are not changed.
+The sample stylesheet is standalone and has its own versioned URL (`material-study.css?v=2`). Shared storefront styles and the homepage are not changed.
 
 ## Exact texture prompts
 

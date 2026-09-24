@@ -224,7 +224,7 @@ try {
     g.addColorStop(0,'rgba(35,29,21,.38)');g.addColorStop(.48,'rgba(35,29,21,.16)');g.addColorStop(1,'rgba(35,29,21,0)');
     ctx.fillStyle=g;ctx.fillRect(0,0,64,64);
     const shadow=mesh(new T.PlaneGeometry(1.32,1.32),new T.MeshBasicMaterial({map:new T.CanvasTexture(c),transparent:true,depthWrite:false}),assembly,x,top+.001,group.position.z);
-    shadow.rotation.x=-Math.PI/2;shadow.castShadow=false;
+    shadow.rotation.x=-Math.PI/2;shadow.castShadow=false;group.userData.contact=shadow;
   }
   Object.keys(categories).forEach(makePiece);
 
@@ -233,7 +233,7 @@ try {
   const pointer=new T.Vector2();
   const target=new T.Vector3();
   function fit() {
-    const w=stage.clientWidth,h=stage.clientHeight;
+    const w=canvas.clientWidth,h=canvas.clientHeight;
     renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();requestRender();
   }
   function positionCamera() {
@@ -255,7 +255,7 @@ try {
   function pick(e) {
     const r=canvas.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);
     raycaster.setFromCamera(pointer,camera);
-    return raycaster.intersectObjects(meshes,false)[0]?.object.userData.type || null;
+    return raycaster.intersectObjects(meshes.filter(m=>pieces.get(m.userData.type).visible),false)[0]?.object.userData.type || null;
   }
   function highlight(type,e) {
     hovered=type;
@@ -295,13 +295,18 @@ try {
     if(e.key==='ArrowUp')pitch=Math.min(.8,pitch+.06);if(e.key==='ArrowDown')pitch=Math.max(.1,pitch-.06);
     if(e.key==='+'||e.key==='=')zoomBy(1.13);if(e.key==='-')zoomBy(1/1.13);if(e.key==='Home')reset();requestRender();
   });
+  function showInspection() {
+    stage.classList.toggle('is-inspecting',inspecting);
+    for(const [type,piece] of pieces) {piece.visible=!inspecting||type===inspectSelect.value;piece.userData.contact.visible=piece.visible;}
+    fit();
+  }
   inspectButton.addEventListener('click',()=>{
     inspecting=!inspecting;inspection.hidden=!inspecting;inspectButton.setAttribute('aria-expanded',String(inspecting));
-    inspectButton.textContent=inspecting?'Back to the board ↙':'Closer look ↗';reset();
+    inspectButton.textContent=inspecting?'Back to the board ↙':'Closer look ↗';showInspection();reset();
   });
   inspectSelect.addEventListener('change',()=>{
     const type=inspectSelect.value;document.querySelector('#inspectLink').href=`${type}.html`;
-    document.querySelector('#inspectLink').textContent=`Explore ${categories[type]}${type==='queen'?' · Coming soon':''} ↗`;reset();
+    document.querySelector('#inspectLink').textContent=`Explore ${categories[type]}${type==='queen'?' · Coming soon':''} ↗`;showInspection();reset();
   });
   canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();stage.classList.add('fallback');});
   canvas.addEventListener('webglcontextrestored',()=>location.reload());
@@ -311,7 +316,7 @@ try {
   window.materialStudy = {get material(){return kind;},get pieceCount(){return pieces.size;},
     targets(){positionCamera();return [...pieces].map(([type,g])=>{
       const p=g.position.clone();p.y+=g.userData.height*.56;p.project(camera);
-      return {type,x:(p.x+1)*stage.clientWidth/2,y:(1-p.y)*stage.clientHeight/2,href:`${type}.html`};
+      return {type,x:(p.x+1)*canvas.clientWidth/2,y:(1-p.y)*canvas.clientHeight/2,href:`${type}.html`};
     });}};
 } catch(error) {
   stage.classList.add('fallback');
