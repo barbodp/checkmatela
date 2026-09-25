@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stone V1 — Original Checkmatela study</title>
+<meta name="description" content="Explore the honed travertine interactive chess collection. Five pieces, five collections.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E♔%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/stone-study-v1.css?v=1">
+</head>
+<body data-material="stone">
+<a class="skip" href="#collections">Skip to collections</a>
+<header class="study-header">
+<a class="wordmark" href="index.html">CHECKMATELA<small>EVERY MOVE, CONSIDERED.</small></a>
+<span class="sample-label">The material studies / Interactive hero</span>
+<nav class="switcher" aria-label="Choose a material sample"><a href="hero-stone-v1.html" aria-current="page">V1 / ORIGINAL</a><a href="hero-stone-v2.html">V2 / RAW STONE</a></nav>
+</header>
+<main class="study-hero">
+<div class="hero-layout">
+<div class="hero-copy"><span class="eyebrow">The opening collection</span><h1>Every move,<br><em>tailored.</em></h1><p class="intro">Five pieces. A world of possibilities.<br>Choose yours and make your first move.</p><div class="material-note"><img src="assets/img/stone-v1/travertine.jpg" alt="Honed travertine texture"><div><strong>02 / Honed travertine</strong><span>Natural pores · Softened edges</span></div></div></div>
+<div class="stage" id="materialStage" aria-label="Interactive honed travertine chess pieces">
+<img class="fallback-image" src="assets/img/stone-v1/stone-preview.jpg" alt="Five honed travertine chess pieces on a checkerboard. Use the collection links below to shop.">
+<canvas aria-label="Turn the chess display using the arrow keys, zoom with plus or minus, or use the collection links below." tabindex="0"></canvas>
+<div class="stage-top"><span>Honed travertine / Material study 02</span><button class="quiet-button" id="inspectButton" aria-expanded="false" aria-controls="inspection">Closer look ↗</button></div>
+<p class="loading" role="status">Preparing the pieces…</p>
+<div class="tip" aria-hidden="true"></div>
+<div class="inspection" id="inspection" hidden><label for="inspectPiece">Explore the details</label><select id="inspectPiece"><option value="king">King / Men</option><option value="queen">Queen / Women</option><option value="pawn">Pawn / Kids</option><option value="bishop">Bishop / Accessories</option><option value="rook">Rook / Shoes</option></select><a id="inspectLink" href="king.html">Explore Men ↗</a></div>
+<p class="stage-hint">Drag to turn · Click a piece to explore</p>
+<div class="view-controls" aria-label="View controls"><button data-action="out" aria-label="Zoom out">−</button><button data-action="in" aria-label="Zoom in">+</button><button data-action="reset">Reset view</button></div>
+</div>
+</div>
+<nav class="directory" id="collections" aria-label="Collections"><a class="category" data-piece="king" href="king.html"><small>01 / king</small><span class="arrow" aria-hidden="true">↗</span><strong>Men</strong></a><a class="category" data-piece="queen" href="queen.html"><small>02 / queen</small><span class="arrow" aria-hidden="true">↗</span><strong>Women</strong></a><a class="category" data-piece="pawn" href="pawn.html"><small>03 / pawn</small><span class="arrow" aria-hidden="true">↗</span><strong>Kids</strong></a><a class="category" data-piece="bishop" href="bishop.html"><small>04 / bishop</small><span class="arrow" aria-hidden="true">↗</span><strong>Accessories</strong></a><a class="category" data-piece="rook" href="rook.html"><small>05 / rook</small><span class="arrow" aria-hidden="true">↗</span><strong>Shoes</strong></a></nav>
+</main>
+<footer class="study-footer"><span>Honed travertine. Quiet light. Every detail considered.</span><a href="index.html">Return to the store ↗</a></footer>
+<noscript><style>.stage canvas,.stage-top,.view-controls,.stage-hint,.loading{display:none}.fallback-image{display:block}</style></noscript>
+<script type="module" src="js/stone-study-v1.js?v=1"></script>
+</body>
+</html>
