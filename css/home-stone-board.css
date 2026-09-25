@@ -1,0 +1,80 @@
+/* Scoped homepage hero. The original hero's CSS remains frozen for its saved page. */
+.hero-board--stone {
+  position:relative; isolation:isolate; overflow:hidden; display:grid;
+  grid-template-columns:minmax(280px, .8fr) minmax(0, 1.65fr);
+  grid-template-rows:minmax(460px, min(calc(100svh - 202px), 730px)) auto;
+  color:var(--ink); background:#f1eee7;
+}
+.hero-board--stone .hb-copy { position:relative; z-index:2; align-self:center; padding:40px 0 55px var(--gutter); pointer-events:none; transition:opacity .35s; }
+.hero-board--stone .hb-eyebrow { display:block; font-size:.76rem; letter-spacing:.17em; text-transform:uppercase; color:var(--pine); }
+.hero-board--stone h1 { font-size:clamp(3.5rem,6.4vw,6.6rem); font-weight:500; line-height:.94; letter-spacing:-.045em; margin:.34em 0 .42em; }
+.hero-board--stone h1 em { color:var(--pine); font-weight:400; }
+.hero-board--stone .hb-sub { font-size:clamp(1.15rem,1.9vw,1.55rem); line-height:1.3; color:#686357; }
+.hero-board--stone .hb-material { margin-top:2.3rem; padding-top:.9rem; border-top:1px solid #cec7b9; width:max-content; max-width:100%; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:#797367; }
+.hero-board--stone .hb-stage { position:relative; min-width:0; min-height:0; }
+.hero-board--stone .hb-canvas, .hero-board--stone .hb-preview { position:absolute; inset:0; width:100%; height:100%; }
+.hero-board--stone .hb-preview { object-fit:contain; mix-blend-mode:multiply; }
+.hero-board--stone .hb-canvas { opacity:0; transition:opacity .65s; touch-action:pan-y; cursor:grab; }
+.hero-board--stone.is-ready .hb-canvas { opacity:1; }
+.hero-board--stone.is-ready .hb-preview { visibility:hidden; }
+.hero-board--stone.is-fallback .hb-preview { visibility:visible; }
+.hero-board--stone.is-fallback .hb-canvas, .hero-board--stone.is-fallback .hb-controls, .hero-board--stone.is-fallback .hb-hint { display:none; }
+.hero-board--stone .hb-tip { position:absolute; z-index:4; pointer-events:none; transform:translate(-50%,-100%); opacity:0; padding:8px 13px; background:var(--pine-deep); color:var(--paper); border-radius:2px; font-size:.82rem; white-space:nowrap; transition:opacity .12s; }
+.hero-board--stone .hb-tip.is-on { opacity:1; }
+.hero-board--stone .hb-controls { position:absolute; right:24px; top:20px; display:flex; align-items:center; gap:6px; opacity:0; visibility:hidden; }
+.hero-board--stone.is-ready .hb-controls { opacity:1; visibility:visible; }
+.hero-board--stone .hb-controls button { min-width:36px; min-height:36px; padding:5px 10px; font-size:1rem; line-height:1; border:1px solid #c9c2b4; color:#565548; background:rgba(250,248,242,.65); border-radius:2px; }
+.hero-board--stone .hb-controls button:last-child { font-size:.78rem; }
+.hero-board--stone .hb-controls button:hover { color:var(--pine); border-color:var(--pine); background:var(--paper); }
+.hero-board--stone .hb-hint { position:absolute; bottom:20px; left:0; right:0; text-align:center; pointer-events:none; color:#716d61; font-size:.75rem; letter-spacing:.06em; }
+.hero-board--stone .hb-keys { grid-column:1 / -1; z-index:3; display:grid; grid-template-columns:repeat(6,1fr); padding:0 var(--gutter); border-top:1px solid #d0c9bc; background:#f1eee7; transition:opacity .35s; }
+.hero-board--stone .hb-key { display:grid; grid-template-columns:26px auto; grid-template-rows:auto auto; align-content:center; column-gap:12px; padding:20px 15px; border-right:1px solid #d0c9bc; color:#4e5147; transition:color .18s, background .18s; }
+.hero-board--stone .hb-key:first-child { border-left:1px solid #d0c9bc; }
+.hero-board--stone .hb-key svg { grid-row:1 / 3; align-self:center; width:24px; height:31px; color:#867653; }
+.hero-board--stone .hb-key b { font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; font-weight:600; }
+.hero-board--stone .hb-key span { font-size:1rem; line-height:1.15; }
+.hero-board--stone .hb-key:hover, .hero-board--stone .hb-key.is-on, .hero-board--stone .hb-key:focus-visible { background:#e4e6dc; color:var(--pine-deep); }
+.hero-board--stone .hb-key:hover svg, .hero-board--stone .hb-key.is-on svg { color:var(--pine); }
+.hero-board--stone :focus-visible { outline:2px solid var(--pine); outline-offset:-3px; }
+.hero-board--stone .hb-wipe { position:absolute; inset:0; z-index:7; pointer-events:none; background:var(--paper); opacity:0; }
+.hero-board--stone .hb-status { position:absolute; left:1px; top:1px; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.hero-board--stone.is-moving .hb-copy, .hero-board--stone.is-moving .hb-keys { opacity:.2; }
+.hero-board--stone.is-moving .hb-controls, .hero-board--stone.is-moving .hb-hint, .hero-board--stone.is-moving .hb-tip { visibility:hidden; }
+.hero-board--stone.is-moving .hb-canvas { cursor:progress; }
+@media (min-width:1500px) { .hero-board--stone { grid-template-columns:minmax(400px,.8fr) minmax(0,1.65fr); } }
+@media (max-width:1000px) {
+  .hero-board--stone { grid-template-columns:minmax(250px,.7fr) minmax(0,1.3fr); grid-template-rows:530px auto; }
+  .hero-board--stone .hb-copy { padding-left:30px; }
+  .hero-board--stone h1 { font-size:clamp(3.1rem,6.5vw,4.5rem); }
+  .hero-board--stone .hb-eyebrow { font-size:.65rem; letter-spacing:.1em; }
+  .hero-board--stone .hb-material { font-size:.59rem; letter-spacing:.08em; }
+  .hero-board--stone .hb-keys { padding:0 20px; }
+  .hero-board--stone .hb-key { padding:18px 10px; column-gap:6px; grid-template-columns:20px auto; }
+  .hero-board--stone .hb-key svg { width:18px; }
+  .hero-board--stone .hb-key b { font-size:.65rem; }
+  .hero-board--stone .hb-key span { font-size:.88rem; }
+}
+@media (max-width:700px) {
+  .hero-board--stone { display:flex; flex-direction:column; }
+  .hero-board--stone .hb-copy { align-self:stretch; padding:30px 24px 0; }
+  .hero-board--stone .hb-eyebrow { font-size:.66rem; }
+  .hero-board--stone h1 { font-size:3.3rem; line-height:.92; margin:.28em 0 .25em; }
+  .hero-board--stone h1 br { display:none; }
+  .hero-board--stone h1 em::before { content:' '; }
+  .hero-board--stone .hb-sub { font-size:1.1rem; }
+  .hero-board--stone .hb-sub br { display:none; }
+  .hero-board--stone .hb-sub br::after { content:' '; }
+  .hero-board--stone .hb-material { margin-top:14px; padding-top:0; border:0; font-size:.6rem; letter-spacing:.11em; }
+  .hero-board--stone .hb-stage { height:clamp(350px,95vw,530px); flex:none; margin-top:0; }
+  .hero-board--stone .hb-controls { top:12px; right:16px; }
+  .hero-board--stone .hb-hint { bottom:12px; font-size:.68rem; }
+  .hero-board--stone .hb-keys { grid-template-columns:repeat(3,1fr); padding:0 16px; }
+  .hero-board--stone .hb-key { min-height:69px; padding:12px 8px; column-gap:8px; }
+  .hero-board--stone .hb-key:nth-child(4) { border-left:1px solid #d0c9bc; }
+  .hero-board--stone .hb-key:nth-child(n+4) { border-top:1px solid #d0c9bc; }
+  .hero-board--stone .hb-key span { font-size:.91rem; }
+  .hero-board--stone .hb-key b { font-size:.62rem; }
+}
+@media (prefers-reduced-motion:reduce) { .hero-board--stone *, .hero-board--stone *::before { transition:none!important; } }
+
+body.stone-hero-in-view .mascot-canvas { visibility:hidden!important; }

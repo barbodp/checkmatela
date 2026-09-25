@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=29">
-<link rel="stylesheet" href="css/hero-board.css?v=4">
+<link rel="stylesheet" href="css/home-stone-board.css?v=1">
 </head>
 <body>
 
@@ -109,20 +109,29 @@
   </div>
 </header>
 
-<!-- ============ HERO — interactive 3D chessboard (js/hero-board.js): the pieces are the navigation ============ -->
-<section class="hero-board" id="heroBoard" aria-label="Choose a collection by choosing a chess piece">
-  <canvas class="hb-canvas" aria-hidden="true"></canvas>
-  <div class="hb-tip" aria-hidden="true"></div>
+<!-- ============ HERO — raw stone board; original saved at index-hero-original.html ============ -->
+<section class="hero-board hero-board--stone" id="heroBoard" aria-label="Choose a collection by choosing a chess piece">
   <div class="hb-copy">
     <span class="hb-eyebrow">Checkmatela — Formal wear</span>
     <h1>Every move,<br><em>tailored.</em></h1>
-    <p class="hb-sub">Choose a piece and make your first move.</p>
-    <p class="hb-hint">[ Hover to preview · Click to move ]</p>
+    <p class="hb-sub">Choose a piece. <br>Make your first move.</p>
+    <p class="hb-material">Raw travertine &amp; carved basalt</p>
+  </div>
+  <div class="hb-stage" id="homeStoneStage">
+    <img class="hb-preview" src="assets/img/stone-v2/board-preview.jpg" alt="A complete chess set carved from warm travertine and charcoal basalt, arranged on a stone board." width="1846" height="1280" fetchpriority="high">
+    <canvas class="hb-canvas" tabindex="0" role="img" aria-label="Interactive stone chessboard. Drag or use arrow keys to rotate; choose a collection using the links below." aria-describedby="hbInstructions"></canvas>
+    <div class="hb-tip" aria-hidden="true"></div>
+    <div class="hb-controls" aria-label="Board view">
+      <button type="button" data-action="out" aria-label="Zoom out">−</button>
+      <button type="button" data-action="in" aria-label="Zoom in">+</button>
+      <button type="button" data-action="reset" aria-label="Reset board view">Reset view</button>
+    </div>
+    <p class="hb-hint" id="hbInstructions">Drag to explore · Choose a piece to enter</p>
   </div>
   <nav class="hb-keys" aria-label="Collections"><a class="hb-key" data-piece="king" href="king.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-king" fill="currentColor"/></svg><b>King</b><span>Men</span></a><a class="hb-key" data-piece="queen" href="queen.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-queen" fill="currentColor"/></svg><b>Queen</b><span>Women</span></a><a class="hb-key" data-piece="pawn" href="pawn.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-pawn" fill="currentColor"/></svg><b>Pawn</b><span>Kids</span></a><a class="hb-key" data-piece="bishop" href="bishop.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-bishop" fill="currentColor"/></svg><b>Bishop</b><span>Accessories</span></a><a class="hb-key" data-piece="rook" href="rook.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-rook" fill="currentColor"/></svg><b>Rook</b><span>Shoes</span></a><a class="hb-key" data-piece="knight" href="book-a-fitting.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-knight" fill="currentColor"/></svg><b>Knight</b><span>Book a fitting</span></a></nav>
+  <p class="hb-status" role="status" aria-live="polite"></p>
   <div class="hb-wipe" aria-hidden="true"></div>
 </section>
-
 
 
 <!-- Product carousel (removed from the live homepage; tag homepage-carousel-v1 has the old version).
@@ -537,7 +546,7 @@
 </footer>
 
 <script src="js/main.js"></script>
-<script type="module" src="js/hero-board.js?v=13"></script>
+<script type="module" src="js/home-stone-board.js?v=1"></script>
 <script type="module" src="js/mascot.js"></script>
 </body>
 </html>
