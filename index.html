@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=29">
-<link rel="stylesheet" href="css/home-stone-board.css?v=1">
+<link rel="stylesheet" href="css/home-stone-board.css?v=2">
 </head>
 <body>
 
@@ -118,6 +118,7 @@
     <p class="hb-material">Raw travertine &amp; carved basalt</p>
   </div>
   <div class="hb-stage" id="homeStoneStage">
+    <p class="hb-hint" id="hbInstructions">Drag to explore · Choose a piece to enter</p>
     <img class="hb-preview" src="assets/img/stone-v2/board-preview.jpg" alt="A complete chess set carved from warm travertine and charcoal basalt, arranged on a stone board." width="1846" height="1280" fetchpriority="high">
     <canvas class="hb-canvas" tabindex="0" role="img" aria-label="Interactive stone chessboard. Drag or use arrow keys to rotate; choose a collection using the links below." aria-describedby="hbInstructions"></canvas>
     <div class="hb-tip" aria-hidden="true"></div>
@@ -126,7 +127,6 @@
       <button type="button" data-action="in" aria-label="Zoom in">+</button>
       <button type="button" data-action="reset" aria-label="Reset board view">Reset view</button>
     </div>
-    <p class="hb-hint" id="hbInstructions">Drag to explore · Choose a piece to enter</p>
   </div>
   <nav class="hb-keys" aria-label="Collections"><a class="hb-key" data-piece="king" href="king.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-king" fill="currentColor"/></svg><b>King</b><span>Men</span></a><a class="hb-key" data-piece="queen" href="queen.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-queen" fill="currentColor"/></svg><b>Queen</b><span>Women</span></a><a class="hb-key" data-piece="pawn" href="pawn.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-pawn" fill="currentColor"/></svg><b>Pawn</b><span>Kids</span></a><a class="hb-key" data-piece="bishop" href="bishop.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-bishop" fill="currentColor"/></svg><b>Bishop</b><span>Accessories</span></a><a class="hb-key" data-piece="rook" href="rook.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-rook" fill="currentColor"/></svg><b>Rook</b><span>Shoes</span></a><a class="hb-key" data-piece="knight" href="book-a-fitting.html"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#glyph-knight" fill="currentColor"/></svg><b>Knight</b><span>Book a fitting</span></a></nav>
   <p class="hb-status" role="status" aria-live="polite"></p>

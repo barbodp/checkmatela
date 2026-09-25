@@ -26,7 +26,7 @@
 .hero-board--stone .hb-controls button { min-width:36px; min-height:36px; padding:5px 10px; font-size:1rem; line-height:1; border:1px solid #c9c2b4; color:#565548; background:rgba(250,248,242,.65); border-radius:2px; }
 .hero-board--stone .hb-controls button:last-child { font-size:.78rem; }
 .hero-board--stone .hb-controls button:hover { color:var(--pine); border-color:var(--pine); background:var(--paper); }
-.hero-board--stone .hb-hint { position:absolute; bottom:20px; left:0; right:0; text-align:center; pointer-events:none; color:#716d61; font-size:.75rem; letter-spacing:.06em; }
+.hero-board--stone .hb-hint { position:absolute; z-index:2; top:76px; left:20px; right:20px; text-align:center; pointer-events:none; color:var(--pine); font-family:var(--serif); font-size:clamp(1rem,1.4vw,1.12rem); font-style:italic; font-weight:500; line-height:1.3; letter-spacing:.015em; }
 .hero-board--stone .hb-keys { grid-column:1 / -1; z-index:3; display:grid; grid-template-columns:repeat(6,1fr); padding:0 var(--gutter); border-top:1px solid #d0c9bc; background:#f1eee7; transition:opacity .35s; }
 .hero-board--stone .hb-key { display:grid; grid-template-columns:26px auto; grid-template-rows:auto auto; align-content:center; column-gap:12px; padding:20px 15px; border-right:1px solid #d0c9bc; color:#4e5147; transition:color .18s, background .18s; }
 .hero-board--stone .hb-key:first-child { border-left:1px solid #d0c9bc; }
@@ -67,7 +67,7 @@
   .hero-board--stone .hb-material { margin-top:14px; padding-top:0; border:0; font-size:.6rem; letter-spacing:.11em; }
   .hero-board--stone .hb-stage { height:clamp(350px,95vw,530px); flex:none; margin-top:0; }
   .hero-board--stone .hb-controls { top:12px; right:16px; }
-  .hero-board--stone .hb-hint { bottom:12px; font-size:.68rem; }
+  .hero-board--stone .hb-hint { top:62px; left:12px; right:12px; font-size:.94rem; }
   .hero-board--stone .hb-keys { grid-template-columns:repeat(3,1fr); padding:0 16px; }
   .hero-board--stone .hb-key { min-height:69px; padding:12px 8px; column-gap:8px; }
   .hero-board--stone .hb-key:nth-child(4) { border-left:1px solid #d0c9bc; }
