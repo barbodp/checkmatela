@@ -8,7 +8,7 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "23"
+CSS_VERSION = "31"
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
       <circle fill="currentColor" cx="50" cy="30" r="13"/>
@@ -97,6 +97,7 @@ FOOTER = '''<footer class="site-footer">
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/cart.js?v=3"></script>
 </body>
 </html>'''
 
@@ -159,6 +160,7 @@ LINES = {
         hero=["full-black", "red", "royal-blue"],
     ),
 }
+KID_OPTIONS = '[{"key": "size", "label": "Size", "values": ["2T", "4", "6", "8", "10", "12", "14", "16"], "required": true}]'
 ORDER = ["slim-fit", "suit-vest-set", "tuxedo", "tuxedo-vest-set"]
 
 # colour family per colourway slug (a new colourway with an unknown slug lands in "Other" until it is added here)
@@ -248,6 +250,8 @@ def build(line):
     cards = "\n\n".join(gallery_card(line, s, n, cfg, eager=(i < 4)) for i, (s, n) in enumerate(cfg["colors"]))
     others = [k for k in ORDER if k != line]
     other_links = "\n      ".join(f'<a href="{LINES[k]["file"]}" class="btn ghost">{LINES[k]["label"]}</a>' for k in others)
+    shop_html = shop_block(cards, FACETS, 'pawn', grid_class='gallery-grid', count_noun='colorways', review_facets=REVIEW_FACETS,
+                           extra_attrs=' data-count-suffix=" &middot; sizes 2T&ndash;14" data-options=\'' + KID_OPTIONS + '\'')
     html = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -276,7 +280,7 @@ def build(line):
 
 {banner_html(line, cfg)}
 
-{shop_block(cards, FACETS, 'pawn', grid_class='gallery-grid', count_noun='colorways', review_facets=REVIEW_FACETS, extra_attrs=' data-count-suffix=" &middot; sizes 2T&ndash;14"')}
+{shop_html}
 
 <section class="section" style="background:var(--pine-deep);color:var(--paper);text-align:center;padding:64px 0">
   <div class="container" data-reveal>

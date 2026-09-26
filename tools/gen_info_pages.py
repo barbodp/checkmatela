@@ -318,6 +318,142 @@ def build(slug, p):
     print("wrote", slug + ".html")
 
 
+STATES = "AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY".split()
+
+
+def build_checkout():
+    """checkout.html — the pre-checkout: bag review, contact/delivery form with inline validation, shipping method, payment PREVIEW
+    (no card details are collected; nothing is sent anywhere), order summary and a confirmation preview. Logic in js/checkout.js."""
+    defs = glyph_defs(["glyph-king"])
+    states = "".join(f'<option value="{x}">{x}</option>' for x in STATES)
+    def field(name, label, extra="", typ="text", auto="", req=True, wide=False, hint=""):
+        return (f'<div class="co-field{" co-wide" if wide else ""}"><label for="f-{name}">{label}{"" if req else " <em>(optional)</em>"}</label>'
+                f'<input id="f-{name}" name="{name}" type="{typ}" autocomplete="{auto}" {"required" if req else ""} {extra}>'
+                f'<small class="co-err" id="e-{name}" role="alert"></small>{f"<small class=co-hint>{hint}</small>" if hint else ""}</div>')
+    html = f'''<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout (preview) | Checkmatela</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Checkmatela checkout preview — review your bag, delivery and shipping options.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230c0c0d%22/><text x=%2250%22 y=%2268%22 font-size=%2264%22 text-anchor=%22middle%22 fill=%22%23d9b876%22>&#9812;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v={CSS_VERSION}">
+</head>
+<body class="checkout-page">
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+{defs}
+  </defs>
+</svg>
+
+{ANNOUNCE}
+
+{HEADER}
+
+<main class="co" id="main">
+  <div class="container">
+    <div class="co-top">
+      <div>
+        <span class="eyebrow">Checkout</span>
+        <h1>Secure your pieces</h1>
+      </div>
+      <ol class="co-steps" aria-label="Checkout steps">
+        <li class="is-done"><a href="index.html">Shop</a></li><li class="is-on">Details</li><li>Payment</li><li>Confirmation</li>
+      </ol>
+    </div>
+
+    <p class="co-banner" role="note"><b>Preview only.</b> This shows how checkout will work — payment isn't connected, no card details are collected, and nothing is sent or charged.</p>
+
+    <section class="co-empty" hidden>
+      <h2>Your bag is empty</h2>
+      <p>Add a piece to see the checkout preview.</p>
+      <p><a class="btn" href="king.html">Shop King</a> <a class="btn dark-ghost" href="pawn.html">Shop Pawn</a></p>
+    </section>
+
+    <div class="co-grid">
+      <form class="co-form" id="coForm" novalidate>
+        <section class="co-card">
+          <h2><span>1</span> Contact</h2>
+          {field("email", "Email", 'inputmode="email" placeholder="you@example.com"', "email", "email")}
+          {field("phone", "Phone", 'inputmode="tel" placeholder="(310) 555-0123"', "tel", "tel", req=False, hint="Only used for delivery updates.")}
+        </section>
+
+        <section class="co-card">
+          <h2><span>2</span> Delivery</h2>
+          <div class="co-row">
+            {field("first", "First name", "", "text", "given-name")}
+            {field("last", "Last name", "", "text", "family-name")}
+          </div>
+          {field("address", "Address", 'placeholder="Street address"', "text", "address-line1", wide=True)}
+          {field("apt", "Apartment, suite, etc.", "", "text", "address-line2", req=False, wide=True)}
+          <div class="co-row co-row--3">
+            {field("city", "City", "", "text", "address-level2")}
+            <div class="co-field"><label for="f-state">State</label><select id="f-state" name="state" autocomplete="address-level1" required><option value="">State</option>{states}</select><small class="co-err" id="e-state" role="alert"></small></div>
+            {field("zip", "ZIP code", 'inputmode="numeric" maxlength="10" placeholder="90015"', "text", "postal-code")}
+          </div>
+          <p class="co-hint">We currently ship within the United States.</p>
+        </section>
+
+        <section class="co-card">
+          <h2><span>3</span> Shipping method</h2>
+          <div class="co-options" id="shipOptions" role="radiogroup" aria-label="Shipping method"></div>
+        </section>
+
+        <section class="co-card">
+          <h2><span>4</span> Payment</h2>
+          <div class="co-options" role="radiogroup" aria-label="Payment method">
+            <label class="co-opt"><input type="radio" name="pay" value="card" checked><span><b>Credit or debit card</b><small>Card fields appear here once payments are connected.</small></span></label>
+            <label class="co-opt"><input type="radio" name="pay" value="apple"><span><b>Apple Pay</b><small>Available at launch.</small></span></label>
+            <label class="co-opt"><input type="radio" name="pay" value="paypal"><span><b>PayPal</b><small>Available at launch.</small></span></label>
+          </div>
+          <p class="co-note">Payments aren't connected in this preview. <b>No card details are asked for or stored.</b></p>
+        </section>
+
+        <div class="co-actions">
+          <button class="btn co-place" type="submit">Place order (preview)</button>
+          <a class="link" href="#" id="editBag">Edit bag</a>
+        </div>
+        <p class="co-error-summary" id="coSummary" role="alert" hidden></p>
+      </form>
+
+      <aside class="co-summary" aria-label="Order summary">
+        <h2>Order summary</h2>
+        <ul class="co-items" id="coItems"></ul>
+        <form class="co-promo" id="promoForm" novalidate>
+          <label for="promo" class="visually-hidden">Promo code</label>
+          <input id="promo" name="promo" placeholder="Promo code" autocomplete="off" spellcheck="false">
+          <button type="submit" class="btn small dark-ghost">Apply</button>
+        </form>
+        <p class="co-promo-msg" id="promoMsg" role="status"></p>
+        <dl class="co-totals">
+          <div><dt>Subtotal</dt><dd id="tSub">$0</dd></div>
+          <div class="co-disc" hidden><dt>Discount</dt><dd id="tDisc">−$0</dd></div>
+          <div><dt>Shipping</dt><dd id="tShip">—</dd></div>
+          <div><dt>Estimated tax</dt><dd id="tTax">$0</dd></div>
+          <div class="co-total"><dt>Total</dt><dd id="tTotal">$0</dd></div>
+        </dl>
+        <p class="co-fine">Prices, shipping rates and tax are illustrative placeholders. Free white-glove shipping over $500.</p>
+      </aside>
+    </div>
+
+    <section class="co-done" id="coDone" hidden aria-live="polite"></section>
+  </div>
+</main>
+
+{FOOTER.replace('<script src="js/cart.js"></script>', '<script src="js/cart.js"></script>' + chr(10) + '<script src="js/checkout.js?v=2"></script>')}
+'''
+    with open(os.path.join(ROOT, "checkout.html"), "w", encoding="utf-8") as f:
+        f.write(html)
+    print("wrote checkout.html")
+
+
 if __name__ == "__main__":
     for slug, p in PAGES.items():
         build(slug, p)
+    build_checkout()

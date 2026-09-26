@@ -33,12 +33,13 @@ def card(p):
 
 def main():
     cat = json.load(open(os.path.join(ROOT, "tools", "catalog", "king.json"), encoding="utf-8"))["products"]
-    block = shop_block("\n".join(card(p) for p in cat), FACETS, "king", count_noun="openings", review_facets=REVIEW_FACETS)
+    OPTIONS = [{"key": "size", "label": "Jacket size", "values": ["36", "38", "40", "42", "44", "46", "48"], "required": True}, {"key": "length", "label": "Length", "values": ["Short", "Regular", "Long"], "default": "Regular"}]
+    block = shop_block("\n".join(card(p) for p in cat), FACETS, "king", count_noun="openings", review_facets=REVIEW_FACETS, extra_attrs=" data-options='" + json.dumps(OPTIONS) + "'")
     path = os.path.join(ROOT, "king.html")
     src = open(path, encoding="utf-8").read()
     out = replace_between(src, "<!-- SHOP:START -->", "<!-- SHOP:END -->", block)
     if "js/shop.js" not in out:
-        out = out.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/reviews-data.js"></script>\n<script src="js/shop.js"></script>')
+        out = out.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/cart.js?v=3"></script>\n<script src="js/reviews-data.js"></script>\n<script src="js/shop.js"></script>')
     open(path, "w", encoding="utf-8").write(out)
     print("king.html:", len(cat), "products")
 

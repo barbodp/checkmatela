@@ -41,6 +41,7 @@
     const reviews = (REVIEWS[id] || []).slice();
     const attrs = facets.map(f => [f.label, (card.dataset["f" + f.key[0].toUpperCase() + f.key.slice(1)] || "").split("|").filter(Boolean).join(", ")]).filter(a => a[1]);
     const kind = root.dataset.kind;
+    const optionDefs = JSON.parse(root.dataset.options || "[]");
     const sizeNote = kind === "pawn" ? "Sizes 2T–14" : "Jackets 36–48 · trousers 28–40";
     const mail = `mailto:suit.shop.dtla@gmail.com?subject=${encodeURIComponent("Review: " + name)}&body=${encodeURIComponent("Product: " + name + " (" + tag + ")\nRating (1-5):\nTitle:\nYour review:\n" + rfacets.map(f => f[1] + ":\n").join(""))}`;
 
@@ -57,8 +58,10 @@
           <p class="qv__price">${money(price)}</p>
           <p class="qv__rating"></p>
           <dl class="qv__attrs">${attrs.map(a => `<div><dt>${esc(a[0])}</dt><dd>${esc(a[1])}</dd></div>`).join("")}</dl>
+          <div class="qv__opts">${optionDefs.map(o => `<fieldset class="qv-opt" data-key="${o.key}"><legend>${esc(o.label)}${o.required ? "" : ""}</legend><div class="qv-opt__chips">${o.values.map(v => `<button type="button" class="chip-btn" data-v="${esc(v)}" aria-pressed="${v === o.default}">${esc(v)}</button>`).join("")}</div></fieldset>`).join("")}</div>
           <p class="qv__size">${sizeNote} · <a class="link" href="size-guide.html">Size guide</a></p>
-          <div class="qv__cta"><a class="btn" href="book-a-fitting.html">Book a fitting</a></div>
+          <p class="qv__msg" role="status"></p>
+          <div class="qv__cta"><button type="button" class="btn qv-add">Add to bag</button><a class="btn dark-ghost" href="book-a-fitting.html">Book a fitting</a></div>
         </div>
         <section class="reviews" aria-labelledby="rv-h"><h3 id="rv-h">Reviews</h3><div class="reviews__body"></div></section>
       </div>`;
@@ -67,6 +70,18 @@
       $(".qv__main", qv).src = b.dataset.src;
       $$(".qv__thumbs button", qv).forEach(x => x.classList.toggle("is-active", x === b));
     });
+    // options (size / length) + add to bag
+    const chosen = {}; optionDefs.forEach(o => { if (o.default) chosen[o.key] = o.default; });
+    $$(".qv-opt", qv).forEach(fs => $$(".chip-btn", fs).forEach(b => b.onclick = () => {
+      $$(".chip-btn", fs).forEach(x => x.setAttribute("aria-pressed", "false")); b.setAttribute("aria-pressed", "true"); chosen[fs.dataset.key] = b.dataset.v; $(".qv__msg", qv).textContent = "";
+    }));
+    $(".qv-add", qv).onclick = () => {
+      const missing = optionDefs.find(o => o.required && !chosen[o.key]);
+      if (missing) { $(".qv__msg", qv).textContent = "Please choose a " + missing.label.toLowerCase() + "."; const fs = $(`.qv-opt[data-key="${missing.key}"]`, qv); fs.classList.remove("shake"); void fs.offsetWidth; fs.classList.add("shake"); return; }
+      if (!window.CheckmatelaBag) { $(".qv__msg", qv).textContent = "The bag isn't available on this page."; return; }
+      window.CheckmatelaBag.add({ id, name, tag, price: Number(price), img: card.dataset.img, options: Object.assign({}, chosen) });
+      qv.close(); window.CheckmatelaBag.open();
+    };
     renderReviews($(".reviews__body", qv), reviews, rfacets, mail, $(".qv__rating", qv));
     qv.showModal();
     qv.scrollTop = 0;
