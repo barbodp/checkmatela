@@ -78,3 +78,21 @@
 @media (prefers-reduced-motion:reduce) { .hero-board--stone *, .hero-board--stone *::before { transition:none!important; } }
 
 body.stone-hero-in-view .mascot-canvas { visibility:hidden!important; }
+
+/* ---- compact variant: the board demoted below "Shop by piece" (a bonus feature, not the main hero) ---- */
+.play-board{ background: var(--paper); padding: clamp(8px,1.2vw,16px) 0 clamp(40px,5vw,68px); }
+.hero-board--stone.hero-board--compact{
+  max-width: var(--container); margin: 0 auto; border: 1px solid rgba(21,24,26,.14);
+  grid-template-rows: minmax(320px, 46vh) auto;
+}
+.hero-board--compact .hb-copy{ padding: clamp(22px,3vw,36px) clamp(20px,2.6vw,32px) clamp(22px,3vw,36px) clamp(24px,3vw,40px); }
+.hero-board--compact .hb-copy h2{ font-size: clamp(1.9rem,3vw,2.7rem); font-weight:500; line-height:.98; letter-spacing:-.03em; color: var(--ink); margin:.32em 0 .38em; }
+.hero-board--compact .hb-sub{ font-size: clamp(1rem,1.3vw,1.12rem); max-width: 30ch; }
+.hero-board--compact .hb-material{ margin-top:1.6rem; }
+.hero-board--compact .hb-hint{ top:18px; font-size: clamp(.92rem,1.1vw,1.02rem); }
+@media (max-width:1000px){ .hero-board--stone.hero-board--compact{ grid-template-rows: 340px auto; } }
+@media (max-width:700px){
+  .hero-board--compact{ display:flex; flex-direction:column; }
+  .hero-board--compact .hb-stage{ height: clamp(300px,82vw,400px); flex:none; margin-top:0; }
+  .hero-board--compact .hb-hint{ top:14px; }
+}
