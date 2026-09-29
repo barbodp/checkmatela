@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Story | Checkmatela</title>
-<meta name="description" content="Meet Checkmatela, a chess-inspired formal wear concept for men, women and kids.">
+<title>Find Your Look | Checkmatela</title>
+<meta name="description" content="Find a Checkmatela formal wear starting point by wearer, occasion and event timing.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230c0c0d%22/><text x=%2250%22 y=%2268%22 font-size=%2264%22 text-anchor=%22middle%22 fill=%22%23d9b876%22>&#9812;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,10 +75,10 @@
   <div class="cat-hero__fade"></div>
   <div class="cat-hero__inner">
     <div class="cat-hero__copy">
-      <div class="crumbs"><a href="index.html">Home</a> <span>/</span> <span>Our Story</span></div>
+      <div class="crumbs"><a href="index.html">Home</a> <span>/</span> <span>Find Your Look</span></div>
       <span class="cat-hero__glyph"><svg viewBox="0 0 100 100"><use href="#glyph-king" fill="currentColor"/></svg></span>
-      <h1>Our Story</h1>
-      <p>The right look helps you feel ready for the moment in front of you. Checkmatela brings that idea to formal wear, one considered choice at a time.</p>
+      <h1>Find Your Look</h1>
+      <p>Three quick choices can narrow the collection to a better starting point for your occasion.</p>
     </div>
     <div class="cat-hero__figures cat-hero__figures--glyph">
       <svg viewBox="0 0 100 130" aria-hidden="true"><use href="#glyph-king" fill="currentColor"/></svg>
@@ -88,20 +88,20 @@
 
 <section class="info-section">
   <div class="container">
-    <div class="section-head" data-reveal><span class="eyebrow">The idea</span><h2>A look for the moment.</h2></div>
-    <div data-reveal><div class="prose"><p>Checkmatela is a formal wear concept built around a simple question: what do you need to feel ready when the occasion matters? A wedding, prom, gala or family celebration calls for more than a good-looking jacket. The style, fit and timing all have to make sense together.</p><p>Our chessboard gives the collection its character: <strong>King</strong> for men, <strong>Queen</strong> for women, <strong>Pawn</strong> for kids, <strong>Bishop</strong> for accessories and <strong>Rook</strong> for shoes. The names are playful; the decision should be easy.</p><p>The site currently previews the collection. Prices and service details are illustrative while ordering is being prepared.</p></div></div>
+    <div class="section-head" data-reveal><span class="eyebrow">A simple guide</span><h2>Start with your event.</h2></div>
+    <div data-reveal><form class="look-finder" id="lookFinder">
+<label>Who are you dressing?<select name="wearer"><option value="men">Men</option><option value="kids">Kids</option><option value="women">Women</option></select></label>
+<label>What's the occasion?<select name="occasion"><option value="wedding">Wedding</option><option value="black-tie">Black tie or gala</option><option value="prom">Prom or school event</option><option value="family">Family celebration</option><option value="business">Business or other</option></select></label>
+<label>When is the event?<input type="date" name="eventDate"></label>
+<button class="btn" type="submit">Show my starting point</button>
+</form><div class="look-result" id="lookResult" role="status" aria-live="polite" hidden></div>
+<p class="look-note">This guide suggests a style to explore. It does not check stock, confirm size or promise delivery. Ordering is not yet connected.</p></div>
   </div>
 </section>
 <section class="info-section info-section--alt">
   <div class="container">
-    <div class="section-head" data-reveal><span class="eyebrow">The approach</span><h2>How we help you choose.</h2></div>
-    <div data-reveal><div class="info-grid"><div class="info-card"><span class="info-card__n">01</span><h3>Start with the occasion</h3><p>Choose the dress code and the person you're dressing before sorting through styles.</p></div><div class="info-card"><span class="info-card__n">02</span><h3>Check the fit</h3><p>Use the measurement guide as a starting point and ask questions before committing to a size.</p></div><div class="info-card"><span class="info-card__n">03</span><h3>Plan around your date</h3><p>Tell us when you need the look. Availability, delivery and any alterations must be confirmed before an order.</p></div></div></div>
-  </div>
-</section>
-<section class="info-cta">
-  <div class="container" data-reveal>
-    <h2>Have an event coming up?</h2>
-    <a href="find-your-look.html" class="btn">Find your look</a>
+    <div class="section-head" data-reveal><span class="eyebrow">Fit and timing</span><h2>Before you decide.</h2></div>
+    <div data-reveal><ol class="steps"><li><h3>Choose the dress code</h3><p>Black tie usually points toward a tuxedo. Weddings and family events allow more flexibility.</p></li><li><h3>Check fit</h3><p>Measure chest, waist, height and inseam, then compare with the guide and ask about the garment.</p></li><li><h3>Check your date</h3><p>Build in time to try on the complete look and adjust it if needed.</p></li></ol></div>
   </div>
 </section>
 
@@ -143,5 +143,5 @@
 
 <script src="js/main.js"></script>
 <script src="js/cart.js?v=3"></script>
-</body>
+<script src="js/look-finder.js"></script></body>
 </html>

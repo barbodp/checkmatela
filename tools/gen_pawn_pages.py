@@ -8,7 +8,7 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "31"
+CSS_VERSION = "32"
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
       <circle fill="currentColor" cx="50" cy="30" r="13"/>
@@ -63,12 +63,8 @@ FOOTER = '''<footer class="site-footer">
         <span class="glyph"><svg viewBox="0 0 100 100"><use href="#glyph-king" fill="currentColor"/></svg></span>
         Checkmatela
       </a>
-      <p>Chess-inspired formal wear, tailored for the moments that decide everything. Every move, considered.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 17c1-4 1-9 3-9s2 3 1 5-3 2-3-1"/></svg></a>
-        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
-      </div>
+      <p>Formal wear for weddings, celebrations and the moments in between. Find a look that fits the occasion, then plan the details with confidence.</p>
+      <div class="footer-social"><a href="mailto:suit.shop.dtla@gmail.com?subject=Checkmatela%20event%20enquiry" aria-label="Email Checkmatela about your event"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 7 9-7"/></svg></a></div>
     </div>
     <div class="footer-col"><h5>The Board</h5><ul>
       <li><a href="king.html">King — Men</a></li>
@@ -81,7 +77,7 @@ FOOTER = '''<footer class="site-footer">
       <li><a href="our-story.html">Our Story</a></li><li><a href="master-tailors.html">Master Tailors</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="press.html">Press</a></li>
     </ul></div>
     <div class="footer-col"><h5>Service</h5><ul>
-      <li><a href="book-a-fitting.html">Book a Fitting</a></li><li><a href="size-guide.html">Size Guide</a></li><li><a href="alterations.html">Alterations</a></li><li><a href="shipping-returns.html">Shipping &amp; Returns</a></li>
+      <li><a href="find-your-look.html">Find Your Look</a></li><li><a href="book-a-fitting.html">Ask About Fit</a></li><li><a href="size-guide.html">Size Guide</a></li><li><a href="alterations.html">Alterations</a></li><li><a href="shipping-returns.html">Shipping &amp; Returns</a></li>
     </ul></div>
     <div class="footer-col"><h5>Contact</h5><ul>
       <li><a href="mailto:suit.shop.dtla@gmail.com">suit.shop.dtla@gmail.com</a></li>
@@ -92,7 +88,7 @@ FOOTER = '''<footer class="site-footer">
   <div class="checker-strip"></div>
   <div class="container footer-bottom">
     <span>© 2026 Checkmatela. All moves reserved.</span>
-    <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>
+    <div class="legal"><a href="shipping-returns.html">Service status</a><a href="mailto:suit.shop.dtla@gmail.com">Contact</a></div>
   </div>
 </footer>
 
@@ -104,14 +100,14 @@ FOOTER = '''<footer class="site-footer">
 ANNOUNCE = '''<div class="announce">
   <div class="announce__inner">
     <div class="announce__msgs">
-      <a href="pawn.html" style="--n:0">Now open — the Pawn kids collection</a>
-      <span style="--n:1">Complimentary alterations on every order</span>
-      <span style="--n:2">Free white-glove shipping over $500</span>
+      <a href="find-your-look.html" style="--n:0">Dressing for an event? Start with your occasion</a>
+      <a href="size-guide.html" style="--n:1">Find your fit before you choose a size</a>
+      <a href="shipping-returns.html" style="--n:2">Have a date in mind? Ask about timing</a>
     </div>
     <div class="announce__links">
       <a href="tel:+13108906991">+1 (310) 890-6991</a>
       <a href="size-guide.html">Size Guide</a>
-      <a href="book-a-fitting.html">Book a Fitting</a>
+      <a href="book-a-fitting.html">Ask About Fit</a>
     </div>
   </div>
 </div>'''
@@ -124,7 +120,7 @@ LINES = {
         file="pawn-suit-vest-set.html", label="Suit Vest Set", price=89,
         title="Suit Vest Set — Pawn Kids | Checkmatela",
         meta="Checkmatela Pawn collection — Suit Vest Set for kids, in Black, Indigo, Light Gray and Navy.",
-        intro="Jacket-free and effortless — a shirt, vest and trouser set built for a young gentleman who's always on the move. Four colorways, first move ready.",
+        intro="An easy dressed-up option for warm-weather weddings, family photos and school celebrations. Explore four colorways and compare the details before choosing a size.",
         colors=[("black", "Black"), ("indigo", "Indigo"), ("light-gray", "Light Gray"), ("navy", "Navy")],
         hero=["black", "indigo", "navy"],
     ),
@@ -132,7 +128,7 @@ LINES = {
         file="pawn-tuxedo-vest-set.html", label="Tuxedo Vest Set", price=99,
         title="Tuxedo Vest Set — Pawn Kids | Checkmatela",
         meta="Checkmatela Pawn collection — Tuxedo Vest Set for kids, in Black, Burgundy, Light Gray and Light Navy.",
-        intro="Black-tie formality, scaled down without cutting a corner — satin-trimmed vest, tie and pocket square for the biggest nights on the calendar. Four colorways.",
+        intro="A polished vest look for formal celebrations when a full jacket is more than the moment needs. Compare four colorways and check measurements before the event.",
         colors=[("black", "Black"), ("burgundy", "Burgundy"), ("light-gray", "Light Gray"), ("light-navy", "Light Navy")],
         hero=["black", "burgundy", "light-navy"],
     ),
@@ -140,7 +136,7 @@ LINES = {
         file="pawn-slim-fit.html", label="Slim Fit", price=129,
         title="Slim Fit — Pawn Kids | Checkmatela",
         meta="Checkmatela Pawn collection — Slim Fit suits for kids in fourteen colorways.",
-        intro="A tapered, modern cut for the junior gentleman who already knows his angles. Fourteen colorways, sharp from the first move.",
+        intro="A modern suit look for weddings, school events and family portraits. Browse fourteen colorways, then use the fit guide to plan ahead.",
         colors=[("black", "Black"), ("navy", "Navy"), ("charcoal", "Charcoal"), ("light-gray", "Light Gray"),
                 ("medium-gray", "Medium Gray"), ("white", "White"), ("beige-khaki", "Beige Khaki"),
                 ("khaki", "Khaki"), ("light-navy", "Light Navy"), ("royal-blue", "Royal Blue"),
@@ -152,7 +148,7 @@ LINES = {
         file="pawn-tuxedo.html", label="Tuxedo", price=139,
         title="Tuxedo — Pawn Kids | Checkmatela",
         meta="Checkmatela Pawn collection — shawl-lapel tuxedos for kids in twelve colorways.",
-        intro="Black-tie formality, sized for the next generation's biggest nights — shawl-lapel jacket, vest and bow tie in twelve colorways.",
+        intro="For black-tie weddings, prom and milestone celebrations. See the shawl-lapel look in twelve colorways and compare measurements before choosing.",
         colors=[("full-black", "Full Black"), ("white-black", "White &amp; Black"), ("full-white", "Full White"),
                 ("charcoal", "Charcoal"), ("shiny-charcoal", "Shiny Charcoal"), ("gray", "Gray"),
                 ("navy", "Navy"), ("royal-blue", "Royal Blue"), ("red", "Red"),
@@ -216,7 +212,7 @@ def gallery_card(line, slug, name, cfg, eager):
           <div><h4>{name}</h4><span class="piece-tag">{cfg['label']} &middot; Pawn</span></div>
           <span class="product-card__price">${cfg['price']}</span>
         </div>
-        <button type="button" class="card-reviews">Quick view &amp; reviews</button>
+        <button type="button" class="card-reviews">View details</button>
       </div>'''
 
 
@@ -251,7 +247,7 @@ def build(line):
     others = [k for k in ORDER if k != line]
     other_links = "\n      ".join(f'<a href="{LINES[k]["file"]}" class="btn ghost">{LINES[k]["label"]}</a>' for k in others)
     shop_html = shop_block(cards, FACETS, 'pawn', grid_class='gallery-grid', count_noun='colorways', review_facets=REVIEW_FACETS,
-                           extra_attrs=' data-count-suffix=" &middot; sizes 2T&ndash;14" data-options=\'' + KID_OPTIONS + '\'')
+                           extra_attrs=' data-count-suffix=" &middot; sizes 2T&ndash;16 shown" data-options=\'' + KID_OPTIONS + '\'')
     html = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -295,7 +291,7 @@ def build(line):
 
 {FOOTER}
 '''
-    html = html.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/reviews-data.js"></script>\n<script src="js/shop.js"></script>')
+    html = html.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/shop.js"></script>')
     with open(os.path.join(ROOT, cfg["file"]), "w", encoding="utf-8") as f:
         f.write(html)
     print("wrote", cfg["file"], len(cfg["colors"]), "colorways")
@@ -308,18 +304,18 @@ def landing_compare():
     cols = ORDER
     head = "".join(
         f'<th scope="col"><a href="{LINES[k]["file"]}"><img src="assets/img/pawn/{k}/{LINES[k]["hero"][0]}/model-1.jpg" alt="" loading="lazy"><b>{LINES[k]["label"]}</b><span>${LINES[k]["price"]}</span></a></th>' for k in cols)
-    rows = [("Colourways", [str(len(LINES[k]["colors"])) for k in cols]), ("Sizes", ["2T&ndash;14"] * 4),
+    rows = [("Colourways", [str(len(LINES[k]["colors"])) for k in cols]), ("Illustrative sizes", ["2T&ndash;16"] * 4),
             ("Jacket", [tick(COMPARE[k]["jacket"]) for k in cols]), ("Vest", [tick(COMPARE[k]["vest"]) for k in cols]),
             ("Trousers", [tick(COMPARE[k]["trousers"]) for k in cols]), ("Shirt", [tick(COMPARE[k]["shirt"]) for k in cols]),
             ("Tie", [COMPARE[k]["tie"] for k in cols]), ("Best for", [COMPARE[k]["best"] for k in cols])]
     body = "".join(f'<tr><th scope="row">{r}</th>' + "".join(f"<td>{c}</td>" for c in cells) + "</tr>" for r, cells in rows)
-    cta = "".join(f'<td><a class="btn small" href="{LINES[k]["file"]}">Shop {LINES[k]["label"]}</a></td>' for k in cols)
+    cta = "".join(f'<td><a class="btn small" href="{LINES[k]["file"]}">Explore {LINES[k]["label"]}</a></td>' for k in cols)
     return f'''<section class="section compare-section">
   <div class="container">
     <div class="section-head" data-reveal>
       <span class="eyebrow">Compare</span>
       <h2>Which cut is right?</h2>
-      <p>The four Pawn styles side by side — what each one includes and when to wear it.</p>
+      <p>The four Pawn styles side by side. Set contents, sizing and prices are preview information; confirm before ordering.</p>
     </div>
     <div class="table-wrap" data-reveal>
       <table class="compare-table">

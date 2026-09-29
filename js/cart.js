@@ -38,13 +38,13 @@
     overlay = document.createElement('div'); overlay.className = 'bag-overlay'; overlay.hidden = true;
     drawer = document.createElement('aside'); drawer.className = 'bag'; drawer.setAttribute('role', 'dialog'); drawer.setAttribute('aria-modal', 'true'); drawer.setAttribute('aria-label', 'Shopping bag'); drawer.setAttribute('aria-hidden', 'true');
     drawer.innerHTML = `
-      <header class="bag__head"><h2>Your bag <span class="bag__n"></span></h2><button type="button" class="bag__x" aria-label="Close bag">×</button></header>
+      <header class="bag__head"><h2>Preview bag <span class="bag__n"></span></h2><button type="button" class="bag__x" aria-label="Close bag">×</button></header>
       <div class="bag__ship" aria-live="polite"></div>
       <ul class="bag__list"></ul>
       <div class="bag__empty" hidden><p>Your bag is empty.</p><p class="muted">Every piece is named for a chess opening — start with a King, or shop by piece.</p>
         <div class="bag__links"><a class="btn small" href="king.html">Shop King</a><a class="btn small dark-ghost" href="pawn.html">Shop Pawn</a></div></div>
-      <footer class="bag__foot"><div class="bag__row"><span>Subtotal</span><b class="bag__sub"></b></div><p class="bag__note">Shipping and tax are calculated at checkout.</p>
-        <a class="btn bag__checkout" href="checkout.html">Checkout</a><button type="button" class="bag__continue">Continue shopping</button></footer>`;
+      <footer class="bag__foot"><div class="bag__row"><span>Illustrative subtotal</span><b class="bag__sub"></b></div><p class="bag__note">Preview only. No order or payment can be placed yet.</p>
+        <a class="btn bag__enquire" href="book-a-fitting.html">Ask about these looks</a><a class="bag__checkout" href="checkout.html">View checkout preview</a><button type="button" class="bag__continue">Continue exploring</button></footer>`;
     document.body.append(overlay, drawer);
     overlay.addEventListener('click', close); $('.bag__x', drawer).addEventListener('click', close); $('.bag__continue', drawer).addEventListener('click', close);
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('is-open')) close(); });
@@ -70,8 +70,7 @@
     $('.bag__n', drawer).textContent = n ? `(${n})` : '';
     const list = $('.bag__list', drawer), empty = $('.bag__empty', drawer), foot = $('.bag__foot', drawer), ship = $('.bag__ship', drawer), sub = subtotal();
     empty.hidden = n > 0; foot.hidden = !n; list.hidden = !n; ship.hidden = !n;
-    const left = FREE_SHIP - sub;
-    ship.innerHTML = n ? (left > 0 ? `<span>You're <b>${money(left)}</b> away from free white-glove shipping</span>` : `<span><b>Free white-glove shipping</b> unlocked</span>`) + `<i class="bag__meter"><u style="width:${Math.min(100, sub / FREE_SHIP * 100)}%"></u></i>` : '';
+    ship.innerHTML = n ? '<span>Save looks here while you compare. Availability, pricing and delivery need confirmation.</span>' : '';
     list.innerHTML = items.map(i => `
       <li class="bag__item${i.key === lastAdded ? ' is-new' : ''}" data-key="${esc(i.key)}">
         <img src="${esc(i.img)}" alt="" loading="lazy">
@@ -80,6 +79,8 @@
         <div class="bag__side"><b>${money(i.price * i.qty)}</b><button type="button" class="bag__rm" data-act="rm">Remove</button></div>
       </li>`).join('');
     $('.bag__sub', drawer).textContent = money(sub);
+    const selected = items.map(i => `${i.name}${optLabel(i.options) ? ' (' + optLabel(i.options) + ')' : ''}`).join('; ').slice(0, 500);
+    $('.bag__enquire', drawer).href = 'book-a-fitting.html?look=' + encodeURIComponent(selected);
     lastAdded = null;
   }
 
@@ -97,9 +98,10 @@
     $$('.product-card').forEach(card => {
       const name = ($('h4', card) || {}).textContent, tag = ($('.piece-tag', card) || {}).textContent, price = parseFloat((($('.product-card__price', card) || {}).textContent || '').replace(/[^0-9.]/g, '')), img = ($('img', card) || {}).getAttribute && $('img', card).getAttribute('src');
       if (!name || !price) return;
+      card.href = 'book-a-fitting.html?look=' + encodeURIComponent(name);
       const id = (shoes ? 'rook/' : 'bishop/') + name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
       const q = document.createElement('div'); q.className = 'quick-add';
-      q.innerHTML = (shoes ? `<label class="visually-hidden" for="qa-${id}">Size</label><select id="qa-${id}" class="quick-add__size"><option value="">Size</option>${[7, 8, 9, 10, 11, 12, 13].map(s => `<option>${s}</option>`).join('')}</select>` : '') + `<button type="button" class="btn small quick-add__btn">Add to bag</button><span class="quick-add__msg" role="status"></span>`;
+      q.innerHTML = (shoes ? `<label class="visually-hidden" for="qa-${id}">Size</label><select id="qa-${id}" class="quick-add__size"><option value="">Size</option>${[7, 8, 9, 10, 11, 12, 13].map(s => `<option>${s}</option>`).join('')}</select>` : '') + `<button type="button" class="btn small quick-add__btn">Save to preview bag</button><span class="quick-add__msg" role="status"></span>`;
       card.appendChild(q);
       q.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); });
       $('.quick-add__btn', q).addEventListener('click', () => {

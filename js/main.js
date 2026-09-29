@@ -66,8 +66,12 @@
   document.querySelectorAll('.newsletter-form').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      if (form.classList.contains('sent')) return;
+      const address = form.querySelector('input[type="email"]')?.value.trim();
+      if (!address) return;
+      const subject = document.title.includes('Queen') ? 'Queen collection enquiry' : document.title.includes('Pawn') ? 'Pawn collection enquiry' : 'Checkmatela collection enquiry';
+      const body = `Hello Checkmatela,\n\nMy email is ${address}. I would like to hear about the collection.\n\nMy occasion / question: `;
       form.classList.add('sent');
+      window.location.href = `mailto:suit.shop.dtla@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   });
 
@@ -115,6 +119,16 @@
 
   /* ---------------- mailto forms (Book a Fitting): no backend, so the request opens in the visitor's email app ---------------- */
   document.querySelectorAll('form[data-mailto]').forEach(form => {
+    const look = new URLSearchParams(window.location.search).get('look');
+    const notes = form.querySelector('textarea[name="Notes"]');
+    if (look && notes) notes.value = `I'm interested in ${look}. `;
+    const lookingFor = form.querySelector('select[name="Looking for"]');
+    if (look && lookingFor) {
+      if (/kid|pawn/i.test(look)) lookingFor.value = "A kids' look";
+      else if (/tuxedo/i.test(look)) lookingFor.value = 'A tuxedo';
+      else if (/queen/i.test(look)) lookingFor.value = 'The Queen collection';
+      else if (/shoe|accessor|bishop|rook/i.test(look)) lookingFor.value = 'Accessories or shoes';
+    }
     form.addEventListener('submit', e => {
       e.preventDefault();
       const lines = [...new FormData(form).entries()].filter(([, v]) => String(v).trim()).map(([k, v]) => `${k}: ${v}`);

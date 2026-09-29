@@ -20,6 +20,7 @@ def shop_block(cards_html, facets, kind, grid_class="product-grid", count_noun="
     sorts = "".join(f'<option value="{v}">{l}</option>' for v, l in SORTS)
     return f'''<section class="section shop-section" style="padding-top:28px">
   <div class="container">
+    <p class="shop-status"><strong>Collection preview.</strong> Browse styles and sizes here. Prices are illustrative; checkout is not connected. <a href="book-a-fitting.html">Ask about availability, fit and timing →</a></p>
     <div class="shop" data-shop data-kind="{kind}" data-noun="{esc(count_noun)}" data-facets='{json.dumps(facets)}' data-review-facets='{json.dumps(rf)}'{extra_attrs}>
       <div class="shop-bar">
         <button type="button" class="shop-filter-btn" aria-expanded="false">Filters <span class="shop-filter-btn__n"></span></button>

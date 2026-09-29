@@ -100,9 +100,9 @@ def king_slides():
         src = lambda q: f"assets/img/king/{q['slug']}.webp"
         figs = (fig(src(L), 20, h=84, z=1, op=.9, d=160) + fig(src(R), 80, h=84, z=1, op=.9, d=160) +
                 fig(src(p), 50, h=97, z=2, alt=f"{p['name']} — {p['tag']}", focal=True))
-        meta = f"${p['price']}" + (f'<i></i>Opening {p["note"]}' if p["note"] else "")
+        meta = f"Illustrative ${p['price']}" + (f'<i></i>Opening {p["note"]}' if p["note"] else "")
         slides.append(dict(cat="king", figs=figs,
-                           copy=copy_block("king", p["name"], p["tag"], meta, "king.html", "Shop King")))
+                           copy=copy_block("king", p["name"], p["tag"], meta, "king.html", "Explore King")))
     return slides
 
 
@@ -124,8 +124,8 @@ def pawn_slides():
         dots = "".join(f'<button type="button" class="sc-dot{" is-on" if i == start else ""}" style="--c:{c["h"]}" data-i="{i}" aria-label="{esc(c["n"])}"></button>' for i, c in enumerate(data))
         extra = f'\n        <div class="sc-colors"><span class="sc-colorname">{esc(data[start]["n"])}</span><span class="sc-dots">{dots}</span></div>'
         intro = re.split(r"(?<=[.!?—])\s", cfg["intro"])[0].rstrip("—").strip()
-        meta = f"From ${cfg['price']}<i></i>{m} colourways"
-        c = copy_block("pawn", cfg["label"], esc(intro), meta, cfg["file"], f"Shop {cfg['label']}", extra)
+        meta = f"Illustrative from ${cfg['price']}<i></i>{m} colourways"
+        c = copy_block("pawn", cfg["label"], esc(intro), meta, cfg["file"], f"Explore {cfg['label']}", extra)
         slides.append(dict(cat="pawn", figs=figs, copy=c, attrs=f"data-colors='{json.dumps(data)}' data-base=\"{base}\" data-start=\"{start}\""))
     return slides
 
@@ -141,7 +141,7 @@ def object_slides(cat):
             for q, (x, b) in zip(others, pos):
                 figs += fig(q["img"], x, w=q["w"] * .5, z=1, op=.92, d=160, b=b)
         figs += fig(p["img"], 50, w=p["w"], z=2, alt=p["alt"], focal=True, b=24 if len(items) > 1 else 14)
-        slides.append(dict(cat=cat, figs=figs, copy=copy_block(cat, p["name"], p["tag"], f"${p['price']}", CATS[cat][3], f"Shop {CATS[cat][0]}")))
+        slides.append(dict(cat=cat, figs=figs, copy=copy_block(cat, p["name"], p["tag"], f"Illustrative ${p['price']}", CATS[cat][3], f"Explore {CATS[cat][0]}")))
     return slides
 
 
@@ -155,9 +155,9 @@ def welcome_slide():
             figs += fig(f"assets/img/pawn/{ref}/hero.webp", x, h=72, z=2, op=1, d=(x // 4) * 6, alt="")
     copy = f'''<div class="sc-copy sc-copy--welcome" data-cat="welcome">
         <span class="sc-eyebrow">{glyph("glyph-king")}Checkmatela — Formal wear<span class="sc-hide-sm">&nbsp;for every piece</span></span>
-        <h1 class="sc-title">Every move,<br><em>tailored.</em></h1>
-        <p class="sc-sub">Suits, tuxedos, accessories and shoes cut with a grandmaster's precision — for men, boys and every moment that decides everything.</p>
-        <div class="sc-cta"><a href="king.html" class="btn">Shop The Collection {ARROW}</a><a href="#diagram" class="btn dark-ghost">Explore The Set</a></div>
+        <h1 class="sc-title">Be ready for<br><em>the moment.</em></h1>
+        <p class="sc-sub">From weddings to black tie, find formal wear for men and kids, then plan the fit and timing with confidence. Explore the collection preview.</p>
+        <div class="sc-cta"><a href="find-your-look.html" class="btn">Find Your Look {ARROW}</a><a href="king.html" class="btn dark-ghost">Explore The Collection</a></div>
       </div>'''
     return dict(cat="welcome", figs=figs, copy=copy)
 

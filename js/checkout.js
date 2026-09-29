@@ -17,9 +17,9 @@
   const shipCost = (id, sub) => id === 'pickup' ? 0 : id === 'express' ? RATES.express : (sub >= RATES.freeOver ? 0 : RATES.standard);
   function shippingOptions(sub) {
     const opts = [
-      ['standard', 'White-glove standard', '5–7 business days', shipCost('standard', sub)],
-      ['express', 'Express', '2–3 business days', RATES.express],
-      ['pickup', 'Pick up at the Los Angeles studio', 'By appointment, usually within 48 hours', 0],
+      ['standard', 'Example standard shipping', 'Timing to be confirmed', shipCost('standard', sub)],
+      ['express', 'Example express shipping', 'Timing to be confirmed', RATES.express],
+      ['pickup', 'Example local pickup', 'Availability to be confirmed', 0],
     ];
     $('#shipOptions').innerHTML = opts.map(([id, name, eta, cost]) => `
       <label class="co-opt"><input type="radio" name="ship" value="${id}" ${state.ship === id ? 'checked' : ''}><span><b>${name}</b><small>${eta}</small></span><em>${cost ? money(cost) : 'Free'}</em></label>`).join('');
@@ -89,7 +89,7 @@
   /* ---------------- confirmation preview */
   function showDone() {
     const t = totals(), items = bag.items(), f = form.elements, id = 'PREVIEW-' + Math.random().toString(36).slice(2, 8).toUpperCase();
-    const shipName = { standard: 'White-glove standard (5–7 business days)', express: 'Express (2–3 business days)', pickup: 'Pick up at the Los Angeles studio' }[state.ship];
+    const shipName = { standard: 'Example standard shipping', express: 'Example express shipping', pickup: 'Example local pickup' }[state.ship];
     grid.hidden = true; done.hidden = false;
     $('.co-steps li.is-on').classList.replace('is-on', 'is-done'); $$('.co-steps li')[2].classList.add('is-done'); $$('.co-steps li')[3].classList.add('is-on');
     done.innerHTML = `

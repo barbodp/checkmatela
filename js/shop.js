@@ -4,7 +4,7 @@
    attributes needs no JS changes:
      wrapper  [data-shop] data-facets='[{"key":"color","label":"Colour","swatch":true},…]' data-review-facets='[["height","Height"],…]'
      cards    [data-id][data-name][data-tag][data-price][data-img][data-f-<facet>="A|B"]
-   Facets with fewer than two distinct values are hidden. Reviews come from js/reviews-data.js. */
+   Facets with fewer than two distinct values are hidden. Verified customer reviews may be added later. */
 (() => {
   "use strict";
   const SWATCH = {
@@ -38,11 +38,11 @@
     const rfacets = JSON.parse(root.dataset.reviewFacets || "[]");
     const thumbs = $$(".gallery-thumb", card).map(b => b.dataset.src);
     const images = thumbs.length ? thumbs : [card.dataset.img];
-    const reviews = (REVIEWS[id] || []).slice();
+    const reviews = (REVIEWS[id] || []).filter(r => !r.sample);
     const attrs = facets.map(f => [f.label, (card.dataset["f" + f.key[0].toUpperCase() + f.key.slice(1)] || "").split("|").filter(Boolean).join(", ")]).filter(a => a[1]);
     const kind = root.dataset.kind;
     const optionDefs = JSON.parse(root.dataset.options || "[]");
-    const sizeNote = kind === "pawn" ? "Sizes 2T–14" : "Jackets 36–48 · trousers 28–40";
+    const sizeNote = kind === "pawn" ? "Illustrative sizes 2T–16" : "Illustrative jacket sizes 36–48";
     const mail = `mailto:suit.shop.dtla@gmail.com?subject=${encodeURIComponent("Review: " + name)}&body=${encodeURIComponent("Product: " + name + " (" + tag + ")\nRating (1-5):\nTitle:\nYour review:\n" + rfacets.map(f => f[1] + ":\n").join(""))}`;
 
     qv.innerHTML = `
@@ -59,9 +59,10 @@
           <p class="qv__rating"></p>
           <dl class="qv__attrs">${attrs.map(a => `<div><dt>${esc(a[0])}</dt><dd>${esc(a[1])}</dd></div>`).join("")}</dl>
           <div class="qv__opts">${optionDefs.map(o => `<fieldset class="qv-opt" data-key="${o.key}"><legend>${esc(o.label)}${o.required ? "" : ""}</legend><div class="qv-opt__chips">${o.values.map(v => `<button type="button" class="chip-btn" data-v="${esc(v)}" aria-pressed="${v === o.default}">${esc(v)}</button>`).join("")}</div></fieldset>`).join("")}</div>
-          <p class="qv__size">${sizeNote} · <a class="link" href="size-guide.html">Size guide</a></p>
+          <p class="qv__size">${sizeNote} · <a class="link" href="size-guide.html">Check measurements</a></p>
+          <p class="qv__size">Preview only: prices and availability are not confirmed. <a class="link" href="book-a-fitting.html?look=${encodeURIComponent(name)}">Ask about this look</a>.</p>
           <p class="qv__msg" role="status"></p>
-          <div class="qv__cta"><button type="button" class="btn qv-add">Add to bag</button><a class="btn dark-ghost" href="book-a-fitting.html">Book a fitting</a></div>
+          <div class="qv__cta"><button type="button" class="btn qv-add">Add to preview bag</button><a class="btn dark-ghost" href="book-a-fitting.html?look=${encodeURIComponent(name)}">Ask about fit</a></div>
         </div>
         <section class="reviews" aria-labelledby="rv-h"><h3 id="rv-h">Reviews</h3><div class="reviews__body"></div></section>
       </div>`;
@@ -92,7 +93,7 @@
     ratingEl.innerHTML = all.length ? `<span class="stars" aria-label="${avg(all).toFixed(1)} out of 5">${stars(avg(all))}</span> ${avg(all).toFixed(1)} <a href="#" class="link rv-jump">(${all.length} review${all.length > 1 ? "s" : ""})</a>` : `<span class="muted">No reviews yet</span>`;
     const jump = $(".rv-jump", ratingEl); if (jump) jump.onclick = e => { e.preventDefault(); box.scrollIntoView({ behavior: "smooth" }); };
     if (!all.length) {
-      box.innerHTML = `<p class="muted">No reviews yet — be the first to share how it fits.</p><a class="btn small" href="${mail}">Write a review</a>`;
+      box.innerHTML = `<p class="muted">No verified customer reviews yet. For fit details, check the measurements or ask us about the piece.</p><a class="btn small" href="book-a-fitting.html">Ask about fit</a>`;
       return;
     }
     const fitVals = ["Runs small", "True to size", "Runs large"];
@@ -161,13 +162,12 @@
     const cols = picked.map(p => p.card);
     const rows = [["Price", c => money(c.dataset.price)]];
     facets.forEach(f => { const key = "f" + f.key[0].toUpperCase() + f.key.slice(1); if (cols.some(c => c.dataset[key])) rows.push([f.label, c => esc((c.dataset[key] || "—").split("|").join(", "))]); });
-    rows.push(["Rating", c => { const r = REVIEWS[c.dataset.id] || []; return r.length ? `<span class="stars">${stars(avg(r))}</span> ${avg(r).toFixed(1)} (${r.length})` : "—"; }]);
     cmpDlg.innerHTML = `<button class="shop-dialog__x" aria-label="Close">×</button>
       <h2 class="cmp-title">Compare</h2>
       <div class="table-wrap"><table class="compare-table compare-table--cards">
         <thead><tr><td></td>${cols.map(c => `<th scope="col"><div class="cmp-col"><img src="${c.dataset.img}" alt=""><b>${esc(c.dataset.name)}</b><span>${esc(c.dataset.tag)}</span></div></th>`).join("")}</tr></thead>
         <tbody>${rows.map(([l, fn]) => `<tr><th scope="row">${l}</th>${cols.map(c => `<td>${fn(c)}</td>`).join("")}</tr>`).join("")}
-        <tr class="compare-cta"><td></td>${cols.map((c, i) => `<td><button type="button" class="btn small" data-i="${i}">Quick view &amp; reviews</button></td>`).join("")}</tr></tbody>
+        <tr class="compare-cta"><td></td>${cols.map((c, i) => `<td><button type="button" class="btn small" data-i="${i}">View details</button></td>`).join("")}</tr></tbody>
       </table></div>`;
     $(".shop-dialog__x", cmpDlg).onclick = () => cmpDlg.close();
     $$(".compare-cta button", cmpDlg).forEach(b => b.onclick = () => { cmpDlg.close(); openQuickView(cols[+b.dataset.i], root); });

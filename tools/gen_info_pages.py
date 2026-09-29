@@ -66,202 +66,153 @@ PAGES = {}
 
 PAGES["our-story"] = dict(
     glyph="glyph-king", crumb="Our Story", h1="Our Story",
-    lead="Checkmatela began with a simple idea: dressing well is a matter of strategy. Every move considered, every detail placed with intent.",
-    meta="The story behind Checkmatela — chess-inspired formal wear made in Los Angeles.",
+    lead="The right look helps you feel ready for the moment in front of you. Checkmatela brings that idea to formal wear, one considered choice at a time.",
+    meta="Meet Checkmatela, a chess-inspired formal wear concept for men, women and kids.",
     body=[
-        section("Formal wear, played like a game.", '''<div class="prose">
-<p>We are a Los Angeles formal wear house named for the oldest game of strategy. A grandmaster does not rush a move — and neither does a good tailor. Every suit in the Checkmatela collection is named for an opening, cut for the moment that decides everything, and finished by hand.</p>
-<p>The pieces of the board became our departments: the <strong>King</strong> for men, the <strong>Queen</strong> for women, the <strong>Pawn</strong> for the next generation, the <strong>Bishop</strong> for the accessories that finish a look on the diagonal, and the <strong>Rook</strong> for the shoes that hold everything up.</p></div>''', "The idea"),
-        section("What we believe.", cards([
-            ("01", "Considered, not loud", "A jacket should make the man look composed, never costumed. We chase fit and proportion before anything else."),
-            ("02", "Ready for the big night", "Weddings, galas, graduations, first communions. Our collection is built for the occasions people remember."),
-            ("03", "Formal wear for the whole family", "From a boy's first suit to a man's tuxedo, every piece is cut with the same attention to detail."),
-        ]), "Principles", alt=True),
-        section("The opening moves.", steps([
-            ("The first collection", "Ten men's openings — from the Sicilian tuxedo to the Scotch Game three-piece — each named for a classic chess line."),
-            ("The Pawn line opens", "Four kids' styles in 34 colourways: Slim Fit, Suit Vest Set, Tuxedo and Tuxedo Vest Set."),
-            ("Accessories and shoes", "Bow ties, pocket squares, cufflinks and oxfords to complete the position."),
-            ("Next: the Queen", "Women's formal wear is being cut now. Join the waitlist on the Queen page."),
-        ]), "Timeline"),
-        cta("Ready to make your move?", "king.html", "Shop the collection"),
+        section("A look for the moment.", '''<div class="prose"><p>Checkmatela is a formal wear concept built around a simple question: what do you need to feel ready when the occasion matters? A wedding, prom, gala or family celebration calls for more than a good-looking jacket. The style, fit and timing all have to make sense together.</p><p>Our chessboard gives the collection its character: <strong>King</strong> for men, <strong>Queen</strong> for women, <strong>Pawn</strong> for kids, <strong>Bishop</strong> for accessories and <strong>Rook</strong> for shoes. The names are playful; the decision should be easy.</p><p>The site currently previews the collection. Prices and service details are illustrative while ordering is being prepared.</p></div>''', "The idea"),
+        section("How we help you choose.", cards([
+            ("01", "Start with the occasion", "Choose the dress code and the person you're dressing before sorting through styles."),
+            ("02", "Check the fit", "Use the measurement guide as a starting point and ask questions before committing to a size."),
+            ("03", "Plan around your date", "Tell us when you need the look. Availability, delivery and any alterations must be confirmed before an order."),
+        ]), "The approach", alt=True),
+        cta("Have an event coming up?", "find-your-look.html", "Find your look"),
     ])
 
 PAGES["master-tailors"] = dict(
-    glyph="glyph-knight", crumb="Master Tailors", h1="Master Tailors",
-    lead="The people who make the difference between a suit that hangs on you and one that was made for you.",
-    meta="Meet the Checkmatela atelier — cutters, finishers and fitters in Los Angeles.",
+    glyph="glyph-knight", crumb="Fit &amp; Tailoring", h1="Fit &amp; Tailoring",
+    lead="A great formal look starts with measurements and a clear plan for any adjustments.",
+    meta="Learn how to assess suit fit and plan alterations for a formal event.",
     body=[
-        section("The atelier.", '''<div class="prose">
-<p>Every Checkmatela garment passes through the same small chain of hands. Patterns are drafted by a cutter, sewn and pressed by a finisher, and fitted on you by a tailor who has done this thousands of times.</p>
-<p>It is a slower way to make a suit — and the only way we know to make one that lasts.</p></div>''', "Craft"),
-        section("How a suit is made.", steps([
-            ("Measure", "Twenty-plus measurements, taken in person at our Los Angeles studio or from our size guide for ready-to-wear."),
-            ("Cut", "Cloth is laid out and cut by hand so stripes and checks meet at the seams."),
-            ("Build", "Canvas, padding and lapels are shaped and stitched. This is where a jacket gets its roll."),
-            ("Finish", "Buttonholes, hems and linings are finished by hand and pressed until the garment holds its line."),
-            ("Fit", "One last fitting. Small adjustments — sleeve length, waist, hem — are made on the spot."),
-        ]), "Process", alt=True),
-        section("Who you'll meet.", cards([
-            ("01", "The cutter", "Drafts the pattern and decides where every seam falls. Thinks in millimetres."),
-            ("02", "The finisher", "Sews the details you'll never notice unless they were missing."),
-            ("03", "The fitter", "Stands next to you at the mirror and makes the final adjustments."),
-        ]), "The team"),
-        cta("Meet us in person.", "book-a-fitting.html", "Book a fitting"),
+        section("What a good fit looks like.", cards([
+            ("01", "Shoulders", "The jacket shoulder should sit close to your natural shoulder, without a strong overhang or pull."),
+            ("02", "Chest and waist", "You should be able to button the jacket comfortably. Watch for pulling across the front."),
+            ("03", "Sleeves and hem", "Sleeve and trouser length shape the whole look. Bring the shoes you plan to wear when checking the hem."),
+        ]), "Fit checklist"),
+        section("Plan alterations early.", '''<div class="prose"><p>Hems and small waist adjustments are common; shoulders and jacket length can be more complex. Try on the full outfit well before your event and allow time for adjustments. Any Checkmatela tailoring service, cost or turnaround will be confirmed before an order is placed.</p></div>''', "Before your event", alt=True),
+        cta("Need a second opinion on fit?", "book-a-fitting.html", "Ask about fit"),
     ])
 
 PAGES["sustainability"] = dict(
-    glyph="glyph-pawn", crumb="Sustainability", h1="Sustainability",
-    lead="A suit worth wearing for twenty years is the most sustainable suit there is. Here is how we try to make that true.",
-    meta="How Checkmatela approaches durable, repairable, responsibly made formal wear.",
+    glyph="glyph-pawn", crumb="Our Approach", h1="Our Approach",
+    lead="Choose pieces you can wear again, care for well and pass along when they no longer fit.",
+    meta="Checkmatela's approach to long-lasting formal wear and transparent product information.",
     body=[
-        section("Built to be kept.", '''<div class="prose">
-<p>Fast fashion treats formal wear as disposable. We think the opposite: buy fewer, better pieces, take care of them and pass them down. Our approach starts with construction and cloth, not with marketing.</p></div>''', "Our approach"),
-        section("Our commitments.", cards([
-            ("01", "Durable by design", "Quality cloth, sturdy linings and real finishing so garments last for years, not seasons."),
-            ("02", "Repair before replace", "Every order includes complimentary alterations, and we mend what we sell."),
-            ("03", "Grow-with-them kids' wear", "Generous seams and quality construction so kids' suits can be altered and handed down."),
-            ("04", "Less packaging", "Garment bags and boxes designed to be reused, with recyclable outer packaging."),
-        ]), "Commitments", alt=True),
-        section("Questions we hear.", faq([
-            ("Can I have a suit repaired years later?", "Yes. Contact us and we'll advise on repair or re-fit options for any Checkmatela garment."),
-            ("What happens to offcuts?", "We aim to reuse offcuts for linings, pocket squares and small accessories wherever possible."),
-            ("Do you have certifications?", "Not yet. This page describes our intentions and practices, and we will publish specifics as programmes are put in place."),
-        ]), "FAQ"),
-        cta("Have a question about how we make things?", "mailto:" + EMAIL, "Email us"),
+        section("Buy with repeat wear in mind.", '''<div class="prose"><p>A versatile color and a fit that can be adjusted make a formal outfit easier to wear beyond one event. For kids, consider how much growing room makes sense without losing the shape today.</p><p>Material sourcing, manufacturing, repair and packaging claims will be published only when they can be verified for the products sold. The current collection is a preview.</p></div>''', "Our thinking"),
+        section("Questions to ask before buying.", cards([
+            ("01", "Will I wear it again?", "Think about the next wedding, celebration or formal dinner, not only this one."),
+            ("02", "Can it be adjusted?", "Ask which seams or hems have room for future changes."),
+            ("03", "How should I care for it?", "Follow the care label for the actual garment rather than assuming all fabrics need the same treatment."),
+        ]), "Useful choices", alt=True),
+        cta("Questions about a piece?", "book-a-fitting.html", "Ask us"),
     ])
 
 PAGES["press"] = dict(
     glyph="glyph-bishop", crumb="Press", h1="Press",
-    lead="Writing about Checkmatela? Here is everything you need to get started.",
-    meta="Checkmatela press information — brand facts, boilerplate and contact.",
+    lead="Information and imagery for stories about the Checkmatela concept.",
+    meta="Checkmatela press information and contact details.",
     body=[
-        section("About Checkmatela.", '''<div class="prose">
-<p class="boiler"><strong>Checkmatela</strong> is a Los Angeles formal wear house whose collections are organised like a chessboard — King for men, Queen for women, Pawn for kids, Bishop for accessories and Rook for shoes. Each garment is named for a chess opening and designed for the moments that decide everything.</p></div>''', "Boilerplate"),
-        section("Fast facts.", cards([
-            ("LA", "Based in", "Los Angeles, California. Fittings by appointment."),
-            ("05", "Departments", "King, Queen (opening soon), Pawn, Bishop and Rook."),
-            ("10 + 34", "Openings and colourways", "Ten men's suits and tuxedos, and 34 kids' colourways across four styles."),
-        ]), "At a glance", alt=True),
-        section("Contact the team.", f'''<div class="prose">
-<p>For interviews, imagery, samples and partnerships, email <a class="link" href="mailto:{EMAIL}">{EMAIL}</a> or call <a class="link" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>.</p></div>''', "Press enquiries"),
-        cta("Need product imagery?", "mailto:" + EMAIL + "?subject=Press%20enquiry", "Request the press kit"),
+        section("About Checkmatela.", '''<div class="prose"><p><strong>Checkmatela</strong> is a chess-inspired formal wear concept organized into five departments: King for men, Queen for women, Pawn for kids, Bishop for accessories and Rook for shoes. The website previews looks for weddings, galas and other meaningful occasions. Online ordering and service terms are in development.</p></div>''', "Boilerplate"),
+        section("Contact.", f'''<div class="prose"><p>For interviews, imagery or partnerships, email <a class="link" href="mailto:{EMAIL}">{EMAIL}</a>.</p></div>''', "Press enquiries", alt=True),
     ])
 
 PAGES["book-a-fitting"] = dict(
-    glyph="glyph-rook", crumb="Book a Fitting", h1="Book a Fitting",
-    lead="A private fitting at our Los Angeles studio — measurements, fabric and fit, with someone who does this every day.",
-    meta="Book a private Checkmatela fitting in Los Angeles.",
+    glyph="glyph-rook", crumb="Ask About Fit", h1="Ask About Fit",
+    lead="Tell us who you're dressing, what the occasion is and when it happens. We can discuss the look and what needs confirming before you buy.",
+    meta="Contact Checkmatela about formal wear fit, event dates and product availability.",
     body=[
-        section("Request an appointment.", f'''<div class="fit-layout">
-<form class="fit-form" data-mailto="{EMAIL}" data-subject="Fitting request — Checkmatela">
+        section("Start a conversation.", f'''<div class="fit-layout">
+<form class="fit-form" data-mailto="{EMAIL}" data-subject="Event and fit enquiry — Checkmatela">
   <label>Full name<input name="Name" required autocomplete="name"></label>
   <label>Email<input type="email" name="Email" required autocomplete="email"></label>
   <label>Phone<input type="tel" name="Phone" autocomplete="tel"></label>
   <label>I'm looking for
-    <select name="Looking for">
-      <option>A suit</option><option>A tuxedo</option><option>A kids' suit</option><option>Accessories</option><option>Alterations</option><option>Something else</option>
-    </select>
+    <select name="Looking for"><option>A men's suit</option><option>A tuxedo</option><option>A kids' look</option><option>The Queen collection</option><option>Accessories or shoes</option><option>Fit or alterations advice</option><option>Something else</option></select>
   </label>
-  <label>Preferred date<input type="date" name="Preferred date"></label>
-  <label>Preferred time
-    <select name="Preferred time"><option>Morning</option><option>Afternoon</option><option>Evening</option></select>
+  <label>Event date<input type="date" name="Event date"></label>
+  <label>Occasion
+    <select name="Occasion"><option>Wedding</option><option>Black tie or gala</option><option>Prom or school event</option><option>Family celebration</option><option>Business or other</option></select>
   </label>
-  <label class="wide">Anything we should know?<textarea name="Notes" rows="4" placeholder="Occasion, event date, sizes, questions…"></textarea></label>
-  <button class="btn" type="submit">Request fitting</button>
-  <p class="fit-form__ok" hidden>Opening your email app with the request — press send there and we'll confirm your appointment.</p>
+  <label class="wide">What would help you decide?<textarea name="Notes" rows="4" placeholder="Style, size, dress code, location or timing questions…"></textarea></label>
+  <button class="btn" type="submit">Open email draft</button>
+  <p class="fit-form__ok" hidden>Your email app is opening. Please send the draft to submit your enquiry.</p>
 </form>
-<aside class="fit-side">
-  <h3>The studio</h3>
-  <p>Los Angeles<br>Fittings by appointment</p>
-  <h3>Reach us</h3>
-  <p><a class="link" href="mailto:{EMAIL}">{EMAIL}</a><br><a class="link" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>
-  <h3>What to bring</h3>
-  <p>The shoes and shirt you plan to wear, and a photo of the occasion or venue if you have one.</p>
-</aside>
-</div>''', "Private fittings"),
-        section("What happens at a fitting.", steps([
-            ("Consult", "We talk through the occasion, your style and your budget."),
-            ("Measure", "Full measurements, taken by a fitter."),
-            ("Try", "Try our openings on, compare cloth and colour."),
-            ("Adjust", "Alterations are complimentary on every order."),
-        ]), "The visit", alt=True),
+<aside class="fit-side"><h3>Before you send</h3><p>This form opens an email draft on your device. Your enquiry is sent only after you press Send in your email app.</p><h3>Fit planning</h3><p>Have your measurements, event date and dress code handy. If you're checking trouser length, measure with the shoes you'll wear.</p><h3>Reach us directly</h3><p><a class="link" href="mailto:{EMAIL}">{EMAIL}</a></p></aside>
+</div>''', "Fit and event help"),
+        section("A useful order of moves.", steps([
+            ("Choose the occasion", "Start with the dress code, venue and who you're dressing."),
+            ("Check measurements", "Use the size chart as an estimate; product measurements still need confirmation."),
+            ("Confirm the timeline", "Ask about stock, delivery, returns and tailoring before relying on an arrival date."),
+        ]), "Before you buy", alt=True),
     ])
 
 PAGES["size-guide"] = dict(
     glyph="glyph-pawn", crumb="Size Guide", h1="Size Guide",
-    lead="Find your Checkmatela size in a minute. When in doubt, book a fitting — alterations are on us.",
-    meta="Checkmatela size guide — men's suit and trouser sizes, kids' sizes and how to measure.",
+    lead="Measure first, compare second. These charts are planning references until product-specific measurements are confirmed.",
+    meta="Illustrative men's and kids' formal wear size charts and a practical measurement guide.",
     body=[
         section("How to measure.", steps([
-            ("Chest", "Measure around the fullest part of your chest, under your arms, keeping the tape level."),
-            ("Waist", "Measure around your natural waistline, above the hip bone. Keep the tape snug, not tight."),
-            ("Inseam", "Measure from the crotch to the floor along the inside of the leg, barefoot."),
-            ("Height", "Stand straight against a wall and measure from the floor to the top of your head."),
+            ("Chest", "Measure around the fullest part of the chest, under the arms, keeping the tape level."),
+            ("Waist", "Measure around the natural waist. Keep the tape comfortable, not tight."),
+            ("Inseam", "Measure from crotch to the desired trouser hem while wearing the planned shoes."),
+            ("Height", "Stand straight against a wall and measure from floor to the top of the head."),
         ]), "Before you begin"),
         section("King — men's jackets.", table(
-            ["Size", "Chest (in)", "Waist (in)", "Best for height"],
-            [["36", "36", "30", "5'6\" – 5'9\""], ["38", "38", "32", "5'7\" – 5'10\""], ["40", "40", "34", "5'9\" – 6'0\""],
-             ["42", "42", "36", "5'10\" – 6'1\""], ["44", "44", "38", "5'11\" – 6'2\""], ["46", "46", "40", "6'0\" – 6'3\""], ["48", "48", "42", "6'0\" – 6'4\""]],
-            "Jacket sizes — Short / Regular / Long lengths available by request"), "Men", alt=True),
-        section("King — men's trousers.", table(
-            ["Waist (in)", "28", "30", "32", "34", "36", "38", "40"],
-            [["Regular inseam", "30", "31", "32", "32", "32", "32", "32"]],
-            "Trouser waist and standard inseam (in) — hemmed free"), "Men"),
+            ["Illustrative size", "Chest (in)", "Waist (in)", "Height reference"],
+            [["36", "36", "30", "5'6\" – 5'9\""], ["38", "38", "32", "5'7\" – 5'10\""], ["40", "40", "34", "5'9\" – 6'0\""], ["42", "42", "36", "5'10\" – 6'1\""], ["44", "44", "38", "5'11\" – 6'2\""], ["46", "46", "40", "6'0\" – 6'3\""], ["48", "48", "42", "6'0\" – 6'4\""]],
+            "Planning reference only — garment measurements and available lengths must be confirmed"), "Men", alt=True),
         section("Pawn — kids' sizes.", table(
-            ["Size", "Age", "Height (in)", "Chest (in)", "Waist (in)"],
-            [["2T", "2", "34–36", "20", "19"], ["4", "4", "39–41", "22", "20"], ["6", "6", "44–46", "24", "21"], ["8", "8", "49–51", "26", "22"],
-             ["10", "10", "54–56", "28", "24"], ["12", "12", "58–60", "30", "26"], ["14", "14", "62–64", "32", "27"], ["16", "16", "65–67", "33", "28"]],
-            "Approximate — kids grow, so if between sizes we suggest sizing up. Alterations are complimentary"), "Kids", alt=True),
-        cta("Still unsure?", "book-a-fitting.html", "Book a fitting"),
+            ["Illustrative size", "Age reference", "Height (in)", "Chest (in)", "Waist (in)"],
+            [["2T", "2", "34–36", "20", "19"], ["4", "4", "39–41", "22", "20"], ["6", "6", "44–46", "24", "21"], ["8", "8", "49–51", "26", "22"], ["10", "10", "54–56", "28", "24"], ["12", "12", "58–60", "30", "26"], ["14", "14", "62–64", "32", "27"], ["16", "16", "65–67", "33", "28"]],
+            "Age is a starting point; compare actual measurements and confirm the garment dimensions"), "Kids"),
+        section("Before choosing a size.", '''<div class="prose"><p>If someone falls between sizes, compare the chest and waist first and ask about the specific garment. Allow enough time for a try-on and any alterations. These illustrative charts should not be treated as a fit guarantee.</p></div>''', "Fit confidence", alt=True),
+        cta("Still unsure about fit?", "book-a-fitting.html", "Ask a fit question"),
     ])
 
 PAGES["alterations"] = dict(
     glyph="glyph-bishop", crumb="Alterations", h1="Alterations",
-    lead="Complimentary alterations on every order — because a great suit is one that fits you.",
-    meta="Complimentary Checkmatela alterations — what's included, how it works and turnaround.",
+    lead="Plan the final fit before the event. Alteration options, prices and turnaround are confirmed case by case.",
+    meta="Practical formal wear alterations guidance and Checkmatela service status.",
     body=[
-        section("Included with every order.", cards([
-            ("01", "Hems", "Trouser and sleeve length set precisely, with hand-finished hems."),
-            ("02", "Waist and fit", "Take in or let out the waist, adjust the seat and taper the leg."),
-            ("03", "Jacket adjustments", "Sleeve length, shoulder tweaks and jacket length, where the construction allows."),
-        ]), "What we do"),
-        section("How it works.", steps([
-            ("Order", "Choose your suit online or in the studio."),
-            ("Fit", "Book a fitting in Los Angeles, or send us your measurements and photos if you're elsewhere."),
-            ("Mark", "Our tailor marks the adjustments while you're at the mirror."),
-            ("Collect", "Pick up your finished garment — typically within 5–7 days."),
-        ]), "Process", alt=True),
-        section("Good to know.", faq([
-            ("Is there a limit?", "Standard alterations — hems, waist, sleeves — are complimentary. Major reconstruction may carry a fee, and we'll always tell you before we start."),
-            ("How long does it take?", "Usually 5–7 days. Need it faster for an event? Tell us your date when you book."),
-            ("Do kids' suits qualify?", "Yes, every Pawn suit includes complimentary alterations."),
-            ("Can you alter things bought elsewhere?", "Ask us — email or call and we'll let you know what's possible."),
-        ]), "FAQ"),
-        cta("Ready to get it fitted?", "book-a-fitting.html", "Book a fitting"),
+        section("What can often be adjusted.", cards([
+            ("01", "Trousers", "Hem length and small waist changes are common. Bring the shoes you plan to wear."),
+            ("02", "Sleeves", "Sleeve length may be adjustable depending on cuff construction and button placement."),
+            ("03", "Jacket fit", "Waist shaping is often possible; shoulder and jacket length changes can be more involved."),
+        ]), "Fit planning"),
+        section("Allow a buffer.", '''<div class="prose"><p>Try on the complete outfit with enough time for a tailor to assess it and make adjustments. Do not assume a particular garment can be altered until a professional has seen its construction. Checkmatela has not published a complimentary alteration policy or guaranteed turnaround for this preview collection.</p></div>''', "Before the event", alt=True),
+        cta("Have a fit or timing question?", "book-a-fitting.html", "Ask about fit"),
     ])
 
 PAGES["shipping-returns"] = dict(
     glyph="glyph-rook", crumb="Shipping &amp; Returns", h1="Shipping &amp; Returns",
-    lead="Free white-glove shipping over $500, and easy returns if it isn't right.",
-    meta="Checkmatela shipping and returns — delivery options, timelines and how returns work.",
+    lead="Have an event date? Check availability, delivery timing and return terms before you commit to a look.",
+    meta="Checkmatela delivery and returns status for the preview collection.",
     body=[
-        section("Shipping.", cards([
-            ("01", "Free over $500", "White-glove shipping is complimentary on every order over $500."),
-            ("02", "Standard delivery", "Orders under $500 ship for a flat rate, calculated at checkout."),
-            ("03", "Timing", "Ready-to-wear ships within 2–3 business days. Made-to-order pieces may take longer — we'll confirm before you pay."),
-        ]), "Delivery"),
-        section("Returns & exchanges.", steps([
-            ("Within 30 days", "Unworn garments with tags attached can be returned for a refund or exchange within 30 days of delivery."),
-            ("Contact us", f"Email {EMAIL} with your order details and we'll send instructions."),
-            ("Send it back", "Pack it in the original garment bag and box. Return shipping is free on exchanges."),
-            ("Refund", "Refunds are issued to the original payment method within 5–10 business days of receipt."),
-        ]), "Returns", alt=True),
-        section("Good to know.", faq([
-            ("Can altered garments be returned?", "Altered garments are made specifically for you, so they can't be returned — but we'll adjust them again until they're right."),
-            ("Do you ship internationally?", "We're focused on the United States for now. Email us for other destinations."),
-            ("What if it arrives damaged?", "Contact us within 48 hours with photos and we'll make it right."),
-        ]), "FAQ"),
-        cta("Questions about an order?", "mailto:" + EMAIL, "Email us"),
+        section("Current status.", '''<div class="prose"><p>The Checkmatela collection is a website preview. Online checkout is not connected, so orders, delivery dates and returns are not yet available through this site. Displayed prices and shipping estimates are illustrative.</p><p>Before ordering begins, this page will show the actual service areas, shipping rates, cutoff times, exchange and refund windows, and any exceptions for altered or special-order pieces.</p></div>''', "Before you order"),
+        section("Questions to settle for an event.", steps([
+            ("Confirm stock", "Check that the chosen style, color and size are available."),
+            ("Confirm delivery", "Work backward from your event and leave time for a try-on and possible alterations."),
+            ("Know your options", "Review the final exchange, return and alteration terms for the exact item before payment."),
+        ]), "Event planning", alt=True),
+        cta("Need help planning around a date?", "book-a-fitting.html", "Ask about timing"),
+    ])
+
+PAGES["find-your-look"] = dict(
+    glyph="glyph-king", crumb="Find Your Look", h1="Find Your Look",
+    lead="Three quick choices can narrow the collection to a better starting point for your occasion.",
+    meta="Find a Checkmatela formal wear starting point by wearer, occasion and event timing.",
+    body=[
+        section("Start with your event.", '''<form class="look-finder" id="lookFinder">
+<label>Who are you dressing?<select name="wearer"><option value="men">Men</option><option value="kids">Kids</option><option value="women">Women</option></select></label>
+<label>What's the occasion?<select name="occasion"><option value="wedding">Wedding</option><option value="black-tie">Black tie or gala</option><option value="prom">Prom or school event</option><option value="family">Family celebration</option><option value="business">Business or other</option></select></label>
+<label>When is the event?<input type="date" name="eventDate"></label>
+<button class="btn" type="submit">Show my starting point</button>
+</form><div class="look-result" id="lookResult" role="status" aria-live="polite" hidden></div>
+<p class="look-note">This guide suggests a style to explore. It does not check stock, confirm size or promise delivery. Ordering is not yet connected.</p>''', "A simple guide"),
+        section("Before you decide.", steps([
+            ("Choose the dress code", "Black tie usually points toward a tuxedo. Weddings and family events allow more flexibility."),
+            ("Check fit", "Measure chest, waist, height and inseam, then compare with the guide and ask about the garment."),
+            ("Check your date", "Build in time to try on the complete look and adjust it if needed."),
+        ]), "Fit and timing", alt=True),
     ])
 
 
@@ -311,7 +262,7 @@ def build(slug, p):
 
 {chr(10).join(p["body"])}
 
-{FOOTER}
+{FOOTER.replace("</body>", '<script src="js/look-finder.js"></script></body>') if slug == "find-your-look" else FOOTER}
 '''
     with open(os.path.join(ROOT, slug + ".html"), "w", encoding="utf-8") as f:
         f.write(html)
@@ -361,14 +312,14 @@ def build_checkout():
     <div class="co-top">
       <div>
         <span class="eyebrow">Checkout</span>
-        <h1>Secure your pieces</h1>
+        <h1>Review your preview bag</h1>
       </div>
       <ol class="co-steps" aria-label="Checkout steps">
         <li class="is-done"><a href="index.html">Shop</a></li><li class="is-on">Details</li><li>Payment</li><li>Confirmation</li>
       </ol>
     </div>
 
-    <p class="co-banner" role="note"><b>Preview only.</b> This shows how checkout will work — payment isn't connected, no card details are collected, and nothing is sent or charged.</p>
+    <p class="co-banner" role="note"><b>Preview only.</b> This site cannot take orders yet. Prices, shipping and taxes are examples. No payment is collected and your details are not sent or saved. <a href="book-a-fitting.html">Ask about a look or your event date →</a></p>
 
     <section class="co-empty" hidden>
       <h2>Your bag is empty</h2>
@@ -381,7 +332,7 @@ def build_checkout():
         <section class="co-card">
           <h2><span>1</span> Contact</h2>
           {field("email", "Email", 'inputmode="email" placeholder="you@example.com"', "email", "email")}
-          {field("phone", "Phone", 'inputmode="tel" placeholder="(310) 555-0123"', "tel", "tel", req=False, hint="Only used for delivery updates.")}
+          {field("phone", "Phone", 'inputmode="tel" placeholder="(310) 555-0123"', "tel", "tel", req=False, hint="Preview field only; this information is not sent.")}
         </section>
 
         <section class="co-card">
@@ -397,7 +348,7 @@ def build_checkout():
             <div class="co-field"><label for="f-state">State</label><select id="f-state" name="state" autocomplete="address-level1" required><option value="">State</option>{states}</select><small class="co-err" id="e-state" role="alert"></small></div>
             {field("zip", "ZIP code", 'inputmode="numeric" maxlength="10" placeholder="90015"', "text", "postal-code")}
           </div>
-          <p class="co-hint">We currently ship within the United States.</p>
+          <p class="co-hint">This is an example address form. Shipping areas are not confirmed.</p>
         </section>
 
         <section class="co-card">
@@ -409,8 +360,8 @@ def build_checkout():
           <h2><span>4</span> Payment</h2>
           <div class="co-options" role="radiogroup" aria-label="Payment method">
             <label class="co-opt"><input type="radio" name="pay" value="card" checked><span><b>Credit or debit card</b><small>Card fields appear here once payments are connected.</small></span></label>
-            <label class="co-opt"><input type="radio" name="pay" value="apple"><span><b>Apple Pay</b><small>Available at launch.</small></span></label>
-            <label class="co-opt"><input type="radio" name="pay" value="paypal"><span><b>PayPal</b><small>Available at launch.</small></span></label>
+            <label class="co-opt"><input type="radio" name="pay" value="apple"><span><b>Apple Pay</b><small>Example option; availability to be confirmed.</small></span></label>
+            <label class="co-opt"><input type="radio" name="pay" value="paypal"><span><b>PayPal</b><small>Example option; availability to be confirmed.</small></span></label>
           </div>
           <p class="co-note">Payments aren't connected in this preview. <b>No card details are asked for or stored.</b></p>
         </section>
@@ -438,7 +389,7 @@ def build_checkout():
           <div><dt>Estimated tax</dt><dd id="tTax">$0</dd></div>
           <div class="co-total"><dt>Total</dt><dd id="tTotal">$0</dd></div>
         </dl>
-        <p class="co-fine">Prices, shipping rates and tax are illustrative placeholders. Free white-glove shipping over $500.</p>
+        <p class="co-fine">Prices, shipping rates and taxes are illustrative placeholders. No delivery offer is active. <a href="shipping-returns.html">Read the current service status</a>.</p>
       </aside>
     </div>
 

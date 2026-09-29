@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=31">
+<link rel="stylesheet" href="css/style.css?v=32">
 </head>
 <body class="checkout-page">
 
@@ -30,14 +30,14 @@
 <div class="announce">
   <div class="announce__inner">
     <div class="announce__msgs">
-      <a href="pawn.html" style="--n:0">Now open — the Pawn kids collection</a>
-      <span style="--n:1">Complimentary alterations on every order</span>
-      <span style="--n:2">Free white-glove shipping over $500</span>
+      <a href="find-your-look.html" style="--n:0">Dressing for an event? Start with your occasion</a>
+      <a href="size-guide.html" style="--n:1">Find your fit before you choose a size</a>
+      <a href="shipping-returns.html" style="--n:2">Have a date in mind? Ask about timing</a>
     </div>
     <div class="announce__links">
       <a href="tel:+13108906991">+1 (310) 890-6991</a>
       <a href="size-guide.html">Size Guide</a>
-      <a href="book-a-fitting.html">Book a Fitting</a>
+      <a href="book-a-fitting.html">Ask About Fit</a>
     </div>
   </div>
 </div>
@@ -76,14 +76,14 @@
     <div class="co-top">
       <div>
         <span class="eyebrow">Checkout</span>
-        <h1>Secure your pieces</h1>
+        <h1>Review your preview bag</h1>
       </div>
       <ol class="co-steps" aria-label="Checkout steps">
         <li class="is-done"><a href="index.html">Shop</a></li><li class="is-on">Details</li><li>Payment</li><li>Confirmation</li>
       </ol>
     </div>
 
-    <p class="co-banner" role="note"><b>Preview only.</b> This shows how checkout will work — payment isn't connected, no card details are collected, and nothing is sent or charged.</p>
+    <p class="co-banner" role="note"><b>Preview only.</b> This site cannot take orders yet. Prices, shipping and taxes are examples. No payment is collected and your details are not sent or saved. <a href="book-a-fitting.html">Ask about a look or your event date →</a></p>
 
     <section class="co-empty" hidden>
       <h2>Your bag is empty</h2>
@@ -96,7 +96,7 @@
         <section class="co-card">
           <h2><span>1</span> Contact</h2>
           <div class="co-field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required inputmode="email" placeholder="you@example.com"><small class="co-err" id="e-email" role="alert"></small></div>
-          <div class="co-field"><label for="f-phone">Phone <em>(optional)</em></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"  inputmode="tel" placeholder="(310) 555-0123"><small class="co-err" id="e-phone" role="alert"></small><small class=co-hint>Only used for delivery updates.</small></div>
+          <div class="co-field"><label for="f-phone">Phone <em>(optional)</em></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"  inputmode="tel" placeholder="(310) 555-0123"><small class="co-err" id="e-phone" role="alert"></small><small class=co-hint>Preview field only; this information is not sent.</small></div>
         </section>
 
         <section class="co-card">
@@ -112,7 +112,7 @@
             <div class="co-field"><label for="f-state">State</label><select id="f-state" name="state" autocomplete="address-level1" required><option value="">State</option><option value="AL">AL</option><option value="AK">AK</option><option value="AZ">AZ</option><option value="AR">AR</option><option value="CA">CA</option><option value="CO">CO</option><option value="CT">CT</option><option value="DE">DE</option><option value="DC">DC</option><option value="FL">FL</option><option value="GA">GA</option><option value="HI">HI</option><option value="ID">ID</option><option value="IL">IL</option><option value="IN">IN</option><option value="IA">IA</option><option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option><option value="ME">ME</option><option value="MD">MD</option><option value="MA">MA</option><option value="MI">MI</option><option value="MN">MN</option><option value="MS">MS</option><option value="MO">MO</option><option value="MT">MT</option><option value="NE">NE</option><option value="NV">NV</option><option value="NH">NH</option><option value="NJ">NJ</option><option value="NM">NM</option><option value="NY">NY</option><option value="NC">NC</option><option value="ND">ND</option><option value="OH">OH</option><option value="OK">OK</option><option value="OR">OR</option><option value="PA">PA</option><option value="RI">RI</option><option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option><option value="TX">TX</option><option value="UT">UT</option><option value="VT">VT</option><option value="VA">VA</option><option value="WA">WA</option><option value="WV">WV</option><option value="WI">WI</option><option value="WY">WY</option></select><small class="co-err" id="e-state" role="alert"></small></div>
             <div class="co-field"><label for="f-zip">ZIP code</label><input id="f-zip" name="zip" type="text" autocomplete="postal-code" required inputmode="numeric" maxlength="10" placeholder="90015"><small class="co-err" id="e-zip" role="alert"></small></div>
           </div>
-          <p class="co-hint">We currently ship within the United States.</p>
+          <p class="co-hint">This is an example address form. Shipping areas are not confirmed.</p>
         </section>
 
         <section class="co-card">
@@ -124,8 +124,8 @@
           <h2><span>4</span> Payment</h2>
           <div class="co-options" role="radiogroup" aria-label="Payment method">
             <label class="co-opt"><input type="radio" name="pay" value="card" checked><span><b>Credit or debit card</b><small>Card fields appear here once payments are connected.</small></span></label>
-            <label class="co-opt"><input type="radio" name="pay" value="apple"><span><b>Apple Pay</b><small>Available at launch.</small></span></label>
-            <label class="co-opt"><input type="radio" name="pay" value="paypal"><span><b>PayPal</b><small>Available at launch.</small></span></label>
+            <label class="co-opt"><input type="radio" name="pay" value="apple"><span><b>Apple Pay</b><small>Example option; availability to be confirmed.</small></span></label>
+            <label class="co-opt"><input type="radio" name="pay" value="paypal"><span><b>PayPal</b><small>Example option; availability to be confirmed.</small></span></label>
           </div>
           <p class="co-note">Payments aren't connected in this preview. <b>No card details are asked for or stored.</b></p>
         </section>
@@ -153,7 +153,7 @@
           <div><dt>Estimated tax</dt><dd id="tTax">$0</dd></div>
           <div class="co-total"><dt>Total</dt><dd id="tTotal">$0</dd></div>
         </dl>
-        <p class="co-fine">Prices, shipping rates and tax are illustrative placeholders. Free white-glove shipping over $500.</p>
+        <p class="co-fine">Prices, shipping rates and taxes are illustrative placeholders. No delivery offer is active. <a href="shipping-returns.html">Read the current service status</a>.</p>
       </aside>
     </div>
 
@@ -168,12 +168,8 @@
         <span class="glyph"><svg viewBox="0 0 100 100"><use href="#glyph-king" fill="currentColor"/></svg></span>
         Checkmatela
       </a>
-      <p>Chess-inspired formal wear, tailored for the moments that decide everything. Every move, considered.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 17c1-4 1-9 3-9s2 3 1 5-3 2-3-1"/></svg></a>
-        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
-      </div>
+      <p>Formal wear for weddings, celebrations and the moments in between. Find a look that fits the occasion, then plan the details with confidence.</p>
+      <div class="footer-social"><a href="mailto:suit.shop.dtla@gmail.com?subject=Checkmatela%20event%20enquiry" aria-label="Email Checkmatela about your event"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 7 9-7"/></svg></a></div>
     </div>
     <div class="footer-col"><h5>The Board</h5><ul>
       <li><a href="king.html">King — Men</a></li>
@@ -186,7 +182,7 @@
       <li><a href="our-story.html">Our Story</a></li><li><a href="master-tailors.html">Master Tailors</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="press.html">Press</a></li>
     </ul></div>
     <div class="footer-col"><h5>Service</h5><ul>
-      <li><a href="book-a-fitting.html">Book a Fitting</a></li><li><a href="size-guide.html">Size Guide</a></li><li><a href="alterations.html">Alterations</a></li><li><a href="shipping-returns.html">Shipping &amp; Returns</a></li>
+      <li><a href="find-your-look.html">Find Your Look</a></li><li><a href="book-a-fitting.html">Ask About Fit</a></li><li><a href="size-guide.html">Size Guide</a></li><li><a href="alterations.html">Alterations</a></li><li><a href="shipping-returns.html">Shipping &amp; Returns</a></li>
     </ul></div>
     <div class="footer-col"><h5>Contact</h5><ul>
       <li><a href="mailto:suit.shop.dtla@gmail.com">suit.shop.dtla@gmail.com</a></li>
@@ -197,12 +193,11 @@
   <div class="checker-strip"></div>
   <div class="container footer-bottom">
     <span>© 2026 Checkmatela. All moves reserved.</span>
-    <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>
+    <div class="legal"><a href="shipping-returns.html">Service status</a><a href="mailto:suit.shop.dtla@gmail.com">Contact</a></div>
   </div>
 </footer>
 
 <script src="js/main.js"></script>
 <script src="js/cart.js?v=3"></script>
-<script src="js/checkout.js?v=2"></script>
 </body>
 </html>

@@ -25,7 +25,7 @@ def card(p):
                 <img src="{img}" alt="{esc(p["alt"])}" loading="lazy">
                 <span class="product-card__notation">{esc(p["notation"])}</span>
                 <button type="button" class="cmp-toggle" aria-pressed="false">+ Compare</button>
-                <button type="button" class="product-card__quick"><span class="btn small">Quick View &amp; Reviews</span></button>
+                <button type="button" class="product-card__quick"><span class="btn small">View Details</span></button>
               </div>
               <div class="product-card__meta"><div><h4>{esc(p["name"])}</h4><span class="piece-tag">{esc(p["tag"])}</span></div><span class="product-card__price">${p["price"]}</span></div>
             </div>'''
@@ -39,7 +39,7 @@ def main():
     src = open(path, encoding="utf-8").read()
     out = replace_between(src, "<!-- SHOP:START -->", "<!-- SHOP:END -->", block)
     if "js/shop.js" not in out:
-        out = out.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/cart.js?v=3"></script>\n<script src="js/reviews-data.js"></script>\n<script src="js/shop.js"></script>')
+        out = out.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/cart.js?v=3"></script>\n<script src="js/shop.js"></script>')
     open(path, "w", encoding="utf-8").write(out)
     print("king.html:", len(cat), "products")
 
