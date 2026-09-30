@@ -367,6 +367,7 @@ button{ font-family:inherit; cursor:pointer; }
   background: var(--paper);
   color: var(--ink);
   position: relative;
+  z-index:46;
   border-top: 1px solid rgba(21,24,26,.08);
   border-bottom: 1px solid rgba(21,24,26,.08);
 }
