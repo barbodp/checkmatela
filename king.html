@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=44">
+<link rel="stylesheet" href="css/style.css?v=47">
 </head>
 <body>
 
@@ -63,7 +63,7 @@
   </div>
 </header>
 
-<section class="cat-hero">
+<section class="cat-hero cat-hero--film">
   <div class="cat-hero__bg"></div>
   <div class="cat-hero__fade"></div>
   <div class="cat-hero__inner">
@@ -73,10 +73,11 @@
       <h1>King — Men</h1>
       <p>From the ceremony to the final toast, find a suit or tuxedo that fits the dress code and feels like you. Compare styles now; confirm fit, availability and timing before ordering.</p>
     </div>
-    <div class="cat-hero__figures">
-      <img src="assets/img/hero/cat-king-blue.webp" width="282" height="1000" alt="Model in a Checkmatela royal blue check three-piece suit">
-      <img src="assets/img/hero/cat-king-black.webp" width="292" height="1000" alt="Model in a Checkmatela black shawl-lapel tuxedo with bow tie">
-      <img src="assets/img/hero/cat-king-burgundy.webp" width="334" height="1000" alt="Model in a Checkmatela bordeaux tuxedo with bow tie">
+    <div class="cat-hero__film">
+      <video muted loop playsinline preload="none" poster="assets/img/hero-video/hero-men.webp" aria-label="Concept studio film showing a complete men's formal outfit from several angles">
+        <source data-src="assets/video/hero-men.mp4" type="video/mp4">
+      </video>
+      <button class="cat-hero__film-toggle" type="button" aria-label="Play men's studio film">Play film</button>
     </div>
   </div>
 </section>
@@ -245,6 +246,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/category-hero-video.js?v=3"></script>
 <script src="js/cart.js?v=4"></script>
 <script src="js/shop.js"></script>
 </body>

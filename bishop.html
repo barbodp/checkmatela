@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=44">
+<link rel="stylesheet" href="css/style.css?v=47">
 <style>
   .acc-frame{ background: var(--paper-dim); display:flex; align-items:center; justify-content:center; padding: 30px; }
   .acc-frame img{ width:100%; max-width:220px; object-fit:contain; filter: drop-shadow(0 10px 16px rgba(15,24,20,.14)); }
@@ -69,7 +69,7 @@
   </div>
 </header>
 
-<section class="cat-hero">
+<section class="cat-hero cat-hero--film">
   <div class="cat-hero__bg"></div>
   <div class="cat-hero__fade"></div>
   <div class="cat-hero__inner">
@@ -79,10 +79,11 @@
       <h1>Bishop — Accessories</h1>
       <p>Finish a formal look with the right bow tie, pocket square or cufflinks. Explore the preview collection and ask about a complete outfit.</p>
     </div>
-    <div class="cat-hero__figures cat-hero__figures--objects">
-      <img src="assets/img/hero/cat-bowtie.webp" width="900" height="499" alt="Black silk bow tie">
-      <img src="assets/img/hero/cat-cufflinks.webp" width="900" height="595" alt="Gold and onyx cufflinks">
-      <img src="assets/img/hero/cat-pocketsquare.webp" width="700" height="599" alt="White silk pocket square">
+    <div class="cat-hero__film">
+      <video muted loop playsinline preload="none" poster="assets/img/hero-video/hero-accessories.webp" aria-label="Concept studio film showing formal accessories worn by men and women">
+        <source data-src="assets/video/hero-accessories.mp4" type="video/mp4">
+      </video>
+      <button class="cat-hero__film-toggle" type="button" aria-label="Play accessories studio film">Play film</button>
     </div>
   </div>
 </section>
@@ -170,6 +171,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/category-hero-video.js?v=3"></script>
 <script src="js/cart.js?v=4"></script>
 </body>
 </html>

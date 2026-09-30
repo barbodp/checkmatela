@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=44">
+<link rel="stylesheet" href="css/style.css?v=47">
 <style>
   .acc-frame{ background: var(--paper-dim); display:flex; align-items:center; justify-content:center; padding: 30px; }
   .acc-frame img{ width:100%; max-width:240px; object-fit:contain; filter: drop-shadow(0 10px 16px rgba(15,24,20,.14)); }
@@ -67,7 +67,7 @@
   </div>
 </header>
 
-<section class="cat-hero">
+<section class="cat-hero cat-hero--film">
   <div class="cat-hero__bg"></div>
   <div class="cat-hero__fade"></div>
   <div class="cat-hero__inner">
@@ -77,8 +77,11 @@
       <h1>Rook — Shoes</h1>
       <p>The shoes change how the whole outfit lands. Explore formal styles that work with suits and tuxedos, then check the fit with your full look.</p>
     </div>
-    <div class="cat-hero__figures cat-hero__figures--single">
-      <img src="assets/img/hero/cat-shoes.webp" width="900" height="525" alt="Black leather cap-toe oxford shoes">
+    <div class="cat-hero__film cat-hero__film--wide">
+      <video muted loop playsinline preload="none" poster="assets/img/hero-video/hero-shoes.webp" aria-label="Concept studio film showing different formal shoes walking from right to left">
+        <source data-src="assets/video/hero-shoes.mp4" type="video/mp4">
+      </video>
+      <button class="cat-hero__film-toggle" type="button" aria-label="Play shoes studio film">Play film</button>
     </div>
   </div>
 </section>
@@ -166,6 +169,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/category-hero-video.js?v=3"></script>
 <script src="js/cart.js?v=4"></script>
 </body>
 </html>
