@@ -184,16 +184,32 @@ PAGES["alterations"] = dict(
 
 PAGES["shipping-returns"] = dict(
     glyph="glyph-rook", crumb="Shipping &amp; Returns", h1="Shipping &amp; Returns",
-    lead="Have an event date? Check availability, delivery timing and return terms before you commit to a look.",
-    meta="Checkmatela delivery and returns status for the preview collection.",
+    lead="Clear terms on shipping, returns, exchanges and alterations — so you can order with confidence.",
+    meta="Checkmatela's shipping, return, exchange and alteration policy for men's, women's and kids' formal wear.",
     body=[
-        section("Current status.", '''<div class="prose"><p>The Checkmatela collection is a website preview. Online checkout is not connected, so orders, delivery dates and returns are not yet available through this site. Displayed prices and shipping estimates are illustrative.</p><p>Before ordering begins, this page will show the actual service areas, shipping rates, cutoff times, exchange and refund windows, and any exceptions for altered or special-order pieces.</p></div>''', "Before you order"),
-        section("Questions to settle for an event.", steps([
-            ("Confirm stock", "Check that the chosen style, color and size are available."),
-            ("Confirm delivery", "Work backward from your event and leave time for a try-on and possible alterations."),
-            ("Know your options", "Review the final exchange, return and alteration terms for the exact item before payment."),
-        ]), "Event planning", alt=True),
-        cta("Need help planning around a date?", "book-a-fitting.html", "Ask about timing"),
+        section("Shipping.", '''<div class="prose"><p>Standard shipping is $18 and free on orders over $500. Express shipping is $35. Local pickup in Los Angeles is free. Exact delivery windows are confirmed at checkout based on your address and the items in your order.</p></div>''', "Delivery"),
+        section("Return &amp; exchange windows.", table(
+            ["Category", "Window from delivery"],
+            [["Suits, tuxedos &amp; individual pieces (King, Pawn, Queen)", "14 days"],
+             ["Accessories &amp; shoes (Bishop, Rook)", "30 days"]],
+            "Applies to unworn items in original condition — see the checklist below"), "Returns", alt=True),
+        section("Exchanges and refunds.", cards([
+            ("01", "Free exchange", "Swap for a different size, color or style once per item, at no cost — we cover the shipping both ways."),
+            ("02", "$12 refund fee", "Choosing a refund instead of an exchange deducts a flat $12 return-shipping fee from the amount refunded. A second exchange on an item that's already used its free one is treated the same way."),
+            ("03", "Our mistake, no fee", "If an item arrives damaged, defective or wrong, return shipping is free and you receive a full refund or replacement. The $12 fee never applies here."),
+        ]), "How it works"),
+        section("Alterations, included.", '''<div class="prose"><p>Every suit and dress purchase includes one complimentary round of alterations, through our Los Angeles studio or a <a class="link" href="book-a-fitting.html">Book a Fitting</a> appointment. Additional alterations after that first round are billed at cost.</p></div>''', "Fit", alt=True),
+        section("What qualifies for a return.", cards([
+            ("01", "Unworn &amp; unwashed", "Tags still attached, with no signs of wear."),
+            ("02", "No odor or marks", "Free of deodorant, cologne, perfume or makeup marks."),
+            ("03", "Vents &amp; pockets closed", "On suits and jackets, vents and pockets must still be stitched or unopened."),
+            ("04", "Shoes indoors only", "Soles unmarked, tried on indoors, original box included."),
+            ("05", "Unaltered", "Not hemmed, taken in or otherwise tailored."),
+        ]), "Condition checklist"),
+        section("Not returnable.", '''<div class="prose"><p>Monogrammed or personalized items and anything marked final sale or clearance cannot be returned or exchanged.</p></div>''', "Exceptions", alt=True),
+        section("Group &amp; groomsmen orders.", '''<div class="prose"><p>Wedding parties and other group orders follow the same terms above, item by item. Because a wave of returns close to an event date is the hardest to handle in time, we recommend confirming every size through <a class="link" href="book-a-fitting.html">Book a Fitting</a> before you order.</p></div>''', "Ordering as a group"),
+        section("Starting a return or exchange.", f'''<div class="prose"><p>Online checkout is not yet connected, so returns, exchanges and alterations appointments are handled directly: email <a class="link" href="mailto:{EMAIL}">{EMAIL}</a> or use <a class="link" href="book-a-fitting.html">Book a Fitting</a> with your order details. Once an item is received, refunds are processed within 5 business days.</p></div>''', "How to start", alt=True),
+        cta("Questions about a return or exchange?", "book-a-fitting.html", "Ask us"),
     ])
 
 PAGES["find-your-look"] = dict(
