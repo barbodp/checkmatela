@@ -208,7 +208,7 @@ button{ font-family:inherit; cursor:pointer; }
 
 /* copy column: every slide's copy sits in the same grid cell */
 .sc-copies{ display:grid; align-self:center; position:relative; z-index:3; }
-.sc-copy{ grid-area:1/1; align-self:center; visibility:hidden; transition: visibility 0s .35s; }
+.sc-copy{ grid-area:1/1; align-self:center; min-width:0; visibility:hidden; transition: visibility 0s .35s; }
 .sc-copy.is-active{ visibility:visible; transition-delay:0s; }
 .sc-copy > *{ opacity:0; transform: translateY(18px); transition: opacity .3s ease, transform .3s ease; }
 .sc-copy.is-active > *{ opacity:1; transform:none; transition: opacity .7s ease, transform .8s var(--ease); transition-delay: calc(var(--i, 0) * 90ms + 380ms); }
@@ -219,8 +219,8 @@ button{ font-family:inherit; cursor:pointer; }
   font-size:.82rem; letter-spacing:.24em; text-transform:uppercase; font-weight:500; color: var(--brass-deep);
 }
 .sc-eyebrow svg{ width:20px; height:20px; color: var(--pine); flex:none; }
-.sc-copy--welcome .sc-eyebrow{ text-decoration:none; }
-.sc-welcome-line{ text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; }
+.sc-copy--welcome .sc-eyebrow{ max-width:100%; text-decoration:none; }
+.sc-welcome-line{ min-width:0; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; }
 .sc-title{ font-size: clamp(2.5rem, 4.9vw, 4.4rem); line-height:1; margin-top:.28em; text-wrap:balance; }
 .sc-title em{ font-style:italic; color: var(--pine); }
 .sc-sub{ margin-top:1em; max-width:40ch; color: var(--slate); font-size:1.08rem; }
@@ -327,7 +327,7 @@ button{ font-family:inherit; cursor:pointer; }
   .sc-chip{ padding: 17px 6px; letter-spacing:.14em; }
   .sc-chip svg{ display:none; }
 }
-@media (max-width: 480px){ .sc-arrow{ width:34px; height:34px; } .sc-chip{ font-size:.76rem; } .sc-hide-sm{ display:none; } .sc-eyebrow{ font-size:.78rem; letter-spacing:.2em; } }
+@media (max-width: 480px){ .sc-arrow{ width:34px; height:34px; } .sc-chip{ font-size:.76rem; } .sc-hide-sm{ display:none; } .sc-eyebrow{ font-size:.78rem; letter-spacing:.2em; } .sc-copy--welcome .sc-cta{ flex-wrap:wrap; } .sc-copy--welcome .sc-cta .btn{ white-space:normal; } }
 @media (prefers-reduced-motion: reduce){
   .sc-fig, .sc-glyph{ transform: translateX(-50%); transition: opacity .4s ease !important; }
   .sc-glyph{ transform:none; }
