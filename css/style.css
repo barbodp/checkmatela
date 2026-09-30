@@ -350,9 +350,10 @@ button{ font-family:inherit; cursor:pointer; }
 .categories .piece-card::before{ background:linear-gradient(180deg, rgba(9,26,20,0) 30%, rgba(9,26,20,.8) 72%, rgba(9,26,20,.98) 100%); }
 .categories .piece-card__glyph{ color:var(--pine-deep); }
 .categories .piece-card__soon-badge{ background:rgba(250,248,242,.9); border-color:rgba(15,46,34,.35); color:var(--pine-deep); }
-.categories .piece-card__body{ padding: 18px 18px 22px; }
-.categories .piece-card__body h3{ font-size:1.55rem; }
-.categories .piece-card__body p{ font-size:.88rem; color:rgba(250,248,242,.9); }
+.categories .piece-card__body{ display:grid; justify-items:start; gap:7px; padding:18px 18px 22px; }
+.categories .piece-card__body h3{ margin:0; font-size:clamp(1.3rem,2vw,1.55rem); line-height:1.05; }
+.categories .piece-card__body p{ margin:0; max-width:24ch; font-size:.88rem; line-height:1.35; color:rgba(250,248,242,.92); }
+.categories .piece-card__link{ margin-top:4px; }
 
 /* ============================================================
    TRUST STRIP
