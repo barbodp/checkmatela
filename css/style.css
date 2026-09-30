@@ -121,7 +121,7 @@ button{ font-family:inherit; cursor:pointer; }
 .announce__msgs{ display:grid; flex:1; min-width:0; }
 .announce__msgs > *{
   grid-area:1/1; display:flex; align-items:center; gap:.7em; opacity:0; transform: translateY(6px);
-  animation: announceCycle 15s infinite; animation-delay: calc(var(--n) * 5s);
+  animation: announceCycle 20s infinite; animation-delay: calc(var(--n) * 5s);
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:inherit;
 }
 .announce__msgs > *::before{ content:""; width:6px; height:6px; background: var(--brass-light); transform: rotate(45deg); flex:none; }
@@ -1339,11 +1339,14 @@ body.bag-open{ overflow:hidden; }
 .bag__links{ display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
 .bag__foot{ padding:18px 24px 22px; border-top:1px solid rgba(21,24,26,.14); background: var(--card); }
 .bag__row{ display:flex; justify-content:space-between; font-size:1.15rem; }
+.bag__row--disc{ font-size:.98rem; color: var(--burgundy); margin-top:2px; }
 .bag__note{ margin:.4em 0 1em; font-size:.88rem; color: var(--slate); }
 .bag__enquire{ width:100%; text-align:center; }
 .bag__checkout{ display:block; width:100%; margin-top:12px; text-align:center; color:var(--pine); text-decoration:underline; text-underline-offset:3px; }
 .bag__continue{ display:block; margin:12px auto 0; background:none; border:0; font: inherit; color: var(--pine); text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
-.bag[hidden], .bag__foot[hidden], .bag__list[hidden], .bag__ship[hidden], .bag__empty[hidden]{ display:none; }
+.bag[hidden], .bag__foot[hidden], .bag__list[hidden], .bag__ship[hidden], .bag__empty[hidden], .bag__promo[hidden]{ display:none; }
+.bag__promo{ padding:12px 24px; font-size:.92rem; background: var(--paper-dim); border-top:1px solid rgba(21,24,26,.08); display:flex; flex-direction:column; gap:6px; }
+.bag__promo b{ color: var(--pine); }
 
 /* quick add (Bishop / Rook cards) + Quick View options */
 .quick-add{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:12px 2px 0; }

@@ -69,7 +69,7 @@
       const address = form.querySelector('input[type="email"]')?.value.trim();
       if (!address) return;
       const subject = document.title.includes('Queen') ? 'Queen collection enquiry' : document.title.includes('Pawn') ? 'Pawn collection enquiry' : 'Checkmatela collection enquiry';
-      const body = `Hello Checkmatela,\n\nMy email is ${address}. I would like to hear about the collection.\n\nMy occasion / question: `;
+      const body = `Hello Checkmatela,\n\nMy email is ${address}. I would like to hear about the collection.\n\nMy occasion / question: \n\n(Use code WELCOME10 for 10% off my first order.)`;
       form.classList.add('sent');
       window.location.href = `mailto:suit.shop.dtla@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });

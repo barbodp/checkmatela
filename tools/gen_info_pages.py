@@ -389,12 +389,13 @@ def build_checkout():
         <p class="co-promo-msg" id="promoMsg" role="status"></p>
         <dl class="co-totals">
           <div><dt>Subtotal</dt><dd id="tSub">$0</dd></div>
+          <div class="co-bulk" hidden><dt>Groomsmen discount</dt><dd id="tBulk">−$0</dd></div>
           <div class="co-disc" hidden><dt>Discount</dt><dd id="tDisc">−$0</dd></div>
           <div><dt>Shipping</dt><dd id="tShip">—</dd></div>
           <div><dt>Estimated tax</dt><dd id="tTax">$0</dd></div>
           <div class="co-total"><dt>Total</dt><dd id="tTotal">$0</dd></div>
         </dl>
-        <p class="co-fine">Prices, shipping rates and taxes are illustrative placeholders. No delivery offer is active. <a href="shipping-returns.html">Read the current service status</a>.</p>
+        <p class="co-fine">3+ King suits in one order unlock a 10% groomsmen discount (15% at 6+), applied automatically. Prices, shipping rates and taxes are illustrative placeholders. No delivery offer is active. <a href="shipping-returns.html">Read the current service status</a>.</p>
       </aside>
     </div>
 
@@ -402,7 +403,7 @@ def build_checkout():
   </div>
 </main>
 
-{FOOTER.replace('<script src="js/cart.js?v=3"></script>', '<script src="js/cart.js?v=3"></script>' + chr(10) + '<script src="js/checkout.js?v=2"></script>') if '<script src="js/cart.js?v=3"></script>' in FOOTER else FOOTER.rstrip() + chr(10) + '<script src="js/checkout.js?v=2"></script>' + chr(10)}
+{FOOTER.replace('<script src="js/cart.js?v=4"></script>', '<script src="js/cart.js?v=4"></script>' + chr(10) + '<script src="js/checkout.js?v=3"></script>') if '<script src="js/cart.js?v=4"></script>' in FOOTER else FOOTER.rstrip() + chr(10) + '<script src="js/checkout.js?v=3"></script>' + chr(10)}
 '''
     with open(os.path.join(ROOT, "checkout.html"), "w", encoding="utf-8") as f:
         f.write(html)

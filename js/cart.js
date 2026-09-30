@@ -19,6 +19,16 @@
   const count = () => items.reduce((a, i) => a + i.qty, 0);
   const subtotal = () => items.reduce((a, i) => a + i.price * i.qty, 0);
   const optLabel = o => Object.entries(o || {}).filter(([, v]) => v).map(([k, v]) => (k === 'size' ? 'Size ' : '') + v).join(' · ');
+
+  /* ---------------------------------------------------------------- groomsmen bulk discount: 3+ King suits = 10% off each, 6+ = 15% off each */
+  function bulkInfo() {
+    const kingItems = items.filter(i => i.id.startsWith('king/'));
+    const qty = kingItems.reduce((a, i) => a + i.qty, 0);
+    const kingSub = kingItems.reduce((a, i) => a + i.price * i.qty, 0);
+    const pct = qty >= 6 ? .15 : qty >= 3 ? .10 : 0;
+    const next = qty < 3 ? { min: 3, pct: .10 } : qty < 6 ? { min: 6, pct: .15 } : null;
+    return { qty, pct, amount: Math.round(kingSub * pct * 100) / 100, next };
+  }
   const keyOf = (id, opts) => id + '|' + Object.entries(opts || {}).sort().map(([k, v]) => k + '=' + v).join(';');
 
   function add(p, qty = 1) {
@@ -40,10 +50,13 @@
     drawer.innerHTML = `
       <header class="bag__head"><h2>Preview bag <span class="bag__n"></span></h2><button type="button" class="bag__x" aria-label="Close bag">×</button></header>
       <div class="bag__ship" aria-live="polite"></div>
+      <div class="bag__promo" aria-live="polite"></div>
       <ul class="bag__list"></ul>
       <div class="bag__empty" hidden><p>Your bag is empty.</p><p class="muted">Every piece is named for a chess opening — start with a King, or shop by piece.</p>
         <div class="bag__links"><a class="btn small" href="king.html">Shop King</a><a class="btn small dark-ghost" href="pawn.html">Shop Pawn</a></div></div>
-      <footer class="bag__foot"><div class="bag__row"><span>Illustrative subtotal</span><b class="bag__sub"></b></div><p class="bag__note">Preview only. No order or payment can be placed yet.</p>
+      <footer class="bag__foot"><div class="bag__row"><span>Illustrative subtotal</span><b class="bag__sub"></b></div>
+        <div class="bag__row bag__row--disc" hidden><span>Groomsmen discount</span><b class="bag__disc"></b></div>
+        <p class="bag__note">Preview only. No order or payment can be placed yet.</p>
         <a class="btn bag__enquire" href="book-a-fitting.html">Ask about these looks</a><a class="bag__checkout" href="checkout.html">View checkout preview</a><button type="button" class="bag__continue">Continue exploring</button></footer>`;
     document.body.append(overlay, drawer);
     overlay.addEventListener('click', close); $('.bag__x', drawer).addEventListener('click', close); $('.bag__continue', drawer).addEventListener('click', close);
@@ -68,9 +81,21 @@
     $$('button[aria-label^="Bag"]').forEach(b => b.setAttribute('aria-label', n ? `Bag, ${n} item${n > 1 ? 's' : ''}` : 'Bag'));
     if (!drawer) return;
     $('.bag__n', drawer).textContent = n ? `(${n})` : '';
-    const list = $('.bag__list', drawer), empty = $('.bag__empty', drawer), foot = $('.bag__foot', drawer), ship = $('.bag__ship', drawer), sub = subtotal();
+    const list = $('.bag__list', drawer), empty = $('.bag__empty', drawer), foot = $('.bag__foot', drawer), ship = $('.bag__ship', drawer), promoEl = $('.bag__promo', drawer), sub = subtotal();
     empty.hidden = n > 0; foot.hidden = !n; list.hidden = !n; ship.hidden = !n;
     ship.innerHTML = n ? '<span>Save looks here while you compare. Availability, pricing and delivery need confirmation.</span>' : '';
+    const bulk = bulkInfo(), discRow = $('.bag__row--disc', drawer);
+    if (!n || !bulk.qty) { promoEl.hidden = true; promoEl.innerHTML = ''; }
+    else {
+      promoEl.hidden = false;
+      if (bulk.pct) {
+        promoEl.innerHTML = `<span><b>${Math.round(bulk.pct * 100)}% groomsmen discount unlocked</b> on ${bulk.qty} King suit${bulk.qty > 1 ? 's' : ''} — plus a free bow tie or pocket square for the group.${bulk.next ? ` Add ${bulk.next.min - bulk.qty} more to reach ${Math.round(bulk.next.pct * 100)}% off.` : ''}</span>`;
+      } else {
+        const pctToNext = Math.min(100, Math.round((bulk.qty / bulk.next.min) * 100));
+        promoEl.innerHTML = `<span>Add ${bulk.next.min - bulk.qty} more King suit${bulk.next.min - bulk.qty > 1 ? 's' : ''} to unlock 10% off for the whole group.</span><span class="bag__meter"><u style="width:${pctToNext}%"></u></span>`;
+      }
+    }
+    discRow.hidden = !bulk.amount; if (bulk.amount) $('.bag__disc', drawer).textContent = '−' + money(bulk.amount);
     list.innerHTML = items.map(i => `
       <li class="bag__item${i.key === lastAdded ? ' is-new' : ''}" data-key="${esc(i.key)}">
         <img src="${esc(i.img)}" alt="" loading="lazy">
@@ -112,7 +137,7 @@
     });
   }
 
-  window.CheckmatelaBag = { add, remove, setQty, clear, items: () => items.slice(), count, subtotal, open, close, onChange: f => listeners.push(f), FREE_SHIP, money, optLabel };
+  window.CheckmatelaBag = { add, remove, setQty, clear, items: () => items.slice(), count, subtotal, bulkInfo, open, close, onChange: f => listeners.push(f), FREE_SHIP, money, optLabel };
   window.addEventListener('storage', e => { if (e.key === KEY) { load(); changed(); } });
   load();                                   // read the saved bag right away so other scripts (checkout) see it
   const start = () => { build(); wireHeader(); staticCards(); changed(); };

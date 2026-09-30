@@ -8,7 +8,7 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "42"
+CSS_VERSION = "43"
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
       <circle fill="currentColor" cx="50" cy="30" r="13"/>
@@ -93,7 +93,7 @@ FOOTER = '''<footer class="site-footer">
 </footer>
 
 <script src="js/main.js"></script>
-<script src="js/cart.js?v=3"></script>
+<script src="js/cart.js?v=4"></script>
 </body>
 </html>'''
 
@@ -103,6 +103,7 @@ ANNOUNCE = '''<div class="announce">
       <a href="find-your-look.html" style="--n:0">Dressing for an event? Start with your occasion</a>
       <a href="size-guide.html" style="--n:1">Find your fit before you choose a size</a>
       <a href="shipping-returns.html" style="--n:2">Have a date in mind? Ask about timing</a>
+      <a href="king.html" style="--n:3">Bring 3+ groomsmen and save up to 15% together</a>
     </div>
     <div class="announce__links">
       <a href="tel:+13108906991">+1 (310) 890-6991</a>

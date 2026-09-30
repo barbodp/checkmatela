@@ -8,7 +8,14 @@
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const money = n => '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const RATES = { freeOver: bag.FREE_SHIP, standard: 18, express: 35, tax: 0.095, promo: { CHECKMATE10: 0.10 } };
+  const RATES = {
+    freeOver: bag.FREE_SHIP, standard: 18, express: 35, tax: 0.095,
+    promo: {
+      WELCOME10: { type: 'pct', value: .10, label: '10% off your first order' },
+      NEXTMOVE10: { type: 'pct', value: .10, label: '10% off your next suit' },
+      REFER20: { type: 'flat', value: 20, label: '$20 off, from a friend' },
+    },
+  };
 
   const form = $('#coForm'), grid = $('.co-grid'), empty = $('.co-empty'), done = $('#coDone');
   const state = { ship: 'standard', promo: null };
@@ -25,8 +32,11 @@
       <label class="co-opt"><input type="radio" name="ship" value="${id}" ${state.ship === id ? 'checked' : ''}><span><b>${name}</b><small>${eta}</small></span><em>${cost ? money(cost) : 'Free'}</em></label>`).join('');
   }
   function totals() {
-    const sub = bag.subtotal(), disc = state.promo ? Math.round(sub * RATES.promo[state.promo] * 100) / 100 : 0, ship = shipCost(state.ship, sub), taxable = sub - disc, tax = Math.round(taxable * RATES.tax * 100) / 100;
-    return { sub, disc, ship, tax, total: sub - disc + ship + tax };
+    const sub = bag.subtotal(), bulk = bag.bulkInfo ? bag.bulkInfo() : { amount: 0 }, afterBulk = sub - bulk.amount;
+    const promoDef = state.promo ? RATES.promo[state.promo] : null;
+    const disc = promoDef ? (promoDef.type === 'flat' ? Math.min(promoDef.value, afterBulk) : Math.round(afterBulk * promoDef.value * 100) / 100) : 0;
+    const ship = shipCost(state.ship, sub), taxable = afterBulk - disc, tax = Math.round(taxable * RATES.tax * 100) / 100;
+    return { sub, bulkAmt: bulk.amount, bulkPct: bulk.pct, disc, ship, tax, total: taxable + ship + tax };
   }
   function renderSummary() {
     const items = bag.items();
@@ -40,6 +50,7 @@
     shippingOptions(bag.subtotal());
     const t = totals();
     $('#tSub').textContent = money(t.sub); $('#tShip').textContent = t.ship ? money(t.ship) : 'Free'; $('#tTax').textContent = money(t.tax); $('#tTotal').textContent = money(t.total);
+    $('.co-bulk').hidden = !t.bulkAmt; $('#tBulk').textContent = '−' + money(t.bulkAmt);
     $('.co-disc').hidden = !t.disc; $('#tDisc').textContent = '−' + money(t.disc);
   }
   $('#coItems').addEventListener('click', e => {
@@ -53,7 +64,7 @@
   $('#promoForm').addEventListener('submit', e => {
     e.preventDefault(); const code = $('#promo').value.trim().toUpperCase(), msg = $('#promoMsg');
     if (!code) { msg.textContent = 'Enter a code.'; msg.className = 'co-promo-msg is-bad'; return; }
-    if (RATES.promo[code]) { state.promo = code; msg.textContent = `${code} applied — ${RATES.promo[code] * 100}% off (preview code).`; msg.className = 'co-promo-msg is-ok'; }
+    if (RATES.promo[code]) { state.promo = code; msg.textContent = `${code} applied — ${RATES.promo[code].label} (preview code).`; msg.className = 'co-promo-msg is-ok'; }
     else { state.promo = null; msg.textContent = "That code isn't valid."; msg.className = 'co-promo-msg is-bad'; }
     renderSummary();
   });
@@ -101,8 +112,9 @@
         <div class="co-done__cols">
           <div><h3>Delivery</h3><p>${esc(f.first.value)} ${esc(f.last.value)}<br>${esc(f.address.value)}${f.apt.value ? ', ' + esc(f.apt.value) : ''}<br>${esc(f.city.value)}, ${esc(f.state.value)} ${esc(f.zip.value)}</p><p class="muted">${esc(f.email.value)}</p><h3>Shipping</h3><p>${shipName}</p></div>
           <div><h3>Your pieces</h3><ul class="co-done__list">${items.map(i => `<li><span>${i.qty} × ${esc(i.name)} <small>${esc(bag.optLabel(i.options))}</small></span><b>${money(i.price * i.qty)}</b></li>`).join('')}</ul>
-            <dl class="co-totals"><div><dt>Subtotal</dt><dd>${money(t.sub)}</dd></div>${t.disc ? `<div><dt>Discount</dt><dd>−${money(t.disc)}</dd></div>` : ''}<div><dt>Shipping</dt><dd>${t.ship ? money(t.ship) : 'Free'}</dd></div><div><dt>Estimated tax</dt><dd>${money(t.tax)}</dd></div><div class="co-total"><dt>Total</dt><dd>${money(t.total)}</dd></div></dl></div>
+            <dl class="co-totals"><div><dt>Subtotal</dt><dd>${money(t.sub)}</dd></div>${t.bulkAmt ? `<div><dt>Groomsmen discount</dt><dd>−${money(t.bulkAmt)}</dd></div>` : ''}${t.disc ? `<div><dt>Discount</dt><dd>−${money(t.disc)}</dd></div>` : ''}<div><dt>Shipping</dt><dd>${t.ship ? money(t.ship) : 'Free'}</dd></div><div><dt>Estimated tax</dt><dd>${money(t.tax)}</dd></div><div class="co-total"><dt>Total</dt><dd>${money(t.total)}</dd></div></dl></div>
         </div>
+        <p class="co-note co-refer">Know someone else getting married? Share code <b>REFER20</b> — $20 off their first order.</p>
         <p class="co-done__actions"><button class="btn" type="button" id="doneBack">Back to checkout</button> <button class="btn dark-ghost" type="button" id="doneClear">Clear bag and start over</button> <a class="link" href="king.html">Keep shopping</a></p>
       </div>`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
