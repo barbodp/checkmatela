@@ -343,13 +343,13 @@ button{ font-family:inherit; cursor:pointer; }
 .categories__head h2{ font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top:.3em; line-height:1.05; }
 .categories__head p{ color: var(--slate); font-size:1rem; max-width:38ch; }
 .categories .board-grid{ padding:0; gap:6px; }
-.categories .piece-card{ aspect-ratio: 4 / 4.9; background: var(--pine-deep); }
+.categories .piece-card{ aspect-ratio: 4 / 6; background: var(--pine-deep); }
 .categories .piece-card img{ -webkit-mask-image:none; mask-image:none; filter:none; transform:scale(1.02); }
 .categories .piece-card:hover img{ filter:brightness(.95); transform:scale(1.08); }
 .categories .piece-card.soon{ background:var(--pine-deep); }
 .categories .piece-card__body{ padding: 18px 18px 22px; }
 .categories .piece-card__body h3{ font-size:1.55rem; }
-.categories .piece-card__body p{ font-size:.88rem; }
+.categories .piece-card__body p{ font-size:.88rem; color:rgba(250,248,242,.9); }
 
 /* ============================================================
    TRUST STRIP
