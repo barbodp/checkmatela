@@ -12,7 +12,8 @@
   "use strict";
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const SIZE = () => (window.innerWidth < 700 ? [150, 180] : [210, 250]);   // canvas px (w, h)
+  // Keep the character playful without letting him dominate copy on smaller screens.
+  const SIZE = () => (window.innerWidth < 700 ? [96, 116] : window.innerWidth < 1100 ? [130, 155] : [190, 225]);
   let THREE = null, renderer, scene, camera, mascot, parts, canvas;
   // one sweep = bottom → top of the viewport, crossing `cross` of the width. Times in seconds.
   const RISE = { secs: [17, 23], pause: [1, 2.5], cross: [.55, .95], swayPx: [30, 80], swaySecs: [5, 8] };
