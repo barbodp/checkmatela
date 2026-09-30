@@ -402,7 +402,7 @@ def build_checkout():
   </div>
 </main>
 
-{FOOTER.replace('<script src="js/cart.js"></script>', '<script src="js/cart.js"></script>' + chr(10) + '<script src="js/checkout.js?v=2"></script>')}
+{FOOTER.replace('<script src="js/cart.js?v=3"></script>', '<script src="js/cart.js?v=3"></script>' + chr(10) + '<script src="js/checkout.js?v=2"></script>') if '<script src="js/cart.js?v=3"></script>' in FOOTER else FOOTER.rstrip() + chr(10) + '<script src="js/checkout.js?v=2"></script>' + chr(10)}
 '''
     with open(os.path.join(ROOT, "checkout.html"), "w", encoding="utf-8") as f:
         f.write(html)

@@ -59,12 +59,15 @@ export VERCEL_GLOBAL_CONFIG_DIR="$HOME/.local/vercel-config"
 
 ### Pawn subcategories (current status — all four are LIVE)
 `pawn.html` is the landing page ("Shop by Style" dropdown + four photo cards). Each style has its own page:
-- **Slim Fit** → `pawn-slim-fit.html` — 14 colorways, $129. Source: `~/Downloads/Magen Kids/Slim Fit/`.
-- **Suit Vest Set** → `pawn-suit-vest-set.html` — 4 colorways, $89. Source: `~/Downloads/Magen Kids/Suit Vest Set/`.
-- **Tuxedo** (style TX-1026) → `pawn-tuxedo.html` — 12 colorways, $139. Source: `~/Downloads/Magen Kids/Tuxedo TX-1026/`.
-- **Tuxedo Vest Set** → `pawn-tuxedo-vest-set.html` — 4 colorways, $99. Source: `~/Downloads/Magen Kids/Tuxedo Vest Set/`.
+- **Slim Fit** → `pawn-slim-fit.html` — 14 colorways, $145. Source: `~/Downloads/Magen Kids/Slim Fit/`.
+- **Suit Vest Set** → `pawn-suit-vest-set.html` — 4 colorways, $115. Source: `~/Downloads/Magen Kids/Suit Vest Set/`.
+- **Tuxedo** (style TX-1026) → `pawn-tuxedo.html` — 12 colorways, $159. Source: `~/Downloads/Magen Kids/Tuxedo TX-1026/`.
+- **Tuxedo Vest Set** → `pawn-tuxedo-vest-set.html` — 4 colorways, $125. Source: `~/Downloads/Magen Kids/Tuxedo Vest Set/`.
 
-Prices are invented placeholders (the concept site has no real pricing) — tell the user if asked.
+### Pricing (repriced 2026-09-30 — cost-based, not arbitrary)
+The user gave a real unit cost (~$45–48 to produce a suit, kids or men's, same either way) and wants to compete on accessible, repeat-purchase pricing rather than one-time luxury pricing — explicitly to attract groomsmen parties and men who buy suits often, not just once. King suits were repriced from $795–975 down to **$179–249** (10 products in `tools/catalog/king.json`, each individually mapped — don't reset them to a flat number) and Pawn from $89–139 up to **$115–159** (in `tools/gen_pawn_pages.py`'s `LINES`). Both ranges were checked against the real cost stack (COGS + packaging + free-swatch amortization + free-exchange/return cost + one free round of alterations) and land at a healthy 45–74% margin — see the "Formalwear competitor return policies" and "Formalwear return fraud risks" research reports (if still on disk in the session that made them) for the full math and competitor benchmarking (Modern Groom $210–260, Indochino ~$330–599) that this was based on. **Bishop (accessories) and Rook (shoes) have NOT been repriced** — no real cost data exists for them yet. Remind the user to revisit their pricing (same cost-based method) once real cost numbers exist or new products are added to those two categories.
+
+Prices are otherwise invented placeholders (the concept site has no real backend) — tell the user if asked.
 The main nav has a hover dropdown under "Pawn — Kids" (all pages) linking to the four pages; on mobile it's a static inline list.
 
 The four Pawn style pages are **generated** by `tools/gen_pawn_pages.py` (they are near-identical) — edit the generator and re-run it rather than hand-editing the four files (colour lists, prices, intro copy and hero figures live in its `LINES` config). Its `CSS_VERSION` must match the `?v=N` on the other pages.

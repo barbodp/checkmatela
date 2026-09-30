@@ -117,7 +117,7 @@ PLAIN_ALTS = {1: "product only, front", 2: "product only, flat detail"}
 
 LINES = {
     "suit-vest-set": dict(
-        file="pawn-suit-vest-set.html", label="Suit Vest Set", price=89,
+        file="pawn-suit-vest-set.html", label="Suit Vest Set", price=115,
         title="Suit Vest Set — Pawn Kids | Checkmatela",
         meta="Checkmatela Pawn collection — Suit Vest Set for kids, in Black, Indigo, Light Gray and Navy.",
         intro="An easy dressed-up option for warm-weather weddings, family photos and school celebrations. Explore four colorways and compare the details before choosing a size.",
@@ -125,7 +125,7 @@ LINES = {
         hero=["black", "indigo", "navy"],
     ),
     "tuxedo-vest-set": dict(
-        file="pawn-tuxedo-vest-set.html", label="Tuxedo Vest Set", price=99,
+        file="pawn-tuxedo-vest-set.html", label="Tuxedo Vest Set", price=125,
         title="Tuxedo Vest Set — Pawn Kids | Checkmatela",
         meta="Checkmatela Pawn collection — Tuxedo Vest Set for kids, in Black, Burgundy, Light Gray and Light Navy.",
         intro="A polished vest look for formal celebrations when a full jacket is more than the moment needs. Compare four colorways and check measurements before the event.",
@@ -133,7 +133,7 @@ LINES = {
         hero=["black", "burgundy", "light-navy"],
     ),
     "slim-fit": dict(
-        file="pawn-slim-fit.html", label="Slim Fit", price=129,
+        file="pawn-slim-fit.html", label="Slim Fit", price=145,
         title="Slim Fit — Pawn Kids | Checkmatela",
         meta="Checkmatela Pawn collection — Slim Fit suits for kids in fourteen colorways.",
         intro="A modern suit look for weddings, school events and family portraits. Browse fourteen colorways, then use the fit guide to plan ahead.",
@@ -145,7 +145,7 @@ LINES = {
         hero=["navy", "burgundy", "hunter-green"],
     ),
     "tuxedo": dict(
-        file="pawn-tuxedo.html", label="Tuxedo", price=139,
+        file="pawn-tuxedo.html", label="Tuxedo", price=159,
         title="Tuxedo — Pawn Kids | Checkmatela",
         meta="Checkmatela Pawn collection — shawl-lapel tuxedos for kids in twelve colorways.",
         intro="For black-tie weddings, prom and milestone celebrations. See the shawl-lapel look in twelve colorways and compare measurements before choosing.",
