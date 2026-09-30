@@ -378,13 +378,13 @@ button{ font-family:inherit; cursor:pointer; }
 .diagram-head h2{ font-size: clamp(2.1rem,4vw,3.2rem); margin-top:.35em; }
 .diagram-head p{ margin: .9em auto 0; max-width:56ch; color: var(--slate); font-size:1.02rem; }
 
-.explode-wrap{ padding: clamp(20px,5vw,40px) 0 clamp(56px,8vw,88px); }
+.explode-wrap{ padding: clamp(12px,3vw,24px) 0 clamp(44px,6vw,64px); }
 .explode-stage{
   position:relative;
-  height: 720px;
-  max-width: 1000px; margin: 0 auto;
+  height: 675px;
+  max-width: 700px; margin: 0 auto;
   background:
-    radial-gradient(ellipse 52% 56% at 50% 49%, var(--pine-mist) 0%, rgba(231,239,232,0) 72%);
+    radial-gradient(ellipse 58% 58% at 50% 50%, var(--pine-mist) 0%, rgba(231,239,232,0) 72%);
   overflow:hidden;
 }
 .explode-track{ position:absolute; inset:0; }
@@ -407,27 +407,28 @@ button{ font-family:inherit; cursor:pointer; }
 .xpiece:hover img{ outline: none; }
 .xpiece:focus-visible{ outline: 2px solid var(--pine); outline-offset:8px; }
 
-.xpiece--bowtie{ --hx:0px; --hy:-234px; --ox:0px; --oy:-282px; --delay:.02s; --z:5; }
-.xpiece--jacket{ --hx:0px; --hy:-105px; --ox:-150px; --oy:-145px; --delay:.09s; --z:4; }
-.xpiece--shirt{ --hx:0px; --hy:-105px; --ox:110px; --oy:-145px; --delay:.16s; --z:2; }
-.xpiece--pocketsquare{ --hx:42px; --hy:-166px; --ox:240px; --oy:-185px; --delay:.23s; --z:5; }
-.xpiece--cufflinks{ --hx:95px; --hy:-5px; --ox:245px; --oy:-25px; --delay:.3s; --z:5; }
-.xpiece--cufflinks-wrist{ --hx:-95px; --hy:-5px; --ox:-260px; --oy:0px; --delay:.36s; --z:5; }
-.xpiece--trousers{ --hx:0px; --hy:106px; --ox:-35px; --oy:92px; --delay:.13s; --z:3; }
-.xpiece--shoes{ --hx:0px; --hy:278px; --ox:145px; --oy:230px; --delay:.42s; --z:5; }
+.xpiece--bowtie{ --hx:0px; --hy:-225px; --ox:0px; --oy:-260px; --delay:.02s; --z:6; }
+.xpiece--jacket{ --hx:0px; --hy:-115px; --ox:-155px; --oy:-115px; --delay:.09s; --z:4; }
+.xpiece--shirt{ --hx:0px; --hy:-115px; --ox:155px; --oy:-115px; --delay:.16s; --z:2; }
+.xpiece--vest{ --hx:0px; --hy:-115px; --ox:0px; --oy:-115px; --delay:.2s; --z:3; }
+.xpiece--pocketsquare{ --hx:40px; --hy:-155px; --ox:275px; --oy:-183px; --delay:.23s; --z:5; }
+.xpiece--cufflinks{ --hx:65px; --hy:-16px; --ox:263px; --oy:-15px; --delay:.3s; --z:5; }
+.xpiece--cufflinks-wrist{ --hx:-65px; --hy:-16px; --ox:-263px; --oy:-15px; --delay:.36s; --z:5; }
+.xpiece--trousers{ --hx:0px; --hy:90px; --ox:0px; --oy:110px; --delay:.13s; --z:3; }
+.xpiece--shoes{ --hx:0px; --hy:225px; --ox:0px; --oy:245px; --delay:.42s; --z:5; }
 
-.xpiece--jacket img{ width: 170px; }
-.xpiece--trousers img{ width: 95px; }
-.xpiece--shirt img{ width: 140px; }
-.xpiece--bowtie img{ width: 80px; }
-.xpiece--pocketsquare img{ width: 54px; }
-.xpiece--cufflinks img{ width: 56px; }
-.xpiece--cufflinks-wrist img{ width: 50px; }
-.xpiece--shoes img{ width: 125px; }
+.xpiece--jacket img{ width:130px; }
+.xpiece--shirt img{ width:118px; }
+.xpiece--vest img{ width:100px; }
+.xpiece--trousers img{ width:80px; }
+.xpiece--shoes img{ width:105px; }
+.xpiece--bowtie img{ width:66px; }
+.xpiece--pocketsquare img{ width:42px; }
+.xpiece--cufflinks img, .xpiece--cufflinks-wrist img{ width:45px; }
 
 .xpiece__label{
   position:absolute; left:50%; top:100%;
-  transform: translate(-50%, 12px);
+  transform: translate(-50%, 8px);
   white-space:nowrap; text-align:center;
   opacity:0; transition: opacity .5s ease .3s;
   pointer-events:none;
@@ -435,28 +436,32 @@ button{ font-family:inherit; cursor:pointer; }
 .explode-stage.exploded .xpiece__label{ opacity:1; pointer-events:auto; }
 .xpiece__label .name{ display:block; font-family: var(--serif); font-size:1.05rem; color: var(--ink); }
 .xpiece__label .tag{ display:block; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color: var(--pine); margin-top:3px; }
+.xpiece--trousers .xpiece__label{ top:38%; left:100%; transform:translate(10px,-50%); text-align:left; }
 
 @media (max-width: 640px){
-  .explode-stage{ height:810px; max-width:440px; }
-  .xpiece__label{ width:120px; white-space:normal; line-height:1.15; }
-  .xpiece__label .name{ font-size:1rem; }
-  .xpiece__label .tag{ font-size:.64rem; letter-spacing:.08em; }
-  .xpiece--bowtie{ --hx:0px; --hy:-220px; --ox:calc(0px - var(--diagram-col)); --oy:-330px; }
-  .xpiece--pocketsquare{ --hx:30px; --hy:-140px; --ox:var(--diagram-col); --oy:-330px; }
-  .xpiece--jacket{ --hx:0px; --hy:-100px; --ox:calc(0px - var(--diagram-col)); --oy:-145px; }
-  .xpiece--shirt{ --hx:0px; --hy:-100px; --ox:var(--diagram-col); --oy:-145px; }
-  .xpiece--cufflinks-wrist{ --hx:-72px; --hy:-20px; --ox:calc(0px - var(--diagram-col)); --oy:40px; }
-  .xpiece--cufflinks{ --hx:72px; --hy:-20px; --ox:var(--diagram-col); --oy:40px; }
-  .xpiece--trousers{ --hx:0px; --hy:115px; --ox:calc(0px - var(--diagram-col)); --oy:225px; }
-  .xpiece--shoes{ --hx:0px; --hy:265px; --ox:var(--diagram-col); --oy:245px; }
-  .explode-track{ --diagram-col:min(105px, 24vw); }
-  .xpiece--jacket img{ width:125px; }
-  .xpiece--shirt img{ width:110px; }
-  .xpiece--trousers img{ width:78px; }
-  .xpiece--shoes img{ width:110px; }
-  .xpiece--bowtie img{ width:70px; }
-  .xpiece--pocketsquare img{ width:55px; }
-  .xpiece--cufflinks img, .xpiece--cufflinks-wrist img{ width:60px; }
+  .explode-stage{ height:620px; max-width:440px; }
+  .explode-track{ --splay:min(100px,24vw); --edge:min(165px,39vw); }
+  .xpiece__label{ width:70px; white-space:normal; line-height:1; transform:translate(-50%,6px); }
+  .xpiece__label .name{ font-size:.88rem; }
+  .xpiece__label .tag{ display:none; }
+  .xpiece--trousers .xpiece__label{ transform:translate(8px,-50%); }
+  .xpiece--bowtie{ --hx:0px; --hy:-205px; --ox:0px; --oy:-220px; }
+  .xpiece--jacket{ --hx:0px; --hy:-98px; --ox:calc(0px - var(--splay)); --oy:-98px; }
+  .xpiece--shirt{ --hx:0px; --hy:-98px; --ox:var(--splay); --oy:-98px; }
+  .xpiece--vest{ --hx:0px; --hy:-98px; --ox:0px; --oy:-98px; }
+  .xpiece--pocketsquare{ --hx:28px; --hy:-145px; --ox:var(--edge); --oy:-205px; }
+  .xpiece--cufflinks-wrist{ --hx:-50px; --hy:-8px; --ox:calc(0px - var(--edge)); --oy:10px; }
+  .xpiece--cufflinks{ --hx:50px; --hy:-8px; --ox:var(--edge); --oy:10px; }
+  .xpiece--trousers{ --hx:0px; --hy:70px; --ox:0px; --oy:75px; }
+  .xpiece--shoes{ --hx:0px; --hy:176px; --ox:0px; --oy:235px; }
+  .xpiece--jacket img{ width:88px; }
+  .xpiece--shirt img{ width:80px; }
+  .xpiece--vest img{ width:65px; }
+  .xpiece--trousers img{ width:58px; }
+  .xpiece--shoes img{ width:82px; }
+  .xpiece--bowtie img{ width:50px; }
+  .xpiece--pocketsquare img{ width:30px; }
+  .xpiece--cufflinks img, .xpiece--cufflinks-wrist img{ width:32px; }
 }
 
 @media (prefers-reduced-motion: reduce){
