@@ -439,7 +439,7 @@ button{ font-family:inherit; cursor:pointer; }
 .xpiece--trousers .xpiece__label{ top:38%; left:100%; transform:translate(10px,-50%); text-align:left; }
 
 @media (max-width: 640px){
-  .explode-stage{ height:620px; max-width:440px; }
+  .explode-stage{ height:570px; max-width:440px; }
   .explode-track{ --splay:min(100px,24vw); --edge:min(165px,39vw); }
   .xpiece__label{ width:70px; white-space:normal; line-height:1; transform:translate(-50%,6px); }
   .xpiece__label .name{ font-size:.88rem; }
@@ -453,7 +453,7 @@ button{ font-family:inherit; cursor:pointer; }
   .xpiece--cufflinks-wrist{ --hx:-50px; --hy:-8px; --ox:calc(0px - var(--edge)); --oy:10px; }
   .xpiece--cufflinks{ --hx:50px; --hy:-8px; --ox:var(--edge); --oy:10px; }
   .xpiece--trousers{ --hx:0px; --hy:70px; --ox:0px; --oy:75px; }
-  .xpiece--shoes{ --hx:0px; --hy:176px; --ox:0px; --oy:235px; }
+  .xpiece--shoes{ --hx:0px; --hy:176px; --ox:0px; --oy:205px; }
   .xpiece--jacket img{ width:88px; }
   .xpiece--shirt img{ width:80px; }
   .xpiece--vest img{ width:65px; }
