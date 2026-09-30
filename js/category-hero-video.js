@@ -8,9 +8,10 @@
 
   for (const film of films) {
     const video = film.querySelector('video');
-    const source = video?.querySelector('source[data-src]');
     const toggle = film.querySelector('.cat-hero__film-toggle');
-    if (!video || !source || !toggle) continue;
+    if (!video || !toggle) continue;
+    const sources = video.querySelectorAll('source[data-src]');
+    if (!sources.length) continue;
 
     const label = toggle.getAttribute('aria-label').replace(/^Play /, '');
     let loaded = false;
@@ -19,8 +20,10 @@
 
     const load = () => {
       if (loaded) return;
-      source.src = source.dataset.src;
-      source.removeAttribute('data-src');
+      for (const source of sources) {
+        source.src = source.dataset.src;
+        source.removeAttribute('data-src');
+      }
       video.load();
       loaded = true;
     };

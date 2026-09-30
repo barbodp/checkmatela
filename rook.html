@@ -8,8 +8,8 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230c0c0d%22/><text x=%2250%22 y=%2268%22 font-size=%2264%22 text-anchor=%22middle%22 fill=%22%23d9b876%22>♖</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=47">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=50">
 <style>
   .acc-frame{ background: var(--paper-dim); display:flex; align-items:center; justify-content:center; padding: 30px; }
   .acc-frame img{ width:100%; max-width:240px; object-fit:contain; filter: drop-shadow(0 10px 16px rgba(15,24,20,.14)); }
@@ -67,21 +67,25 @@
   </div>
 </header>
 
-<section class="cat-hero cat-hero--film">
-  <div class="cat-hero__bg"></div>
-  <div class="cat-hero__fade"></div>
-  <div class="cat-hero__inner">
-    <div class="cat-hero__copy">
+<section class="cat-hero cat-hero--film" aria-label="Shoes studio film">
+  <div class="cat-hero__film">
+    <video muted loop playsinline preload="none" poster="assets/img/hero-video/hero-shoes.webp?v=2" aria-label="Concept studio film showing formal shoes worn by models walking from right to left">
+      <source media="(max-width: 900px)" data-src="assets/video/hero-shoes-mobile.mp4?v=3" type="video/mp4">
+      <source media="(min-width: 901px)" data-src="assets/video/hero-shoes.mp4?v=3" type="video/mp4">
+    </video>
+    <button class="cat-hero__film-toggle" type="button" aria-label="Play shoes studio film">Play film</button>
+  </div>
+</section>
+<section class="cat-intro" aria-labelledby="rook-title">
+  <div class="cat-intro__inner">
+    <div>
       <div class="crumbs"><a href="index.html">Home</a> <span>/</span> <span>Rook</span></div>
-      <span class="cat-hero__glyph"><svg viewBox="0 0 100 100"><use href="#glyph-rook" fill="currentColor"/></svg></span>
-      <h1>Rook — Shoes</h1>
-      <p>The shoes change how the whole outfit lands. Explore formal styles that work with suits and tuxedos, then check the fit with your full look.</p>
+      <span class="cat-intro__eyebrow">Rook / Shoes</span>
+      <h1 id="rook-title">A strong finish, every step.</h1>
     </div>
-    <div class="cat-hero__film cat-hero__film--wide">
-      <video muted loop playsinline preload="none" poster="assets/img/hero-video/hero-shoes.webp" aria-label="Concept studio film showing different formal shoes walking from right to left">
-        <source data-src="assets/video/hero-shoes.mp4" type="video/mp4">
-      </video>
-      <button class="cat-hero__film-toggle" type="button" aria-label="Play shoes studio film">Play film</button>
+    <div class="cat-intro__aside">
+      <p>The right pair brings the whole outfit into focus. Explore formal footwear and picture each style with the look you're building.</p>
+      <a href="book-a-fitting.html">Plan your full look <span aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
@@ -169,7 +173,7 @@
 </footer>
 
 <script src="js/main.js"></script>
-<script src="js/category-hero-video.js?v=3"></script>
+<script src="js/category-hero-video.js?v=4"></script>
 <script src="js/cart.js?v=4"></script>
 </body>
 </html>

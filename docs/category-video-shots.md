@@ -1,35 +1,23 @@
-# Category hero studio films
+# Category studio films
 
-These five silent, looping films replace the still artwork in the Men, Women, Kids, Accessories, and Shoes department heroes. They are concept imagery: no filmed garment is an exact representation of a purchasable SKU.
+The five department pages use silent editorial films as full-width opening heroes. The category heading, description and link sit below the film, before the collection. The video is concept imagery; models and garments are fabricated and do not represent exact purchasable SKUs.
 
-## Shared direction
+## Shared visual direction
 
-- Photoreal editorial fashion shoot on one seamless warm-white cyclorama, with a pale ivory floor, soft key light, natural shadow, and no set decoration.
-- Square master for Men, Women, Kids, and Accessories to fit the existing hero media area; a 16:9 master for the side-on shoe walk. Frame with enough space to show whole garments and shoes. No text, logos, artificial borders, checkerboards, or equipment in frame.
-- Quiet, purposeful movement and clean cuts between distinct camera angles. No dialogue or generated audio. Beginning and end should both rest on a clean composition so looping feels calm.
-- Models are fabricated. Kid talent is age-appropriate and fully clothed. Clothing and accessories are conceptual until matched to real inventory.
-- Keep a still poster for reduced-motion visitors, failed loads, and low-bandwidth connections. Videos should be muted, play inline, and start only when visible.
+- Seamless warm-white studio, pale ivory floor, soft left light and natural shadows.
+- Slow, credible movement with clean cuts and no speech, music, text, logos or visible equipment.
+- Men, Women and Kids each have a seated shot on a **matching low, wide ivory Carrara marble slab with faint warm-gray veining**. The camera makes a restrained arc while the model remains seated.
+- Detail shots use natural hands and realistic fabric. Frame primary subjects near the centre so desktop and mobile crops remain useful.
+- The web masters are landscape H.264 MP4s with WebP still posters. Shoes also has a portrait edit that follows each walker for phone screens. Each video loads when its hero comes into view, loops muted, and has a Play/Pause control. A static poster remains for reduced-motion visitors.
 
-## Men
+## Shot order
 
-An adult Black male model in a complete charcoal tuxedo, crisp ivory shirt, black bow tie, pocket square, tailored trousers, and polished black Oxfords. Start with a full-length three-quarter view and a measured step into the studio mark. Cut to a side angle as he adjusts the jacket, then a waist-to-shoe tilt that preserves the outfit details. End in a full-length neutral pose. Keep one recognizable model and one outfit throughout.
+| Film | Main shots |
+| --- | --- |
+| Men | Seated on marble; jacket buttons and lapel; cuff; trousers and shoes; jacket back and shoulders. |
+| Women | Seated on marble; full gown movement; bodice and drape; side and rear angles. |
+| Kids | Seated on marble; vest buttons; shirt cuff; trousers and shoes; jacket back. |
+| Accessories | Cufflinks, long tie, bow tie, pocket square, belt and one complete outfit view. |
+| Shoes | Multiple distinct formal outfits and shoe styles crossing from camera right to camera left in the same white studio. |
 
-## Women
-
-An adult woman in a complete burgundy formal gown with elegant, understated jewelry and heels. Full-length walk and turn, a second camera angle showing the drape and movement of the dress, then a closer detail of the fabric and accessories. Return to a composed full-length frame. Keep the same model and outfit throughout; this collection is still a preview.
-
-## Kids
-
-A child model around age nine in a complete navy three-piece suit, white shirt, tie, trousers, and polished dress shoes. A playful but professional full-length step, a gentle turn to show the jacket and vest, then a closer angle showing the fit and buttons. Return to a full-length standing pose. Natural age-appropriate movement; keep one child and one outfit throughout.
-
-## Accessories
-
-Fast, polished cuts in the same white studio. Show a male model fastening gold cufflinks, adjusting a black silk tie or bow tie, straightening an ivory pocket square, and a waist close-up of a leather dress belt. Include a female model styling an understated formal accessory such as earrings, a slim belt, or a clutch. Each shot must make the accessory clear and legible; keep skin, fabric, and metal photoreal.
-
-## Shoes
-
-Locked side-on wide camera in the same white cyclorama, with a visible floor line. Show three different adult models in distinct formal outfits and shoes. Each model enters **only from camera right**, walks at a steady pace **right to left**, and fully exits camera left before the next model enters. Use clean cuts between models, always resetting to an empty frame. Keep all shoes and feet entirely in frame, with enough floor space to see their stride and silhouettes. Suggested looks: black tuxedo with patent Oxfords; charcoal suit with black leather derbies; women's tailored formal outfit with elegant heels.
-
-## Delivery
-
-Export silent H.264 MP4s, optimized for web. Save as `assets/video/hero-{men,women,kids,accessories,shoes}.mp4`. Add a suitable WebP poster for each. Replace only the five department heroes, preserving their links, headings, copy, and accessible fallbacks. Check desktop and mobile framing before publishing.
+Files are `assets/video/hero-{men,women,kids,accessories,shoes}.mp4`, `assets/video/hero-shoes-mobile.mp4` and `assets/img/hero-video/hero-{men,women,kids,accessories,shoes}.webp`.
