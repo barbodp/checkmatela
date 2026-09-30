@@ -197,22 +197,27 @@ PAGES["shipping-returns"] = dict(
     ])
 
 PAGES["find-your-look"] = dict(
-    glyph="glyph-king", crumb="Find Your Look", h1="Find Your Look",
-    lead="Three quick choices can narrow the collection to a better starting point for your occasion.",
-    meta="Find a Checkmatela formal wear starting point by wearer, occasion and event timing.",
+    glyph="glyph-king", crumb="Fit & Timing Check", h1="Find your look. Plan the fit.",
+    lead="A quick check for your occasion, measurements and event date — so you know what to confirm before choosing a look.",
+    meta="Check formal wear style, fit planning and event timing with Checkmatela.",
     body=[
-        section("Start with your event.", '''<form class="look-finder" id="lookFinder">
+        section("Start with fit and timing.", '''<form class="look-finder" id="lookFinder">
 <label>Who are you dressing?<select name="wearer"><option value="men">Men</option><option value="kids">Kids</option><option value="women">Women</option></select></label>
 <label>What's the occasion?<select name="occasion"><option value="wedding">Wedding</option><option value="black-tie">Black tie or gala</option><option value="prom">Prom or school event</option><option value="family">Family celebration</option><option value="business">Business or other</option></select></label>
 <label>When is the event?<input type="date" name="eventDate"></label>
-<button class="btn" type="submit">Show my starting point</button>
+<fieldset class="look-finder__measurements"><legend>Fit basics <small>(optional)</small></legend><p>Enter body measurements in inches if you have them. They stay on this page.</p><div>
+<label>Chest (inches)<input type="number" name="chest" inputmode="decimal" min="18" max="70" step="0.5" placeholder="e.g. 40"></label>
+<label>Waist (inches)<input type="number" name="waist" inputmode="decimal" min="18" max="70" step="0.5" placeholder="e.g. 34"></label>
+</div></fieldset>
+<button class="btn" type="submit">See my fit &amp; timing plan</button>
 </form><div class="look-result" id="lookResult" role="status" aria-live="polite" hidden></div>
-<p class="look-note">This guide suggests a style to explore. It does not check stock, confirm size or promise delivery. Ordering is not yet connected.</p>''', "A simple guide"),
+<p class="look-note">This check suggests a style and planning steps. It cannot confirm stock, exact fit or delivery. Online ordering is not connected.</p>''', "Your quick check"),
         section("Before you decide.", steps([
             ("Choose the dress code", "Black tie usually points toward a tuxedo. Weddings and family events allow more flexibility."),
             ("Check fit", "Measure chest, waist, height and inseam, then compare with the guide and ask about the garment."),
             ("Check your date", "Build in time to try on the complete look and adjust it if needed."),
         ]), "Fit and timing", alt=True),
+        cta("Need help with a specific look or date?", "book-a-fitting.html", "Ask about fit & timing"),
     ])
 
 

@@ -21,18 +21,27 @@
     const wearer = data.get('wearer');
     const occasion = data.get('occasion');
     const date = data.get('eventDate');
+    const hasChest = Boolean(data.get('chest'));
+    const hasWaist = Boolean(data.get('waist'));
     const selection = wearer === 'women'
       ? ['Queen is in development', 'Women’s looks are not available in this preview. Tell us what you would like to see.', 'queen.html']
       : (picks[wearer][occasion] || picks[wearer].default);
-    let timing = 'Before you commit, confirm availability, delivery and any alteration time for the exact piece.';
+    let timing = 'Add your event date, then confirm availability, delivery and any alteration time for the exact piece before ordering.';
     if (date) {
-      const days = Math.ceil((new Date(date + 'T12:00:00') - new Date()) / 86400000);
+      const today = new Date();
+      const todayUTC = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+      const days = Math.round((Date.parse(date + 'T00:00:00Z') - todayUTC) / 86400000);
       if (days < 0) timing = 'That date has passed. Choose a future event date to plan timing.';
-      else if (days <= 21) timing = 'Your event is soon. Ask about stock, delivery and fit immediately; no arrival date is guaranteed.';
-      else timing = 'You have time to compare styles and measurements, but confirm delivery before relying on it.';
+      else if (days <= 21) timing = 'Your event is soon. Ask about stock, delivery and alteration time before choosing a look. An arrival date has not been confirmed.';
+      else timing = 'There is time to compare looks, but confirm stock, delivery and alteration time for your choice before relying on it.';
     }
+    const fit = hasChest && hasWaist
+      ? 'You have both key measurements. Compare them with the size guide, then check the measurements for the specific garment before choosing a size.'
+      : hasChest || hasWaist
+        ? 'You have one key measurement. Take the other, compare both with the size guide, and confirm the garment measurements before choosing.'
+        : 'Take your chest and waist measurements, compare them with the size guide, and check the specific garment before choosing a size.';
     const enquiryLook = wearer === 'women' ? 'the Queen collection' : selection[0].replace(/^Explore /, '');
-    result.innerHTML = `<span class="eyebrow">Your starting point</span><h3>${selection[0]}</h3><p>${selection[1]}</p><p>${timing}</p><div class="look-result__actions"><a class="btn" href="${selection[2]}">Explore styles</a><a class="btn dark-ghost" href="book-a-fitting.html?look=${encodeURIComponent(enquiryLook)}">Ask about fit & timing</a></div>`;
+    result.innerHTML = `<span class="eyebrow">Your fit & timing plan</span><h3>${selection[0]}</h3><div class="look-result__grid"><div><strong>01 / Style</strong><p>${selection[1]}</p></div><div><strong>02 / Fit</strong><p>${fit}</p></div><div><strong>03 / Timing</strong><p>${timing}</p></div></div><div class="look-result__actions"><a class="btn" href="${selection[2]}">Explore styles</a><a class="btn dark-ghost" href="size-guide.html">Open size guide</a><a class="btn dark-ghost" href="book-a-fitting.html?look=${encodeURIComponent(enquiryLook)}">Ask about fit & timing</a></div>`;
     result.hidden = false;
     result.scrollIntoView({behavior: 'smooth', block: 'nearest'});
   });

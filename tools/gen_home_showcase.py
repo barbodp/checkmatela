@@ -154,10 +154,10 @@ def welcome_slide():
         else:
             figs += fig(f"assets/img/pawn/{ref}/hero.webp", x, h=72, z=2, op=1, d=(x // 4) * 6, alt="")
     copy = f'''<div class="sc-copy sc-copy--welcome" data-cat="welcome">
-        <span class="sc-eyebrow">{glyph("glyph-king")}Checkmatela — Formal wear<span class="sc-hide-sm">&nbsp;for every piece</span></span>
+        <span class="sc-eyebrow">{glyph("glyph-king")}<span class="sc-welcome-line">Checkmatela — Formal wear for every piece</span></span>
         <h1 class="sc-title">Be ready for<br><em>the moment.</em></h1>
-        <p class="sc-sub">From weddings to black tie, find formal wear for men and kids, then plan the fit and timing with confidence. Explore the collection preview.</p>
-        <div class="sc-cta"><a href="find-your-look.html" class="btn">Find Your Look {ARROW}</a><a href="king.html" class="btn dark-ghost">Explore The Collection</a></div>
+        <p class="sc-sub">From weddings to black tie, find formal wear for men and kids. Check the fit and your event date before you choose a look.</p>
+        <div class="sc-cta"><a href="find-your-look.html" class="btn">Check Fit &amp; Timing {ARROW}</a><a href="king.html" class="btn dark-ghost">Explore The Collection</a></div>
       </div>'''
     return dict(cat="welcome", figs=figs, copy=copy)
 

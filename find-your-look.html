@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Find Your Look | Checkmatela</title>
-<meta name="description" content="Find a Checkmatela formal wear starting point by wearer, occasion and event timing.">
+<title>Find your look. Plan the fit. | Checkmatela</title>
+<meta name="description" content="Check formal wear style, fit planning and event timing with Checkmatela.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230c0c0d%22/><text x=%2250%22 y=%2268%22 font-size=%2264%22 text-anchor=%22middle%22 fill=%22%23d9b876%22>&#9812;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=36">
+<link rel="stylesheet" href="css/style.css?v=37">
 </head>
 <body>
 
@@ -75,10 +75,10 @@
   <div class="cat-hero__fade"></div>
   <div class="cat-hero__inner">
     <div class="cat-hero__copy">
-      <div class="crumbs"><a href="index.html">Home</a> <span>/</span> <span>Find Your Look</span></div>
+      <div class="crumbs"><a href="index.html">Home</a> <span>/</span> <span>Fit & Timing Check</span></div>
       <span class="cat-hero__glyph"><svg viewBox="0 0 100 100"><use href="#glyph-king" fill="currentColor"/></svg></span>
-      <h1>Find Your Look</h1>
-      <p>Three quick choices can narrow the collection to a better starting point for your occasion.</p>
+      <h1>Find your look. Plan the fit.</h1>
+      <p>A quick check for your occasion, measurements and event date — so you know what to confirm before choosing a look.</p>
     </div>
     <div class="cat-hero__figures cat-hero__figures--glyph">
       <svg viewBox="0 0 100 130" aria-hidden="true"><use href="#glyph-king" fill="currentColor"/></svg>
@@ -88,20 +88,30 @@
 
 <section class="info-section">
   <div class="container">
-    <div class="section-head" data-reveal><span class="eyebrow">A simple guide</span><h2>Start with your event.</h2></div>
+    <div class="section-head" data-reveal><span class="eyebrow">Your quick check</span><h2>Start with fit and timing.</h2></div>
     <div data-reveal><form class="look-finder" id="lookFinder">
 <label>Who are you dressing?<select name="wearer"><option value="men">Men</option><option value="kids">Kids</option><option value="women">Women</option></select></label>
 <label>What's the occasion?<select name="occasion"><option value="wedding">Wedding</option><option value="black-tie">Black tie or gala</option><option value="prom">Prom or school event</option><option value="family">Family celebration</option><option value="business">Business or other</option></select></label>
 <label>When is the event?<input type="date" name="eventDate"></label>
-<button class="btn" type="submit">Show my starting point</button>
+<fieldset class="look-finder__measurements"><legend>Fit basics <small>(optional)</small></legend><p>Enter body measurements in inches if you have them. They stay on this page.</p><div>
+<label>Chest (inches)<input type="number" name="chest" inputmode="decimal" min="18" max="70" step="0.5" placeholder="e.g. 40"></label>
+<label>Waist (inches)<input type="number" name="waist" inputmode="decimal" min="18" max="70" step="0.5" placeholder="e.g. 34"></label>
+</div></fieldset>
+<button class="btn" type="submit">See my fit &amp; timing plan</button>
 </form><div class="look-result" id="lookResult" role="status" aria-live="polite" hidden></div>
-<p class="look-note">This guide suggests a style to explore. It does not check stock, confirm size or promise delivery. Ordering is not yet connected.</p></div>
+<p class="look-note">This check suggests a style and planning steps. It cannot confirm stock, exact fit or delivery. Online ordering is not connected.</p></div>
   </div>
 </section>
 <section class="info-section info-section--alt">
   <div class="container">
     <div class="section-head" data-reveal><span class="eyebrow">Fit and timing</span><h2>Before you decide.</h2></div>
     <div data-reveal><ol class="steps"><li><h3>Choose the dress code</h3><p>Black tie usually points toward a tuxedo. Weddings and family events allow more flexibility.</p></li><li><h3>Check fit</h3><p>Measure chest, waist, height and inseam, then compare with the guide and ask about the garment.</p></li><li><h3>Check your date</h3><p>Build in time to try on the complete look and adjust it if needed.</p></li></ol></div>
+  </div>
+</section>
+<section class="info-cta">
+  <div class="container" data-reveal>
+    <h2>Need help with a specific look or date?</h2>
+    <a href="book-a-fitting.html" class="btn">Ask about fit & timing</a>
   </div>
 </section>
 
