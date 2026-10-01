@@ -1,0 +1,4 @@
+const fs=require('fs');const path=require('path');const sharp=require('/Users/barbodp/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+const root=path.resolve(__dirname,'..'),src=path.join(root,'svg'),out=path.join(root,'png');fs.mkdirSync(out,{recursive:true});
+const jobs=[['primary-horizontal',3000],['primary-horizontal-reverse',3000],['compact-horizontal',1880],['compact-horizontal-reverse',1880],['stacked',2400],['seal',2400],['symbol-color',1024],['symbol-one-color',1024],['wordmark',2100],['favicon',512]];
+Promise.all(jobs.map(async([n,w])=>{let b=fs.readFileSync(path.join(src,n+'.svg'));await sharp(b,{density:300}).resize({width:w}).png().toFile(path.join(out,n+'.png'));})).then(()=>console.log('Exported',jobs.length,'PNG logos')).catch(e=>{console.error(e);process.exit(1)});

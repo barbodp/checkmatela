@@ -8,7 +8,7 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "44"
+CSS_VERSION = "45"
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
       <circle fill="currentColor" cx="50" cy="30" r="13"/>
@@ -28,11 +28,7 @@ GLYPH_KING = '''    <symbol id="glyph-king" viewBox="0 0 100 130">
     </symbol>'''
 
 HEADER = '''<header class="site-header" id="siteHeader">
-  <a href="index.html" class="brand">
-    <span class="glyph"><svg viewBox="0 0 100 100"><use href="#glyph-king" fill="currentColor"/></svg></span>
-    Checkmatela
-    <small style="margin-left:2px">FORMAL WEAR</small>
-  </a>
+  <a href="index.html" class="brand" aria-label="Checkmatela home"><img src="brand/svg/compact-horizontal.svg" alt="" width="235" height="45"></a>
   <nav class="main-nav" id="mainNav">
     <a href="king.html">King — Men</a>
     <a href="queen.html">Queen — Women</a>
@@ -59,10 +55,7 @@ HEADER = '''<header class="site-header" id="siteHeader">
 FOOTER = '''<footer class="site-footer">
   <div class="container footer-top">
     <div class="footer-brand">
-      <a href="index.html" class="brand">
-        <span class="glyph"><svg viewBox="0 0 100 100"><use href="#glyph-king" fill="currentColor"/></svg></span>
-        Checkmatela
-      </a>
+      <a href="index.html" class="brand" aria-label="Checkmatela home"><img src="brand/svg/compact-horizontal-reverse.svg" alt="" width="235" height="45"></a>
       <p>Formal wear for weddings, celebrations and the moments in between. Find a look that fits the occasion, then plan the details with confidence.</p>
       <div class="footer-social"><a href="mailto:suit.shop.dtla@gmail.com?subject=Checkmatela%20event%20enquiry" aria-label="Email Checkmatela about your event"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 7 9-7"/></svg></a></div>
     </div>
@@ -256,7 +249,7 @@ def build(line):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{cfg['title']}</title>
 <meta name="description" content="{cfg['meta']}">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230c0c0d%22/><text x=%2250%22 y=%2268%22 font-size=%2264%22 text-anchor=%22middle%22 fill=%22%23d9b876%22>&#9823;</text></svg>">
+<link rel="icon" type="image/svg+xml" href="brand/svg/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
