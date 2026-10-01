@@ -8,8 +8,8 @@
 <link rel="icon" type="image/svg+xml" href="brand/svg/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=45">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=51">
 </head>
 <body>
 
@@ -59,20 +59,24 @@
   </div>
 </header>
 
-<section class="cat-hero">
-  <div class="cat-hero__bg"></div>
-  <div class="cat-hero__fade"></div>
-  <div class="cat-hero__inner">
-    <div class="cat-hero__copy">
+<section class="cat-hero cat-hero--film" aria-label="Men's studio film">
+  <div class="cat-hero__film">
+    <video muted loop playsinline preload="none" poster="assets/img/hero-video/hero-men.webp?v=2" aria-label="Concept studio film showing men's formal wear and tailoring details">
+      <source data-src="assets/video/hero-men.mp4?v=3" type="video/mp4">
+    </video>
+    <button class="cat-hero__film-toggle" type="button" aria-label="Play men's studio film">Play film</button>
+  </div>
+</section>
+<section class="cat-intro" aria-labelledby="king-title">
+  <div class="cat-intro__inner">
+    <div>
       <div class="crumbs"><a href="index.html">Home</a> <span>/</span> <span>King</span></div>
-      <span class="cat-hero__glyph"><svg viewBox="0 0 100 100"><use href="#glyph-king" fill="currentColor"/></svg></span>
-      <h1>King — Men</h1>
-      <p>From the ceremony to the final toast, find a suit or tuxedo that fits the dress code and feels like you. Compare styles now; confirm fit, availability and timing before ordering.</p>
+      <span class="cat-intro__eyebrow">King / Men</span>
+      <h1 id="king-title">A look made for the occasion.</h1>
     </div>
-    <div class="cat-hero__figures">
-      <img src="assets/img/hero/cat-king-blue.webp" width="282" height="1000" alt="Model in a Checkmatela royal blue check three-piece suit">
-      <img src="assets/img/hero/cat-king-black.webp" width="292" height="1000" alt="Model in a Checkmatela black shawl-lapel tuxedo with bow tie">
-      <img src="assets/img/hero/cat-king-burgundy.webp" width="334" height="1000" alt="Model in a Checkmatela bordeaux tuxedo with bow tie">
+    <div class="cat-intro__aside">
+      <p>Explore suits and tuxedos for the ceremony, the celebration and every moment between. Find your style, then confirm the fit and timing for your event.</p>
+      <a href="size-guide.html">Find your fit <span aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
@@ -238,6 +242,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/category-hero-video.js?v=4"></script>
 <script src="js/cart.js?v=4"></script>
 <script src="js/shop.js"></script>
 </body>
