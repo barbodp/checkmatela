@@ -1,36 +1,39 @@
-# Checkmatela logo family
+# Checkmatela identity system — The Lifted Square
 
-A single identity built around the floating Sir Checkmate mascot: king crown, monocle, smile, tuxedo, burgundy bow tie, and pine detail. The marks share one drawing and one wordmark; formats change only to fit each use.
+The core logo pairs an outlined editorial wordmark with a custom **C** monogram. One brass square sits just beyond the letter's opening: a chessboard square in motion, with a subtle nod to the floating character on the site. The character can continue to appear in campaigns and on the website; the logo stays crisp on labels, postcards, and small screens.
+
+Every lockup uses the same letterforms, monogram, square position, and restrained palette. Choose the format that fits the space without redrawing the mark.
 
 ## Choose a file
 
 | Use | Master asset | Raster export |
 | --- | --- | --- |
-| Main marketing lockup | `svg/primary-horizontal.svg` | `png/primary-horizontal.png` |
-| On a dark pine field | `svg/primary-horizontal-reverse.svg` | `png/primary-horizontal-reverse.png` |
-| Website header / narrow placements | `svg/compact-horizontal.svg` | `png/compact-horizontal.png` |
-| Website footer / dark narrow placements | `svg/compact-horizontal-reverse.svg` | `png/compact-horizontal-reverse.png` |
+| Main marketing lockup, with tagline | `svg/primary-horizontal.svg` | `png/primary-horizontal.png` |
+| Main lockup on pine | `svg/primary-horizontal-reverse.svg` | `png/primary-horizontal-reverse.png` |
+| Website header and narrow layouts | `svg/compact-horizontal.svg` | `png/compact-horizontal.png` |
+| Website footer and dark narrow layouts | `svg/compact-horizontal-reverse.svg` | `png/compact-horizontal-reverse.png` |
 | Centered layouts | `svg/stacked.svg` | `png/stacked.png` |
-| Postcard, sticker, stamp, social avatar | `svg/seal.svg` | `png/seal.png` |
-| Symbol only | `svg/symbol-color.svg` | `png/symbol-color.png` |
-| One color print or embroidery | `svg/symbol-one-color.svg` | `png/symbol-one-color.png` |
+| Sticker, stamp, or large social avatar | `svg/seal.svg` | `png/seal.png` |
+| Monogram only | `svg/symbol-color.svg` | `png/symbol-color.png` |
+| Single-ink print or embroidery | `svg/symbol-one-color.svg` | `png/symbol-one-color.png` |
 | Wordmark only | `svg/wordmark.svg` | `png/wordmark.png` |
 | Browser tab and app tile | `svg/favicon.svg` | `png/favicon.png` |
 
-The SVG wordmark and tagline are **outlined paths**. They remain consistent without installed fonts. SVGs are the masters for print and scaling; PNGs are transparent except for the reverse lockups and favicon.
+The SVGs are the scaling and print masters. All lettering is outlined, so its appearance does not depend on installed fonts. PNG logo exports are transparent; the favicon has a solid pine background.
 
-## Print and spacing
+## Color and use
 
-The `examples/` folder includes editable 6 × 4 inch postcard fronts and backs, plus 1800 × 1200 PNGs tagged at 300 dpi. Add bleed according to the printer's specification before sending to press. Leave clear space around the full logo equal to at least half the mascot's head width. Prefer a 40 mm or larger seal so the monocle and bow tie remain legible. Use the simplified favicon at very small sizes.
+- Pine `#0F2E22` — primary wordmark and identity field
+- Paper `#FAF8F2` — warm background and reverse lettering
+- Brass `#AD7F3C` — lifted square and fine details
+- Ink `#15181A` — supporting copy
 
-## Colors
+Keep a clear area around any logo at least the width of the brass square in that lockup. Use the compact version wherever the tagline would become too small to read. Use the favicon or monogram at icon sizes. Do not rotate the square, add a drop shadow, or change the spacing between it and the C. The reverse SVGs have transparent backgrounds and are intended for a solid dark field.
 
-- Pine `#0F2E22` — identity field and wordmark
-- Ink `#15181A` — tuxedo and contrast
-- Paper `#FAF8F2` — warm neutral base
-- Brass `#AD7F3C` — crown and details
-- Burgundy `#7A2036` — bow tie
+## Postcard files
 
-## Source and export
+`examples/postcard-front.svg` and `examples/postcard-back.svg` are editable 6 × 4 inch compositions. Matching 1800 × 1200 pixel PNGs are tagged at 300 dpi. Give the printer the SVG or PNG and add the bleed their specifications require. The postcard copy and URL are examples to customize before printing.
 
-The `source/` folder contains the drawing builder, outlined letter paths, Swift outline utility, and raster export scripts. Run `python3 brand/source/build.py`, then `node brand/source/export.js` from the repository root. The Node exporter uses the Codex workspace's Sharp library path and can be adjusted for another machine.
+## Source
+
+`source/` contains the vector builder, outlined type paths, and export scripts. To regenerate the package from the repository root, run `python3 brand/source/build.py`, then `node brand/source/export.js`; run the example and board builders for the marketing previews. The raster exporters depend on Sharp and may need their library path adjusted on another machine.

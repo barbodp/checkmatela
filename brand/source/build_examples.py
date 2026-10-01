@@ -1,26 +1,33 @@
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
-exec((ROOT/'source/build.py').read_text().replace("print('Built',len(list(SVG.glob('*.svg'))),'SVG logos')",''))
-OUT=ROOT/'examples';OUT.mkdir(exist_ok=True)
-def save_example(name,body):
- (OUT/name).write_text(shell(1800,1200,body,'Checkmatela postcard example'))
-# Editable 6 x 4 inch examples, no address or postage fields so they remain useful for campaign adaptation.
-checker=''.join(f'<rect x="{i*48}" y="0" width="48" height="48" fill="{INK if i%2 else PAPER}"/>' for i in range(38))
-front=f'''<rect width="1800" height="1200" fill="{PAPER}"/>{checker}<rect y="1152" width="1800" height="48" fill="{PINE}"/><path d="M170 270H1630M170 975H1630" stroke="{BRASS}" stroke-width="3"/>
-<g transform="translate(540 164) scale(1.2)">{seal}</g>
-<text x="900" y="1058" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="34" letter-spacing="11" fill="{PINE}">MAKE YOUR MOVE.</text>'''
-# The seal embedded above is 600 units and shifted/scaled to center.
-save_example('postcard-front.svg',front)
-back=f'''<rect width="1800" height="1200" fill="{PAPER}"/><rect x="0" width="720" height="1200" fill="{PINE}"/>
-<g transform="translate(70 150) scale(.63)">{icon(1.12,14,5)}{wordmark(PAPER,1.03,213,124)}{tagline('#D9B876',.72,216,175)}</g>
-<text x="90" y="528" font-family="Didot,Baskerville,serif" font-size="96" fill="{PAPER}">Every move,</text><text x="90" y="624" font-family="Didot,Baskerville,serif" font-size="96" fill="{PAPER}">considered.</text>
-<path d="M90 682H600" stroke="{BRASS}" stroke-width="4"/><text x="90" y="775" font-family="Helvetica Neue,Arial,sans-serif" font-size="31" fill="{PAPER}">FORMAL WEAR FOR THE MOMENTS</text><text x="90" y="820" font-family="Helvetica Neue,Arial,sans-serif" font-size="31" fill="{PAPER}">THAT STAY WITH YOU.</text>
-<text x="90" y="1100" font-family="Helvetica Neue,Arial,sans-serif" font-size="28" letter-spacing="5" fill="#D9B876">CHECKMATELA.COM</text>
-<text x="820" y="260" font-family="Didot,Baskerville,serif" font-size="78" fill="{PINE}">Find your next move.</text>
-<text x="820" y="355" font-family="Helvetica Neue,Arial,sans-serif" font-size="34" fill="{INK}">Tailoring for an entrance, a promise,</text><text x="820" y="408" font-family="Helvetica Neue,Arial,sans-serif" font-size="34" fill="{INK}">and every celebration in between.</text>
-<path d="M820 510H1680" stroke="{BRASS}" stroke-width="3"/>
-<text x="820" y="605" font-family="Helvetica Neue,Arial,sans-serif" font-size="30" letter-spacing="4" fill="{PINE}">EXPLORE THE COLLECTION</text>
-<text x="820" y="665" font-family="Didot,Baskerville,serif" font-size="54" fill="{INK}">checkmatela.com</text>
-<rect x="820" y="895" width="52" height="52" fill="{PINE}"/><rect x="872" y="895" width="52" height="52" fill="{PAPER}" stroke="{PINE}"/><rect x="924" y="895" width="52" height="52" fill="{PINE}"/><rect x="976" y="895" width="52" height="52" fill="{PAPER}" stroke="{PINE}"/>
-'''
-save_example('postcard-back.svg',back)
+from runpy import run_path
+R=Path(__file__).resolve().parents[1]
+b=run_path(str(R/'source/build.py'))
+PINE=b['PINE'];PAPER=b['PAPER'];BRASS=b['BRASS'];INK=b['INK']
+mark=b['mark'];word=b['word'];tag=b['tag'];svg=b['svg']
+O=R/'examples';O.mkdir(exist_ok=True)
+# Six-by-four postcard art, 1800 x 1200 pixels at export. Allow printer-specific bleed.
+checkers=''.join(f'<rect x="{i*30}" y="0" width="30" height="30" fill="{INK if i%2 else PAPER}"/>' for i in range(60))
+front=f'''<rect width="1800" height="1200" fill="{PAPER}"/>{checkers}
+<path d="M120 139H1680" stroke="{BRASS}" stroke-width="2"/>
+{mark(93,209,3.36)}
+{word(760,647,1.20)}{tag(765,739,1.37)}
+<path d="M123 1030H1677" stroke="{BRASS}" stroke-width="2"/>
+<text x="125" y="1100" fill="{PINE}" font-family="Helvetica Neue,Arial,sans-serif" font-size="26" letter-spacing="8">THE ART OF THE NEXT MOVE</text>
+<text x="1678" y="1100" text-anchor="end" fill="{PINE}" font-family="Helvetica Neue,Arial,sans-serif" font-size="26" letter-spacing="5">CHECKMATELA.COM</text>'''
+(O/'postcard-front.svg').write_text(svg(1800,1200,'Checkmatela postcard front',front))
+back=f'''<rect width="1800" height="1200" fill="{PAPER}"/><rect width="636" height="1200" fill="{PINE}"/>
+{mark(144,118,1.68,PAPER,'#D9B876')}
+<path d="M98 600H538" stroke="#D9B876" stroke-width="2"/>
+<text x="98" y="702" fill="{PAPER}" font-family="Didot,Baskerville,serif" font-size="74">Every move,</text>
+<text x="98" y="792" fill="{PAPER}" font-family="Didot,Baskerville,serif" font-size="74">considered.</text>
+<text x="98" y="1090" fill="#D9B876" font-family="Helvetica Neue,Arial,sans-serif" font-size="25" letter-spacing="6">CHECKMATELA.COM</text>
+{word(728,245,1.27)}<path d="M731 304H1687" stroke="{BRASS}" stroke-width="2"/>
+<text x="731" y="459" fill="{PINE}" font-family="Didot,Baskerville,serif" font-size="93">Made for the moment.</text>
+<text x="731" y="561" fill="{INK}" font-family="Helvetica Neue,Arial,sans-serif" font-size="31">Formal wear for the entrance, the promise,</text>
+<text x="731" y="608" fill="{INK}" font-family="Helvetica Neue,Arial,sans-serif" font-size="31">and everything worth remembering.</text>
+<path d="M731 727H1687" stroke="{BRASS}" stroke-width="2"/>
+<text x="731" y="830" fill="{PINE}" font-family="Helvetica Neue,Arial,sans-serif" font-size="27" letter-spacing="6">EXPLORE THE COLLECTION</text>
+<text x="731" y="910" fill="{PINE}" font-family="Didot,Baskerville,serif" font-size="57">checkmatela.com</text>
+<rect x="731" y="1055" width="25" height="25" fill="{PINE}"/><rect x="756" y="1055" width="25" height="25" fill="{PAPER}" stroke="{PINE}"/><rect x="781" y="1055" width="25" height="25" fill="{PINE}"/><rect x="806" y="1055" width="25" height="25" fill="{PAPER}" stroke="{PINE}"/>'''
+(O/'postcard-back.svg').write_text(svg(1800,1200,'Checkmatela postcard back',back))
+print('Built postcard examples')

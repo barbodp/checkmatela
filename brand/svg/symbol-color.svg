@@ -1,16 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180" role="img" aria-label="Checkmatela mascot symbol"><title>Checkmatela mascot symbol</title><g stroke-linejoin="round" stroke-linecap="round">
-  <path d="M61 28 L61 13 L69 20 L80 6 L91 20 L99 13 L99 28 Z" fill="#AD7F3C" stroke="#0F2E22" stroke-width="2.5"/><path d="M68 28 H92" stroke="#0F2E22" stroke-width="2.5"/>
-  <ellipse cx="80" cy="68" rx="37" ry="39" fill="#F4E4CB" stroke="#15181A" stroke-width="3.2"/>
-  <path d="M51 51 C56 37 68 34 76 35" fill="none" stroke="white" stroke-width="3" opacity=".65"/>
-  <path d="M59 57 Q66 53 72 57 M88 57 Q95 53 101 57" fill="none" stroke="#15181A" stroke-width="2.2"/>
-  <ellipse cx="68" cy="66" rx="2.3" ry="3" fill="#15181A"/><ellipse cx="93" cy="66" rx="2.3" ry="3" fill="#15181A"/>
-  <path d="M67 79 Q80 90 95 77" fill="none" stroke="#15181A" stroke-width="2.7"/>
-  <circle cx="93" cy="66" r="11" fill="none" stroke="#AD7F3C" stroke-width="3.1"/><path d="M103 70 C111 82 108 96 101 107" fill="none" stroke="#AD7F3C" stroke-width="2"/>
-  <path d="M58 102 C39 105 29 120 29 153 Q80 167 131 153 C131 120 118 105 102 102 L80 136 Z" fill="#15181A" stroke="#15181A" stroke-width="2.5"/>
-  <path d="M67 105 L80 140 L93 105 Z" fill="#FAF8F2"/>
-  <path d="M57 105 L80 139 L65 121 L58 131 Z M103 105 L80 139 L95 121 L102 131 Z" fill="#0F2E22"/>
-  <path d="M57 105 L80 139 M103 105 L80 139" fill="none" stroke="#AD7F3C" stroke-width="1" opacity=".8"/>
-  <path d="M70 111 L80 116 L70 122 Z M90 111 L80 116 L90 122 Z" fill="#7A2036" stroke="#FAF8F2" stroke-width="1"/><circle cx="80" cy="116" r="3.2" fill="#7A2036"/>
-  <path d="M110 131 L119 129 L119 137 L110 136 Z" fill="#0F2E22" stroke="#FAF8F2" stroke-width="1"/><circle cx="80" cy="147" r="2.2" fill="#AD7F3C"/>
-  <path d="M60 154 Q80 160 100 154" fill="none" stroke="#AD7F3C" stroke-width="2"/>
- </g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 220" role="img" aria-label="Checkmatela lifted-square monogram"><title>Checkmatela lifted-square monogram</title><g transform="translate(0 0) scale(1)"><path d="M134.20 -0.00L131.20 -0.00Q129.80 -1.60 128.00 -2.90Q126.20 -4.20 122.40 -4.20Q119.40 -4.20 115.90 -3.10Q112.40 -2.00 107.90 -0.60Q103.40 0.80 97.80 1.90Q92.20 3.00 85.40 3.00Q72.80 3.00 60.90 -1.60Q49.00 -6.20 38.40 -16.60Q28.60 -26.40 22.00 -39.80Q15.40 -53.20 15.40 -70.80Q15.40 -85.80 20.80 -99.40Q26.20 -113.00 35.80 -123.40Q45.40 -133.80 58.40 -139.90Q71.40 -146.00 86.80 -146.00Q93.00 -146.00 97.80 -144.80Q102.60 -143.60 106.40 -142.10Q110.20 -140.60 113.40 -139.40Q116.60 -138.20 119.60 -138.20Q123.60 -138.20 125.30 -139.50Q127.00 -140.80 128.40 -142.40L131.40 -142.40L131.40 -102.40L129.20 -102.40Q127.40 -110.00 124.60 -117.40Q121.80 -124.80 116.80 -130.50Q111.80 -136.20 104.10 -139.70Q96.40 -143.20 85.00 -143.20Q74.40 -143.20 66.80 -139.90Q59.20 -136.60 54.00 -131.10Q48.80 -125.60 45.70 -118.30Q42.60 -111.00 41.00 -102.90Q39.40 -94.80 38.90 -86.50Q38.40 -78.20 38.40 -70.80Q38.40 -49.80 41.80 -36.00Q45.20 -22.20 51.30 -14.20Q57.40 -6.20 66.00 -3.00Q74.60 0.20 85.00 0.20Q98.40 0.20 106.60 -3.60Q114.80 -7.40 119.80 -13.50Q124.80 -19.60 127.40 -27.30Q130.00 -35.00 132.00 -42.60L134.20 -42.60Z" fill="#0F2E22" transform="translate(14 184)"/><rect x="153" y="72" width="20" height="20" fill="#AD7F3C"/></g></svg>
