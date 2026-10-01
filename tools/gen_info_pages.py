@@ -109,10 +109,32 @@ PAGES["sustainability"] = dict(
 
 PAGES["press"] = dict(
     glyph="glyph-bishop", crumb="Press", h1="Press",
-    lead="Information and imagery for stories about the Checkmatela concept.",
-    meta="Checkmatela press information and contact details.",
+    lead="Boilerplate, brand facts, logo files and contact details for anyone writing about Checkmatela.",
+    meta="Checkmatela press kit: boilerplate, brand facts, downloadable logo files and media contact.",
     body=[
-        section("About Checkmatela.", '''<div class="prose"><p><strong>Checkmatela</strong> is a chess-inspired formal wear concept organized into five departments: King for men, Queen for women, Pawn for kids, Bishop for accessories and Rook for shoes. The website previews looks for weddings, galas and other meaningful occasions. Online ordering and service terms are in development.</p></div>''', "Boilerplate"),
+        section("About Checkmatela.", '''<div class="prose"><p><strong>Checkmatela</strong> is a chess-inspired formal wear concept organized into five departments: King for men, Queen for women, Pawn for kids, Bishop for accessories and Rook for shoes. The site brings men's, women's and kids' formal wear into one place, priced so a whole group can afford to dress well for one occasion instead of piecing it together from separate stores. Online ordering and service terms are in development.</p></div>''', "Boilerplate"),
+        section("Brand facts.", table(
+            ["Fact", "Detail"],
+            [["Categories", "King (men), Queen (women), Pawn (kids), Bishop (accessories), Rook (shoes)"],
+             ["Men's suits &amp; tuxedos", "$179&ndash;$249"],
+             ["Kids' formal wear", "$115&ndash;$159"],
+             ["Accessories", "$65&ndash;$310"],
+             ["Shoes", "$310"],
+             ["Based in", "Los Angeles, CA"],
+             ["Contact", f'<a class="link" href="mailto:{EMAIL}">{EMAIL}</a> &middot; {PHONE_DISPLAY}']],
+            "Quick reference for stories and fact-checking"), "At a glance", alt=True),
+        section("Press assets.", cards([
+            ("01", "Logo files", 'Primary horizontal lockup, in color. <a class="link" href="brand/svg/primary-horizontal.svg" download>SVG</a> &middot; <a class="link" href="brand/png/primary-horizontal.png" download>PNG</a>'),
+            ("02", "Monogram &amp; seal", 'The C monogram alone, for small spaces or social avatars. <a class="link" href="brand/png/symbol-color.png" download>Monogram PNG</a> &middot; <a class="link" href="brand/png/seal.png" download>Seal PNG</a>'),
+            ("03", "Full identity overview", 'Every lockup, color and usage note on one sheet. <a class="link" href="brand/brand-board.png" download>Download overview</a>'),
+            ("04", "Product photography", 'A few studio shots to pair with a story. <a class="link" href="assets/img/products/sicilian-onyx-tux.jpg" download>Download sample</a> &middot; more available on request.'),
+        ]), "Downloads"),
+        section("As seen in.", '''<div class="prose"><p>Checkmatela hasn't been covered by outside press yet &mdash; this section will list and link coverage as it's published. If you're working on a story, we're glad to help with a quote, imagery or an interview.</p></div>''', "Coverage", alt=True),
+        section("Recent updates.", steps([
+            ("Return &amp; exchange policy published", "A clear, plain-language policy covering all five categories &mdash; 14-day returns on suits and dresses, 30 days on accessories and shoes, free exchanges, and one complimentary round of alterations per suit."),
+            ("Groomsmen group discount launched", "Wedding parties ordering 3 or more King suits together now save 10% automatically, 15% at 6 or more &mdash; aimed at making group formalwear more affordable, not less."),
+            ("Kids' formal wear repriced", "Pawn pricing was reworked to $115&ndash;$159, extending the same accessible-but-quality positioning to kids' suits, tuxedos and vest sets."),
+        ]), "What's new"),
         section("Contact.", f'''<div class="prose"><p>For interviews, imagery or partnerships, email <a class="link" href="mailto:{EMAIL}">{EMAIL}</a>.</p></div>''', "Press enquiries", alt=True),
     ])
 
