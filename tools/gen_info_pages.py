@@ -6,7 +6,7 @@ and use the same `.cat-hero` glyph hero as Queen. Copy is placeholder concept co
 then run:  python3 tools/gen_info_pages.py
 """
 import os, re
-from gen_pawn_pages import HEADER, FOOTER, ANNOUNCE, CSS_VERSION
+from gen_pawn_pages import HEADER, FOOTER, ANNOUNCE, CSS_VERSION, FAVICON
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EMAIL = "suit.shop.dtla@gmail.com"
@@ -66,15 +66,16 @@ PAGES = {}
 
 PAGES["our-story"] = dict(
     glyph="glyph-king", crumb="Our Story", h1="Our Story",
-    lead="The right look helps you feel ready for the moment in front of you. Checkmatela brings that idea to formal wear, one considered choice at a time.",
-    meta="Meet Checkmatela, a chess-inspired formal wear concept for men, women and kids.",
+    lead="Every occasion deserves a great look, without the luxury markup. Checkmatela brings men's, women's and kids' formal wear, plus the shoes and accessories to finish it, into one place — priced so everyone at the event can afford to show up looking their best.",
+    meta="Checkmatela's story: one place for men's, women's and kids' formal wear, priced so everyone can afford to look great.",
     body=[
-        section("A look for the moment.", '''<div class="prose"><p>Checkmatela is a formal wear concept built around a simple question: what do you need to feel ready when the occasion matters? A wedding, prom, gala or family celebration calls for more than a good-looking jacket. The style, fit and timing all have to make sense together.</p><p>Our chessboard gives the collection its character: <strong>King</strong> for men, <strong>Queen</strong> for women, <strong>Pawn</strong> for kids, <strong>Bishop</strong> for accessories and <strong>Rook</strong> for shoes. The names are playful; the decision should be easy.</p><p>The site currently previews the collection. Prices and service details are illustrative while ordering is being prepared.</p></div>''', "The idea"),
-        section("How we help you choose.", cards([
-            ("01", "Start with the occasion", "Choose the dress code and the person you're dressing before sorting through styles."),
-            ("02", "Check the fit", "Use the measurement guide as a starting point and ask questions before committing to a size."),
-            ("03", "Plan around your date", "Tell us when you need the look. Availability, delivery and any alterations must be confirmed before an order."),
-        ]), "The approach", alt=True),
+        section("Why we started.", '''<div class="prose"><p>Getting a whole family or wedding party dressed for one occasion usually means piecing it together from several different places: a tuxedo rental here, a dress from another store, kids' formal wear somewhere else again, shoes and accessories wherever you can find them — each with its own price, its own quality and its own return policy.</p><p>Checkmatela started from a simpler idea: formal wear should work the way people actually get dressed for an event, as a group, not as five separate errands. One place, one standard of quality, one fair price for everyone involved — from the groom to the youngest kid in the wedding party.</p></div>''', "The idea"),
+        section("One board, every occasion.", '''<div class="prose"><p>Our five departments map onto who actually needs to get dressed: <strong>King</strong> for the men, <strong>Queen</strong> for the women, <strong>Pawn</strong> for the kids, <strong>Bishop</strong> for the accessories that finish a look, and <strong>Rook</strong> for the shoes that carry it. A wedding, a prom, a gala, or a business event that calls for something sharper than an everyday suit — whatever the occasion, the whole group can shop it from the same board instead of stitching together separate orders.</p></div>''', "The collection", alt=True),
+        section("Priced so more people can say yes.", cards([
+            ("01", "Real prices, not a luxury markup", "Our suits run $179–$249 and kids' formal wear $115–$159 — priced to be worn to more than one event, not to justify a one-time splurge."),
+            ("02", "Buy for the whole group", "Bringing 3 or more people together for the same occasion saves everyone 10–15% automatically. Getting a group dressed shouldn't cost more per person than dressing alone."),
+            ("03", "Built for the next occasion, too", "A good suit should get invited back. We price and build every piece to be worth wearing again, not just once."),
+        ]), "What that means"),
         cta("Have an event coming up?", "find-your-look.html", "Find your look"),
     ])
 
@@ -247,7 +248,7 @@ def build(slug, p):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{re.sub("&amp;", "&", p["h1"])} | Checkmatela</title>
 <meta name="description" content="{p["meta"]}">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230c0c0d%22/><text x=%2250%22 y=%2268%22 font-size=%2264%22 text-anchor=%22middle%22 fill=%22%23d9b876%22>&#9812;</text></svg>">
+{FAVICON}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
@@ -310,7 +311,7 @@ def build_checkout():
 <title>Checkout (preview) | Checkmatela</title>
 <meta name="robots" content="noindex">
 <meta name="description" content="Checkmatela checkout preview — review your bag, delivery and shipping options.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230c0c0d%22/><text x=%2250%22 y=%2268%22 font-size=%2264%22 text-anchor=%22middle%22 fill=%22%23d9b876%22>&#9812;</text></svg>">
+{FAVICON}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
