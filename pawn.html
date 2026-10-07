@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=60">
+<link rel="stylesheet" href="css/style.css?v=61">
 <script type="application/ld+json" data-crumbs>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://checkmatela.vercel.app/"},{"@type":"ListItem","position":2,"name":"Pawn","item":"https://checkmatela.vercel.app/pawn.html"}]}</script>
 </head>
 <body>
@@ -97,22 +97,26 @@
   <div class="container">
     <div class="section-head" data-reveal>
       <span class="eyebrow">The Junior Set</span>
-      <h2>Four cuts, one collection.</h2>
+      <h2>Every cut, one collection.</h2>
       <p>Start with the dress code and season, then browse the colors. The collection is a preview; availability and pricing need confirmation.</p>
     </div>
 
     <div class="style-bar">
       <span class="style-bar__label">Shop by Style</span>
       <select class="style-select" id="styleSelect" aria-label="Jump to a style">
+<!-- STYLE-OPTIONS:START -->
         <option value="">All Styles</option>
         <option value="pawn-slim-fit.html">Slim Fit</option>
         <option value="pawn-suit-vest-set.html">Suit Vest Set</option>
         <option value="pawn-tuxedo.html">Tuxedo</option>
         <option value="pawn-tuxedo-vest-set.html">Tuxedo Vest Set</option>
+        <option value="pawn-husky.html">Husky Fit (coming soon)</option>
+<!-- STYLE-OPTIONS:END -->
       </select>
     </div>
 
     <div class="style-grid" data-reveal-group>
+<!-- STYLE-CARDS:START -->
       <a class="style-card style-card--live" href="pawn-slim-fit.html" id="style-slimfit">
         <span class="style-card__photo"><img src="assets/img/pawn/slim-fit/navy/model-1.jpg" alt="Child model wearing the Checkmatela Slim Fit suit"></span>
         <h4>Slim Fit</h4>
@@ -137,6 +141,13 @@
         <p>The full tuxedo with vest, for the grandest occasions on the calendar.</p>
         <span class="style-card__badge style-card__badge--live">Explore styles →</span>
       </a>
+      <a class="style-card" href="pawn-husky.html" id="style-husky">
+        <span class="style-card__glyph"><svg viewBox="0 0 100 130" aria-hidden="true"><use href="#glyph-pawn" fill="currentColor"/></svg></span>
+        <h4>Husky Fit</h4>
+        <p>Roomier suits, tuxedos and dress pants for husky boys in larger sizes. Coming soon.</p>
+        <span class="style-card__badge">Coming soon</span>
+      </a>
+<!-- STYLE-CARDS:END -->
     </div>
   </div>
 </section>
@@ -205,7 +216,7 @@
   </div>
 </footer>
 
-<script src="js/nav.js?v=7"></script>
+<script src="js/nav.js?v=9"></script>
 <script src="js/main.js"></script>
 <script src="js/category-hero-video.js?v=4"></script>
 <script src="js/cart.js?v=4"></script>

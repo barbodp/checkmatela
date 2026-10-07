@@ -235,6 +235,15 @@ PAGES["shipping-returns"] = dict(
         cta("Questions about a return or exchange?", "book-a-fitting.html", "Ask us"),
     ])
 
+PAGES["pawn-husky"] = dict(
+    glyph="glyph-pawn", crumb="Husky Fit", parent=("Pawn", "pawn.html"), h1="Husky Fit",
+    lead="Suits, tuxedos and dress pants cut roomier for husky boys, in larger sizes. Coming soon.",
+    meta="Checkmatela Pawn collection — husky-fit formal wear for boys in larger sizes, coming soon.",
+    body=[
+        section("Coming soon.", '''<div class="prose"><p>Our husky-fit collection is on its way. Tell us what you're dressing a boy for and when, and we'll plan the sizes and timing around your date.</p></div>''', "Husky Fit"),
+        cta("Dressing a boy in larger sizes?", "book-a-fitting.html", "Ask about sizes"),
+    ])
+
 PAGES["find-your-look"] = dict(
     glyph="glyph-king", crumb="Fit & Timing Check", h1="Find your look. Plan the fit.",
     lead="A quick check for your occasion, measurements and event date — so you know what to confirm before choosing a look.",
@@ -293,7 +302,7 @@ def build(slug, p):
   <div class="cat-hero__fade"></div>
   <div class="cat-hero__inner">
     <div class="cat-hero__copy">
-      <div class="crumbs"><a href="index.html">Home</a> <span>/</span> <span>{p["crumb"]}</span></div>
+      <div class="crumbs"><a href="index.html">Home</a> <span>/</span> {f'<a href="{p["parent"][1]}">{p["parent"][0]}</a> <span>/</span> ' if p.get("parent") else ""}<span>{p["crumb"]}</span></div>
       <span class="cat-hero__glyph"><svg viewBox="0 0 100 100"><use href="#{g}" fill="currentColor"/></svg></span>
       <h1>{p["h1"]}</h1>
       <p>{p["lead"]}</p>

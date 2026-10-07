@@ -97,7 +97,7 @@
     if (IDX) return cb();
     idxWaiters.push(cb);
     if (withIndex.loading) return; withIndex.loading = true;
-    const s = document.createElement("script"); s.src = "js/search-index.js?v=411697d4";
+    const s = document.createElement("script"); s.src = "js/search-index.js?v=893ab6a1";
     s.onload = () => { IDX = window.CHECKMATELA_INDEX; prep(); idxWaiters.splice(0).forEach(f => f()); };
     document.head.appendChild(s);
   }
@@ -190,7 +190,7 @@
   }
   function colHTML(c, key) {
     let inner;
-    if (c.pages) { const sp = subPages(key), list = sp.length ? sp.map(p => [p.t, p.u, "$" + p.p]) : c.links; inner = `<ul class="mega__list">${list.map(([l, u, t]) => `<li><a href="${u}"><span>${esc(l)}</span>${tagHTML(t)}</a></li>`).join("")}</ul>`; }
+    if (c.pages) { const sp = subPages(key), list = sp.length ? sp.map(p => [p.t, p.u, p.n ? (p.m > p.p ? "from $" : "$") + p.p : "Soon"]) : c.links; inner = `<ul class="mega__list">${list.map(([l, u, t]) => `<li><a href="${u}"><span>${esc(l)}</span>${tagHTML(t)}</a></li>`).join("")}</ul>`; }
     else if (c.sw) inner = swHTML(c.sw);
     else if (c.kidsColors) inner = kidsColors().length ? swHTML(kidsColors()) : `<p class="mega__wait">Loading colours…</p>`;
     else if (c.pick) {
@@ -268,7 +268,7 @@
     const m = MEGA[k], n = navOf(k), label = (n && n.label) || (m && m.label) || k, href = (n && n.href) || (m && m.href) || k + ".html";
     let h = `<a class="acc-all" href="${href}"><span>Shop all ${esc(label.toLowerCase())}</span><em>${n ? (n.total ? n.total + " items" : "Coming soon") : ""}</em>${ARROW}</a>`;
     const sp = subPages(k);
-    if (sp.length) h += `<div class="acc-sec"><h4>Product pages</h4><ul class="mega__list">${sp.map(p => `<li><a href="${p.u}"><span>${esc(p.t)}</span><em>${p.n} items${p.p ? " · from " + money(p.p) : ""}</em></a></li>`).join("")}</ul></div>`;
+    if (sp.length) h += `<div class="acc-sec"><h4>Product pages</h4><ul class="mega__list">${sp.map(p => `<li><a href="${p.u}"><span>${esc(p.t)}</span><em>${p.n ? p.n + " items" + (p.p ? " · from " + money(p.p) : "") : "Coming soon"}</em></a></li>`).join("")}</ul></div>`;
     const cols = m ? m.cols : [], feat = cols.find(c => /^featured$/i.test(c.h));
     cols.filter(c => c !== feat && !c.pages).forEach(c => { const x = secHTML(c); if (x) h += `<div class="acc-sec">${x}</div>`; });
     if (feat) h += `<div class="acc-sec">${secHTML({ ...feat, h: "Highlights" })}</div>`;

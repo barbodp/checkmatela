@@ -162,10 +162,12 @@ def main():
             for c in found:
                 c["d"] = d["label"]
                 if f != d["landing"]:
-                    c["t"], c["s"] = f"{label} — {c['t']}", f"{d['sub']} · {d['label']}"
+                    head = c["s"].split(" · ")[0] if " · " in c["s"] else label          # "Husky Suit", "Slim Fit"… (the card's own tag)
+                    c["t"], c["s"] = f"{head} — {c['t']}", f"{d['sub']} · {d['label']}"
                 products.append(c)
             total += len(found)
-            pages.append(dict(t=label, u=f, n=len(found), p=min([c["p"] for c in found], default=0), landing=f == d["landing"]))
+            pages.append(dict(t=label, u=f, n=len(found), p=min([c["p"] for c in found], default=0), m=max([c["p"] for c in found], default=0), landing=f == d["landing"]))
+        pages.sort(key=lambda x: (not x["landing"], x["n"] == 0))          # landing page first, then pages with products, "coming soon" pages last (stable: file order)
         nav.append(dict(key=d["key"], label=d["label"], sub=d["sub"], href=d["landing"], total=total, pages=pages))
     index = {
         "products": products,

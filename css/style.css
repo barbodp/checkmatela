@@ -841,7 +841,7 @@ button{ font-family:inherit; cursor:pointer; }
   padding:10px 14px; font-family: var(--sans); font-size:.82rem; border-radius:2px; min-width:220px;
 }
 
-.style-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: clamp(14px,2vw,20px); margin: clamp(24px,3.5vw,36px) 0 clamp(56px,7vw,88px); }
+.style-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap: clamp(14px,2vw,20px); margin: clamp(24px,3.5vw,36px) 0 clamp(56px,7vw,88px); }
 .style-card{
   background: var(--card); border:1px solid rgba(21,24,26,.1);
   padding: clamp(24px,3vw,32px) 22px; text-align:center;
