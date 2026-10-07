@@ -193,7 +193,7 @@
   }
   function colHTML(c, key) {
     let inner;
-    if (c.brands) { const bp = subPages(key).filter(p => p.children); inner = bp.length ? bp.map(p => brandDD(p, true)).join("") : `<ul class="mega__list">${c.links.map(([l, u]) => `<li><a href="${u}"><span>${esc(l)}</span></a></li>`).join("")}</ul>`; }
+    if (c.brands) { const bp = subPages(key).filter(p => p.children); inner = bp.length ? bp.map(p => brandDD(p, false)).join("") : `<ul class="mega__list">${c.links.map(([l, u]) => `<li><a href="${u}"><span>${esc(l)}</span></a></li>`).join("")}</ul>`; }
     else if (c.pages) { const sp = flatPages(key), list = sp.length ? sp.map(p => [p.t, p.u, p.n ? (p.m > p.p ? "from $" : "$") + p.p : "Soon", p.depth]) : c.links; inner = `<ul class="mega__list">${list.map(([l, u, t, dp]) => `<li class="${dp ? "is-child" : ""}"><a href="${u}"><span>${esc(l)}</span>${tagHTML(t)}</a></li>`).join("")}</ul>`; }
     else if (c.sw) inner = swHTML(c.sw);
     else if (c.kidsColors) inner = kidsColors().length ? swHTML(kidsColors()) : `<p class="mega__wait">Loading colours…</p>`;
