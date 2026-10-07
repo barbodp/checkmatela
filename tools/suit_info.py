@@ -19,3 +19,24 @@ DESIGN = {
 }
 # King catalog style -> pieces in the set (tuxedos are jacket + trousers)
 KING_PIECES = {"Three-piece": 3, "Two-piece": 2, "Tuxedo": 2}
+
+# Antonio Uomo categories, in menu order: (label shown in menus and on the page, [supplier style names it holds]).
+# "Shop All" is the brand page itself. Every piece — scraped or from king.json — is filed here by its style name.
+CATEGORIES = [
+    ("2 Piece Slim Fit Suits", ["2 Piece Slim Fit Single Breasted Suit"]),
+    ("3 Piece Slim Fit Suits", ["3 Piece Slim Fit Suit"]),
+    ("3 Piece Classic Fit Suits", ["3 Piece Classic Fit Suit"]),
+    ("Plaid Suits", ["3 Piece Plaid Suit"]),
+    ("Textured Suits", ["3 Piece Textured Suit"]),
+    ("2 Piece Tuxedo", ["2 Piece Slim Fit Tuxedo"]),
+    ("3 Piece Tuxedo", ["3 Piece Slim Fit Tuxedo", "3 Piece Slim Fit Double Breasted Tuxedo"]),
+    ("Jackets", ["Patterned Jacket"]),
+    ("Pants", ["Slim Fit Dress Pants"]),
+]
+
+
+def category_for(style):
+    for label, styles in CATEGORIES:
+        if style in styles:
+            return label
+    raise KeyError(f"no Antonio Uomo category for style {style!r}")

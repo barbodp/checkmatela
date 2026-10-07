@@ -8,7 +8,7 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "70"
+CSS_VERSION = "72"
 FAVICON = '<link rel="icon" type="image/svg+xml" href="brand/svg/favicon.svg?v=2">'
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
@@ -82,7 +82,7 @@ FOOTER = '''<footer class="site-footer">
   </div>
 </footer>
 
-<script src="js/nav.js?v=13"></script>
+<script src="js/nav.js?v=15"></script>
 <script src="js/main.js"></script>
 <script src="js/cart.js?v=4"></script>
 </body>
@@ -222,29 +222,20 @@ def gallery_card(line, slug, name, cfg, eager):
       </div>'''
 
 
-def banner_html(line, cfg):
-    figs = []
-    for slug in cfg["hero"]:
-        rel = f"assets/img/pawn/{line}/{slug}/hero.webp"
-        w, h = Image.open(os.path.join(ROOT, rel)).size
-        name = dict(cfg["colors"])[slug].replace("&amp;", "&")
-        figs.append(f'<img src="{rel}" width="{w}" height="{h}" alt="Child model in the Checkmatela {cfg["label"]}, {name}">')
-    figures = "\n      ".join(figs)
-    return f'''<section class="cat-hero">
-  <div class="cat-hero__bg"></div>
-  <div class="cat-hero__fade"></div>
-  <div class="cat-hero__inner">
-    <div class="cat-hero__copy">
-      <div class="crumbs"><a href="index.html">Home</a> <span>/</span> <a href="pawn.html">Pawn</a> <span>/</span> <span>{cfg['label']}</span></div>
-      <span class="cat-hero__glyph"><svg viewBox="0 0 100 100"><use href="#glyph-pawn" fill="currentColor"/></svg></span>
-      <h1>{cfg['label']}</h1>
-      <p>{cfg['intro']}</p>
-    </div>
-    <div class="cat-hero__figures">
-      {figures}
-    </div>
+def page_head(crumb_html, h1, lead=""):
+    """Compact page header for subcategory pages: breadcrumb, title and one line, then straight to the products (no hero — those are for main categories)."""
+    return f'''<section class="page-head">
+  <div class="container">
+    {crumb_html}
+    <h1>{h1}</h1>
+    {f"<p>{lead}</p>" if lead else ""}
   </div>
 </section>'''
+
+
+def banner_html(line, cfg):
+    crumbs = f'<div class="crumbs"><a href="index.html">Home</a> <span>/</span> <a href="pawn.html">Pawn</a> <span>/</span> <span>{cfg["label"]}</span></div>'
+    return page_head(crumbs, cfg["label"], cfg["intro"])
 
 
 def build(line):

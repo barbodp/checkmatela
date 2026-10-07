@@ -23,7 +23,7 @@
     king: { label: "Men", sub: "King", href: "king.html",
       cols: [
         { h: "Featured", links: [["Shop all men", "king.html"], ["Suits", "king.html?category=Suits"], ["Tuxedos", "king.html?category=Tuxedos"], ["Dress pants", "king.html?category=Pants"], ["Jackets", "king.html?category=Jackets"], ["Groomsmen: save up to 15%", "antonio-uomo-the-openings.html?occasion=Wedding", "Deal"]] },
-        { h: "Antonio Uomo", pages: true, wide: true, links: [["Shop Antonio Uomo", "antonio-uomo.html"]] },
+        { h: "Brands", brands: true, wide: true, links: [["Antonio Uomo", "antonio-uomo.html"]] },
         { h: "Color", sw: sw(["Black", "Charcoal", "Grey", "Navy", "Blue", "Burgundy", "Brown", "Beige"], "king.html?color=") },
         { h: "Price", links: [["Under $100", "king.html?max=99"], ["$100 to $199", "king.html?min=100&max=199"], ["$200 and up", "king.html?min=200"], ["Low to high", "king.html?sort=price-asc"]] },
       ],
@@ -97,7 +97,7 @@
     if (IDX) return cb();
     idxWaiters.push(cb);
     if (withIndex.loading) return; withIndex.loading = true;
-    const s = document.createElement("script"); s.src = "js/search-index.js?v=e51f4b62";
+    const s = document.createElement("script"); s.src = "js/search-index.js?v=5ec59721";
     s.onload = () => { IDX = window.CHECKMATELA_INDEX; prep(); idxWaiters.splice(0).forEach(f => f()); };
     document.head.appendChild(s);
   }
@@ -182,6 +182,8 @@
   const swHTML = list => `<ul class="mega__sw">${list.map(([n, href, hex]) => `<li><a href="${href}"><i style="--c:${hex}"></i><span>${esc(n)}</span></a></li>`).join("")}</ul>`;
   const navOf = key => (IDX && IDX.nav || []).find(d => d.key === key);
   const subPages = key => { const n = navOf(key); return n ? n.pages.filter(p => !p.landing) : []; };
+  /* a brand (a page with child pages) as a dropdown of its categories; "Shop All" first, same labels as the brand page's category pills */
+  const brandDD = (p, open) => `<details class="brand-dd"${open ? " open" : ""}><summary><span>${esc(p.t)}</span><em>${p.n} pieces</em></summary><ul class="mega__list">${p.children.map(c => `<li><a href="${c.u}"><span>${esc(c.t)}</span></a></li>`).join("")}</ul></details>`;
   const flatPages = key => subPages(key).flatMap(p => [{ ...p, depth: 0 }, ...(p.children || []).map(c => ({ ...c, depth: 1 }))]);   // a page, then its child pages
   function kidsColors() {
     if (!IDX) return [];
@@ -191,7 +193,8 @@
   }
   function colHTML(c, key) {
     let inner;
-    if (c.pages) { const sp = flatPages(key), list = sp.length ? sp.map(p => [p.t, p.u, p.n ? (p.m > p.p ? "from $" : "$") + p.p : "Soon", p.depth]) : c.links; inner = `<ul class="mega__list">${list.map(([l, u, t, dp]) => `<li class="${dp ? "is-child" : ""}"><a href="${u}"><span>${esc(l)}</span>${tagHTML(t)}</a></li>`).join("")}</ul>`; }
+    if (c.brands) { const bp = subPages(key).filter(p => p.children); inner = bp.length ? bp.map(p => brandDD(p, true)).join("") : `<ul class="mega__list">${c.links.map(([l, u]) => `<li><a href="${u}"><span>${esc(l)}</span></a></li>`).join("")}</ul>`; }
+    else if (c.pages) { const sp = flatPages(key), list = sp.length ? sp.map(p => [p.t, p.u, p.n ? (p.m > p.p ? "from $" : "$") + p.p : "Soon", p.depth]) : c.links; inner = `<ul class="mega__list">${list.map(([l, u, t, dp]) => `<li class="${dp ? "is-child" : ""}"><a href="${u}"><span>${esc(l)}</span>${tagHTML(t)}</a></li>`).join("")}</ul>`; }
     else if (c.sw) inner = swHTML(c.sw);
     else if (c.kidsColors) inner = kidsColors().length ? swHTML(kidsColors()) : `<p class="mega__wait">Loading colours…</p>`;
     else if (c.pick) {
@@ -268,10 +271,11 @@
   function accPanel(k) {
     const m = MEGA[k], n = navOf(k), label = (n && n.label) || (m && m.label) || k, href = (n && n.href) || (m && m.href) || k + ".html";
     let h = `<a class="acc-all" href="${href}"><span>Shop all ${esc(label.toLowerCase())}</span><em>${n ? (n.total ? n.total + (n.total === 1 ? " item" : " items") : "Coming soon") : ""}</em>${ARROW}</a>`;
-    const sp = flatPages(k);
-    if (sp.length) h += `<div class="acc-sec"><h4>Product pages</h4><ul class="mega__list">${sp.map(p => `<li class="${p.depth ? "is-child" : ""}"><a href="${p.u}"><span>${esc(p.t)}</span><em>${p.n ? p.n + (p.n === 1 ? " item" : " items") + (p.p ? " · from " + money(p.p) : "") : "Coming soon"}</em></a></li>`).join("")}</ul></div>`;
+    const sp = subPages(k), brands = sp.filter(p => p.children), plain = sp.filter(p => !p.children);
+    if (brands.length) h += `<div class="acc-sec"><h4>Brands</h4>${brands.map(p => brandDD(p, false)).join("")}</div>`;
+    if (plain.length) h += `<div class="acc-sec"><h4>Product pages</h4><ul class="mega__list">${plain.map(p => `<li><a href="${p.u}"><span>${esc(p.t)}</span><em>${p.n ? p.n + (p.n === 1 ? " item" : " items") + (p.p ? " · from " + money(p.p) : "") : "Coming soon"}</em></a></li>`).join("")}</ul></div>`;
     const cols = m ? m.cols : [], feat = cols.find(c => /^featured$/i.test(c.h));
-    cols.filter(c => c !== feat && !c.pages).forEach(c => { const x = secHTML(c); if (x) h += `<div class="acc-sec">${x}</div>`; });
+    cols.filter(c => c !== feat && !c.pages && !c.brands).forEach(c => { const x = secHTML(c); if (x) h += `<div class="acc-sec">${x}</div>`; });
     if (feat) h += `<div class="acc-sec">${secHTML({ ...feat, h: "Highlights" })}</div>`;
     return h;
   }

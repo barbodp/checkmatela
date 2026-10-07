@@ -180,7 +180,8 @@ def main():
             pages.append(dict(t=label, u=f, n=len(found), p=min([c["p"] for c in found], default=0), m=max([c["p"] for c in found], default=0), landing=f == d["landing"]))
         if d["key"] == "king" and au:                       # Antonio Uomo: brand page -> product-type pages (kept out of the page discovery above)
             types = [(s, au.TYPES[s]) for s in au.ORDERED]
-            children = [dict(t=its[0]["type"], u=au.tfile(s), n=len(its), p=au.price_range(its)[0], m=au.price_range(its)[1]) for s, its in types]
+            lo_all, hi_all = au.price_range(au.ITEMS)
+            children = [dict(t="Shop All", u=au.BRAND_FILE, n=len(au.ITEMS), p=lo_all, m=hi_all)] + [dict(t=its[0]["type"], u=au.tfile(s), n=len(its), p=au.price_range(its)[0], m=au.price_range(its)[1]) for s, its in types]
             lo, hi = au.price_range(au.ITEMS)
             pages.append(dict(t=au.BRAND, u=au.BRAND_FILE, n=len(au.ITEMS), p=lo, m=hi, landing=False, children=children))
             total += len(au.ITEMS)

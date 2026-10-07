@@ -6,7 +6,7 @@ and use the same `.cat-hero` glyph hero as Queen. Copy is placeholder concept co
 then run:  python3 tools/gen_info_pages.py
 """
 import os, re
-from gen_pawn_pages import HEADER, FOOTER, ANNOUNCE, CSS_VERSION, FAVICON
+from gen_pawn_pages import HEADER, FOOTER, ANNOUNCE, CSS_VERSION, FAVICON, page_head
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EMAIL = "suit.shop.dtla@gmail.com"
@@ -236,7 +236,7 @@ PAGES["shipping-returns"] = dict(
     ])
 
 PAGES["pawn-husky"] = dict(
-    glyph="glyph-pawn", crumb="Husky Fit", parent=("Pawn", "pawn.html"), h1="Husky Fit",
+    glyph="glyph-pawn", crumb="Husky Fit", parent=("Pawn", "pawn.html"), compact=True, h1="Husky Fit",
     lead="Suits, tuxedos and dress pants cut roomier for husky boys, in larger sizes. Coming soon.",
     meta="Checkmatela Pawn collection — husky-fit formal wear for boys in larger sizes, coming soon.",
     body=[
@@ -272,6 +272,25 @@ PAGES["find-your-look"] = dict(
 def build(slug, p):
     g = p["glyph"]
     defs = glyph_defs(sorted({g, "glyph-king"}))
+    if p.get("compact"):                                   # subcategory pages: compact header, no hero
+        crumb = '<div class="crumbs"><a href="index.html">Home</a> <span>/</span> ' + (f'<a href="{p["parent"][1]}">{p["parent"][0]}</a> <span>/</span> ' if p.get("parent") else "") + f'<span>{p["crumb"]}</span></div>'
+        hero_html = page_head(crumb, p["h1"], p["lead"])
+    else:
+        hero_html = f'''<section class="cat-hero">
+  <div class="cat-hero__bg"></div>
+  <div class="cat-hero__fade"></div>
+  <div class="cat-hero__inner">
+    <div class="cat-hero__copy">
+      <div class="crumbs"><a href="index.html">Home</a> <span>/</span> {f'<a href="{p["parent"][1]}">{p["parent"][0]}</a> <span>/</span> ' if p.get("parent") else ""}<span>{p["crumb"]}</span></div>
+      <span class="cat-hero__glyph"><svg viewBox="0 0 100 100"><use href="#{g}" fill="currentColor"/></svg></span>
+      <h1>{p["h1"]}</h1>
+      <p>{p["lead"]}</p>
+    </div>
+    <div class="cat-hero__figures cat-hero__figures--glyph">
+      <svg viewBox="0 0 100 130" aria-hidden="true"><use href="#{g}" fill="currentColor"/></svg>
+    </div>
+  </div>
+</section>'''
     html = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -297,21 +316,7 @@ def build(slug, p):
 
 {HEADER}
 
-<section class="cat-hero">
-  <div class="cat-hero__bg"></div>
-  <div class="cat-hero__fade"></div>
-  <div class="cat-hero__inner">
-    <div class="cat-hero__copy">
-      <div class="crumbs"><a href="index.html">Home</a> <span>/</span> {f'<a href="{p["parent"][1]}">{p["parent"][0]}</a> <span>/</span> ' if p.get("parent") else ""}<span>{p["crumb"]}</span></div>
-      <span class="cat-hero__glyph"><svg viewBox="0 0 100 100"><use href="#{g}" fill="currentColor"/></svg></span>
-      <h1>{p["h1"]}</h1>
-      <p>{p["lead"]}</p>
-    </div>
-    <div class="cat-hero__figures cat-hero__figures--glyph">
-      <svg viewBox="0 0 100 130" aria-hidden="true"><use href="#{g}" fill="currentColor"/></svg>
-    </div>
-  </div>
-</section>
+{hero_html}
 
 {chr(10).join(p["body"])}
 

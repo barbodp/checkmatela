@@ -9,7 +9,7 @@ product type of their own, with the same pages and the same sizing/product infor
 generated here as well: every Antonio Uomo piece in one filterable grid. Run:  python3 tools/gen_antonio.py   (gen_nav.py runs at the end).
 """
 import os, json, re, html
-from gen_pawn_pages import HEADER, FOOTER, ANNOUNCE, CSS_VERSION, FAVICON
+from gen_pawn_pages import HEADER, FOOTER, ANNOUNCE, CSS_VERSION, FAVICON, page_head
 from gen_info_pages import glyph_defs
 from shoplib import shop_block, replace_between, esc
 import au_sizes
@@ -18,24 +18,24 @@ from suit_info import DESIGN
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AU_ITEMS = json.load(open(os.path.join(ROOT, "tools", "catalog", "antonio-uomo.json"), encoding="utf-8"))
+for _a in AU_ITEMS:                                    # file every scraped piece under our categories (tools/suit_info.py CATEGORIES)
+    _a["type"] = suit_info.category_for(_a["style"])
+    _a["type_slug"] = re.sub(r"[^a-z0-9]+", "-", _a["type"].lower()).strip("-")
 BRAND = "Antonio Uomo"
 BRAND_FILE = "antonio-uomo.html"
 ASSET = "assets/img/antonio-uomo/"
 
-TYPE_ORDER = ["the-openings", "2-piece-slim-fit-single-breasted-suits", "3-piece-slim-fit-suits", "3-piece-classic-fit-suits", "3-piece-textured-suits", "3-piece-plaid-suits",
-              "2-piece-slim-fit-tuxedos", "3-piece-slim-fit-tuxedos", "3-piece-slim-fit-double-breasted-tuxedos", "slim-fit-dress-pants", "patterned-jackets"]
+TYPE_ORDER = [re.sub(r"[^a-z0-9]+", "-", label.lower()).strip("-") for label, _ in suit_info.CATEGORIES]
 BLURB = {
-    "the-openings": "Ten suits and tuxedos named for chess openings, with the occasion, pattern and style for each.",
-    "2-piece-slim-fit-single-breasted-suits": "Jacket and trousers in a modern slim cut, for weddings, school events and work.",
+    "2-piece-slim-fit-suits": "Jacket and trousers in a modern slim cut, for weddings, school events and work.",
     "3-piece-slim-fit-suits": "Jacket, vest and trousers in a slim, contemporary cut.",
     "3-piece-classic-fit-suits": "Jacket, vest and trousers in a roomier classic cut, with sizes up to 62.",
-    "3-piece-textured-suits": "Slim-fit three-piece suits in textured and shiny fabrics.",
-    "3-piece-plaid-suits": "Slim-fit three-piece suits in plaid.",
-    "2-piece-slim-fit-tuxedos": "Slim-fit tuxedo jacket and trousers for black tie, prom and weddings.",
-    "3-piece-slim-fit-tuxedos": "Slim-fit tuxedo with jacket, vest and trousers for black tie, prom and weddings.",
-    "3-piece-slim-fit-double-breasted-tuxedos": "A double-breasted take on the slim-fit three-piece tuxedo.",
-    "slim-fit-dress-pants": "Stretch dress pants with a flat front and a slim, straight leg.",
-    "patterned-jackets": "Shiny patterned jackets, a standout piece for any formal occasion.",
+    "plaid-suits": "Slim-fit three-piece suits in plaid.",
+    "textured-suits": "Slim-fit three-piece suits in textured and shiny fabrics.",
+    "2-piece-tuxedo": "Slim-fit tuxedo jacket and trousers for black tie, prom and weddings.",
+    "3-piece-tuxedo": "Slim-fit tuxedos with jacket, vest and trousers, plus a double-breasted style.",
+    "jackets": "Shiny patterned jackets, a standout piece for any formal occasion.",
+    "pants": "Stretch dress pants with a flat front and a slim, straight leg.",
 }
 FAMILY_ORDER = ["Black", "Charcoal", "Grey", "Silver", "Navy", "Blue", "Teal", "Green", "Burgundy", "Red", "Pink", "Purple", "Brown", "Beige", "Gold", "White", "Other"]
 CRUMB = '<div class="crumbs">{}</div>'
@@ -66,14 +66,28 @@ def sorted_items(items):
 
 
 
+# The ten chess-named pieces from tools/catalog/king.json are Antonio Uomo products: each is filed under a regular category and named like the rest
+# ("<Colour> <Style name>"); its chess name and notation stay on the page and card where the supplier's style number would be.
+OPENING_AS = {
+    "sicilian-onyx-tux": ("Black", "2 Piece Slim Fit Tuxedo"), "ruy-lopez-three-piece": ("Black", "3 Piece Slim Fit Suit"),
+    "caro-kann-navy-plaid": ("Navy", "3 Piece Plaid Suit"), "kings-gambit-royal-plaid": ("Royal Blue", "3 Piece Plaid Suit"),
+    "english-opening-charcoal": ("Charcoal", "2 Piece Slim Fit Single Breasted Suit"), "queens-gambit-graphite": ("Graphite", "2 Piece Slim Fit Tuxedo"),
+    "london-system-stone": ("Stone", "3 Piece Slim Fit Suit"), "italian-game-bordeaux": ("Bordeaux", "2 Piece Slim Fit Tuxedo"),
+    "french-defense-slate-check": ("Slate", "3 Piece Plaid Suit"), "scotch-game-dove-grey": ("Dove Grey", "3 Piece Slim Fit Suit"),
+}
+
+
 def opening_items():
-    """tools/catalog/king.json -> Antonio Uomo items of the product type "The Openings" (same shape as the scraped items, plus the shared suit info)."""
     cat = json.load(open(os.path.join(ROOT, "tools", "catalog", "king.json"), encoding="utf-8"))["products"]
-    return [dict(slug=p["slug"], id=f"king/{p['slug']}", file=f"antonio-uomo-{p['slug']}.html", name=p["name"], colour=p["name"], code=p["notation"], code_label="Opening",
-                 style=p["tag"], tag=p["tag"], type="The Openings", type_slug="the-openings", family={"Cream": "Beige"}.get(p["color"], p["color"]), price=p["price"], pieces=suit_info.KING_PIECES.get(p["style"], 2),
-                 facets=dict(style=p["style"], pattern=p["pattern"], occasion="|".join(p["occasion"]) if isinstance(p["occasion"], list) else p["occasion"]),
-                 paras=[suit_info.LEDE], bullets=suit_info.BULLETS, sizes=suit_info.SIZES, lengths=suit_info.LENGTHS, chart=suit_info.CHART_ID,
-                 images=[dict(path=f"assets/img/products/{p['slug']}.jpg", w=900, h=1350)]) for p in cat]
+    out = []
+    for p in cat:
+        colour, style = OPENING_AS[p["slug"]]
+        ty = suit_info.category_for(style)
+        out.append(dict(slug=p["slug"], id=f"king/{p['slug']}", file=f"antonio-uomo-{p['slug']}.html", name=f"{colour} {style}", colour=colour, code=p["name"], notation=p["notation"],
+                        code_label="Opening", style=style, type=ty, type_slug=re.sub(r"[^a-z0-9]+", "-", ty.lower()).strip("-"), family={"Cream": "Beige"}.get(p["color"], p["color"]),
+                        price=p["price"], pieces=int(style[0]), paras=[suit_info.LEDE], bullets=suit_info.BULLETS, sizes=suit_info.SIZES, lengths=suit_info.LENGTHS, chart=suit_info.CHART_ID,
+                        images=[dict(path=f"assets/img/products/{p['slug']}.jpg", w=900, h=1350)]))
+    return out
 
 
 ITEMS = opening_items() + AU_ITEMS
@@ -175,63 +189,42 @@ def card(it, extra="", facets=True):
             </a>'''
 
 
+def cats_nav(active):
+    """Category pills under the page header: Shop All + every Antonio Uomo category (same labels as the menu)."""
+    links = [(BRAND_FILE, "Shop All", active == "all")] + [(tfile(s), TYPES[s][0]["type"], s == active) for s in ORDERED]
+    on_attr = ' class="is-on" aria-current="page"'
+    pills = "".join(f'<a href="{h}"{on_attr if on else ""}>{esc(l)}</a>' for h, l, on in links)
+    return f'<nav class="au-cats" aria-label="Antonio Uomo categories"><div class="container">{pills}</div></nav>'
+
+
+def sort_key(i):
+    return (ORDERED.index(i["type_slug"]) if i["type_slug"] in ORDERED else 99, FAMILY_ORDER.index(i["family"]) if i["family"] in FAMILY_ORDER else 99, i["colour"], i["code"])
+
+
 def build_brand():
+    """Shop All: every Antonio Uomo piece in one grid (no hero: that is for main categories)."""
     total = len(ITEMS)
     lo, hi = price_range(ITEMS)
-    tiles = []
-    for s in ORDERED:
-        its = TYPES[s]
-        lo_t, hi_t = price_range(its)
-        name = its[0]["type"]
-        first = sorted_items(its)[0]
-        tiles.append(f'''      <a class="au-type" href="{tfile(s)}">
-        <span class="au-type__img"><img src="{img_url(first["images"][0], "-c")}" alt="{esc(first["name"])}" loading="lazy" width="480" height="720"></span>
-        <b>{esc(name)}</b>
-        <span>{esc(BLURB.get(s, ""))}</span>
-        <em>{len(its)} color{"s" if len(its) != 1 else ""} &middot; {"from " + money(lo_t) if lo_t != hi_t else money(lo_t)}</em>
-      </a>''')
-    body = f'''{hero(crumbs(*BASE_CRUMBS), BRAND, f"Suits, tuxedos, dress pants and jackets: {total} styles in {len(ORDERED)} product types, from {money(lo)}.")}
-
-<section class="section" style="padding-bottom:0">
-  <div class="container">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">The Brand</span>
-      <h2>Well-made men's suits for the moments that matter.</h2>
-      <p>Antonio Uomo designs men's suits and formal wear with quality and service in mind. Choose a product type to see every color, then pick your size.</p>
-    </div>
-    <div class="au-types" data-reveal-group>
-{chr(10).join(tiles)}
-    </div>
-  </div>
-</section>'''
-    write(BRAND_FILE, shell(f"{BRAND} — Men's Suits & Tuxedos | Checkmatela", f"Antonio Uomo men's suits, tuxedos, dress pants and jackets at Checkmatela: {total} styles from {money(lo)}.", body))
+    facets = [{"key": "type", "label": "Category"}, {"key": "color", "label": "Colour", "swatch": True}]
+    cards = "\n".join(card(i, extra=f' data-f-type="{esc(i["type"])}"') for i in sorted(ITEMS, key=sort_key))
+    shop_html = shop_block(cards, facets, "au", count_noun="pieces", review_facets=[])
+    head = page_head(crumbs(*BASE_CRUMBS), esc(BRAND), f"Suits, tuxedos, jackets and pants: {total} pieces from {money(lo)}.")
+    body = f"{head}\n{cats_nav('all')}\n{shop_html}"
+    write(BRAND_FILE, shell(f"{BRAND} — Men's Suits & Tuxedos | Checkmatela", f"Antonio Uomo men's suits, tuxedos, jackets and pants at Checkmatela: {total} pieces from {money(lo)}.", body,
+                            extra_js='<script src="js/shop.js?v=4"></script>'))
 
 
 def build_type(slug):
     its = sorted_items(TYPES[slug])
     name = its[0]["type"]
     lo, hi = price_range(its)
-    fams = sorted({i["family"] for i in its}, key=FAMILY_ORDER.index)
-    lead = f"{len(its)} color{'s' if len(its) != 1 else ''}, {'from ' + money(lo) if lo != hi else money(lo)}. {BLURB.get(slug, '')}"
-    facets = [{"key": "color", "label": "Colour", "swatch": True}, {"key": "style", "label": "Style"}, {"key": "pattern", "label": "Pattern"}, {"key": "occasion", "label": "Occasion"}]
+    lead = f"{len(its)} piece{'s' if len(its) != 1 else ''}, {'from ' + money(lo) if lo != hi else money(lo)}. {BLURB.get(slug, '')}"
+    facets = [{"key": "color", "label": "Colour", "swatch": True}]
     cards = "\n".join(card(i) for i in its)
-    shop_html = shop_block(cards, facets, "au", count_noun="colors", review_facets=[])
-    others = "\n      ".join(f'<a href="{tfile(s)}" class="btn ghost">{esc(TYPES[s][0]["type"])}</a>' for s in ORDERED if s != slug)
-    body = f'''{hero(crumbs(*BASE_CRUMBS, (name, tfile(slug))), name, lead)}
-
-{shop_html}
-
-<section class="section" style="background:var(--pine-deep);color:var(--paper);text-align:center;padding:64px 0">
-  <div class="container" data-reveal>
-    <span class="eyebrow" style="margin:0 auto">More from {BRAND}</span>
-    <h2 style="margin-top:.4em;font-size:clamp(1.8rem,3vw,2.6rem)">Explore the rest of the collection.</h2>
-    <div style="display:flex;gap:12px 16px;justify-content:center;margin-top:1.8em;flex-wrap:wrap">
-      {others}
-      <a href="{BRAND_FILE}" class="btn ghost">All {BRAND}</a>
-    </div>
-  </div>
-</section>'''
-    write(tfile(slug), shell(f"{name} — {BRAND} | Checkmatela", f"{name} by {BRAND}: {len(its)} colors, {'from ' + money(lo) if lo != hi else money(lo)}. Browse colors and sizes at Checkmatela.", body,
+    shop_html = shop_block(cards, facets, "au", count_noun="pieces", review_facets=[])
+    head = page_head(crumbs(*BASE_CRUMBS, (name, tfile(slug))), esc(name), esc(lead))
+    body = f"{head}\n{cats_nav(slug)}\n{shop_html}"
+    write(tfile(slug), shell(f"{name} — {BRAND} | Checkmatela", f"{name} by {BRAND}: {len(its)} pieces, {'from ' + money(lo) if lo != hi else money(lo)}. Browse colors and sizes at Checkmatela.", body,
                            extra_js='<script src="js/shop.js?v=4"></script>'))
 
 
@@ -325,23 +318,23 @@ def build_product(it):
   </div>
 </section>'''
     opening = bool(it.get("code_label"))                  # a piece from tools/catalog/king.json ("The Openings") keeps its own name, style and notation
-    codeline = f"{esc(it['style'])} &middot; {it['code_label']} {esc(it['code'])}" if opening else f"Style {esc(it['code'])} &middot; {esc(tname)}"
+    codeline = f"{esc(it['code'])} &middot; {it['code_label']} {esc(it['notation'])} &middot; {esc(tname)}" if opening else f"Style {esc(it['code'])} &middot; {esc(tname)}"
     body = pdp_body(it, eyebrow=f"{BRAND} &middot; Men", codeline=codeline, tag=it.get("tag") or f"{BRAND} · {it['style']}",
                     crumb_parts=[*BASE_CRUMBS, (tname, tfile(slug)), (it["name"], pfile(it))], related_html=rel_html)
-    write(pfile(it), shell(f"{it['name']} — {it['style']} — {BRAND} | Checkmatela" if opening else f"{it['name']} ({it['code']}) — {BRAND} | Checkmatela",
-                           f"{it['name']}, {it['style']}, by {BRAND}, {money(it['price'])}. " if opening else f"{it['name']} by {BRAND}, style {it['code']}, {money(it['price'])}. " + (it["bullets"][0] + ". " if it["bullets"] else "") + "Sizes, details and size chart at Checkmatela.",
+    write(pfile(it), shell(f"{it['name']} ({it['code']}) — {BRAND} | Checkmatela",
+                           f"{it['name']} ({it['code']}) by {BRAND}, {money(it['price'])}. " if opening else f"{it['name']} by {BRAND}, style {it['code']}, {money(it['price'])}. " + (it["bullets"][0] + ". " if it["bullets"] else "") + "Sizes, details and size chart at Checkmatela.",
                            body, extra_js='<script src="js/product.js?v=5"></script>'))
 
 
 def category_of(it):
     n = it["type"]
-    return "Tuxedos" if ("Tuxedo" in n or it.get("facets", {}).get("style") == "Tuxedo") else "Pants" if "Pants" in n else "Jackets" if "Jacket" in n else "Suits"
+    return "Tuxedos" if "Tuxedo" in n else "Pants" if "Pants" in n else "Jackets" if "Jacket" in n else "Suits"
 
 
 def build_king_page():
     """king.html = Shop all men: every Antonio Uomo piece in one grid, filtered by category, product type, colour and price."""
     facets = [{"key": "category", "label": "Category"}, {"key": "type", "label": "Product type"}, {"key": "color", "label": "Colour", "swatch": True}]
-    cards = "\n".join(card(i, extra=f' data-f-category="{category_of(i)}" data-f-type="{esc(i["type"])}"', facets=False) for i in sorted(ITEMS, key=lambda i: (ORDERED.index(i["type_slug"]) if i["type_slug"] in ORDERED else 99, FAMILY_ORDER.index(i["family"]) if i["family"] in FAMILY_ORDER else 99, i["colour"], i["code"])))
+    cards = "\n".join(card(i, extra=f' data-f-category="{category_of(i)}" data-f-type="{esc(i["type"])}"') for i in sorted(ITEMS, key=sort_key))
     block = shop_block(cards, facets, "au-all", count_noun="pieces", review_facets=[], extra_attrs=' data-aggregate="1"')
     path = os.path.join(ROOT, "king.html")
     src = open(path, encoding="utf-8").read()
@@ -357,6 +350,10 @@ def main():
     for it in ITEMS:
         build_product(it)
     build_king_page()
+    wanted = {BRAND_FILE} | {tfile(s) for s in ORDERED} | {pfile(i) for i in ITEMS}      # every antonio-uomo-*.html is generated: drop pages of categories that no longer exist
+    for f in os.listdir(ROOT):
+        if (f == BRAND_FILE or f.startswith("antonio-uomo-")) and f.endswith(".html") and f not in wanted:
+            os.remove(os.path.join(ROOT, f))
     print("antonio-uomo:", len(ORDERED), "type pages,", len(ITEMS), "product pages")
     import gen_nav
     gen_nav.main()

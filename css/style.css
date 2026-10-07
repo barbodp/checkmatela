@@ -1789,3 +1789,24 @@ body.nav-open .site-header{ z-index:95; }
   .au-size--tall thead th{ font-size:.68rem; letter-spacing:0; }
 }
 .qv__details{ list-style:disc; padding-left:1.2em; margin:6px 0 4px; font-size:.98rem; color:#33372f; } .qv__details li + li{ margin-top:2px; }
+
+/* compact header for subcategory pages (hero banners are only for the main categories: Men, Women, Kids, Accessories, Shoes) */
+.page-head{ padding:26px 0 8px; background:var(--paper); }
+.page-head .crumbs{ color:var(--slate); margin-bottom:10px; flex-wrap:wrap; } .page-head .crumbs a:hover{ color:var(--pine); text-decoration:underline; text-underline-offset:3px; } .page-head .crumbs span:last-child{ color:var(--ink); }
+.page-head h1{ font-size:clamp(2rem,3.6vw,3rem); letter-spacing:-.02em; line-height:1.05; }
+.page-head p{ margin-top:8px; font-size:1.1rem; line-height:1.4; color:#3b3f37; max-width:62ch; }
+.page-head + .shop-section, .au-cats + .shop-section{ padding-top:20px !important; }
+/* Antonio Uomo category pills (same labels as the menu) */
+.au-cats{ background:var(--paper); padding:6px 0 0; border-bottom:1px solid rgba(21,24,26,.12); }
+.au-cats .container{ display:flex; flex-wrap:wrap; gap:6px 6px; padding-bottom:14px; }
+.au-cats a{ display:inline-flex; align-items:center; min-height:38px; padding:.35em 1em; border:1.5px solid rgba(21,24,26,.75); border-radius:999px; background:#fff; font-size:1rem; font-weight:700; color:var(--ink); transition:background .2s, color .2s; }
+.au-cats a:hover{ background:var(--pine-mist); } .au-cats a.is-on{ background:var(--ink); color:#fff; border-color:var(--ink); }
+@media (max-width:700px){ .au-cats .container{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; } .au-cats .container::-webkit-scrollbar{ display:none; } .au-cats a{ white-space:nowrap; flex:none; } }
+/* brand dropdown inside the menus */
+.brand-dd{ border-bottom:1px solid #e4e1d8; } .brand-dd summary{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:8px; padding:8px 0; font-size:1.12rem; font-weight:700; } .brand-dd summary::-webkit-details-marker{ display:none; }
+.brand-dd summary::after{ content:""; width:8px; height:8px; margin-left:auto; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:rotate(45deg) translateY(-2px); transition:transform .25s var(--ease); }
+.brand-dd[open] summary::after{ transform:rotate(225deg) translateY(-2px); }
+.brand-dd summary em{ font-style:normal; font-size:.78rem; font-weight:700; color:var(--slate); letter-spacing:.06em; }
+.brand-dd .mega__list{ padding:0 0 8px 12px; border-left:2px solid var(--brass); margin-left:2px; }
+.acc-sec .brand-dd summary{ min-height:46px; }
+.mega__col .brand-dd summary em{ display:none; }

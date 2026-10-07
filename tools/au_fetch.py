@@ -13,6 +13,7 @@ Run from anywhere:  python3 tools/au_fetch.py [--no-download] [--no-optimize] [-
 import os, re, sys, json, html, hashlib, urllib.request, concurrent.futures as cf
 from html.parser import HTMLParser
 from PIL import Image, ImageOps
+import suit_info
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_JSON = os.path.join(ROOT, "tools", "catalog", "antonio-uomo.json")
@@ -99,11 +100,7 @@ def normalise(prods):
             raise SystemExit(f"no colour for {title}")
         style = re.sub(r"Suits$", "Suit", style)                     # singular for the product name
         style = style.replace("Tuxedos", "Tuxedo")
-        last = style.split()[-1]
-        type_plural = style if last in ("Pants", "Jackets") else style + "s"
-        type_plural = type_plural.replace("Jacket" + "s", "Jackets")
-        if style.endswith("Jacket"):
-            type_plural = style + "s"
+        type_plural = suit_info.category_for(style)               # our category label (menu + page), see suit_info.CATEGORIES
         paras, bullets = parse_body(p["body_html"])
         prices = [float(v["price"]) for v in p["variants"]]
         sizes = next((o["values"] for o in p["options"] if o["name"].lower() == "size"), [])
