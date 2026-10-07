@@ -6,7 +6,6 @@ and use the same `.cat-hero` glyph hero as Queen. Copy is placeholder concept co
 then run:  python3 tools/gen_info_pages.py
 """
 import os, re
-import au_sizes
 from gen_pawn_pages import HEADER, FOOTER, ANNOUNCE, CSS_VERSION, FAVICON
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -188,8 +187,7 @@ PAGES["size-guide"] = dict(
             ["Illustrative size", "Age reference", "Height (in)", "Chest (in)", "Waist (in)"],
             [["2T", "2", "34–36", "20", "19"], ["4", "4", "39–41", "22", "20"], ["6", "6", "44–46", "24", "21"], ["8", "8", "49–51", "26", "22"], ["10", "10", "54–56", "28", "24"], ["12", "12", "58–60", "30", "26"], ["14", "14", "62–64", "32", "27"], ["16", "16", "65–67", "33", "28"]],
             "Age is a starting point; compare actual measurements and confirm the garment dimensions"), "Kids"),
-        section("Antonio Uomo — suits, tuxedos &amp; jackets.", au_sizes.table_html() + au_sizes.how_html(), "Men, slim fit", alt=True),
-        section("Before choosing a size.", '''<div class="prose"><p>If someone falls between sizes, compare the chest and waist first and ask about the specific garment. Allow enough time for a try-on and any alterations. These illustrative charts should not be treated as a fit guarantee.</p></div>''', "Fit confidence"),
+        section("Before choosing a size.", '''<div class="prose"><p>If someone falls between sizes, compare the chest and waist first and ask about the specific garment. Allow enough time for a try-on and any alterations. These illustrative charts should not be treated as a fit guarantee.</p></div>''', "Fit confidence", alt=True),
         cta("Still unsure about fit?", "book-a-fitting.html", "Ask a fit question"),
     ])
 

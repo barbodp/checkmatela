@@ -6,7 +6,9 @@
 3. Writes web-sized copies into assets/img/antonio-uomo/ (content-addressed by md5, so images shared between products are stored once):
    <md5>.webp (max 900px wide), <md5>-t.webp (160px thumb), and <md5>-c.webp (480px card image).
 
-Run from anywhere:  python3 tools/au_fetch.py [--no-download] [--no-optimize]
+4. Reads the size chart each product page pops up ("Size Chart" button) and stores its id on the product (`chart`); the chart data itself is transcribed in tools/au_sizes.py.
+
+Run from anywhere:  python3 tools/au_fetch.py [--no-download] [--no-optimize] [--charts-only]
 """
 import os, re, sys, json, html, hashlib, urllib.request, concurrent.futures as cf
 from html.parser import HTMLParser
@@ -129,6 +131,14 @@ def fetch_products():
         page += 1
 
 
+def chart_of(handle):
+    """id of the size-chart image shown in the product page's pop-up (e.g. 'SIZE-CHART-MAY-3'), '' when there is none."""
+    t = urllib.request.urlopen(urllib.request.Request("https://www.antoniouomo.com/products/" + handle, headers=UA), timeout=60).read().decode("utf-8", "ignore")
+    m = re.search(r"<modal-dialog.*?</modal-dialog>", t, re.S)
+    im = re.search(r"files/([A-Za-z0-9_-]+?)(?:_\d+x\d*)?\.(?:jpg|jpeg|png|webp)", m.group(0)) if m else None
+    return im.group(1) if im else ""
+
+
 def ext_of(url):
     e = os.path.splitext(url.split("?")[0])[1].lower()
     return e if e in (".jpg", ".jpeg", ".png", ".webp") else ".jpg"
@@ -171,7 +181,18 @@ def optimise(path):
     return key
 
 
+def charts_only():
+    items = json.load(open(OUT_JSON, encoding="utf-8"))
+    with cf.ThreadPoolExecutor(8) as ex:
+        for it, c in zip(items, ex.map(lambda i: chart_of(i["handle"]), items)):
+            it["chart"] = c
+    json.dump(items, open(OUT_JSON, "w"), indent=1, ensure_ascii=False)
+    print("charts:", {c: sum(1 for i in items if i["chart"] == c) for c in sorted({i["chart"] for i in items})})
+
+
 def main():
+    if "--charts-only" in sys.argv:
+        return charts_only()
     prods = fetch_products()
     items = normalise(prods)
     for it in items:
@@ -199,6 +220,9 @@ def main():
             for img in it["images"]:
                 img["key"] = next(it_keys)
         print("optimised", len(files), "images ->", len(set(keys)), "unique files")
+    with cf.ThreadPoolExecutor(8) as ex:
+        for it, c in zip(items, ex.map(lambda i: chart_of(i["handle"]), items)):
+            it["chart"] = c
     for it in items:
         it.pop("folder", None)
         for img in it["images"]:

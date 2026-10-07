@@ -2,7 +2,7 @@
 
   antonio-uomo.html                         the brand page: one card per product type
   antonio-uomo-<type>.html                  a product-type page (e.g. 2 Piece Slim Fit Single Breasted Suits): every colour, with a colour filter
-  antonio-uomo-<style>-<colour>-<code>.html  one page per colour ("Indigo 2 Piece Slim Fit Single Breasted Suit"): photos, price, size picker, details, size chart
+  antonio-uomo-<style>-<colour>-<code>.html  one page per colour ("Indigo 2 Piece Slim Fit Single Breasted Suit"): photos, price, size picker, details and a pop-up size chart (the chart the supplier shows for that product)
 
 It also refreshes the "Shop by brand" banner on king.html (between BRANDS markers). Run:  python3 tools/gen_antonio.py   (gen_nav.py runs at the end).
 """
@@ -187,17 +187,6 @@ def build_brand():
 {chr(10).join(tiles)}
     </div>
   </div>
-</section>
-
-<section class="section au-sizes-section">
-  <div class="container">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">Size chart</span>
-      <h2>Find your size.</h2>
-      <p>One simple chart for the slim-fit jackets and trousers, in inches.</p>
-    </div>
-    <div data-reveal>{au_sizes.table_html()}{au_sizes.how_html()}</div>
-  </div>
 </section>'''
     write(BRAND_FILE, shell(f"{BRAND} — Men's Suits & Tuxedos | Checkmatela", f"Antonio Uomo men's suits, tuxedos, dress pants and jackets at Checkmatela: {total} styles from {money(lo)}.", body))
 
@@ -264,10 +253,13 @@ def build_product(it):
     details = (f"<ul class=\"pdp-list\">{bullets}</ul>" if bullets else "") + more
     sizes = chips("size", "Size", it["sizes"], None) if it["sizes"] else ""
     length = chips("length", "Length", it["lengths"], "Regular" if "Regular" in it["lengths"] else None) if it["lengths"] else ""
-    if it["style"].endswith("Pants"):
-        chart = "<p>Dress pants are sized by waist, in inches. For a quick reference, here is the Antonio Uomo slim-fit suit chart.</p>" + au_sizes.table_html() + au_sizes.how_html()
-    else:
-        chart = au_sizes.table_html() + au_sizes.how_html() + ('<p class="au-size__note">Classic fit is cut roomier than this slim-fit chart suggests. Ask us if you are between sizes.</p>' if "Classic" in it["style"] else "")
+    chart_id = it.get("chart", "")                       # the size chart the supplier's own page pops up for this product
+    has_chart = chart_id in au_sizes.CHARTS
+    if chart_id and not has_chart:
+        print("WARNING: no size chart data for", chart_id, "(", it["code"], ")")
+    chart_btn = ('<button type="button" class="pdp-chart-btn" data-open-chart aria-haspopup="dialog"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 15 15 3l6 6L9 21z"/><path d="M7 11l2 2M10 8l2 2M13 5l2 2M5 13l1 1"/></svg>Size chart</button>' if has_chart else "")
+    chart_dialog = (f'<dialog class="shop-dialog au-chart" id="sizeChart" aria-labelledby="auChartTitle"><button type="button" class="shop-dialog__x" aria-label="Close size chart">×</button>'
+                    f'<div class="au-chart__body">{au_sizes.chart_html(chart_id)}</div></dialog>' if has_chart else "")
     related = [i for i in sorted_items(TYPES[slug]) if i is not it][:4]
     rel_html = ""
     if related:
@@ -293,24 +285,25 @@ def build_product(it):
         <p class="pdp-lede">{esc(lede)}</p>
         {sizes}
         {length}
+        {chart_btn}
         <p class="pdp-msg" role="status"></p>
         <div class="pdp-cta"><button type="button" class="btn pdp-add">Add to preview bag</button><a class="btn dark-ghost" href="book-a-fitting.html?look={esc(name.replace(" ", "%20"))}">Ask about fit</a></div>
-        <p class="pdp-assure"><a href="shipping-returns.html">Free exchanges and easy returns</a> &middot; <a href="size-guide.html">Size guide</a></p>
+        <p class="pdp-assure"><a href="shipping-returns.html">Free exchanges and easy returns</a></p>
         <p class="pdp-fine">Preview only: prices and availability are not confirmed, and checkout is not connected.</p>
         <div class="pdp-accs">
           {acc("Details", details, True)}
           {acc("About this look", design) if design else ""}
-          {acc("Size chart", chart)}
         </div>
       </div>
     </div>
   </div>
+  {chart_dialog}
 </main>
 
 {rel_html}'''
     write(pfile(it), shell(f"{name} ({it['code']}) — {BRAND} | Checkmatela",
                            f"{name} by {BRAND}, style {it['code']}, {money(it['price'])}. " + (it["bullets"][0] + ". " if it["bullets"] else "") + "Sizes, details and size chart at Checkmatela.",
-                           body, extra_js='<script src="js/product.js?v=1"></script>'))
+                           body, extra_js='<script src="js/product.js?v=2"></script>'))
 
 
 def build_king_banner():

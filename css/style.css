@@ -1695,7 +1695,6 @@ body.nav-open .site-header{ z-index:95; }
 .au-type b{ font-size:1.25rem; font-family:var(--serif); line-height:1.2; }
 .au-type span:not(.au-type__img){ font-size:1rem; font-weight:500; line-height:1.35; color:#3b3f37; }
 .au-type em{ font-style:normal; font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--pine); margin-top:auto; padding-top:4px; }
-.au-sizes-section{ background:var(--paper-dim); }
 
 /* simple size chart */
 .au-size{ width:100%; border-collapse:collapse; font-size:1rem; min-width:620px; background:#fff; }
@@ -1760,4 +1759,32 @@ body.nav-open .site-header{ z-index:95; }
 @media (max-width:720px){ .brand-banner__thumbs img:nth-child(n+3){ display:none; } .brand-banner__go{ display:none; } }
 .mega__list .is-child a{ padding-left:14px; font-weight:500; font-size:1rem; } .mega__list .is-child a::before{ content:"–"; margin-right:-2px; color:var(--slate); }
 .acc-sec .mega__list .is-child a{ padding-left:18px; font-weight:500; min-height:38px; }
-.pdp-acc .au-size{ min-width:0; font-size:.88rem; } .pdp-acc .au-size th, .pdp-acc .au-size td{ padding:8px 3px; } .pdp-acc .au-size thead th b{ font-size:.88rem; letter-spacing:.02em; } .pdp-acc .au-size thead th span{ font-size:.72rem; }
+
+/* size chart pop-up (per product) */
+.pdp-chart-btn{ display:inline-flex; align-items:center; gap:8px; margin-top:14px; padding:6px 0; background:none; border:0; font:inherit; font-size:1rem; font-weight:700; color:var(--ink); text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px; cursor:pointer; }
+.pdp-chart-btn:hover{ color:var(--pine); }
+.au-chart{ width:min(820px,94vw); }
+.au-chart__body{ padding:clamp(22px,3.4vw,38px); }
+.au-chart__title{ font-size:clamp(1.5rem,2.6vw,2.1rem); letter-spacing:-.01em; line-height:1.1; padding-right:40px; }
+.au-chart__unit{ margin:6px 0 16px; font-size:1.05rem; color:var(--slate); }
+.au-chart__sub{ margin:24px 0 8px; font-family:var(--serif); font-size:.82rem; letter-spacing:.2em; text-transform:uppercase; font-weight:700; }
+.au-chart .au-size{ min-width:640px; }
+.au-chart .au-size tbody td{ font-variant-numeric:tabular-nums; }
+.au-chart .au-size tbody th[scope="row"]{ white-space:nowrap; }
+.au-chart .au-size__note{ background:var(--paper); }
+.au-size-tall{ display:none; }
+@media (max-width:640px){
+  .au-size-wide{ display:none; } .au-size-tall{ display:block; }
+  .au-chart .au-size--tall{ min-width:0; font-size:.88rem; }
+  .au-size--tall th, .au-size--tall td{ padding:8px 3px; }
+  .au-size--tall thead th{ font-size:.72rem; letter-spacing:.02em; line-height:1.1; }
+  .au-size--tall tbody th[scope="row"]{ text-align:left; padding-left:8px; background:var(--pine-mist); }
+  .au-size--tall tbody th b{ display:block; font-size:.95rem; } .au-size--tall tbody th span{ display:block; font-size:.72rem; font-weight:500; color:var(--slate); }
+  .au-size--tall thead tr:first-child th + th{ border-left:1px solid rgba(250,248,242,.3); }
+}
+@media (max-width:640px){
+  .au-chart__body{ padding:20px 14px 24px; }
+  .au-size--tall th, .au-size--tall td{ padding:8px 1px; } .au-size--tall{ font-size:.82rem; }
+  .au-size--tall tbody th[scope="row"]{ padding-left:6px; min-width:48px; }
+  .au-size--tall thead th{ font-size:.68rem; letter-spacing:0; }
+}

@@ -17,6 +17,13 @@
     g.classList.remove("is-missing"); $(".pdp-msg").textContent = "";
   }));
 
+  const dlg = $("#sizeChart"), opener = $("[data-open-chart]");
+  if (dlg && opener) {
+    opener.addEventListener("click", () => dlg.showModal());
+    $(".shop-dialog__x", dlg).addEventListener("click", () => dlg.close());
+    dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+  }
+
   const msg = $(".pdp-msg");
   $(".pdp-add").addEventListener("click", () => {
     const opts = {}; let missing = null;
