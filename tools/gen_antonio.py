@@ -220,13 +220,15 @@ def build_type(slug):
 
 
 def gallery(it):
+    """Main photo + thumbnails. The frame takes the exact aspect ratio of the photo on show (set from data-w/data-h, updated by js/product.js),
+    so the photo always fills it edge to edge and the frame's own colour never shows."""
     thumbs = []
     for n, im in enumerate(it["images"], 1):
-        thumbs.append(f'<button type="button" class="pdp-thumb{" is-active" if n == 1 else ""}" data-src="{img(im["key"])}" data-w="{900 if im["w"] >= 900 else im["w"]}" aria-label="Show photo {n} of {len(it["images"])}"><img src="{img(im["key"], "-t")}" alt="" loading="lazy" width="72" height="72"></button>')
+        thumbs.append(f'<button type="button" class="pdp-thumb{" is-active" if n == 1 else ""}" data-src="{img(im["key"])}" data-w="{im["w"]}" data-h="{im["h"]}" aria-label="Show photo {n} of {len(it["images"])}"><img src="{img(im["key"], "-t")}" alt="" loading="lazy" width="72" height="72"></button>')
     first = it["images"][0]
     h = round(900 * first["h"] / first["w"])
     main = f'<img id="pdpMain" src="{img(first["key"])}" alt="{esc(it["name"])}" width="900" height="{h}" fetchpriority="high">'
-    return f'<div class="pdp-gallery"><div class="pdp-main">{main}</div><div class="pdp-thumbs">{"".join(thumbs)}</div></div>'
+    return f'<div class="pdp-gallery"><div class="pdp-main" id="pdpFrame" style="--r:{first["w"] / first["h"]:.4f}">{main}</div><div class="pdp-thumbs">{"".join(thumbs)}</div></div>'
 
 
 def chips(key, label, values, default=None):
@@ -303,7 +305,7 @@ def build_product(it):
 {rel_html}'''
     write(pfile(it), shell(f"{name} ({it['code']}) — {BRAND} | Checkmatela",
                            f"{name} by {BRAND}, style {it['code']}, {money(it['price'])}. " + (it["bullets"][0] + ". " if it["bullets"] else "") + "Sizes, details and size chart at Checkmatela.",
-                           body, extra_js='<script src="js/product.js?v=2"></script>'))
+                           body, extra_js='<script src="js/product.js?v=3"></script>'))
 
 
 def build_king_banner():

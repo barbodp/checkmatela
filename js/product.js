@@ -4,10 +4,11 @@
   const root = document.getElementById("pdp");
   if (!root) return;
   const $ = (s, r = root) => r.querySelector(s), $$ = (s, r = root) => [...r.querySelectorAll(s)];
-  const main = $("#pdpMain");
+  const main = $("#pdpMain"), frame = $("#pdpFrame");
 
   $$(".pdp-thumb").forEach(b => b.addEventListener("click", () => {
     $$(".pdp-thumb").forEach(t => t.classList.toggle("is-active", t === b));
+    frame.style.setProperty("--r", (b.dataset.w / b.dataset.h).toFixed(4));   // the frame follows each photo's own shape, so it is always filled
     main.src = b.dataset.src;
   }));
 

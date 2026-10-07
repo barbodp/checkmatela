@@ -1652,7 +1652,7 @@ body.nav-open .site-header{ z-index:95; }
 .sr-list{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:10px; }
 .sr-item{ display:flex; align-items:center; gap:14px; padding:10px 14px 10px 10px; background:#fff; border:1.5px solid rgba(21,24,26,.14); transition:border-color .2s, transform .25s var(--ease), box-shadow .25s; }
 .sr-item:hover, .sr-item.is-active{ border-color:var(--pine); transform:translateY(-2px); box-shadow:0 10px 24px rgba(15,46,34,.12); }
-.sr-item img{ width:56px; height:64px; object-fit:contain; background:var(--paper-dim); flex:none; }
+.sr-item img{ width:56px; height:64px; object-fit:cover; object-position:50% 12%; background:var(--paper-dim); flex:none; }
 .sr-txt{ display:flex; flex-direction:column; min-width:0; line-height:1.2; } .sr-txt b{ font-size:1.12rem; } .sr-txt i{ font-style:normal; font-size:.95rem; font-weight:500; color:var(--slate); }
 .sr-price{ margin-left:auto; font-weight:700; color:var(--burgundy); }
 .sr-item--page{ padding:14px; } .sr-ic{ display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:var(--pine-mist); color:var(--pine); flex:none; }
@@ -1717,9 +1717,9 @@ body.nav-open .site-header{ z-index:95; }
 .crumbs--light span:last-child{ color:var(--ink); }
 .pdp__grid{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:clamp(24px,4vw,64px); align-items:start; }
 .pdp-gallery{ position:sticky; top:calc(var(--hdr-h) + 20px); }
-.pdp-main{ background:var(--paper-dim); border:1px solid rgba(21,24,26,.08); display:grid; place-items:center; }
-.pdp-main img{ width:100%; height:auto; max-height:calc(100vh - var(--hdr-h) - 150px); object-fit:contain; display:block; }
-.pdp-thumbs{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+.pdp-main{ --r:.667; aspect-ratio:var(--r); width:min(100%, calc((100vh - var(--hdr-h) - 175px) * var(--r))); margin:0 auto; overflow:hidden; background:none; }
+.pdp-main img{ width:100%; height:100%; object-fit:cover; display:block; }
+.pdp-thumbs{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:10px; }
 .pdp-thumb{ width:64px; height:64px; padding:0; border:2px solid transparent; background:var(--paper-dim); cursor:pointer; opacity:.75; transition:opacity .2s, border-color .2s; }
 .pdp-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
 .pdp-thumb:hover, .pdp-thumb.is-active{ opacity:1; } .pdp-thumb.is-active{ border-color:var(--ink); }
@@ -1748,7 +1748,7 @@ body.nav-open .site-header{ z-index:95; }
 .pdp-list{ list-style:disc; padding-left:1.2em; } .pdp-list li + li{ margin-top:4px; }
 .pdp-acc .table-wrap{ margin-top:10px; }
 .pdp-related{ background:var(--paper); padding-top:20px; }
-@media (max-width:860px){ .pdp__grid{ grid-template-columns:1fr; } .pdp-gallery{ position:static; } .pdp-main img{ max-height:70vh; } }
+@media (max-width:860px){ .pdp__grid{ grid-template-columns:1fr; } .pdp-gallery{ position:static; } .pdp-main{ width:100%; } }
 
 /* "Shop by brand" banner on king.html */
 .brand-banner__card{ display:flex; align-items:center; gap:clamp(16px,3vw,36px); padding:18px clamp(16px,2.4vw,28px); background:#fff; border:1px solid rgba(21,24,26,.14); color:inherit; transition:border-color .25s, box-shadow .25s; }
