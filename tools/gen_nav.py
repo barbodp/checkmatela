@@ -162,6 +162,11 @@ def main():
             if 'class="cat-hero' not in text:
                 continue
             found = cards(f, d["sub"]) or static_cards(f, d["sub"])
+            for c in found:                                 # a product with its own page (king-<slug>.html) links straight to it
+                if "/" in c.get("id", ""):
+                    own = f"{d['prefix']}-{c['id'].split('/', 1)[1]}.html"
+                    if os.path.exists(os.path.join(ROOT, own)):
+                        c["u"] = own
             label = page_label(text, d["label"] if f == d["landing"] else f)
             for c in found:
                 c["d"] = d["label"]

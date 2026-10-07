@@ -8,7 +8,7 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "68"
+CSS_VERSION = "69"
 FAVICON = '<link rel="icon" type="image/svg+xml" href="brand/svg/favicon.svg?v=2">'
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
@@ -296,7 +296,7 @@ def build(line):
 
 {FOOTER}
 '''
-    html = html.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/shop.js?v=3"></script>')
+    html = html.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/shop.js?v=4"></script>')
     with open(os.path.join(ROOT, cfg["file"]), "w", encoding="utf-8") as f:
         f.write(html)
     print("wrote", cfg["file"], len(cfg["colors"]), "colorways")

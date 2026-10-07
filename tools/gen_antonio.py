@@ -11,6 +11,8 @@ from gen_pawn_pages import HEADER, FOOTER, ANNOUNCE, CSS_VERSION, FAVICON
 from gen_info_pages import glyph_defs
 from shoplib import shop_block, replace_between, esc
 import au_sizes
+import suit_info
+from suit_info import DESIGN
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ITEMS = json.load(open(os.path.join(ROOT, "tools", "catalog", "antonio-uomo.json"), encoding="utf-8"))
@@ -33,15 +35,6 @@ BLURB = {
     "patterned-jackets": "Shiny patterned jackets, a standout piece for any formal occasion.",
 }
 FAMILY_ORDER = ["Black", "Charcoal", "Grey", "Silver", "Navy", "Blue", "Teal", "Green", "Burgundy", "Red", "Pink", "Purple", "Brown", "Beige", "Gold", "White", "Other"]
-DESIGN = {   # the supplier's "Our Suits Mean Business" copy (lightly edited: it called the fabric wool, which doesn't match the fabric listed)
-    2: ["Elevate your style for those memorable moments, from proms and weddings to graduations and more, with a two-piece suit designed to leave a lasting impression.",
-        ("Jacket", "A slim, modern cut flatters your silhouette, and the notch lapel adds a touch of contemporary flair. The jacket has double vents for ease of movement and multiple interior pockets for your convenience."),
-        ("Trousers", "A flat front, slim legs and meticulous stitching. The adjustable waistband and cuffed hems help the fit, while the concealed zip fly and hook-and-bar closure keep a sleek, streamlined look.")],
-    3: ["Elevate your style for those memorable moments, from proms and weddings to graduations and more, with a three-piece ensemble designed to leave a lasting impression.",
-        ("Jacket", "A slim, contemporary cut enhances your silhouette, and the notch lapel adds a modern touch. The jacket has double vents for effortless movement and multiple interior pockets for your convenience."),
-        ("Vest", "Made from the same fabric as the jacket, the vest adds depth and character to the look. A classic button front and an adjustable back belt give a tailored fit, and it works worn on its own or under the jacket."),
-        ("Trousers", "A flat front, slim leg and precision stitching. The adjustable waistband and cuffed hems help the fit, while the concealed zip fly and hook-and-bar closure keep a sleek, streamlined look.")],
-}
 CRUMB = '<div class="crumbs">{}</div>'
 
 
@@ -53,7 +46,14 @@ def img(key, kind=""):
     return f"{ASSET}{key}{kind}.webp"
 
 
+def img_url(im, kind=""):
+    """Antonio photos are addressed by md5 key (three sizes); King photos by a plain path."""
+    return im["path"] if "path" in im else img(im["key"], kind)
+
+
 def pieces(it):
+    if it.get("pieces"):
+        return it["pieces"]
     m = re.match(r"(\d) Piece", it["style"])
     return int(m.group(1)) if m else 0
 
@@ -73,7 +73,7 @@ def tfile(slug):
 
 
 def pfile(it):
-    return f"antonio-uomo-{it['slug']}.html"
+    return it.get("file") or f"antonio-uomo-{it['slug']}.html"
 
 
 def crumbs(*parts):
@@ -152,10 +152,10 @@ def price_range(items):
 
 
 def card(it):
-    pic = img(it["images"][0]["key"], "-c")
-    return f'''            <a class="product-card au-card" href="{pfile(it)}" data-id="antonio-uomo/{it["slug"]}" data-name="{esc(it["name"])}" data-tag="{esc(it["type"])}" data-price="{money(it["price"])[1:]}" data-img="{pic}" data-f-color="{it["family"]}">
+    pic = img_url(it["images"][0], "-c")
+    return f'''            <a class="product-card au-card" href="{pfile(it)}" data-id="{it.get("id", "antonio-uomo/" + it["slug"])}" data-name="{esc(it["name"])}" data-tag="{esc(it["type"])}" data-price="{money(it["price"])[1:]}" data-img="{pic}" data-f-color="{it["family"]}">
               <span class="au-card__img"><img src="{pic}" alt="{esc(it["name"])}" loading="lazy" width="480" height="720"></span>
-              <div class="product-card__meta"><div><h4>{esc(it["colour"])}</h4><span class="piece-tag">{esc(it["style"])} &middot; {esc(it["code"])}</span></div><span class="product-card__price">{money(it["price"])}</span></div>
+              <div class="product-card__meta"><div><h4>{esc(it.get("colour", it["name"]))}</h4><span class="piece-tag">{esc(it["style"])} &middot; {esc(it["code"])}</span></div><span class="product-card__price">{money(it["price"])}</span></div>
             </a>'''
 
 
@@ -216,7 +216,7 @@ def build_type(slug):
   </div>
 </section>'''
     write(tfile(slug), shell(f"{name} — {BRAND} | Checkmatela", f"{name} by {BRAND}: {len(its)} colors, {'from ' + money(lo) if lo != hi else money(lo)}. Browse colors and sizes at Checkmatela.", body,
-                           extra_js='<script src="js/shop.js?v=3"></script>'))
+                           extra_js='<script src="js/shop.js?v=4"></script>'))
 
 
 def gallery(it):
@@ -224,11 +224,12 @@ def gallery(it):
     so the photo always fills it edge to edge and the frame's own colour never shows."""
     thumbs = []
     for n, im in enumerate(it["images"], 1):
-        thumbs.append(f'<button type="button" class="pdp-thumb{" is-active" if n == 1 else ""}" data-src="{img(im["key"])}" data-w="{im["w"]}" data-h="{im["h"]}" aria-label="Show photo {n} of {len(it["images"])}"><img src="{img(im["key"], "-t")}" alt="" loading="lazy" width="72" height="72"></button>')
+        thumbs.append(f'<button type="button" class="pdp-thumb{" is-active" if n == 1 else ""}" data-src="{img_url(im)}" data-w="{im["w"]}" data-h="{im["h"]}" aria-label="Show photo {n} of {len(it["images"])}"><img src="{img_url(im, "-t")}" alt="" loading="lazy" width="72" height="72"></button>')
     first = it["images"][0]
     h = round(900 * first["h"] / first["w"])
-    main = f'<img id="pdpMain" src="{img(first["key"])}" alt="{esc(it["name"])}" width="900" height="{h}" fetchpriority="high">'
-    return f'<div class="pdp-gallery"><div class="pdp-main" id="pdpFrame" style="--r:{first["w"] / first["h"]:.4f}">{main}</div><div class="pdp-thumbs">{"".join(thumbs)}</div></div>'
+    main = f'<img id="pdpMain" src="{img_url(first)}" alt="{esc(it["name"])}" width="900" height="{h}" fetchpriority="high">'
+    strip = f'<div class="pdp-thumbs">{"".join(thumbs)}</div>' if len(thumbs) > 1 else ""
+    return f'<div class="pdp-gallery"><div class="pdp-main" id="pdpFrame" style="--r:{first["w"] / first["h"]:.4f}">{main}</div>{strip}</div>'
 
 
 def chips(key, label, values, default=None):
@@ -240,9 +241,9 @@ def acc(title, inner, open_=False):
     return f'<details class="pdp-acc"{" open" if open_ else ""}><summary>{title}</summary><div class="pdp-acc__body">{inner}</div></details>'
 
 
-def build_product(it):
-    slug, name = it["type_slug"], it["name"]
-    tname = it["type"]
+def pdp_body(it, *, eyebrow, codeline, crumb_parts, tag, related_html):
+    """The product detail page body, shared by the Antonio Uomo pages and the King suits."""
+    name = it["name"]
     paras = it["paras"]
     lede = paras[0] if paras else ""
     more = "".join(f"<p>{esc(p)}</p>" for p in paras[1:])
@@ -255,34 +256,22 @@ def build_product(it):
     details = (f"<ul class=\"pdp-list\">{bullets}</ul>" if bullets else "") + more
     sizes = chips("size", "Size", it["sizes"], None) if it["sizes"] else ""
     length = chips("length", "Length", it["lengths"], "Regular" if "Regular" in it["lengths"] else None) if it["lengths"] else ""
-    chart_id = it.get("chart", "")                       # the size chart the supplier's own page pops up for this product
+    chart_id = it.get("chart", "")                       # the size chart that goes with this product (the supplier's own, for Antonio pieces)
     has_chart = chart_id in au_sizes.CHARTS
     if chart_id and not has_chart:
         print("WARNING: no size chart data for", chart_id, "(", it["code"], ")")
     chart_btn = ('<button type="button" class="pdp-chart-btn" data-open-chart aria-haspopup="dialog"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 15 15 3l6 6L9 21z"/><path d="M7 11l2 2M10 8l2 2M13 5l2 2M5 13l1 1"/></svg>Size chart</button>' if has_chart else "")
     chart_dialog = (f'<dialog class="shop-dialog au-chart" id="sizeChart" aria-labelledby="auChartTitle"><button type="button" class="shop-dialog__x" aria-label="Close size chart">×</button>'
                     f'<div class="au-chart__body">{au_sizes.chart_html(chart_id)}</div></dialog>' if has_chart else "")
-    related = [i for i in sorted_items(TYPES[slug]) if i is not it][:4]
-    rel_html = ""
-    if related:
-        rel_html = f'''<section class="section pdp-related">
+    return f'''<main class="pdp" id="pdp" data-id="{it.get("id", "antonio-uomo/" + it["slug"])}" data-name="{esc(name)}" data-tag="{esc(tag)}" data-price="{money(it["price"])[1:]}" data-img="{img_url(it["images"][0], "-c")}">
   <div class="container">
-    <div class="section-head"><span class="eyebrow">More colors</span><h2>{esc(tname)}</h2></div>
-    <div class="product-grid">
-{chr(10).join(card(r) for r in related)}
-    </div>
-    <p style="text-align:center;margin-top:28px"><a class="btn dark-ghost" href="{tfile(slug)}">See all {len(TYPES[slug])} colors</a></p>
-  </div>
-</section>'''
-    body = f'''<main class="pdp" id="pdp" data-id="antonio-uomo/{it["slug"]}" data-name="{esc(name)}" data-tag="{esc(BRAND)} &middot; {esc(it["style"])}" data-price="{money(it["price"])[1:]}" data-img="{img(it["images"][0]["key"], "-c")}">
-  <div class="container">
-    {crumbs(*BASE_CRUMBS, (tname, tfile(slug)), (name, pfile(it))).replace('class="crumbs"', 'class="crumbs crumbs--light"')}
+    {crumbs(*crumb_parts).replace('class="crumbs"', 'class="crumbs crumbs--light"')}
     <div class="pdp__grid">
       {gallery(it)}
       <div class="pdp-info">
-        <span class="eyebrow">{BRAND} &middot; Men</span>
+        <span class="eyebrow">{eyebrow}</span>
         <h1>{esc(name)}</h1>
-        <p class="pdp-code">Style {esc(it["code"])} &middot; {esc(tname)}</p>
+        <p class="pdp-code">{codeline}</p>
         <p class="pdp-price">{money(it["price"])}</p>
         <p class="pdp-lede">{esc(lede)}</p>
         {sizes}
@@ -302,10 +291,58 @@ def build_product(it):
   {chart_dialog}
 </main>
 
-{rel_html}'''
-    write(pfile(it), shell(f"{name} ({it['code']}) — {BRAND} | Checkmatela",
-                           f"{name} by {BRAND}, style {it['code']}, {money(it['price'])}. " + (it["bullets"][0] + ". " if it["bullets"] else "") + "Sizes, details and size chart at Checkmatela.",
-                           body, extra_js='<script src="js/product.js?v=3"></script>'))
+{related_html}'''
+
+
+def build_product(it):
+    slug, tname = it["type_slug"], it["type"]
+    related = [i for i in sorted_items(TYPES[slug]) if i is not it][:4]
+    rel_html = ""
+    if related:
+        rel_html = f'''<section class="section pdp-related">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">More colors</span><h2>{esc(tname)}</h2></div>
+    <div class="product-grid">
+{chr(10).join(card(r) for r in related)}
+    </div>
+    <p style="text-align:center;margin-top:28px"><a class="btn dark-ghost" href="{tfile(slug)}">See all {len(TYPES[slug])} colors</a></p>
+  </div>
+</section>'''
+    body = pdp_body(it, eyebrow=f"{BRAND} &middot; Men", codeline=f"Style {esc(it['code'])} &middot; {esc(tname)}", tag=f"{BRAND} · {it['style']}",
+                    crumb_parts=[*BASE_CRUMBS, (tname, tfile(slug)), (it["name"], pfile(it))], related_html=rel_html)
+    write(pfile(it), shell(f"{it['name']} ({it['code']}) — {BRAND} | Checkmatela",
+                           f"{it['name']} by {BRAND}, style {it['code']}, {money(it['price'])}. " + (it["bullets"][0] + ". " if it["bullets"] else "") + "Sizes, details and size chart at Checkmatela.",
+                           body, extra_js='<script src="js/product.js?v=5"></script>'))
+
+
+def king_items():
+    """The King catalog (tools/catalog/king.json) in the same shape as the Antonio items, with the shared suit information."""
+    cat = json.load(open(os.path.join(ROOT, "tools", "catalog", "king.json"), encoding="utf-8"))["products"]
+    return [dict(slug=p["slug"], id=f"king/{p['slug']}", file=f"king-{p['slug']}.html", name=p["name"], colour=p["name"], code=p["notation"], style=p["tag"],
+                 type="Men's suits & tuxedos", family=p["color"], price=p["price"], pieces=suit_info.KING_PIECES.get(p["style"], 2),
+                 paras=[suit_info.LEDE], bullets=suit_info.BULLETS, sizes=suit_info.SIZES, lengths=suit_info.LENGTHS, chart=suit_info.CHART_ID,
+                 images=[dict(path=f"assets/img/products/{p['slug']}.jpg", w=900, h=1350)]) for p in cat]
+
+
+def build_king_products():
+    items = king_items()
+    for it in items:
+        others = [o for o in items if o is not it][:4]
+        rel = f'''<section class="section pdp-related">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">More from King</span><h2>Suits &amp; tuxedos</h2></div>
+    <div class="product-grid">
+{chr(10).join(card(r) for r in others)}
+    </div>
+    <p style="text-align:center;margin-top:28px"><a class="btn dark-ghost" href="king.html">See all of King</a></p>
+  </div>
+</section>'''
+        body = pdp_body(it, eyebrow="King &middot; Men", codeline=f"{esc(it['style'])} &middot; {esc(it['code'])}", tag=it["style"],
+                        crumb_parts=[("Home", "index.html"), ("Men", "king.html"), (it["name"], pfile(it))], related_html=rel)
+        write(pfile(it), shell(f"{it['name']} — {it['style']} | Checkmatela",
+                               f"{it['name']}, {it['style']}, {money(it['price'])}. " + suit_info.BULLETS[0] + ". Sizes, details and size chart at Checkmatela.", body,
+                               extra_js='<script src="js/product.js?v=5"></script>'))
+    print("king product pages:", len(items))
 
 
 def build_king_banner():
@@ -332,6 +369,7 @@ def main():
         build_type(s)
     for it in ITEMS:
         build_product(it)
+    build_king_products()
     build_king_banner()
     print("antonio-uomo:", len(ORDERED), "type pages,", len(ITEMS), "product pages")
     import gen_nav

@@ -42,7 +42,8 @@
     const attrs = facets.map(f => [f.label, (card.dataset["f" + f.key[0].toUpperCase() + f.key.slice(1)] || "").split("|").filter(Boolean).join(", ")]).filter(a => a[1]);
     const kind = root.dataset.kind;
     const optionDefs = JSON.parse(root.dataset.options || "[]");
-    const sizeNote = kind === "pawn" ? "Illustrative sizes 2T–16" : "Illustrative jacket sizes 36–48";
+    const sizeNote = root.dataset.sizeNote || (kind === "pawn" ? "Illustrative sizes 2T–16" : "Illustrative jacket sizes 36–48");
+    const page = card.dataset.page, details = (card.dataset.details || "").split("|").filter(Boolean);
     const mail = `mailto:suit.shop.dtla@gmail.com?subject=${encodeURIComponent("Review: " + name)}&body=${encodeURIComponent("Product: " + name + " (" + tag + ")\nRating (1-5):\nTitle:\nYour review:\n" + rfacets.map(f => f[1] + ":\n").join(""))}`;
 
     qv.innerHTML = `
@@ -59,10 +60,11 @@
           <p class="qv__rating"></p>
           <dl class="qv__attrs">${attrs.map(a => `<div><dt>${esc(a[0])}</dt><dd>${esc(a[1])}</dd></div>`).join("")}</dl>
           <div class="qv__opts">${optionDefs.map(o => `<fieldset class="qv-opt" data-key="${o.key}"><legend>${esc(o.label)}${o.required ? "" : ""}</legend><div class="qv-opt__chips">${o.values.map(v => `<button type="button" class="chip-btn" data-v="${esc(v)}" aria-pressed="${v === o.default}">${esc(v)}</button>`).join("")}</div></fieldset>`).join("")}</div>
-          <p class="qv__size">${sizeNote} · <a class="link" href="size-guide.html">Check measurements</a></p>
+          <p class="qv__size">${sizeNote} · ${page ? `<a class="link" href="${page}#size-chart">Size chart</a>` : `<a class="link" href="size-guide.html">Check measurements</a>`}</p>
+          ${details.length ? `<ul class="qv__details">${details.map(d => `<li>${esc(d)}</li>`).join("")}</ul>` : ""}
           <p class="qv__size">Preview only: prices and availability are not confirmed. <a class="link" href="book-a-fitting.html?look=${encodeURIComponent(name)}">Ask about this look</a>.</p>
           <p class="qv__msg" role="status"></p>
-          <div class="qv__cta"><button type="button" class="btn qv-add">Add to preview bag</button><a class="btn dark-ghost" href="book-a-fitting.html?look=${encodeURIComponent(name)}">Ask about fit</a></div>
+          <div class="qv__cta"><button type="button" class="btn qv-add">Add to preview bag</button><a class="btn dark-ghost" href="book-a-fitting.html?look=${encodeURIComponent(name)}">Ask about fit</a>${page ? `<a class="btn dark-ghost" href="${page}">Full details</a>` : ""}</div>
         </div>
         <section class="reviews" aria-labelledby="rv-h"><h3 id="rv-h">Reviews</h3><div class="reviews__body"></div></section>
       </div>`;

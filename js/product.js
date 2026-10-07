@@ -23,6 +23,7 @@
     opener.addEventListener("click", () => dlg.showModal());
     $(".shop-dialog__x", dlg).addEventListener("click", () => dlg.close());
     dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+    if (location.hash === "#size-chart") dlg.showModal();            // linked from the King Quick View
   }
 
   const msg = $(".pdp-msg");

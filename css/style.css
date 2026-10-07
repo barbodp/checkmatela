@@ -1788,3 +1788,4 @@ body.nav-open .site-header{ z-index:95; }
   .au-size--tall tbody th[scope="row"]{ padding-left:6px; min-width:48px; }
   .au-size--tall thead th{ font-size:.68rem; letter-spacing:0; }
 }
+.qv__details{ list-style:disc; padding-left:1.2em; margin:6px 0 4px; font-size:.98rem; color:#33372f; } .qv__details li + li{ margin-top:2px; }

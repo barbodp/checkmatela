@@ -97,7 +97,7 @@
     if (IDX) return cb();
     idxWaiters.push(cb);
     if (withIndex.loading) return; withIndex.loading = true;
-    const s = document.createElement("script"); s.src = "js/search-index.js?v=21d2928a";
+    const s = document.createElement("script"); s.src = "js/search-index.js?v=933b6c0f";
     s.onload = () => { IDX = window.CHECKMATELA_INDEX; prep(); idxWaiters.splice(0).forEach(f => f()); };
     document.head.appendChild(s);
   }

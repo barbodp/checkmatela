@@ -3,6 +3,7 @@
 Run:  python3 tools/gen_king_page.py     (then tools/gen_home_showcase.py so the homepage carousel matches)
 """
 import os, json, html
+import suit_info
 from shoplib import shop_block, replace_between, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +21,7 @@ REVIEW_FACETS = [["height", "Height"], ["build", "Build"], ["size", "Size bought
 def card(p):
     occ = "|".join(p["occasion"]) if isinstance(p["occasion"], list) else p["occasion"]
     img = f"assets/img/products/{p['slug']}.jpg"
-    return f'''            <div class="product-card" data-id="king/{p["slug"]}" data-name="{esc(p["name"])}" data-tag="{esc(p["tag"])}" data-price="{p["price"]}" data-img="{img}" data-f-color="{esc(p["color"])}" data-f-style="{esc(p["style"])}" data-f-pattern="{esc(p["pattern"])}" data-f-occasion="{esc(occ)}">
+    return f'''            <div class="product-card" data-id="king/{p["slug"]}" data-name="{esc(p["name"])}" data-tag="{esc(p["tag"])}" data-price="{p["price"]}" data-img="{img}" data-page="king-{p["slug"]}.html" data-details="{esc("|".join(suit_info.BULLETS))}" data-f-color="{esc(p["color"])}" data-f-style="{esc(p["style"])}" data-f-pattern="{esc(p["pattern"])}" data-f-occasion="{esc(occ)}">
               <div class="product-card__frame">
                 <img src="{img}" alt="{esc(p["alt"])}" loading="lazy">
                 <span class="product-card__notation">{esc(p["notation"])}</span>
@@ -33,15 +34,17 @@ def card(p):
 
 def main():
     cat = json.load(open(os.path.join(ROOT, "tools", "catalog", "king.json"), encoding="utf-8"))["products"]
-    OPTIONS = [{"key": "size", "label": "Jacket size", "values": ["36", "38", "40", "42", "44", "46", "48"], "required": True}, {"key": "length", "label": "Length", "values": ["Short", "Regular", "Long"], "default": "Regular"}]
-    block = shop_block("\n".join(card(p) for p in cat), FACETS, "king", count_noun="openings", review_facets=REVIEW_FACETS, extra_attrs=" data-options='" + json.dumps(OPTIONS) + "'")
+    OPTIONS = [{"key": "size", "label": "Jacket size", "values": suit_info.SIZES, "required": True}, {"key": "length", "label": "Length", "values": suit_info.LENGTHS, "default": "Regular"}]
+    block = shop_block("\n".join(card(p) for p in cat), FACETS, "king", count_noun="openings", review_facets=REVIEW_FACETS, extra_attrs=" data-size-note=\"Jacket sizes 34–56, in Short, Regular and Long\" data-options='" + json.dumps(OPTIONS) + "'")
     path = os.path.join(ROOT, "king.html")
     src = open(path, encoding="utf-8").read()
     out = replace_between(src, "<!-- SHOP:START -->", "<!-- SHOP:END -->", block)
-    if "js/shop.js?v=3" not in out:
-        out = out.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/cart.js?v=3"></script>\n<script src="js/shop.js?v=3"></script>')
+    if "js/shop.js?v=4" not in out:
+        out = out.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/cart.js?v=3"></script>\n<script src="js/shop.js?v=4"></script>')
     open(path, "w", encoding="utf-8").write(out)
     print("king.html:", len(cat), "products")
+    import gen_antonio                                   # the King suits' own pages (same template as the Antonio Uomo pages)
+    gen_antonio.build_king_products()
 
 
 if __name__ == "__main__":
