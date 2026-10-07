@@ -8,7 +8,7 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "51"
+CSS_VERSION = "55"
 FAVICON = '<link rel="icon" type="image/svg+xml" href="brand/svg/favicon.svg?v=2">'
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
@@ -29,27 +29,15 @@ GLYPH_KING = '''    <symbol id="glyph-king" viewBox="0 0 100 130">
     </symbol>'''
 
 HEADER = '''<header class="site-header" id="siteHeader">
+  <div class="hdr-left">
+    <a class="McButton" data="hamburger-menu" role="button" tabindex="0" aria-label="Open menu" aria-expanded="false" aria-controls="siteMenu"><b></b><b></b><b></b></a>
+    <span class="hdr-menu-label" aria-hidden="true">Menu</span>
+  </div>
   <a href="index.html" class="brand" aria-label="Checkmatela home"><img src="brand/svg/compact-horizontal.svg?v=2" alt="" width="235" height="45"></a>
-  <nav class="main-nav" id="mainNav">
-    <a href="king.html">King — Men</a>
-    <a href="queen.html">Queen — Women</a>
-    <div class="nav-item has-dropdown">
-      <a href="pawn.html">Pawn — Kids</a>
-      <div class="nav-dropdown">
-        <a href="pawn-slim-fit.html">Slim Fit</a>
-        <a href="pawn-suit-vest-set.html">Suit Vest Set</a>
-        <a href="pawn-tuxedo.html">Tuxedo</a>
-        <a href="pawn-tuxedo-vest-set.html">Tuxedo Vest Set</a>
-      </div>
-    </div>
-    <a href="bishop.html">Bishop — Accessories</a>
-    <a href="rook.html">Rook — Shoes</a>
-  </nav>
   <div class="header-actions">
-    <button class="icon-btn search-ic" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
-    <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></button>
-    <button class="icon-btn" aria-label="Bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 13H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></button>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <a class="hdr-cta" href="find-your-look.html">Find your look</a>
+    <button class="icon-btn search-ic" aria-label="Search" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+    <button class="icon-btn" aria-label="Bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 8h12l-1 13H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></button>
   </div>
 </header>'''
 
@@ -86,6 +74,7 @@ FOOTER = '''<footer class="site-footer">
   </div>
 </footer>
 
+<script src="js/nav.js?v=3"></script>
 <script src="js/main.js"></script>
 <script src="js/cart.js?v=4"></script>
 </body>
@@ -286,7 +275,7 @@ def build(line):
 
 {FOOTER}
 '''
-    html = html.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/shop.js"></script>')
+    html = html.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/shop.js?v=2"></script>')
     with open(os.path.join(ROOT, cfg["file"]), "w", encoding="utf-8") as f:
         f.write(html)
     print("wrote", cfg["file"], len(cfg["colors"]), "colorways")

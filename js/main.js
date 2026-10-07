@@ -10,24 +10,6 @@
   document.addEventListener('scroll', onScrollHeader, { passive: true });
   onScrollHeader();
 
-  /* ---------------- Mobile nav ---------------- */
-  const navToggle = document.getElementById('navToggle');
-  const mainNav = document.getElementById('mainNav');
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', () => {
-      const open = mainNav.classList.toggle('open');
-      navToggle.classList.toggle('open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    mainNav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        mainNav.classList.remove('open');
-        navToggle.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-  }
-
   /* ---------------- Scroll reveal ---------------- */
   const revealTargets = document.querySelectorAll('[data-reveal], [data-reveal-group]');
   if ('IntersectionObserver' in window && revealTargets.length) {

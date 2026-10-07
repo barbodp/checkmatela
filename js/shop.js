@@ -256,6 +256,16 @@
       if (e.target.closest(".product-card__quick, .card-reviews, .product-card__frame")) openQuickView(card, root);
     });
     $(".shop-sort", root).addEventListener("change", e => { state.sort = e.target.value; apply(); });
+    // deep links from the menu's "Build your look": ?color=Black,Navy&occasion=Wedding&style=Tuxedo&max=225&sort=price-asc
+    const qs = new URLSearchParams(location.search);
+    groups.forEach(g => (qs.get(g.key) || "").split(",").forEach(v => {
+      const hit = g.vals.find(x => x.toLowerCase() === v.trim().toLowerCase());
+      if (!hit) return;
+      state.sel[g.key].add(hit);
+      const inp = $$(`input[data-key="${g.key}"]`, aside).find(i => i.value === hit); if (inp) inp.checked = true;
+    }));
+    ["min", "max"].forEach(k => { const v = qs.get(k); if (v !== null && v !== "" && !isNaN(+v)) { state[k] = +v; const i = $(`input[data-price="${k}"]`, aside); if (i) i.value = v; } });
+    const so = qs.get("sort"); if (so && ["featured", "price-asc", "price-desc", "name"].includes(so)) { state.sort = so; $(".shop-sort", root).value = so; }
     apply();
   }
 
