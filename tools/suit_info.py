@@ -1,10 +1,10 @@
-"""Product information shared by every suit page: the Antonio Uomo pages (gen_antonio.py) and the King suits (king.json -> king-<slug>.html).
+"""Product information shared by every suit page (gen_antonio.py): the scraped Antonio Uomo pieces and "The Openings" from king.json.
 Copy comes from the supplier's product pages (fabric, care, design text) — the same on every suit. Edit here and re-run gen_antonio.py."""
 
 CHART_ID = "SIZE-CHART-MAY-3"                       # key into au_sizes.CHARTS: the pop-up size chart
 SIZES = [str(n) for n in range(34, 58, 2)]          # jacket sizes 34-56
 LENGTHS = ["Short", "Regular", "Long"]
-LEDE = "Upgrade your wardrobe today with a Checkmatela suit. Achieve the classic, refined look you've been seeking."
+LEDE = "Upgrade your wardrobe today with an Antonio Uomo Suit. Achieve the classic, refined look you've been seeking."
 BULLETS = ["68% Polyester 29% Viscose, 3% Spandex", "Button closure", "Dry Clean Only", "Imported"]
 
 # the supplier's "Our Suits Mean Business" copy by number of pieces (lightly edited: it called the fabric wool, which doesn't match the fabric listed)

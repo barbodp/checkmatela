@@ -20,6 +20,8 @@ def read(name):
 
 def cards(page, kind):
     out = []
+    if "data-aggregate" in read(page):               # king.html lists every Antonio Uomo piece again; they are indexed from gen_antonio instead
+        return out
     for m in re.finditer(r'<div class="(?:product-card|gallery-card)"([^>]*data-id="[^"]*"[^>]*)>', read(page)):
         a = dict(re.findall(r'data-([a-z-]+)="([^"]*)"', m.group(1)))
         f = {k[2:]: unesc(v) for k, v in a.items() if k.startswith("f-")}
@@ -184,7 +186,7 @@ def main():
             total += len(au.ITEMS)
             for it in au.ITEMS:
                 products.append(dict(k=d["sub"], d=d["label"], t=it["name"], s=f"{au.BRAND} · {it['type']}", u=au.pfile(it), p=int(it["price"]),
-                                     i=au.img(it["images"][0]["key"], "-c"), f={"color": it["family"]}))
+                                     i=au.img_url(it["images"][0], "-c"), f={"color": it["family"]}))
         pages.sort(key=lambda x: (not x["landing"], x["n"] == 0))          # landing page first, then pages with products, "coming soon" pages last (stable: file order)
         nav.append(dict(key=d["key"], label=d["label"], sub=d["sub"], href=d["landing"], total=total, pages=pages))
     index = {

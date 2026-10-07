@@ -13,7 +13,7 @@
   const wide = window.matchMedia("(min-width: 1240px)");
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const HEX = { black: "#17191b", navy: "#1f2d4a", blue: "#2f5fa8", grey: "#8b8f95", cream: "#e9dcc3", burgundy: "#6d1f2f", white: "#f6f3ec", red: "#b3202e", green: "#2d5a45", neutral: "#c8b79b" };
+  const HEX = { black: "#17191b", navy: "#1f2d4a", blue: "#2f5fa8", grey: "#8b8f95", cream: "#e9dcc3", burgundy: "#6d1f2f", white: "#f6f3ec", red: "#b3202e", green: "#2d5a45", neutral: "#c8b79b", charcoal: "#3b3f45", brown: "#6b4a33", beige: "#d8c7a3", silver: "#b9bcc2", gold: "#c9a24a", teal: "#2e5560", pink: "#e6a9b8", purple: "#5d3a7a" };
   const ARROW = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   const GLASS = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>';
   const sw = (names, base) => names.map(n => [n, `${base}${encodeURIComponent(n)}`, HEX[n.toLowerCase()] || "#c9c9c9"]);
@@ -22,14 +22,14 @@
   const MEGA = {
     king: { label: "Men", sub: "King", href: "king.html",
       cols: [
-        { h: "Featured", links: [["Shop all suits & tuxedos", "king.html"], ["Tuxedos", "king.html?style=Tuxedo"], ["Groomsmen: save up to 15%", "king.html?occasion=Wedding", "Deal"], ["Business suits", "king.html?occasion=Business"], ["Under $200", "king.html?max=199"], ["Price: low to high", "king.html?sort=price-asc"]] },
+        { h: "Featured", links: [["Shop all men", "king.html"], ["Suits", "king.html?category=Suits"], ["Tuxedos", "king.html?category=Tuxedos"], ["Dress pants", "king.html?category=Pants"], ["Jackets", "king.html?category=Jackets"], ["Groomsmen: save up to 15%", "antonio-uomo-the-openings.html?occasion=Wedding", "Deal"]] },
         { h: "Antonio Uomo", pages: true, wide: true, links: [["Shop Antonio Uomo", "antonio-uomo.html"]] },
-        { h: "Color", sw: sw(["Black", "Navy", "Blue", "Grey", "Cream", "Burgundy"], "king.html?color=") },
-        { h: "Occasion", links: ["Wedding", "Black tie", "Prom", "Business", "Formal", "Summer"].map(o => [o, "king.html?occasion=" + encodeURIComponent(o)]) },
+        { h: "Color", sw: sw(["Black", "Charcoal", "Grey", "Navy", "Blue", "Burgundy", "Brown", "Beige"], "king.html?color=") },
+        { h: "Price", links: [["Under $100", "king.html?max=99"], ["$100 to $199", "king.html?min=100&max=199"], ["$200 and up", "king.html?min=200"], ["Low to high", "king.html?sort=price-asc"]] },
       ],
       tiles: [
-        { img: "assets/img/categories/men-model.webp", t: "Wedding season", p: "Suits and tuxedos for the whole party. 10% off at 3+, 15% at 6+.", a: "Shop weddings", href: "king.html?occasion=Wedding" },
-        { img: "assets/img/products/sicilian-onyx-tux.jpg", t: "Black tie, sorted", p: "Onyx, graphite and bordeaux tuxedos, ready for the night.", a: "Shop tuxedos", href: "king.html?style=Tuxedo" },
+        { img: "assets/img/categories/men-model.webp", t: "Wedding season", p: "Suits and tuxedos for the whole party. 10% off at 3+, 15% at 6+.", a: "Shop weddings", href: "antonio-uomo-the-openings.html?occasion=Wedding" },
+        { img: "assets/img/products/sicilian-onyx-tux.jpg", t: "Black tie, sorted", p: "Onyx, graphite and bordeaux tuxedos, ready for the night.", a: "Shop tuxedos", href: "antonio-uomo-the-openings.html?style=Tuxedo" },
       ],
       help: "Not sure what to wear?", helpLink: ["Find your look", "find-your-look.html"] },
     queen: { label: "Women", sub: "Queen", href: "queen.html",
@@ -97,7 +97,7 @@
     if (IDX) return cb();
     idxWaiters.push(cb);
     if (withIndex.loading) return; withIndex.loading = true;
-    const s = document.createElement("script"); s.src = "js/search-index.js?v=933b6c0f";
+    const s = document.createElement("script"); s.src = "js/search-index.js?v=e51f4b62";
     s.onload = () => { IDX = window.CHECKMATELA_INDEX; prep(); idxWaiters.splice(0).forEach(f => f()); };
     document.head.appendChild(s);
   }
