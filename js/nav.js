@@ -45,7 +45,7 @@
     pawn: { label: "Kids", sub: "Pawn", href: "pawn.html",
       cols: [
         { h: "Featured", links: [["All kids' styles", "pawn.html"], ["Compare the four cuts", "pawn.html"], ["Kids' size guide", "size-guide.html"], ["Ask about fit", "book-a-fitting.html"], ["Free exchanges", "shipping-returns.html", "Free"]] },
-        { h: "Shop by cut", links: [["Slim Fit", "pawn-slim-fit.html", "$145"], ["Suit Vest Set", "pawn-suit-vest-set.html", "$115"], ["Tuxedo", "pawn-tuxedo.html", "$159"], ["Tuxedo Vest Set", "pawn-tuxedo-vest-set.html", "$125"]] },
+        { h: "Shop by cut", pages: true, links: [["Slim Fit", "pawn-slim-fit.html", "$145"], ["Suit Vest Set", "pawn-suit-vest-set.html", "$115"], ["Tuxedo", "pawn-tuxedo.html", "$159"], ["Tuxedo Vest Set", "pawn-tuxedo-vest-set.html", "$125"]] },
         { h: "Color", kidsColors: true },
       ],
       tiles: [
@@ -97,7 +97,7 @@
     if (IDX) return cb();
     idxWaiters.push(cb);
     if (withIndex.loading) return; withIndex.loading = true;
-    const s = document.createElement("script"); s.src = "js/search-index.js?v=1";
+    const s = document.createElement("script"); s.src = "js/search-index.js?v=411697d4";
     s.onload = () => { IDX = window.CHECKMATELA_INDEX; prep(); idxWaiters.splice(0).forEach(f => f()); };
     document.head.appendChild(s);
   }
@@ -108,7 +108,7 @@
   const KIND_WORDS = { King: "men mens suit", Pawn: "kids boys suit", Bishop: "accessories", Rook: "shoes shoe" };
   function prep() {
     recs = [];
-    IDX.products.forEach(p => recs.push({ type: "product", title: p.t, sub: p.s, url: p.u, price: p.p, img: p.i, kind: p.k, f: p.f || {}, hay: norm([p.t, p.s, p.k, KIND_WORDS[p.k], Object.values(p.f || {}).join(" ").replace(/\|/g, " ")].join(" ")) }));
+    IDX.products.forEach(p => recs.push({ type: "product", title: p.t, sub: p.s, url: p.u, price: p.p, img: p.i, kind: p.k, f: p.f || {}, hay: norm([p.t, p.s, p.k, KIND_WORDS[p.k], p.d, Object.values(p.f || {}).join(" ").replace(/\|/g, " ")].join(" ")) }));
     IDX.pages.forEach(p => recs.push({ type: "page", title: p.t, sub: p.s, url: p.u, hay: norm(p.t + " " + p.s + " " + p.kw) }));
     IDX.help.forEach(p => recs.push({ type: "help", title: p.t, sub: p.s, url: p.u, hay: norm(p.t + " " + p.s + " " + p.kw) }));
     recs.forEach(r => { r.tn = norm(r.title); r.tw = r.tn.split(" "); r.hw = r.hay.split(" "); });
@@ -180,15 +180,18 @@
   /* ---------------------------------------------------------------- panel content */
   const tagHTML = t => t ? `<em class="tag${t === "Deal" ? " tag--deal" : t === "Soon" ? " tag--soon" : ""}">${esc(t)}</em>` : "";
   const swHTML = list => `<ul class="mega__sw">${list.map(([n, href, hex]) => `<li><a href="${href}"><i style="--c:${hex}"></i><span>${esc(n)}</span></a></li>`).join("")}</ul>`;
+  const navOf = key => (IDX && IDX.nav || []).find(d => d.key === key);
+  const subPages = key => { const n = navOf(key); return n ? n.pages.filter(p => !p.landing) : []; };
   function kidsColors() {
     if (!IDX) return [];
     const by = {};
     IDX.products.filter(p => p.k === "Pawn").forEach(p => { const c = p.f.color, o = (by[c] = by[c] || {}); o[p.u] = (o[p.u] || 0) + 1; });
     return Object.keys(by).sort().map(c => [c, `${Object.entries(by[c]).sort((a, b) => b[1] - a[1])[0][0]}?color=${encodeURIComponent(c)}`, HEX[c.toLowerCase()] || "#c9c9c9"]);
   }
-  function colHTML(c) {
+  function colHTML(c, key) {
     let inner;
-    if (c.sw) inner = swHTML(c.sw);
+    if (c.pages) { const sp = subPages(key), list = sp.length ? sp.map(p => [p.t, p.u, "$" + p.p]) : c.links; inner = `<ul class="mega__list">${list.map(([l, u, t]) => `<li><a href="${u}"><span>${esc(l)}</span>${tagHTML(t)}</a></li>`).join("")}</ul>`; }
+    else if (c.sw) inner = swHTML(c.sw);
     else if (c.kidsColors) inner = kidsColors().length ? swHTML(kidsColors()) : `<p class="mega__wait">Loading colours…</p>`;
     else if (c.pick) {
       const items = IDX ? IDX.products.filter(p => p.k === c.pick[0] && c.pick[1].test(p.s)) : [];
@@ -199,9 +202,14 @@
   const tileHTML = t => t.note
     ? `<a class="mega__tile mega__tile--note" href="${t.href}"><span class="mega__note"><b>${esc(t.t)}</b><span>${esc(t.p)}</span></span><u>${esc(t.a)}</u></a>`
     : `<a class="mega__tile" href="${t.href}"><span class="mega__img"><img src="${t.img}" alt="" loading="lazy"></span><b>${esc(t.t)}</b><span>${esc(t.p)}</span><u>${esc(t.a)}</u></a>`;
+  function dynDept(key) {   // a department with no hand-written panel yet: build one from the generated nav data
+    const n = navOf(key) || { label: key, sub: key, href: key + ".html", pages: [] };
+    return { label: n.label, sub: n.sub, href: n.href, tiles: [], help: "Questions?", helpLink: ["Ask about fit", "book-a-fitting.html"],
+      cols: [{ h: "Shop", links: [["Shop all " + n.label.toLowerCase(), n.href], ...n.pages.filter(p => !p.landing).map(p => [p.t, p.u, p.p ? "$" + p.p : ""])] }] };
+  }
   const megaHTML = key => {
-    const d = MEGA[key];
-    return `<div class="mega__in"><div class="mega__cols" style="--n:${d.cols.length}">${d.cols.map(colHTML).join("")}</div><div class="mega__tiles">${d.tiles.map(tileHTML).join("")}</div></div>
+    const d = MEGA[key] || dynDept(key);
+    return `<div class="mega__in"><div class="mega__cols" style="--n:${d.cols.length}">${d.cols.map(c => colHTML(c, key)).join("")}</div><div class="mega__tiles">${d.tiles.map(tileHTML).join("")}</div></div>
       <div class="mega__help">${key === "discover" ? "" : `<b class="mega__brand">${esc(d.sub)} — ${esc(d.label)}</b>`}<span>${esc(d.help)}</span><a href="${d.helpLink[1]}">${esc(d.helpLink[0])}</a><a class="mega__all" href="${d.href}">Shop all ${esc(d.label.toLowerCase())} ${ARROW}</a></div>`;
   };
 
@@ -222,7 +230,7 @@
     navLinks.forEach(a => { const on = a.dataset.mega === key; a.classList.toggle("is-hover", on); a.setAttribute("aria-expanded", on); });
     if (first) { void mega.offsetWidth; mega.classList.add("is-open"); megaScrim.classList.add("is-on"); }
     if (!reduce) { const el = mega.firstElementChild; el.classList.remove("mega__in--swap"); void el.offsetWidth; el.classList.add("mega__in--swap"); }
-    withIndex(() => { if (megaKey === key && MEGA[key].cols.some(c => c.pick || c.kidsColors)) { const sc = mega.scrollTop; mega.innerHTML = megaHTML(key); mega.scrollTop = sc; } });
+    withIndex(() => { if (megaKey === key && (MEGA[key] || dynDept(key)).cols.some(c => c.pick || c.kidsColors || c.pages)) { const sc = mega.scrollTop; mega.innerHTML = megaHTML(key); mega.scrollTop = sc; } });
   }
   function closeMega(now) {
     clearTimeout(megaTimer);
@@ -255,9 +263,24 @@
     : c.pick ? `<h4>${esc(c.h)}</h4><ul class="mega__list">${(IDX ? IDX.products.filter(p => p.k === c.pick[0] && c.pick[1].test(p.s)) : []).map(p => `<li><a href="${p.u}"><span>${esc(p.t)} <i>${esc(p.s)}</i></span><em>${money(p.p)}</em></a></li>`).join("") || `<li><a href="${c.fallback[1]}">${c.fallback[0]}</a></li>`}</ul>`
     : `<h4>${esc(c.h)}</h4><ul class="mega__list">${c.links.map(([l, u, t]) => `<li><a href="${u}"><span>${esc(l)}</span>${tagHTML(t)}</a></li>`).join("")}</ul>`;
   const PLUS = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+  /* Inside a category: 1) shop all (counts every product page of the department), 2) its product pages (auto-discovered), 3) browse-by links, 4) highlights */
+  function accPanel(k) {
+    const m = MEGA[k], n = navOf(k), label = (n && n.label) || (m && m.label) || k, href = (n && n.href) || (m && m.href) || k + ".html";
+    let h = `<a class="acc-all" href="${href}"><span>Shop all ${esc(label.toLowerCase())}</span><em>${n ? (n.total ? n.total + " items" : "Coming soon") : ""}</em>${ARROW}</a>`;
+    const sp = subPages(k);
+    if (sp.length) h += `<div class="acc-sec"><h4>Product pages</h4><ul class="mega__list">${sp.map(p => `<li><a href="${p.u}"><span>${esc(p.t)}</span><em>${p.n} items${p.p ? " · from " + money(p.p) : ""}</em></a></li>`).join("")}</ul></div>`;
+    const cols = m ? m.cols : [], feat = cols.find(c => /^featured$/i.test(c.h));
+    cols.filter(c => c !== feat && !c.pages).forEach(c => { const x = secHTML(c); if (x) h += `<div class="acc-sec">${x}</div>`; });
+    if (feat) h += `<div class="acc-sec">${secHTML({ ...feat, h: "Highlights" })}</div>`;
+    return h;
+  }
   function accHTML() {
-    return MOBILE_ORDER.map(k => { const d = MEGA[k]; return `<li class="acc-item" data-k="${k}"><button type="button" class="acc-row" aria-expanded="false"><span><b>${esc(d.label)}</b><i>${esc(d.sub)}</i></span>${PLUS}</button>
-      <div class="acc-panel" hidden><a class="acc-all" href="${d.href}">Shop all ${esc(d.label.toLowerCase())} ${ARROW}</a>${d.cols.map(c => `<div class="acc-sec">${secHTML(c)}</div>`).join("")}</div></li>`; }).join("");
+    const keys = [...((IDX && IDX.nav) ? IDX.nav.map(d => d.key) : ["king", "queen", "pawn", "bishop", "rook"]), "discover"];
+    return keys.map(k => {
+      const m = MEGA[k], n = navOf(k), label = (n && n.label) || (m && m.label) || k, sub = (n && n.sub) || (m && m.sub) || "";
+      const body = k === "discover" ? `<a class="acc-all" href="find-your-look.html"><span>Find your look</span>${ARROW}</a>${m.cols.map(c => `<div class="acc-sec">${secHTML(c)}</div>`).join("")}` : accPanel(k);
+      return `<li class="acc-item" data-k="${k}"><button type="button" class="acc-row" aria-expanded="false"><span><b>${esc(label)}</b><i>${esc(sub)}</i></span>${PLUS}</button><div class="acc-panel" hidden>${body}</div></li>`;
+    }).join("");
   }
   menu.innerHTML = `<div class="menu__scroll">
       <form class="menu-search" role="search" action="#" onsubmit="return false">${GLASS}<input type="search" placeholder="Search suits, sizes, returns…" aria-label="Search the site" autocomplete="off" enterkeyhint="search"></form>

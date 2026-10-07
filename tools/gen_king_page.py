@@ -46,3 +46,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    import gen_nav; gen_nav.main()   # keep the menu, search index and header links in sync with the pages just written

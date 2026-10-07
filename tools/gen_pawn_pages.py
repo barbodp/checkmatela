@@ -8,7 +8,7 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "59"
+CSS_VERSION = "60"
 FAVICON = '<link rel="icon" type="image/svg+xml" href="brand/svg/favicon.svg?v=2">'
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
@@ -82,7 +82,7 @@ FOOTER = '''<footer class="site-footer">
   </div>
 </footer>
 
-<script src="js/nav.js?v=6"></script>
+<script src="js/nav.js?v=7"></script>
 <script src="js/main.js"></script>
 <script src="js/cart.js?v=4"></script>
 </body>
@@ -330,3 +330,4 @@ if __name__ == "__main__":
     for k in ORDER:
         build(k)
     build_landing()
+    import gen_nav; gen_nav.main()   # keep the menu, search index and header links in sync with the pages just written
