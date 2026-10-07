@@ -38,8 +38,8 @@ def main():
     path = os.path.join(ROOT, "king.html")
     src = open(path, encoding="utf-8").read()
     out = replace_between(src, "<!-- SHOP:START -->", "<!-- SHOP:END -->", block)
-    if "js/shop.js?v=2" not in out:
-        out = out.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/cart.js?v=3"></script>\n<script src="js/shop.js?v=2"></script>')
+    if "js/shop.js?v=3" not in out:
+        out = out.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/cart.js?v=3"></script>\n<script src="js/shop.js?v=3"></script>')
     open(path, "w", encoding="utf-8").write(out)
     print("king.html:", len(cat), "products")
 

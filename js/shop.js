@@ -10,7 +10,7 @@
   const SWATCH = {
     black: "#1a1a1c", grey: "#8b8f95", gray: "#8b8f95", navy: "#1f2d4a", blue: "#2f5fa8", cream: "#e9dcc3", burgundy: "#6d1f2f",
     green: "#2d5a45", red: "#b3202e", white: "#f6f3ec", neutral: "#c8b79b", brown: "#6b4a33", pink: "#e6a9b8", purple: "#5d3a7a",
-    dark: "#2a2a2c", mid: "#8a8d92", light: "#dcdcd6", tan: "#b89b74", other: "#c9c9c9"
+    dark: "#2a2a2c", mid: "#8a8d92", light: "#dcdcd6", tan: "#b89b74", other: "#c9c9c9", charcoal: "#3b3f45", silver: "#b9bcc2", beige: "#d8c7a3", gold: "#c9a24a", teal: "#2e5560", indigo: "#2c3e75"
   };
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];

@@ -112,7 +112,7 @@ def stamp_breadcrumbs():
         if not name.endswith(".html"):
             continue
         t = read(name)
-        m = re.search(r'<div class="crumbs">(.*?)</div>', t, re.S)
+        m = re.search(r'<div class="crumbs[^"]*">(.*?)</div>', t, re.S)
         if not m:
             continue
         items = [(unesc(re.sub(r"<[^>]+>", "", x)).strip(), href) for href, x in re.findall(r'<a href="([^"]+)">(.*?)</a>', m.group(1))]
@@ -150,6 +150,10 @@ def stamp_header_nav():
 
 
 def main():
+    try:
+        import gen_antonio as au
+    except Exception:                                  # catalog not fetched yet (tools/au_fetch.py)
+        au = None
     products, nav = [], []
     for d in DEPTS:
         pages, total = [], 0
@@ -167,6 +171,15 @@ def main():
                 products.append(c)
             total += len(found)
             pages.append(dict(t=label, u=f, n=len(found), p=min([c["p"] for c in found], default=0), m=max([c["p"] for c in found], default=0), landing=f == d["landing"]))
+        if d["key"] == "king" and au:                       # Antonio Uomo: brand page -> product-type pages (kept out of the page discovery above)
+            types = [(s, au.TYPES[s]) for s in au.ORDERED]
+            children = [dict(t=its[0]["type"], u=au.tfile(s), n=len(its), p=au.price_range(its)[0], m=au.price_range(its)[1]) for s, its in types]
+            lo, hi = au.price_range(au.ITEMS)
+            pages.append(dict(t=au.BRAND, u=au.BRAND_FILE, n=len(au.ITEMS), p=lo, m=hi, landing=False, children=children))
+            total += len(au.ITEMS)
+            for it in au.ITEMS:
+                products.append(dict(k=d["sub"], d=d["label"], t=it["name"], s=f"{au.BRAND} · {it['type']}", u=au.pfile(it), p=int(it["price"]),
+                                     i=au.img(it["images"][0]["key"], "-c"), f={"color": it["family"]}))
         pages.sort(key=lambda x: (not x["landing"], x["n"] == 0))          # landing page first, then pages with products, "coming soon" pages last (stable: file order)
         nav.append(dict(key=d["key"], label=d["label"], sub=d["sub"], href=d["landing"], total=total, pages=pages))
     index = {
