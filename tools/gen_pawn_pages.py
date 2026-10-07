@@ -8,7 +8,7 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "55"
+CSS_VERSION = "59"
 FAVICON = '<link rel="icon" type="image/svg+xml" href="brand/svg/favicon.svg?v=2">'
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
@@ -32,6 +32,14 @@ HEADER = '''<header class="site-header" id="siteHeader">
   <div class="hdr-left">
     <a class="McButton" data="hamburger-menu" role="button" tabindex="0" aria-label="Open menu" aria-expanded="false" aria-controls="siteMenu"><b></b><b></b><b></b></a>
     <span class="hdr-menu-label" aria-hidden="true">Menu</span>
+    <nav class="main-nav" id="mainNav" aria-label="Main">
+      <a href="king.html" data-mega="king">Men</a>
+      <a href="queen.html" data-mega="queen">Women</a>
+      <a href="pawn.html" data-mega="pawn">Kids</a>
+      <a href="bishop.html" data-mega="bishop">Accessories</a>
+      <a href="rook.html" data-mega="rook">Shoes</a>
+      <a href="find-your-look.html" data-mega="discover">Discover</a>
+    </nav>
   </div>
   <a href="index.html" class="brand" aria-label="Checkmatela home"><img src="brand/svg/compact-horizontal.svg?v=2" alt="" width="235" height="45"></a>
   <div class="header-actions">
@@ -74,7 +82,7 @@ FOOTER = '''<footer class="site-footer">
   </div>
 </footer>
 
-<script src="js/nav.js?v=3"></script>
+<script src="js/nav.js?v=6"></script>
 <script src="js/main.js"></script>
 <script src="js/cart.js?v=4"></script>
 </body>

@@ -27,15 +27,25 @@ def cards(page, kind):
     return out
 
 
+def slug(s):
+    return re.sub(r"[^a-z0-9]+", "-", unesc(s).lower()).strip("-")
+
+
 def static_cards(page, kind):
+    """Bishop / Rook cards are hand-written; stamp an id on each so menu + search links can jump straight to the piece."""
+    text = read(page)
     out = []
-    for m in re.finditer(r'<a class="product-card".*?</a>', read(page), re.S):
-        b = m.group(0)
+    for m in re.finditer(r'<a class="product-card"([^>]*)>(.*?)</a>', text, re.S):
+        b = m.group(2)
         name = re.search(r"<h4>(.*?)</h4>", b).group(1)
         tag = re.search(r'class="piece-tag">(.*?)<', b).group(1)
         price = int(re.search(r'product-card__price">\$(\d+)', b).group(1))
         img = re.search(r'<img src="([^"]+)"', b).group(1)
-        out.append(dict(k=kind, t=unesc(name), s=unesc(tag), u=page, p=price, i=img, f={}))
+        out.append(dict(k=kind, t=unesc(name), s=unesc(tag), u=f"{page}#{slug(name)}", p=price, i=img, f={}))
+        if ' id="' not in m.group(1):
+            text = text.replace(m.group(0), m.group(0).replace('<a class="product-card"', f'<a class="product-card" id="{slug(name)}"', 1), 1)
+    with open(os.path.join(ROOT, page), "w", encoding="utf-8") as f:
+        f.write(text)
     return out
 
 

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=55">
+<link rel="stylesheet" href="css/style.css?v=59">
 <style>
   .acc-frame{ background: var(--paper-dim); display:flex; align-items:center; justify-content:center; padding: 30px; }
   .acc-frame img{ width:100%; max-width:240px; object-fit:contain; filter: drop-shadow(0 10px 16px rgba(15,24,20,.14)); }
@@ -59,6 +59,14 @@
   <div class="hdr-left">
     <a class="McButton" data="hamburger-menu" role="button" tabindex="0" aria-label="Open menu" aria-expanded="false" aria-controls="siteMenu"><b></b><b></b><b></b></a>
     <span class="hdr-menu-label" aria-hidden="true">Menu</span>
+    <nav class="main-nav" id="mainNav" aria-label="Main">
+      <a href="king.html" data-mega="king">Men</a>
+      <a href="queen.html" data-mega="queen">Women</a>
+      <a href="pawn.html" data-mega="pawn">Kids</a>
+      <a href="bishop.html" data-mega="bishop">Accessories</a>
+      <a href="rook.html" data-mega="rook">Shoes</a>
+      <a href="find-your-look.html" data-mega="discover">Discover</a>
+    </nav>
   </div>
   <a href="index.html" class="brand" aria-label="Checkmatela home"><img src="brand/svg/compact-horizontal.svg?v=2" alt="" width="235" height="45"></a>
   <div class="header-actions">
@@ -105,32 +113,32 @@
     <p class="shop-status"><strong>Collection preview.</strong> Prices and materials are illustrative; ordering is not connected. <a href="book-a-fitting.html">Ask about this look →</a></p>
     <div class="product-grid" data-reveal-group>
 
-      <a class="product-card" href="book-a-fitting.html">
+      <a class="product-card" id="the-back-rank" href="book-a-fitting.html">
         <div class="product-card__frame acc-frame"><img src="assets/img/diagram/shoes.png" alt="Black leather oxford shoes"><span class="product-card__notation">Oxford</span></div>
         <div class="product-card__meta"><div><h4>The Back Rank</h4><span class="piece-tag">Black Calfskin Oxford</span><div class="swatches"><span class="swatch" style="background:#0c0c0d"></span></div></div><span class="product-card__price">$310</span></div>
       </a>
 
-      <a class="product-card" href="book-a-fitting.html">
+      <a class="product-card" id="the-smothered-mate" href="book-a-fitting.html">
         <div class="product-card__frame acc-frame"><img src="assets/img/diagram/shoes.png" alt="Black leather oxford shoes"><span class="product-card__notation">Derby</span></div>
         <div class="product-card__meta"><div><h4>The Smothered Mate</h4><span class="piece-tag">Chestnut Leather Derby</span><div class="swatches"><span class="swatch" style="background:#6b3a22"></span></div></div><span class="product-card__price">$285</span></div>
       </a>
 
-      <a class="product-card" href="book-a-fitting.html">
+      <a class="product-card" id="the-opposition" href="book-a-fitting.html">
         <div class="product-card__frame acc-frame"><img src="assets/img/diagram/shoes.png" alt="Black leather oxford shoes"><span class="product-card__notation">Loafer</span></div>
         <div class="product-card__meta"><div><h4>The Opposition</h4><span class="piece-tag">Black Patent Loafer</span><div class="swatches"><span class="swatch" style="background:#0c0c0d"></span></div></div><span class="product-card__price">$265</span></div>
       </a>
 
-      <a class="product-card" href="book-a-fitting.html">
+      <a class="product-card" id="the-stalemate" href="book-a-fitting.html">
         <div class="product-card__frame acc-frame"><img src="assets/img/diagram/shoes.png" alt="Black leather oxford shoes"><span class="product-card__notation">Chelsea</span></div>
         <div class="product-card__meta"><div><h4>The Stalemate</h4><span class="piece-tag">Black Suede Chelsea Boot</span><div class="swatches"><span class="swatch" style="background:#1a1a1a"></span></div></div><span class="product-card__price">$340</span></div>
       </a>
 
-      <a class="product-card" href="book-a-fitting.html">
+      <a class="product-card" id="the-tempo" href="book-a-fitting.html">
         <div class="product-card__frame acc-frame"><img src="assets/img/diagram/shoes.png" alt="Black leather oxford shoes"><span class="product-card__notation">Monk Strap</span></div>
         <div class="product-card__meta"><div><h4>The Tempo</h4><span class="piece-tag">Burgundy Monk Strap</span><div class="swatches"><span class="swatch" style="background:#5c1f2a"></span></div></div><span class="product-card__price">$295</span></div>
       </a>
 
-      <a class="product-card" href="book-a-fitting.html">
+      <a class="product-card" id="the-sacrifice" href="book-a-fitting.html">
         <div class="product-card__frame acc-frame"><img src="assets/img/diagram/shoes.png" alt="Black leather oxford shoes"><span class="product-card__notation">Slipper</span></div>
         <div class="product-card__meta"><div><h4>The Sacrifice</h4><span class="piece-tag">Velvet Tuxedo Slipper</span><div class="swatches"><span class="swatch" style="background:#0c0c0d"></span></div></div><span class="product-card__price">$220</span></div>
       </a>
@@ -173,7 +181,7 @@
   </div>
 </footer>
 
-<script src="js/nav.js?v=3"></script>
+<script src="js/nav.js?v=6"></script>
 <script src="js/main.js"></script>
 <script src="js/category-hero-video.js?v=4"></script>
 <script src="js/cart.js?v=4"></script>
