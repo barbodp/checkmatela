@@ -161,7 +161,7 @@ def main():
         pages, total = [], 0
         for f in dept_files(d):
             text = read(f)
-            if 'class="cat-hero' not in text:
+            if 'class="cat-hero' not in text and 'class="page-head"' not in text:        # a category / subcategory listing page (not a product detail page)
                 continue
             found = cards(f, d["sub"]) or static_cards(f, d["sub"])
             for c in found:                                 # a product with its own page (king-<slug>.html) links straight to it

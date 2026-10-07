@@ -38,6 +38,7 @@ BLURB = {
     "pants": "Stretch dress pants with a flat front and a slim, straight leg.",
 }
 FAMILY_ORDER = ["Black", "Charcoal", "Grey", "Silver", "Navy", "Blue", "Teal", "Green", "Burgundy", "Red", "Pink", "Purple", "Brown", "Beige", "Gold", "White", "Other"]
+FACETS = [{"key": "color", "label": "Colour", "swatch": True}, {"key": "style", "label": "Style"}, {"key": "pattern", "label": "Pattern"}, {"key": "occasion", "label": "Occasion"}]
 CRUMB = '<div class="crumbs">{}</div>'
 
 
@@ -85,11 +86,48 @@ def opening_items():
         ty = suit_info.category_for(style)
         out.append(dict(slug=p["slug"], id=f"king/{p['slug']}", file=f"antonio-uomo-{p['slug']}.html", name=f"{colour} {style}", colour=colour, code=p["name"], notation=p["notation"],
                         code_label="Opening", style=style, type=ty, type_slug=re.sub(r"[^a-z0-9]+", "-", ty.lower()).strip("-"), family={"Cream": "Beige"}.get(p["color"], p["color"]),
+                        facets=dict(style=p["style"], pattern=p["pattern"], occasion="|".join(p["occasion"]) if isinstance(p["occasion"], list) else p["occasion"]),
                         price=p["price"], pieces=int(style[0]), paras=[suit_info.LEDE], bullets=suit_info.BULLETS, sizes=suit_info.SIZES, lengths=suit_info.LENGTHS, chart=suit_info.CHART_ID,
                         images=[dict(path=f"assets/img/products/{p['slug']}.jpg", w=900, h=1350)]))
     return out
 
 
+# --- filters: Style / Pattern / Occasion for every piece. The ten pieces from king.json carry their own; the scraped pieces get them from their category and
+# colour (first-pass guesses, like the original King attributes — refine freely: STYLE_OF / pattern_of / occasions_of below).
+STYLE_OF = {"2 Piece Slim Fit Suits": "Two-piece", "3 Piece Slim Fit Suits": "Three-piece", "3 Piece Classic Fit Suits": "Three-piece", "Plaid Suits": "Three-piece",
+            "Textured Suits": "Three-piece", "2 Piece Tuxedo": "Tuxedo", "3 Piece Tuxedo": "Tuxedo", "Jackets": "Jacket", "Pants": "Pants"}
+CLASSIC_COLOURS = {"Black", "Navy", "Charcoal", "Grey", "White", "Burgundy", "Silver"}
+
+
+def pattern_of(it):
+    ty = it["type"]
+    if ty == "Plaid Suits":
+        return "Plaid"
+    if ty == "Textured Suits":
+        return "Textured"
+    if ty == "Jackets":
+        return "Patterned"
+    return "Shiny" if "shiny" in it["colour"].lower() else "Solid"
+
+
+def occasions_of(it):
+    ty, fam, col = it["type"], it["family"], it["colour"].lower()
+    shiny = "shiny" in col
+    light = fam in ("Beige", "White") or any(w in col for w in ("light", "powder", "sky", "stone", "cream"))
+    if ty in ("2 Piece Tuxedo", "3 Piece Tuxedo"):
+        occ = ["Wedding", "Prom"]
+        return (["Black tie"] if fam in CLASSIC_COLOURS else []) + occ
+    if ty == "Textured Suits":
+        return ["Wedding", "Prom"] if shiny else ["Wedding", "Prom", "Formal"] + ([] if light else ["Business"])
+    if ty == "Jackets":
+        return ["Prom", "Formal"]
+    if ty == "Pants":
+        return ["Business", "Formal"]
+    return ["Business", "Wedding", "Formal"] + (["Summer"] if light else [])   # slim / classic / plaid suits
+
+
+for _a in AU_ITEMS:
+    _a["facets"] = dict(style=STYLE_OF[_a["type"]], pattern=pattern_of(_a), occasion="|".join(occasions_of(_a)))
 ITEMS = opening_items() + AU_ITEMS
 TYPES = {}
 for _it in ITEMS:
@@ -205,8 +243,8 @@ def build_brand():
     """Shop All: every Antonio Uomo piece in one grid (no hero: that is for main categories)."""
     total = len(ITEMS)
     lo, hi = price_range(ITEMS)
-    facets = [{"key": "type", "label": "Category"}, {"key": "color", "label": "Colour", "swatch": True}]
-    cards = "\n".join(card(i, extra=f' data-f-type="{esc(i["type"])}"') for i in sorted(ITEMS, key=sort_key))
+    facets = FACETS
+    cards = "\n".join(card(i) for i in sorted(ITEMS, key=sort_key))
     shop_html = shop_block(cards, facets, "au", count_noun="pieces", review_facets=[])
     head = page_head(crumbs(*BASE_CRUMBS), esc(BRAND), f"Suits, tuxedos, jackets and pants: {total} pieces from {money(lo)}.")
     body = f"{head}\n{cats_nav('all')}\n{shop_html}"
@@ -219,7 +257,7 @@ def build_type(slug):
     name = its[0]["type"]
     lo, hi = price_range(its)
     lead = f"{len(its)} piece{'s' if len(its) != 1 else ''}, {'from ' + money(lo) if lo != hi else money(lo)}. {BLURB.get(slug, '')}"
-    facets = [{"key": "color", "label": "Colour", "swatch": True}]
+    facets = FACETS
     cards = "\n".join(card(i) for i in its)
     shop_html = shop_block(cards, facets, "au", count_noun="pieces", review_facets=[])
     head = page_head(crumbs(*BASE_CRUMBS, (name, tfile(slug))), esc(name), esc(lead))
@@ -332,9 +370,9 @@ def category_of(it):
 
 
 def build_king_page():
-    """king.html = Shop all men: every Antonio Uomo piece in one grid, filtered by category, product type, colour and price."""
-    facets = [{"key": "category", "label": "Category"}, {"key": "type", "label": "Product type"}, {"key": "color", "label": "Colour", "swatch": True}]
-    cards = "\n".join(card(i, extra=f' data-f-category="{category_of(i)}" data-f-type="{esc(i["type"])}"') for i in sorted(ITEMS, key=sort_key))
+    """king.html = Shop all men: every Antonio Uomo piece in one grid, filtered by colour, style, pattern, occasion and price."""
+    facets = FACETS
+    cards = "\n".join(card(i) for i in sorted(ITEMS, key=sort_key))
     block = shop_block(cards, facets, "au-all", count_noun="pieces", review_facets=[], extra_attrs=' data-aggregate="1"')
     path = os.path.join(ROOT, "king.html")
     src = open(path, encoding="utf-8").read()

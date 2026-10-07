@@ -22,14 +22,14 @@
   const MEGA = {
     king: { label: "Men", sub: "King", href: "king.html",
       cols: [
-        { h: "Featured", links: [["Shop all men", "king.html"], ["Suits", "king.html?category=Suits"], ["Tuxedos", "king.html?category=Tuxedos"], ["Dress pants", "king.html?category=Pants"], ["Jackets", "king.html?category=Jackets"], ["Groomsmen: save up to 15%", "antonio-uomo-the-openings.html?occasion=Wedding", "Deal"]] },
+        { h: "Featured", links: [["Shop all men", "king.html"], ["Two-piece suits", "king.html?style=Two-piece"], ["Three-piece suits", "king.html?style=Three-piece"], ["Tuxedos", "king.html?style=Tuxedo"], ["Dress pants", "king.html?style=Pants"], ["Jackets", "king.html?style=Jacket"], ["Groomsmen: save up to 15%", "king.html?occasion=Wedding", "Deal"]] },
         { h: "Brands", brands: true, wide: true, links: [["Antonio Uomo", "antonio-uomo.html"]] },
         { h: "Color", sw: sw(["Black", "Charcoal", "Grey", "Navy", "Blue", "Burgundy", "Brown", "Beige"], "king.html?color=") },
-        { h: "Price", links: [["Under $100", "king.html?max=99"], ["$100 to $199", "king.html?min=100&max=199"], ["$200 and up", "king.html?min=200"], ["Low to high", "king.html?sort=price-asc"]] },
+        { h: "Occasion", links: ["Wedding", "Black tie", "Prom", "Business", "Formal", "Summer"].map(o => [o, "king.html?occasion=" + encodeURIComponent(o)]) },
       ],
       tiles: [
-        { img: "assets/img/categories/men-model.webp", t: "Wedding season", p: "Suits and tuxedos for the whole party. 10% off at 3+, 15% at 6+.", a: "Shop weddings", href: "antonio-uomo-the-openings.html?occasion=Wedding" },
-        { img: "assets/img/products/sicilian-onyx-tux.jpg", t: "Black tie, sorted", p: "Onyx, graphite and bordeaux tuxedos, ready for the night.", a: "Shop tuxedos", href: "antonio-uomo-the-openings.html?style=Tuxedo" },
+        { img: "assets/img/categories/men-model.webp", t: "Wedding season", p: "Suits and tuxedos for the whole party. 10% off at 3+, 15% at 6+.", a: "Shop weddings", href: "king.html?occasion=Wedding" },
+        { img: "assets/img/products/sicilian-onyx-tux.jpg", t: "Black tie, sorted", p: "Classic black, navy and charcoal tuxedos, ready for the night.", a: "Shop black tie", href: "king.html?occasion=Black%20tie" },
       ],
       help: "Not sure what to wear?", helpLink: ["Find your look", "find-your-look.html"] },
     queen: { label: "Women", sub: "Queen", href: "queen.html",
@@ -97,7 +97,7 @@
     if (IDX) return cb();
     idxWaiters.push(cb);
     if (withIndex.loading) return; withIndex.loading = true;
-    const s = document.createElement("script"); s.src = "js/search-index.js?v=5ec59721";
+    const s = document.createElement("script"); s.src = "js/search-index.js?v=bd48dd2c";
     s.onload = () => { IDX = window.CHECKMATELA_INDEX; prep(); idxWaiters.splice(0).forEach(f => f()); };
     document.head.appendChild(s);
   }
