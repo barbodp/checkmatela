@@ -91,6 +91,15 @@ PAGES = [
     ("Sustainability — Our approach", "sustainability.html", "Company", "sustainability approach rewear care repair"),
     ("Press", "press.html", "Company", "press media logo brand assets contact journalists"),
     ("Checkout preview", "checkout.html", "Bag", "checkout bag cart pay order promo code"),
+    ("FAQ — frequently asked questions", "faq.html", "Help", "faq questions answers sizing shipping returns exchanges alterations care groomsmen discount"),
+    ("Style Guide", "blog.html", "Style guide", "style guide blog articles advice tips dress code what to wear guides"),
+    ("Lookbook", "lookbook.html", "Style guide", "lookbook looks outfits inspiration wedding prom black tie business summer kids"),
+    ("Reviews", "reviews.html", "Style guide", "reviews ratings testimonials customers feedback"),
+    ("What to wear to a wedding", "blog-what-to-wear-to-a-wedding.html", "Style guide", "wedding guest dress code black tie formal cocktail summer what to wear"),
+    ("Tuxedo or suit: how to choose", "blog-tuxedo-vs-suit.html", "Style guide", "tuxedo vs suit difference bow tie black tie prom"),
+    ("How to measure for a suit", "blog-how-to-measure-for-a-suit.html", "Style guide", "measure measurements chest waist sleeve inseam size sizing between sizes"),
+    ("A groomsmen suit guide", "blog-groomsmen-suit-guide.html", "Style guide", "groomsmen groom wedding party sizes timeline group discount"),
+    ("Dressing kids for formal events", "blog-dressing-kids-for-formal-events.html", "Style guide", "kids boys ring bearer page boy vest set fit comfort"),
 ]
 
 HELP = [
@@ -129,6 +138,29 @@ def stamp_breadcrumbs():
             f.write(t)
         n += 1
     print("breadcrumb JSON-LD stamped on", n, "pages")
+
+
+FOOT_COL = {
+    "Company": '<div class="footer-col"><h5>Company</h5><ul>\n      <li><a href="our-story.html">Our Story</a></li><li><a href="master-tailors.html">Master Tailors</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="press.html">Press</a></li><li><a href="blog.html">Style Guide</a></li><li><a href="lookbook.html">Lookbook</a></li><li><a href="reviews.html">Reviews</a></li>\n    </ul></div>',
+    "Service": '<div class="footer-col"><h5>Service</h5><ul>\n      <li><a href="find-your-look.html">Find Your Look</a></li><li><a href="book-a-fitting.html">Ask About Fit</a></li><li><a href="size-guide.html">Size Guide</a></li><li><a href="alterations.html">Alterations</a></li><li><a href="shipping-returns.html">Shipping &amp; Returns</a></li><li><a href="faq.html">FAQ</a></li>\n    </ul></div>',
+}
+
+
+def stamp_footer():
+    """Keeps the footer's Company / Service columns identical on every page, including the hand-written ones."""
+    n = 0
+    for name in sorted(os.listdir(ROOT)):
+        if not name.endswith(".html"):
+            continue
+        t = read(name)
+        out = t
+        for head, col in FOOT_COL.items():
+            out = re.sub(r'<div class="footer-col">\s*<h5>' + head + r'</h5>\s*<ul>.*?</ul>\s*</div>', lambda m: col, out, count=1, flags=re.S)
+        if out != t:
+            with open(os.path.join(ROOT, name), "w", encoding="utf-8") as f:
+                f.write(out)
+            n += 1
+    print("footer refreshed on", n, "pages")
 
 
 NAV_RE = re.compile(r'<nav class="main-nav" id="mainNav"[^>]*>.*?</nav>', re.S)
@@ -206,6 +238,7 @@ def main():
     open(navjs, "w", encoding="utf-8").write(re.sub(r"search-index\.js\?v=[A-Za-z0-9]+", f"search-index.js?v={stamp}", src))
     print("wrote js/search-index.js:", len(products), "products,", sum(len(d["pages"]) for d in nav), "department pages,", len(PAGES), "pages,", len(HELP), "help answers")
     stamp_header_nav()
+    stamp_footer()
     stamp_breadcrumbs()
 
 

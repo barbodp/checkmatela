@@ -77,16 +77,16 @@
         { note: true, t: "Trying shoes on?", p: "Wear them indoors only: unmarked soles and the original box keep returns simple.", a: "Read the return policy", href: "shipping-returns.html" },
       ],
       help: "Questions about fit?", helpLink: ["Ask about fit", "book-a-fitting.html"] },
-    discover: { label: "Discover", sub: "Help & company", href: "find-your-look.html",
+    discover: { label: "Discover", sub: "Help, inspiration & company", href: "find-your-look.html",
       cols: [
-        { h: "Help", links: [["Find your look", "find-your-look.html"], ["Ask about fit", "book-a-fitting.html"], ["Size guide", "size-guide.html"], ["Alterations", "alterations.html"], ["Shipping & returns", "shipping-returns.html"]] },
+        { h: "Help", links: [["Find your look", "find-your-look.html"], ["Ask about fit", "book-a-fitting.html"], ["Size guide", "size-guide.html"], ["Alterations", "alterations.html"], ["Shipping & returns", "shipping-returns.html"], ["FAQ", "faq.html"]] },
+        { h: "Inspiration", links: [["Style guide", "blog.html"], ["Lookbook", "lookbook.html"], ["Reviews", "reviews.html"]] },
+        { h: "Plan an event", links: [["Weddings & groomsmen", "king.html?occasion=Wedding"], ["Prom", "king.html?occasion=Prom"], ["Black tie", "king.html?occasion=Black%20tie"], ["Business", "king.html?occasion=Business"], ["Kids' formal wear", "pawn.html"]] },
         { h: "Company", links: [["Our story", "our-story.html"], ["Master tailors", "master-tailors.html"], ["Sustainability", "sustainability.html"], ["Press", "press.html"]] },
+        { h: "Contact", links: [["+1 (310) 890-6991", "tel:+13108906991"], ["suit.shop.dtla@gmail.com", "mailto:suit.shop.dtla@gmail.com"], ["Los Angeles studio", "book-a-fitting.html"]] },
       ],
-      tiles: [
-        { img: "assets/img/categories/king-men.jpg", t: "Find your look", p: "Tell us the occasion and the date. We'll point you to the right pieces.", a: "Start here", href: "find-your-look.html" },
-        { img: "assets/img/categories/men-model.webp", t: "Ask about fit", p: "Measurements, sizing or timing questions? Send us a note.", a: "Ask a question", href: "book-a-fitting.html" },
-      ],
-      help: "Prefer to talk?", helpLink: ["+1 (310) 890-6991", "tel:+13108906991"] },
+      tiles: [],
+      help: "Not sure where to begin?", helpLink: ["Find your look", "find-your-look.html"] },
   };
   const MOBILE_ORDER = ["king", "queen", "pawn", "bishop", "rook", "discover"];
 
@@ -96,7 +96,7 @@
     if (IDX) return cb();
     idxWaiters.push(cb);
     if (withIndex.loading) return; withIndex.loading = true;
-    const s = document.createElement("script"); s.src = "js/search-index.js?v=bd48dd2c";
+    const s = document.createElement("script"); s.src = "js/search-index.js?v=fa89fa22";
     s.onload = () => { IDX = window.CHECKMATELA_INDEX; prep(); idxWaiters.splice(0).forEach(f => f()); };
     document.head.appendChild(s);
   }
@@ -212,7 +212,7 @@
   }
   const megaHTML = key => {
     const d = MEGA[key] || dynDept(key);
-    return `<div class="mega__in"><div class="mega__cols" style="--n:${d.cols.length};grid-template-columns:${d.cols.map(c => c.wide ? "1.9fr" : "1fr").join(" ")}">${d.cols.map(c => colHTML(c, key)).join("")}</div><div class="mega__tiles">${d.tiles.map(tileHTML).join("")}</div></div>
+    return `<div class="mega__in${d.tiles.length ? "" : " mega__in--solo"}"><div class="mega__cols" style="--n:${d.cols.length};grid-template-columns:${d.cols.map(c => c.wide ? "1.9fr" : "1fr").join(" ")}">${d.cols.map(c => colHTML(c, key)).join("")}</div><div class="mega__tiles">${d.tiles.map(tileHTML).join("")}</div></div>
       <div class="mega__help">${key === "discover" ? "" : `<b class="mega__brand">${esc(d.sub)} — ${esc(d.label)}</b>`}<span>${esc(d.help)}</span><a href="${d.helpLink[1]}">${esc(d.helpLink[0])}</a>${key === "discover" ? "" : `<a class="mega__all" href="${d.href}">Shop all ${esc(d.label.toLowerCase())} ${ARROW}</a>`}</div>`;
   };
 

@@ -393,6 +393,8 @@ def main():
         if (f == BRAND_FILE or f.startswith("antonio-uomo-")) and f.endswith(".html") and f not in wanted:
             os.remove(os.path.join(ROOT, f))
     print("antonio-uomo:", len(ORDERED), "type pages,", len(ITEMS), "product pages")
+    import gen_discover
+    gen_discover.main()                                   # the lookbook is built from these pieces
     import gen_nav
     gen_nav.main()
 

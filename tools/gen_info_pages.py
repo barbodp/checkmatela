@@ -467,4 +467,5 @@ if __name__ == "__main__":
     for slug, p in PAGES.items():
         build(slug, p)
     build_checkout()
+    import gen_discover; gen_discover.main()   # blog, FAQ, reviews, lookbook
     import gen_nav; gen_nav.main()   # keep the menu, search index and header links in sync with the pages just written
