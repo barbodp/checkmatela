@@ -6,7 +6,7 @@ and use the same `.cat-hero` glyph hero as Queen. Copy is placeholder concept co
 then run:  python3 tools/gen_info_pages.py
 """
 import os, re
-from gen_pawn_pages import HEADER, FOOTER, ANNOUNCE, CSS_VERSION, FAVICON, page_head
+from gen_pawn_pages import HEADER, FOOTER, ANNOUNCE, CSS_VERSION, FAVICON, page_head, wedding_pills
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EMAIL = "suit.shop.dtla@gmail.com"
@@ -149,7 +149,7 @@ PAGES["book-a-fitting"] = dict(
   <label>Email<input type="email" name="Email" required autocomplete="email"></label>
   <label>Phone<input type="tel" name="Phone" autocomplete="tel"></label>
   <label>I'm looking for
-    <select name="Looking for"><option>A men's suit</option><option>A tuxedo</option><option>A kids' look</option><option>The Queen collection</option><option>Accessories or shoes</option><option>Fit or alterations advice</option><option>Something else</option></select>
+    <select name="Looking for"><option>A men's suit</option><option>A tuxedo</option><option>A kids' look</option><option>Ring bearer or flower girl outfit</option><option>The Queen collection</option><option>Accessories or shoes</option><option>Fit or alterations advice</option><option>Something else</option></select>
   </label>
   <label>Event date<input type="date" name="Event date"></label>
   <label>Occasion
@@ -235,6 +235,16 @@ PAGES["shipping-returns"] = dict(
         cta("Questions about a return or exchange?", "book-a-fitting.html", "Ask us"),
     ])
 
+PAGES["pawn-flower-girl"] = dict(
+    glyph="glyph-pawn", crumb="Flower Girl", parent=("Pawn", "pawn.html"), compact=True, pills="pawn-flower-girl.html", h1="Flower Girl",
+    lead="Dresses for the flower girl, coming soon. Tell us your wedding date and colours and we will plan around them.",
+    meta="Flower girl dresses at Checkmatela, coming soon. Ask about sizes, colours and timing for your wedding.",
+    body=[
+        section("Coming soon.", '''<div class="prose"><p>Our flower girl dresses are on their way. If you are planning a wedding, tell us the date, your colours and your flower girl's age, and we will plan sizes and timing around your day.</p></div>''', "Flower girl"),
+        cta("Planning your wedding party?", "book-a-fitting.html?look=Flower%20girl%20dress", "Ask about flower girl dresses"),
+        section("Dress the rest of the wedding party.", '''<div class="prose"><p>The <a class="link" href="pawn-ring-bearer.html">ring bearer outfits</a>, <a class="link" href="king.html?occasion=Wedding">groomsmen suits</a> (with a group discount) and <a class="link" href="bishop.html">accessories</a> are available to browse now.</p></div>''', "In the meantime", alt=True),
+    ])
+
 PAGES["find-your-look"] = dict(
     glyph="glyph-king", crumb="Fit & Timing Check", h1="Find your look. Plan the fit.",
     lead="A quick check for your occasion, measurements and event date — so you know what to confirm before choosing a look.",
@@ -266,6 +276,8 @@ def build(slug, p):
     if p.get("compact", True):                             # these pages sit under Discover (subcategories): compact header, no hero — pass compact=False for a hero
         crumb = '<div class="crumbs"><a href="index.html">Home</a> <span>/</span> ' + (f'<a href="{p["parent"][1]}">{p["parent"][0]}</a> <span>/</span> ' if p.get("parent") else "") + f'<span>{p["crumb"]}</span></div>'
         hero_html = page_head(crumb, p["h1"], p["lead"])
+        if p.get("pills"):
+            hero_html += "\n" + wedding_pills(p["pills"])
     else:
         hero_html = f'''<section class="cat-hero">
   <div class="cat-hero__bg"></div>

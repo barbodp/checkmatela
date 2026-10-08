@@ -84,6 +84,8 @@ PAGES = [
     ("Magen Kids — Kids' brand", "magen-kids.html", "Kids", "magen kids brand shop all kids boys suits tuxedos vest sets husky pants"),
     ("Husky Fit — Magen Kids", "pawn-husky.html", "Kids", "husky boys larger sizes roomier suit tuxedo dress pants kids husky fit"),
     ("Kids' dress pants — Magen Kids", "pawn-pants.html", "Kids", "kids boys dress pants trousers black navy grey white beige hunter green"),
+    ("Ring Bearer outfits", "pawn-ring-bearer.html", "Kids", "ring bearer page boy wedding kids boys outfit suit vest tuxedo wedding party"),
+    ("Flower Girl dresses", "pawn-flower-girl.html", "Kids", "flower girl dress wedding girls kids junior bridesmaid wedding party coming soon"),
     ("Find Your Look", "find-your-look.html", "Plan", "occasion quiz finder help choose recommend style event date measurements"),
     ("Ask About Fit — Book a fitting", "book-a-fitting.html", "Help", "fit fitting appointment contact enquiry email question measurements book"),
     ("Size Guide", "size-guide.html", "Help", "size sizing chart measure measurements chest waist inseam height kids size"),
@@ -203,6 +205,10 @@ def main():
             if 'class="cat-hero' not in text and 'class="page-head"' not in text:        # a category / subcategory listing page (not a product detail page)
                 continue
             found = cards(f, d["sub"]) or static_cards(f, d["sub"])
+            agg = 0
+            if not found and f != d["landing"] and "data-aggregate" in text and 'class="page-head"' in text:      # a curated page of products listed elsewhere (e.g. Ring Bearer): counted, not re-indexed
+                prices = [int(x) for x in re.findall(r'<div class="gallery-card"[^>]*data-price="(\d+)"', text)]
+                agg = len(prices)
             for c in found:                                 # a product with its own page (king-<slug>.html) links straight to it
                 if "/" in c.get("id", ""):
                     own = f"{d['prefix']}-{c['id'].split('/', 1)[1]}.html"
@@ -216,6 +222,9 @@ def main():
                     c["t"], c["s"] = f"{head} — {c['t']}", f"{d['sub']} · {d['label']}"
                 products.append(c)
             total += len(found)
+            if agg:
+                pages.append(dict(t=label, u=f, n=agg, p=min(prices), m=max(prices), landing=False))
+                continue
             pages.append(dict(t=label, u=f, n=len(found), p=min([c["p"] for c in found], default=0), m=max([c["p"] for c in found], default=0), landing=f == d["landing"]))
         if d["key"] == "king" and au:                       # Antonio Uomo: brand page -> product-type pages (kept out of the page discovery above)
             types = [(s, au.TYPES[s]) for s in au.ORDERED]
@@ -228,13 +237,14 @@ def main():
                 products.append(dict(k=d["sub"], d=d["label"], t=it["name"], s=f"{au.BRAND} · {it['type']}", u=au.pfile(it), p=int(it["price"]),
                                      i=au.img_url(it["images"][0], "-c"), f={"color": it["family"]}))
         if d["key"] == "pawn" and pw:                       # Magen Kids: brand page -> its categories (the kids pages found above become its children)
-            kids = [p for p in pages if not p["landing"]]
             order = [c["file"] for c in pw.LANDING]
+            kids = [p for p in pages if p["u"] in order]                       # the Magen Kids categories; other pawn pages (Ring Bearer, Flower Girl) stay plain pages
+            others = [p for p in pages if not p["landing"] and p["u"] not in order]
             kids.sort(key=lambda p: order.index(p["u"]) if p["u"] in order else 99)
             allp = [c for c in products if c["k"] == d["sub"] and c["u"] in order]
             lo, hi = min(c["p"] for c in allp), max(c["p"] for c in allp)
             children = [dict(t="Shop All", u=pw.BRAND_FILE, n=len(allp), p=lo, m=hi)] + kids
-            pages = [p for p in pages if p["landing"]] + [dict(t=pw.BRAND, u=pw.BRAND_FILE, n=len(allp), p=lo, m=hi, landing=False, children=children)]
+            pages = [p for p in pages if p["landing"]] + others + [dict(t=pw.BRAND, u=pw.BRAND_FILE, n=len(allp), p=lo, m=hi, landing=False, children=children)]
         pages.sort(key=lambda x: (not x["landing"], x["n"] == 0))          # landing page first, then pages with products, "coming soon" pages last (stable: file order)
         nav.append(dict(key=d["key"], label=d["label"], sub=d["sub"], href=d["landing"], total=total, pages=pages))
     index = {

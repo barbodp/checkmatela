@@ -121,6 +121,7 @@ FAQS = [
         ("How do I find my size?", f"Every Antonio Uomo piece has a size chart pop-up under the size picker with full measurements, and our {L('how-to-measure-for-a-suit.html', 'measuring guide')} shows how to take them. Choose a jacket chest 2 to 3 inches bigger than your own."),
         ("What if I am between sizes?", "Go up in the jacket and have it tailored. A jacket is harder to alter than trousers."),
         ("What are Short, Regular and Long?", "They are jacket lengths. Choose the one that matches your height; the chart on each piece shows the measurements."),
+        ("Do you have ring bearer and flower girl outfits?", f"Ring bearer outfits are here now: see the {L('pawn-ring-bearer.html', 'ring bearer page')}. Flower girl dresses are coming soon; {L('book-a-fitting.html', 'ask us')} about colours and timing for your wedding."),
         ("Do you have kids' sizes?", f"Yes, sizes 2T to 16 in the {L('pawn.html', 'Pawn collection')}, with a roomier {L('pawn-husky.html', 'husky fit')} range in larger sizes. See the {L('size-guide.html', 'size guide')} for measurements."),
     ]),
     ("Shipping", [

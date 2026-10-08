@@ -1833,3 +1833,7 @@ body.nav-open .site-header{ z-index:95; }
 .faq summary::-webkit-details-marker{ display:none; }
 .faq summary::after{ content:"+"; flex:none; font-size:1.6rem; font-weight:500; transition:transform .3s var(--ease); } .faq details[open] summary::after{ transform:rotate(45deg); }
 .faq details p{ padding:0 0 20px; max-width:66ch; font-size:1.1rem; line-height:1.5; color:#33372f; }
+
+/* ---- WEDDING PARTY (Kids: ring bearer / flower girl cards) ---- */
+.style-grid--two{ grid-template-columns:repeat(2,minmax(0,380px)); margin-bottom:clamp(32px,4vw,48px); }
+@media (max-width:460px){ .style-grid--two{ grid-template-columns:1fr; } }

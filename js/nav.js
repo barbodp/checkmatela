@@ -34,7 +34,7 @@
       help: "Not sure what to wear?", helpLink: ["Find your look", "find-your-look.html"] },
     queen: { label: "Women", sub: "Queen", href: "queen.html",
       cols: [
-        { h: "Featured", links: [["Women's collection", "queen.html", "Soon"], ["Ask about timing", "book-a-fitting.html"], ["Size guide", "size-guide.html"]] },
+        { h: "Featured", links: [["Women's collection", "queen.html", "Soon"], ["Flower girl dresses", "pawn-flower-girl.html", "Soon"], ["Ask about timing", "book-a-fitting.html"], ["Size guide", "size-guide.html"]] },
         { h: "Plan your look", links: [["Find your look", "find-your-look.html"], ["Ask about fit", "book-a-fitting.html"], ["Alterations", "alterations.html"], ["Shipping & returns", "shipping-returns.html"]] },
       ],
       tiles: [
@@ -45,6 +45,7 @@
     pawn: { label: "Kids", sub: "Pawn", href: "pawn.html",
       cols: [
         { h: "Featured", links: [["All kids' styles", "pawn.html"], ["Husky fit", "pawn-husky.html"], ["Dress pants", "pawn-pants.html"], ["Compare the cuts", "pawn.html"], ["Kids' size guide", "size-guide.html"], ["Ask about fit", "book-a-fitting.html"], ["Free exchanges", "shipping-returns.html", "Free"]] },
+        { h: "Wedding party", desk: true, links: [["Ring bearer", "pawn-ring-bearer.html"], ["Flower girl", "pawn-flower-girl.html", "Soon"], ["Groomsmen suits", "king.html?occasion=Wedding", "Deal"]] },
         { h: "Brands", brands: true, wide: true, links: [["Magen Kids", "magen-kids.html"]] },
         { h: "Color", kidsColors: true },
       ],
@@ -81,7 +82,7 @@
       cols: [
         { h: "Help", links: [["Find your look", "find-your-look.html"], ["Ask about fit", "book-a-fitting.html"], ["Size guide", "size-guide.html"], ["Alterations", "alterations.html"], ["Shipping & returns", "shipping-returns.html"], ["FAQ", "faq.html"]] },
         { h: "Inspiration", links: [["Style guide", "blog.html"], ["Lookbook", "lookbook.html"], ["Reviews", "reviews.html"]] },
-        { h: "Plan an event", links: [["Weddings & groomsmen", "king.html?occasion=Wedding"], ["Prom", "king.html?occasion=Prom"], ["Black tie", "king.html?occasion=Black%20tie"], ["Business", "king.html?occasion=Business"], ["Kids' formal wear", "pawn.html"]] },
+        { h: "Plan an event", links: [["Weddings & groomsmen", "king.html?occasion=Wedding"], ["Prom", "king.html?occasion=Prom"], ["Black tie", "king.html?occasion=Black%20tie"], ["Business", "king.html?occasion=Business"], ["Ring bearer outfits", "pawn-ring-bearer.html"], ["Flower girl dresses", "pawn-flower-girl.html", "Soon"], ["Kids' formal wear", "pawn.html"]] },
         { h: "Company", links: [["Our story", "our-story.html"], ["Master tailors", "master-tailors.html"], ["Sustainability", "sustainability.html"], ["Press", "press.html"]] },
         { h: "Contact", links: [["+1 (310) 890-6991", "tel:+13108906991"], ["suit.shop.dtla@gmail.com", "mailto:suit.shop.dtla@gmail.com"], ["Los Angeles studio", "book-a-fitting.html"]] },
       ],
@@ -96,7 +97,7 @@
     if (IDX) return cb();
     idxWaiters.push(cb);
     if (withIndex.loading) return; withIndex.loading = true;
-    const s = document.createElement("script"); s.src = "js/search-index.js?v=1d661745";
+    const s = document.createElement("script"); s.src = "js/search-index.js?v=a5187cea";
     s.onload = () => { IDX = window.CHECKMATELA_INDEX; prep(); idxWaiters.splice(0).forEach(f => f()); };
     document.head.appendChild(s);
   }
@@ -274,7 +275,7 @@
     if (brands.length) h += `<div class="acc-sec"><h4>Brands</h4>${brands.map(p => brandDD(p, false)).join("")}</div>`;
     if (plain.length) h += `<div class="acc-sec"><h4>Product pages</h4><ul class="mega__list">${plain.map(p => `<li><a href="${p.u}"><span>${esc(p.t)}</span><em>${p.n ? p.n + (p.n === 1 ? " item" : " items") + (p.p ? " · from " + money(p.p) : "") : "Coming soon"}</em></a></li>`).join("")}</ul></div>`;
     const cols = m ? m.cols : [], feat = cols.find(c => /^featured$/i.test(c.h));
-    cols.filter(c => c !== feat && !c.pages && !c.brands).forEach(c => { const x = secHTML(c); if (x) h += `<div class="acc-sec">${x}</div>`; });
+    cols.filter(c => c !== feat && !c.pages && !c.brands && !c.desk).forEach(c => { const x = secHTML(c); if (x) h += `<div class="acc-sec">${x}</div>`; });
     if (feat) h += `<div class="acc-sec">${secHTML({ ...feat, h: "Highlights" })}</div>`;
     return h;
   }
