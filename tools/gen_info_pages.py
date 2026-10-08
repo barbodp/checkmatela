@@ -272,7 +272,7 @@ PAGES["find-your-look"] = dict(
 def build(slug, p):
     g = p["glyph"]
     defs = glyph_defs(sorted({g, "glyph-king"}))
-    if p.get("compact"):                                   # subcategory pages: compact header, no hero
+    if p.get("compact", True):                             # these pages sit under Discover (subcategories): compact header, no hero — pass compact=False for a hero
         crumb = '<div class="crumbs"><a href="index.html">Home</a> <span>/</span> ' + (f'<a href="{p["parent"][1]}">{p["parent"][0]}</a> <span>/</span> ' if p.get("parent") else "") + f'<span>{p["crumb"]}</span></div>'
         hero_html = page_head(crumb, p["h1"], p["lead"])
     else:

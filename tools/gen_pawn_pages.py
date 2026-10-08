@@ -8,7 +8,7 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "72"
+CSS_VERSION = "73"
 FAVICON = '<link rel="icon" type="image/svg+xml" href="brand/svg/favicon.svg?v=2">'
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
@@ -82,7 +82,7 @@ FOOTER = '''<footer class="site-footer">
   </div>
 </footer>
 
-<script src="js/nav.js?v=17"></script>
+<script src="js/nav.js?v=19"></script>
 <script src="js/main.js"></script>
 <script src="js/cart.js?v=4"></script>
 </body>

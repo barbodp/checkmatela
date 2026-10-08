@@ -81,7 +81,6 @@
       cols: [
         { h: "Help", links: [["Find your look", "find-your-look.html"], ["Ask about fit", "book-a-fitting.html"], ["Size guide", "size-guide.html"], ["Alterations", "alterations.html"], ["Shipping & returns", "shipping-returns.html"]] },
         { h: "Company", links: [["Our story", "our-story.html"], ["Master tailors", "master-tailors.html"], ["Sustainability", "sustainability.html"], ["Press", "press.html"]] },
-        { h: "Good to know", links: [["Free exchanges", "shipping-returns.html"], ["One free alteration", "alterations.html"], ["Groomsmen deal", "king.html?occasion=Wedding"], ["14-day suit returns", "shipping-returns.html"]] },
       ],
       tiles: [
         { img: "assets/img/categories/king-men.jpg", t: "Find your look", p: "Tell us the occasion and the date. We'll point you to the right pieces.", a: "Start here", href: "find-your-look.html" },
@@ -214,7 +213,7 @@
   const megaHTML = key => {
     const d = MEGA[key] || dynDept(key);
     return `<div class="mega__in"><div class="mega__cols" style="--n:${d.cols.length};grid-template-columns:${d.cols.map(c => c.wide ? "1.9fr" : "1fr").join(" ")}">${d.cols.map(c => colHTML(c, key)).join("")}</div><div class="mega__tiles">${d.tiles.map(tileHTML).join("")}</div></div>
-      <div class="mega__help">${key === "discover" ? "" : `<b class="mega__brand">${esc(d.sub)} — ${esc(d.label)}</b>`}<span>${esc(d.help)}</span><a href="${d.helpLink[1]}">${esc(d.helpLink[0])}</a><a class="mega__all" href="${d.href}">Shop all ${esc(d.label.toLowerCase())} ${ARROW}</a></div>`;
+      <div class="mega__help">${key === "discover" ? "" : `<b class="mega__brand">${esc(d.sub)} — ${esc(d.label)}</b>`}<span>${esc(d.help)}</span><a href="${d.helpLink[1]}">${esc(d.helpLink[0])}</a>${key === "discover" ? "" : `<a class="mega__all" href="${d.href}">Shop all ${esc(d.label.toLowerCase())} ${ARROW}</a>`}</div>`;
   };
 
   /* ---------------------------------------------------------------- desktop: hover mega panel */

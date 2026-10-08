@@ -1810,3 +1810,4 @@ body.nav-open .site-header{ z-index:95; }
 .brand-dd .mega__list{ padding:0 0 8px 12px; border-left:2px solid var(--brass); margin-left:2px; }
 .acc-sec .brand-dd summary{ min-height:46px; }
 .mega__col .brand-dd summary em{ display:none; }
+.page-head + .info-section{ padding-top:clamp(28px,4vw,48px); }
