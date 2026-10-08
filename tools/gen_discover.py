@@ -79,7 +79,7 @@ POSTS = [
          sections=[
              ("Comfort comes first.", prose("A child who is comfortable behaves better and looks better. Choose soft linings and room to move, and let your child try the outfit on at home before the day."), "Comfort"),
              ("Choose the set.", prose(f"A full suit or tuxedo suits formal ceremonies. A {L('pawn-suit-vest-set.html', 'vest set')} is cooler and easier for warm weather, family photos and ring bearers. See the {L('pawn.html', 'Pawn collection')} to compare the cuts side by side."), "Sets"),
-             ("Get the fit right.", prose(f"Use the age as a starting point, then check the real measurements in our {L('size-guide.html', 'size guide')}. A little room is fine, but sleeves and trousers that are too long look sloppy and can trip a small child. Husky fits are coming soon on the {L('pawn-husky.html', 'Husky Fit')} page."), "Fit"),
+             ("Get the fit right.", prose(f"Use the age as a starting point, then check the real measurements in our {L('size-guide.html', 'size guide')}. A little room is fine, but sleeves and trousers that are too long look sloppy and can trip a small child. Boys in larger sizes can shop the {L('pawn-husky.html', 'Husky Fit')} page."), "Fit"),
              ("Match the party.", prose("Match the color to the wedding party, or pick a neutral such as navy, black or grey. Keep shoes simple and comfortable."), "Style"),
          ],
          shop=[("Kids' formal wear", "pawn.html"), ("Vest sets", "pawn-suit-vest-set.html"), ("Kids' size guide", "size-guide.html")]),
@@ -121,7 +121,7 @@ FAQS = [
         ("How do I find my size?", f"Every Antonio Uomo piece has a size chart pop-up under the size picker with full measurements, and our {L('how-to-measure-for-a-suit.html', 'measuring guide')} shows how to take them. Choose a jacket chest 2 to 3 inches bigger than your own."),
         ("What if I am between sizes?", "Go up in the jacket and have it tailored. A jacket is harder to alter than trousers."),
         ("What are Short, Regular and Long?", "They are jacket lengths. Choose the one that matches your height; the chart on each piece shows the measurements."),
-        ("Do you have kids' sizes?", f"Yes, sizes 2T to 16 in the {L('pawn.html', 'Pawn collection')}, with husky fits coming soon. See the {L('size-guide.html', 'size guide')} for measurements."),
+        ("Do you have kids' sizes?", f"Yes, sizes 2T to 16 in the {L('pawn.html', 'Pawn collection')}, with a roomier {L('pawn-husky.html', 'husky fit')} range in larger sizes. See the {L('size-guide.html', 'size guide')} for measurements."),
     ]),
     ("Shipping", [
         ("How much is shipping?", "Standard shipping is $18 and free on orders over $500. Express shipping is $35. Local pickup in Los Angeles is free. Exact delivery windows are confirmed at checkout."),

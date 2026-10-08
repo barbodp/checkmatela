@@ -249,7 +249,7 @@ def build_brand():
     head = page_head(crumbs(*BASE_CRUMBS), esc(BRAND), f"Suits, tuxedos, jackets and pants: {total} pieces from {money(lo)}.")
     body = f"{head}\n{cats_nav('all')}\n{shop_html}"
     write(BRAND_FILE, shell(f"{BRAND} — Men's Suits & Tuxedos | Checkmatela", f"Antonio Uomo men's suits, tuxedos, jackets and pants at Checkmatela: {total} pieces from {money(lo)}.", body,
-                            extra_js='<script src="js/shop.js?v=4"></script>'))
+                            extra_js='<script src="js/shop.js?v=5"></script>'))
 
 
 def build_type(slug):
@@ -263,7 +263,7 @@ def build_type(slug):
     head = page_head(crumbs(*BASE_CRUMBS, (name, tfile(slug))), esc(name), esc(lead))
     body = f"{head}\n{cats_nav(slug)}\n{shop_html}"
     write(tfile(slug), shell(f"{name} — {BRAND} | Checkmatela", f"{name} by {BRAND}: {len(its)} pieces, {'from ' + money(lo) if lo != hi else money(lo)}. Browse colors and sizes at Checkmatela.", body,
-                           extra_js='<script src="js/shop.js?v=4"></script>'))
+                           extra_js='<script src="js/shop.js?v=5"></script>'))
 
 
 def gallery(it):
@@ -377,7 +377,7 @@ def build_king_page():
     path = os.path.join(ROOT, "king.html")
     src = open(path, encoding="utf-8").read()
     src = replace_between(src, "<!-- SHOP:START -->", "<!-- SHOP:END -->", block)
-    src = src.replace("js/shop.js?v=", "js/shop.js?v=") if "js/shop.js" in src else src.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/shop.js?v=4"></script>')
+    src = src.replace("js/shop.js?v=", "js/shop.js?v=") if "js/shop.js" in src else src.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/shop.js?v=5"></script>')
     open(path, "w", encoding="utf-8").write(src)
 
 

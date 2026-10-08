@@ -44,13 +44,13 @@
       help: "Planning ahead?", helpLink: ["Ask about timing", "book-a-fitting.html"] },
     pawn: { label: "Kids", sub: "Pawn", href: "pawn.html",
       cols: [
-        { h: "Featured", links: [["All kids' styles", "pawn.html"], ["Compare the four cuts", "pawn.html"], ["Kids' size guide", "size-guide.html"], ["Ask about fit", "book-a-fitting.html"], ["Free exchanges", "shipping-returns.html", "Free"]] },
-        { h: "Shop by cut", pages: true, links: [["Slim Fit", "pawn-slim-fit.html", "$145"], ["Suit Vest Set", "pawn-suit-vest-set.html", "$115"], ["Tuxedo", "pawn-tuxedo.html", "$159"], ["Tuxedo Vest Set", "pawn-tuxedo-vest-set.html", "$125"]] },
+        { h: "Featured", links: [["All kids' styles", "pawn.html"], ["Husky fit", "pawn-husky.html"], ["Dress pants", "pawn-pants.html"], ["Compare the cuts", "pawn.html"], ["Kids' size guide", "size-guide.html"], ["Ask about fit", "book-a-fitting.html"], ["Free exchanges", "shipping-returns.html", "Free"]] },
+        { h: "Brands", brands: true, wide: true, links: [["Magen Kids", "magen-kids.html"]] },
         { h: "Color", kidsColors: true },
       ],
       tiles: [
-        { img: "assets/img/categories/kids-model.webp", t: "Little groomsmen", p: "Four cuts, sized 2T to 16, for ring bearers and page boys.", a: "Shop kids", href: "pawn.html" },
-        { img: "assets/img/pawn/slim-fit/navy/model-1.jpg", t: "Slim Fit in navy", p: "A sharp everyday suit that works for school, church and weddings.", a: "Shop Slim Fit", href: "pawn-slim-fit.html?color=Navy" },
+        { img: "assets/img/categories/kids-model.webp", t: "Little groomsmen", p: "Suits, tuxedos, vest sets and dress pants, sized 2T to 16, for ring bearers and page boys.", a: "Shop kids", href: "pawn.html" },
+        { img: "assets/img/pawn/husky-suit/navy/model-1.jpg", t: "Husky fit", p: "Suits, tuxedos and dress pants cut roomier for larger sizes.", a: "Shop husky fit", href: "pawn-husky.html" },
       ],
       help: "Need help with sizing?", helpLink: ["Kids' size guide", "size-guide.html"] },
     bishop: { label: "Accessories", sub: "Bishop", href: "bishop.html",
@@ -96,7 +96,7 @@
     if (IDX) return cb();
     idxWaiters.push(cb);
     if (withIndex.loading) return; withIndex.loading = true;
-    const s = document.createElement("script"); s.src = "js/search-index.js?v=fa89fa22";
+    const s = document.createElement("script"); s.src = "js/search-index.js?v=0309b062";
     s.onload = () => { IDX = window.CHECKMATELA_INDEX; prep(); idxWaiters.splice(0).forEach(f => f()); };
     document.head.appendChild(s);
   }
@@ -223,7 +223,7 @@
   header.appendChild(mega); header.after(megaScrim);
   let megaKey = null, megaTimer = 0;
   const here = location.pathname.split("/").pop() || "index.html";
-  navLinks.forEach(a => { const k = a.dataset.mega; if (a.getAttribute("href") === here || (k === "pawn" && /^pawn/.test(here))) a.setAttribute("aria-current", "page"); a.setAttribute("aria-haspopup", "true"); a.setAttribute("aria-expanded", "false"); a.setAttribute("aria-controls", "megaPanel"); });
+  navLinks.forEach(a => { const k = a.dataset.mega; if (a.getAttribute("href") === here || (k === "pawn" && /^(pawn|magen-kids)/.test(here))) a.setAttribute("aria-current", "page"); a.setAttribute("aria-haspopup", "true"); a.setAttribute("aria-expanded", "false"); a.setAttribute("aria-controls", "megaPanel"); });
   function openMega(key) {
     clearTimeout(megaTimer);
     if (!wide.matches || megaKey === key) return;

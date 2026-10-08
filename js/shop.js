@@ -41,8 +41,8 @@
     const reviews = (REVIEWS[id] || []).filter(r => !r.sample);
     const attrs = facets.map(f => [f.label, (card.dataset["f" + f.key[0].toUpperCase() + f.key.slice(1)] || "").split("|").filter(Boolean).join(", ")]).filter(a => a[1]);
     const kind = root.dataset.kind;
-    const optionDefs = JSON.parse(root.dataset.options || "[]");
-    const sizeNote = root.dataset.sizeNote || (kind === "pawn" ? "Illustrative sizes 2T–16" : "Illustrative jacket sizes 36–48");
+    const optionDefs = JSON.parse(card.dataset.options || root.dataset.options || "[]");   // a card can carry its own sizes (husky)
+    const sizeNote = card.dataset.sizeNote || root.dataset.sizeNote || (kind === "pawn" ? "Illustrative sizes 2T–16" : "Illustrative jacket sizes 36–48");
     const page = card.dataset.page, details = (card.dataset.details || "").split("|").filter(Boolean);
     const mail = `mailto:suit.shop.dtla@gmail.com?subject=${encodeURIComponent("Review: " + name)}&body=${encodeURIComponent("Product: " + name + " (" + tag + ")\nRating (1-5):\nTitle:\nYour review:\n" + rfacets.map(f => f[1] + ":\n").join(""))}`;
 

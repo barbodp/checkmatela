@@ -4,7 +4,7 @@ Order of shots in each product gallery: 4 model shots, then the plain (product-o
 Raw file names are inconsistent (case, spaces, missing _1/_2), so everything is globbed per folder.
 
 Needs:  pip install --user pillow
-Run:  python3 tools/process_pawn_images.py
+Run:  python3 tools/process_pawn_images.py [line-slug ...]
 """
 import os, re, glob
 from PIL import Image, ImageOps
@@ -36,6 +36,21 @@ LINES = {
                    ("Hunter Green", "hunter-green"), ("Khaki", "khaki")]]),
 }
 
+# Later Magen Kids deliveries: one flat product shot per colour (a single .jpg in the top folder) + four model shots.
+# Kept apart from LINES on purpose — make_hero_cutouts.py and gen_home_showcase.py iterate LINES for the original four cuts.
+MORE = {
+    "husky-suit": ("Regular Husky Suit (ST-H)", "Regular Husky Suit (ST-H) w: Models",
+                   [("Beige-Khaki (ST-9).jpg", "Beige-Khaki", "beige-khaki"), ("Black (ST-7H).jpg", "Black", "black"),
+                    ("Charcoal (ST-10H).jpg", "Charcoal", "charcoal"), ("Dark Indigo (ST-8H).jpg", "Dark Indigo", "dark-indigo"),
+                    ("Light Gray (ST-16H).jpg", "Light Gray", "light-gray"), ("Navy (ST-13H).jpg", "Navy", "navy")]),
+    "husky-tuxedo": ("TX-1026H", "TX-1026H w: Models",
+                     [(f"{c}.jpg", c, s) for c, s in [("Black", "black"), ("Burgundy", "burgundy"), ("Light Gray", "light-gray"), ("Navy", "navy")]]),
+    "husky-dress-pants": ("DP-26H", "DP-26H w: Models",
+                          [(f"{c}.jpg", c, s) for c, s in [("Beige", "beige"), ("Black", "black"), ("Grey", "grey"), ("Navy", "navy")]]),
+    "dress-pants": ("DP-26", "DP-26 w: Models",
+                    [(f"{c}.jpg", c, s) for c, s in [("Beige", "beige"), ("Black", "black"), ("Grey", "grey"), ("Hunter Green", "hunter-green"), ("Navy", "navy"), ("White", "white")]]),
+}
+
 
 def to_rgb(im):
     im = ImageOps.exif_transpose(im)
@@ -65,12 +80,18 @@ def plain_key(path):
     return int(m.group(1)) if m else 9
 
 
-def main():
-    for line, (top, mdir, colours) in LINES.items():
+def main(only=()):
+    for line, (top, mdir, colours) in {**LINES, **MORE}.items():
+        if only and line not in only:
+            continue
         for plain_folder, model_folder, slug in colours:
             out = os.path.join(DST, line, slug)
             models = sorted(glob.glob(os.path.join(SRC, top, mdir, model_folder, "0*.png")))
-            plains = sorted(glob.glob(os.path.join(SRC, top, plain_folder, "*.[jJ][pP]*[gG]")), key=plain_key)
+            if plain_folder.lower().endswith((".jpg", ".jpeg")):         # a single flat product shot
+                f = os.path.join(SRC, top, plain_folder)
+                plains = [f] if os.path.exists(f) else []
+            else:
+                plains = sorted(glob.glob(os.path.join(SRC, top, plain_folder, "*.[jJ][pP]*[gG]")), key=plain_key)
             for i, p in enumerate(models, 1):
                 save_main(p, os.path.join(out, f"model-{i}.jpg"))
             for i, p in enumerate(plains, 1):
@@ -83,4 +104,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    main(tuple(sys.argv[1:]))       # optional: line slugs to (re)process, e.g.  process_pawn_images.py husky-suit dress-pants

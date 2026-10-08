@@ -1,6 +1,6 @@
 """Builds js/search-index.js — the data behind the site search and the menu's "Build your look" counts (js/nav.js).
 
-It reads the already-generated pages (king.html, the four pawn-*.html pages, bishop.html, rook.html) so products stay in sync
+It reads the already-generated pages (king.html, the pawn-*.html pages, bishop.html, rook.html) so products stay in sync
 automatically, and adds a curated list of pages and help answers (PAGES / HELP below).
 
 It also stamps a schema.org BreadcrumbList (JSON-LD) into every page that has a visible .crumbs trail.
@@ -81,6 +81,9 @@ PAGES = [
     ("Pawn — Kids' formal wear", "pawn.html", "Kids", "kids boys children suits tuxedo ring bearer pawn vest"),
     ("Bishop — Accessories", "bishop.html", "Accessories", "accessories bow tie cufflinks pocket square belt bishop"),
     ("Rook — Shoes", "rook.html", "Shoes", "shoes oxford loafers dress shoes footwear rook"),
+    ("Magen Kids — Kids' brand", "magen-kids.html", "Kids", "magen kids brand shop all kids boys suits tuxedos vest sets husky pants"),
+    ("Husky Fit — Magen Kids", "pawn-husky.html", "Kids", "husky boys larger sizes roomier suit tuxedo dress pants kids husky fit"),
+    ("Kids' dress pants — Magen Kids", "pawn-pants.html", "Kids", "kids boys dress pants trousers black navy grey white beige hunter green"),
     ("Find Your Look", "find-your-look.html", "Plan", "occasion quiz finder help choose recommend style event date measurements"),
     ("Ask About Fit — Book a fitting", "book-a-fitting.html", "Help", "fit fitting appointment contact enquiry email question measurements book"),
     ("Size Guide", "size-guide.html", "Help", "size sizing chart measure measurements chest waist inseam height kids size"),
@@ -185,6 +188,10 @@ def stamp_header_nav():
 
 def main():
     try:
+        import gen_pawn_pages as pw
+    except Exception:
+        pw = None
+    try:
         import gen_antonio as au
     except Exception:                                  # catalog not fetched yet (tools/au_fetch.py)
         au = None
@@ -220,6 +227,14 @@ def main():
             for it in au.ITEMS:
                 products.append(dict(k=d["sub"], d=d["label"], t=it["name"], s=f"{au.BRAND} · {it['type']}", u=au.pfile(it), p=int(it["price"]),
                                      i=au.img_url(it["images"][0], "-c"), f={"color": it["family"]}))
+        if d["key"] == "pawn" and pw:                       # Magen Kids: brand page -> its categories (the kids pages found above become its children)
+            kids = [p for p in pages if not p["landing"]]
+            order = [c["file"] for c in pw.LANDING]
+            kids.sort(key=lambda p: order.index(p["u"]) if p["u"] in order else 99)
+            allp = [c for c in products if c["k"] == d["sub"] and c["u"] in order]
+            lo, hi = min(c["p"] for c in allp), max(c["p"] for c in allp)
+            children = [dict(t="Shop All", u=pw.BRAND_FILE, n=len(allp), p=lo, m=hi)] + kids
+            pages = [p for p in pages if p["landing"]] + [dict(t=pw.BRAND, u=pw.BRAND_FILE, n=len(allp), p=lo, m=hi, landing=False, children=children)]
         pages.sort(key=lambda x: (not x["landing"], x["n"] == 0))          # landing page first, then pages with products, "coming soon" pages last (stable: file order)
         nav.append(dict(key=d["key"], label=d["label"], sub=d["sub"], href=d["landing"], total=total, pages=pages))
     index = {
