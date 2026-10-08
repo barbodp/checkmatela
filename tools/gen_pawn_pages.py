@@ -84,7 +84,7 @@ FOOTER = '''<footer class="site-footer">
   </div>
 </footer>
 
-<script src="js/nav.js?v=21"></script>
+<script src="js/nav.js?v=22"></script>
 <script src="js/main.js"></script>
 <script src="js/cart.js?v=4"></script>
 </body>

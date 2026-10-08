@@ -58,10 +58,10 @@
         { h: "Featured", links: [["All accessories", "bishop.html"], ["Free with 3+ suits", "king.html?occasion=Wedding", "Deal"], ["Shop weddings", "king.html?occasion=Wedding"]] },
         { h: "Bow ties", pick: ["Bishop", /bow tie/i], fallback: ["All bow ties", "bishop.html"] },
         { h: "Pocket squares", pick: ["Bishop", /pocket square/i], fallback: ["All pocket squares", "bishop.html"] },
-        { h: "Cufflinks", pick: ["Bishop", /cufflink/i], fallback: ["All cufflinks", "bishop.html"] },
+        { h: "Cufflinks & cummerbunds", pick: ["Bishop", /cufflink|cummerbund/i], fallback: ["All cufflinks", "bishop.html"] },
       ],
       tiles: [
-        { img: "assets/img/categories/accessories-flatlay.webp", t: "Finish the look", p: "Silk bow ties, pocket squares and cufflinks from $65.", a: "Shop accessories", href: "bishop.html" },
+        { img: "assets/img/categories/accessories-flatlay.webp", t: "Finish the look", p: "Silk bow ties, pocket squares, cufflinks and cummerbunds from $65.", a: "Shop accessories", href: "bishop.html" },
         { note: true, t: "A gift for the group", p: "Order 3 or more suits together and the organizer gets a free bow tie or pocket square.", a: "See the groomsmen deal", href: "king.html?occasion=Wedding" },
       ],
       help: "Matching a suit?", helpLink: ["Find your look", "find-your-look.html"] },
@@ -96,7 +96,7 @@
     if (IDX) return cb();
     idxWaiters.push(cb);
     if (withIndex.loading) return; withIndex.loading = true;
-    const s = document.createElement("script"); s.src = "js/search-index.js?v=0309b062";
+    const s = document.createElement("script"); s.src = "js/search-index.js?v=1d661745";
     s.onload = () => { IDX = window.CHECKMATELA_INDEX; prep(); idxWaiters.splice(0).forEach(f => f()); };
     document.head.appendChild(s);
   }
