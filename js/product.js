@@ -31,7 +31,7 @@
     const opts = {}; let missing = null;
     $$(".pdp-opt").forEach(g => { const on = $(".chip-btn[aria-pressed=true]", g); if (on) opts[g.dataset.key] = on.dataset.v; else if (!missing) missing = g; });
     if (missing) { missing.classList.add("is-missing"); msg.textContent = "Choose a " + missing.dataset.key + " first."; const f = $(".chip-btn", missing); if (f) f.focus(); return; }
-    const bag = window.CheckmateBag; if (!bag) return;
+    const bag = window.CheckmatelaBag; if (!bag) return;
     bag.add({ id: root.dataset.id, name: root.dataset.name, tag: root.dataset.tag, price: Number(root.dataset.price), img: root.dataset.img, options: opts }, 1);
     msg.textContent = "";
     bag.open();

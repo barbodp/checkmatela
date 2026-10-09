@@ -94,7 +94,7 @@ def build_blog():
     cards = "".join(f'''<a class="post-card" href="{post_url(p)}"><span class="post-card__img"><img src="{p["img"]}" alt="" loading="lazy"></span><span class="post-card__body"><b>{p["title"]}</b><span>{p["summary"]}</span><em>Read the guide &rarr;</em></span></a>''' for p in POSTS)
     PAGES["blog"] = dict(glyph="glyph-king", crumb="Style Guide", h1="Style Guide", compact=True,
         lead="Plain-language guides to dress codes, fit and sizing, for weddings, proms and everything in between.",
-        meta="Checkmate style guide: what to wear to a wedding, tuxedo vs suit, how to measure for a suit and more.",
+        meta="Checkmatela style guide: what to wear to a wedding, tuxedo vs suit, how to measure for a suit and more.",
         body=[section("Guides for every event.", f'<div class="post-grid">{cards}</div>', "Style Guide"),
               cta("Not sure where to start?", "find-your-look.html", "Find your look")])
     build("blog", PAGES["blog"])
@@ -107,7 +107,7 @@ def build_blog():
                            meta=p["summary"], body=body)
         build(slug, PAGES[slug])
         ld = {"@context": "https://schema.org", "@type": "Article", "headline": p["title"], "description": p["summary"], "datePublished": TODAY,
-              "author": {"@type": "Organization", "name": "Checkmate"}, "publisher": {"@type": "Organization", "name": "Checkmate"}}
+              "author": {"@type": "Organization", "name": "Checkmatela"}, "publisher": {"@type": "Organization", "name": "Checkmatela"}}
         inject_ld(slug + ".html", ld)
 
 
@@ -151,7 +151,7 @@ def build_faq():
         secs.append(section(title + ".", faq(qa), "FAQ", alt=bool(i % 2)))
     secs.append(cta("Still have a question?", "book-a-fitting.html", "Ask us"))
     PAGES["faq"] = dict(glyph="glyph-king", crumb="FAQ", h1="Frequently asked questions", compact=True,
-        lead="Quick answers about sizing, shipping, returns and alterations.", meta="Checkmate FAQ: sizing, shipping, returns, exchanges, alterations and group offers.", body=secs)
+        lead="Quick answers about sizing, shipping, returns and alterations.", meta="Checkmatela FAQ: sizing, shipping, returns, exchanges, alterations and group offers.", body=secs)
     build("faq", PAGES["faq"])
     import re
     plain = lambda s: re.sub(r"<[^>]+>", "", s)
@@ -162,9 +162,9 @@ def build_faq():
 # ------------------------------------------------------------------ Reviews (no invented reviews)
 def build_reviews():
     PAGES["reviews"] = dict(glyph="glyph-king", crumb="Reviews", h1="Reviews", compact=True,
-        lead="Real reviews from real customers, once orders open.", meta="Checkmate reviews: how verified customer reviews will work.",
+        lead="Real reviews from real customers, once orders open.", meta="Checkmatela reviews: how verified customer reviews will work.",
         body=[
-            section("No reviews yet.", prose("Checkmate is still in preview, so we do not have customer reviews to show, and we will not make any up. Once orders open, every review on the site will come from a customer who bought the piece."), "Where we are"),
+            section("No reviews yet.", prose("Checkmatela is still in preview, so we do not have customer reviews to show, and we will not make any up. Once orders open, every review on the site will come from a customer who bought the piece."), "Where we are"),
             section("What a review will include.", steps([("Rating and a few words", "Stars, a title and your thoughts on the piece."), ("Fit details", "Your height, build and the size you bought, so the next customer can compare."),
                                                          ("Verified purchase", "Reviews are tied to an order, and we show them on the product they are about.")]), "How reviews will work", alt=True),
             section("Tried a piece? Tell us.", prose(f"If you have bought from us or fitted a piece in the studio, we would love to hear how it went. {EMAIL_LINK} with your review and we will share it with your permission."), "Share your experience"),
@@ -205,7 +205,7 @@ def build_lookbook():
     kids = "".join(f'<a class="product-card au-card" href="{h}"><span class="au-card__img"><img src="{img}" alt="{t}" loading="lazy" width="480" height="720"></span><div class="product-card__meta"><div><h4>{t}</h4><span class="piece-tag">Pawn &middot; Kids</span></div></div></a>' for t, h, img in KIDS_LOOKS)
     secs.append(section("Kids.", f'<p class="look-note">Matching sets for ring bearers, page boys and family photos.</p><div class="product-grid look-grid">{kids}</div><p class="look-more"><a class="btn dark-ghost" href="pawn.html">Shop kids\' formal wear</a></p>', "Lookbook", alt=bool(len(LOOKS) % 2)))
     PAGES["lookbook"] = dict(glyph="glyph-king", crumb="Lookbook", h1="Lookbook", compact=True,
-        lead="Pieces from the collection, grouped by the occasion they were made for.", meta="Checkmate lookbook: suits and tuxedos for weddings, black tie, prom, business and summer, plus kids' formal wear.", body=secs)
+        lead="Pieces from the collection, grouped by the occasion they were made for.", meta="Checkmatela lookbook: suits and tuxedos for weddings, black tie, prom, business and summer, plus kids' formal wear.", body=secs)
     build("lookbook", PAGES["lookbook"])
 
 

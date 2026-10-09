@@ -66,10 +66,10 @@ PAGES = {}
 
 PAGES["our-story"] = dict(
     glyph="glyph-king", crumb="Our Story", h1="Our Story",
-    lead="Every occasion deserves a great look, without the luxury markup. Checkmate brings men's, women's and kids' formal wear, plus the shoes and accessories to finish it, into one place — priced so everyone at the event can afford to show up looking their best.",
-    meta="Checkmate's story: one place for men's, women's and kids' formal wear, priced so everyone can afford to look great.",
+    lead="Every occasion deserves a great look, without the luxury markup. Checkmatela brings men's, women's and kids' formal wear, plus the shoes and accessories to finish it, into one place — priced so everyone at the event can afford to show up looking their best.",
+    meta="Checkmatela's story: one place for men's, women's and kids' formal wear, priced so everyone can afford to look great.",
     body=[
-        section("Why we started.", '''<div class="prose"><p>Getting a whole family or wedding party dressed for one occasion usually means piecing it together from several different places: a tuxedo rental here, a dress from another store, kids' formal wear somewhere else again, shoes and accessories wherever you can find them — each with its own price, its own quality and its own return policy.</p><p>Checkmate started from a simpler idea: formal wear should work the way people actually get dressed for an event, as a group, not as five separate errands. One place, one standard of quality, one fair price for everyone involved — from the groom to the youngest kid in the wedding party.</p></div>''', "The idea"),
+        section("Why we started.", '''<div class="prose"><p>Getting a whole family or wedding party dressed for one occasion usually means piecing it together from several different places: a tuxedo rental here, a dress from another store, kids' formal wear somewhere else again, shoes and accessories wherever you can find them — each with its own price, its own quality and its own return policy.</p><p>Checkmatela started from a simpler idea: formal wear should work the way people actually get dressed for an event, as a group, not as five separate errands. One place, one standard of quality, one fair price for everyone involved — from the groom to the youngest kid in the wedding party.</p></div>''', "The idea"),
         section("One board, every occasion.", '''<div class="prose"><p>Our five departments map onto who actually needs to get dressed: <strong>King</strong> for the men, <strong>Queen</strong> for the women, <strong>Pawn</strong> for the kids, <strong>Bishop</strong> for the accessories that finish a look, and <strong>Rook</strong> for the shoes that carry it. A wedding, a prom, a gala, or a business event that calls for something sharper than an everyday suit — whatever the occasion, the whole group can shop it from the same board instead of stitching together separate orders.</p></div>''', "The collection", alt=True),
         section("Priced so more people can say yes.", cards([
             ("01", "Real prices, not a luxury markup", "Our suits run $179–$249 and kids' formal wear $115–$159 — priced to be worn to more than one event, not to justify a one-time splurge."),
@@ -89,14 +89,14 @@ PAGES["master-tailors"] = dict(
             ("02", "Chest and waist", "You should be able to button the jacket comfortably. Watch for pulling across the front."),
             ("03", "Sleeves and hem", "Sleeve and trouser length shape the whole look. Bring the shoes you plan to wear when checking the hem."),
         ]), "Fit checklist"),
-        section("Plan alterations early.", '''<div class="prose"><p>Hems and small waist adjustments are common; shoulders and jacket length can be more complex. Try on the full outfit well before your event and allow time for adjustments. Any Checkmate tailoring service, cost or turnaround will be confirmed before an order is placed.</p></div>''', "Before your event", alt=True),
+        section("Plan alterations early.", '''<div class="prose"><p>Hems and small waist adjustments are common; shoulders and jacket length can be more complex. Try on the full outfit well before your event and allow time for adjustments. Any Checkmatela tailoring service, cost or turnaround will be confirmed before an order is placed.</p></div>''', "Before your event", alt=True),
         cta("Need a second opinion on fit?", "book-a-fitting.html", "Ask about fit"),
     ])
 
 PAGES["sustainability"] = dict(
     glyph="glyph-pawn", crumb="Our Approach", h1="Our Approach",
     lead="Choose pieces you can wear again, care for well and pass along when they no longer fit.",
-    meta="Checkmate's approach to long-lasting formal wear and transparent product information.",
+    meta="Checkmatela's approach to long-lasting formal wear and transparent product information.",
     body=[
         section("Buy with repeat wear in mind.", '''<div class="prose"><p>A versatile color and a fit that can be adjusted make a formal outfit easier to wear beyond one event. For kids, consider how much growing room makes sense without losing the shape today.</p><p>Material sourcing, manufacturing, repair and packaging claims will be published only when they can be verified for the products sold. The current collection is a preview.</p></div>''', "Our thinking"),
         section("Questions to ask before buying.", cards([
@@ -109,10 +109,10 @@ PAGES["sustainability"] = dict(
 
 PAGES["press"] = dict(
     glyph="glyph-bishop", crumb="Press", h1="Press",
-    lead="Boilerplate, brand facts, logo files and contact details for anyone writing about Checkmate.",
-    meta="Checkmate press kit: boilerplate, brand facts, downloadable logo files and media contact.",
+    lead="Boilerplate, brand facts, logo files and contact details for anyone writing about Checkmatela.",
+    meta="Checkmatela press kit: boilerplate, brand facts, downloadable logo files and media contact.",
     body=[
-        section("About Checkmate.", '''<div class="prose"><p><strong>Checkmate</strong> is a chess-inspired formal wear concept organized into five departments: King for men, Queen for women, Pawn for kids, Bishop for accessories and Rook for shoes. The site brings men's, women's and kids' formal wear into one place, priced so a whole group can afford to dress well for one occasion instead of piecing it together from separate stores. Online ordering and service terms are in development.</p></div>''', "Boilerplate"),
+        section("About Checkmatela.", '''<div class="prose"><p><strong>Checkmatela</strong> is a chess-inspired formal wear concept organized into five departments: King for men, Queen for women, Pawn for kids, Bishop for accessories and Rook for shoes. The site brings men's, women's and kids' formal wear into one place, priced so a whole group can afford to dress well for one occasion instead of piecing it together from separate stores. Online ordering and service terms are in development.</p></div>''', "Boilerplate"),
         section("Brand facts.", table(
             ["Fact", "Detail"],
             [["Categories", "King (men), Queen (women), Pawn (kids), Bishop (accessories), Rook (shoes)"],
@@ -129,7 +129,7 @@ PAGES["press"] = dict(
             ("03", "Full identity overview", 'Every lockup, color and usage note on one sheet. <a class="link" href="brand/brand-board.png" download>Download overview</a>'),
             ("04", "Product photography", 'A few studio shots to pair with a story. <a class="link" href="assets/img/products/sicilian-onyx-tux.jpg" download>Download sample</a> &middot; more available on request.'),
         ]), "Downloads"),
-        section("As seen in.", '''<div class="prose"><p>Checkmate hasn't been covered by outside press yet &mdash; this section will list and link coverage as it's published. If you're working on a story, we're glad to help with a quote, imagery or an interview.</p></div>''', "Coverage", alt=True),
+        section("As seen in.", '''<div class="prose"><p>Checkmatela hasn't been covered by outside press yet &mdash; this section will list and link coverage as it's published. If you're working on a story, we're glad to help with a quote, imagery or an interview.</p></div>''', "Coverage", alt=True),
         section("Recent updates.", steps([
             ("Return &amp; exchange policy published", "A clear, plain-language policy covering all five categories &mdash; 14-day returns on suits and dresses, 30 days on accessories and shoes, free exchanges, and one complimentary round of alterations per suit."),
             ("Groomsmen group discount launched", "Wedding parties ordering 3 or more King suits together now save 10% automatically, 15% at 6 or more &mdash; aimed at making group formalwear more affordable, not less."),
@@ -141,10 +141,10 @@ PAGES["press"] = dict(
 PAGES["book-a-fitting"] = dict(
     glyph="glyph-rook", crumb="Ask About Fit", h1="Ask About Fit",
     lead="Tell us who you're dressing, what the occasion is and when it happens. We can discuss the look and what needs confirming before you buy.",
-    meta="Contact Checkmate about formal wear fit, event dates and product availability.",
+    meta="Contact Checkmatela about formal wear fit, event dates and product availability.",
     body=[
         section("Start a conversation.", f'''<div class="fit-layout">
-<form class="fit-form" data-mailto="{EMAIL}" data-subject="Event and fit enquiry — Checkmate">
+<form class="fit-form" data-mailto="{EMAIL}" data-subject="Event and fit enquiry — Checkmatela">
   <label>Full name<input name="Name" required autocomplete="name"></label>
   <label>Email<input type="email" name="Email" required autocomplete="email"></label>
   <label>Phone<input type="tel" name="Phone" autocomplete="tel"></label>
@@ -194,21 +194,21 @@ PAGES["size-guide"] = dict(
 PAGES["alterations"] = dict(
     glyph="glyph-bishop", crumb="Alterations", h1="Alterations",
     lead="Plan the final fit before the event. Alteration options, prices and turnaround are confirmed case by case.",
-    meta="Practical formal wear alterations guidance and Checkmate service status.",
+    meta="Practical formal wear alterations guidance and Checkmatela service status.",
     body=[
         section("What can often be adjusted.", cards([
             ("01", "Trousers", "Hem length and small waist changes are common. Bring the shoes you plan to wear."),
             ("02", "Sleeves", "Sleeve length may be adjustable depending on cuff construction and button placement."),
             ("03", "Jacket fit", "Waist shaping is often possible; shoulder and jacket length changes can be more involved."),
         ]), "Fit planning"),
-        section("Allow a buffer.", '''<div class="prose"><p>Try on the complete outfit with enough time for a tailor to assess it and make adjustments. Do not assume a particular garment can be altered until a professional has seen its construction. Checkmate has not published a complimentary alteration policy or guaranteed turnaround for this preview collection.</p></div>''', "Before the event", alt=True),
+        section("Allow a buffer.", '''<div class="prose"><p>Try on the complete outfit with enough time for a tailor to assess it and make adjustments. Do not assume a particular garment can be altered until a professional has seen its construction. Checkmatela has not published a complimentary alteration policy or guaranteed turnaround for this preview collection.</p></div>''', "Before the event", alt=True),
         cta("Have a fit or timing question?", "book-a-fitting.html", "Ask about fit"),
     ])
 
 PAGES["shipping-returns"] = dict(
     glyph="glyph-rook", crumb="Shipping &amp; Returns", h1="Shipping &amp; Returns",
     lead="Clear terms on shipping, returns, exchanges and alterations — so you can order with confidence.",
-    meta="Checkmate's shipping, return, exchange and alteration policy for men's, women's and kids' formal wear.",
+    meta="Checkmatela's shipping, return, exchange and alteration policy for men's, women's and kids' formal wear.",
     body=[
         section("Shipping.", '''<div class="prose"><p>Standard shipping is $18 and free on orders over $500. Express shipping is $35. Local pickup in Los Angeles is free. Exact delivery windows are confirmed at checkout based on your address and the items in your order.</p></div>''', "Delivery"),
         section("Return &amp; exchange windows.", table(
@@ -238,7 +238,7 @@ PAGES["shipping-returns"] = dict(
 PAGES["pawn-flower-girl"] = dict(
     glyph="glyph-pawn", crumb="Flower Girl", parent=("Pawn", "pawn.html"), compact=True, pills="pawn-flower-girl.html", h1="Flower Girl",
     lead="Dresses for the flower girl, coming soon. Tell us your wedding date and colours and we will plan around them.",
-    meta="Flower girl dresses at Checkmate, coming soon. Ask about sizes, colours and timing for your wedding.",
+    meta="Flower girl dresses at Checkmatela, coming soon. Ask about sizes, colours and timing for your wedding.",
     body=[
         section("Coming soon.", '''<div class="prose"><p>Our flower girl dresses are on their way. If you are planning a wedding, tell us the date, your colours and your flower girl's age, and we will plan sizes and timing around your day.</p></div>''', "Flower girl"),
         cta("Planning your wedding party?", "book-a-fitting.html?look=Flower%20girl%20dress", "Ask about flower girl dresses"),
@@ -248,7 +248,7 @@ PAGES["pawn-flower-girl"] = dict(
 PAGES["find-your-look"] = dict(
     glyph="glyph-king", crumb="Fit & Timing Check", h1="Find your look. Plan the fit.",
     lead="A quick check for your occasion, measurements and event date — so you know what to confirm before choosing a look.",
-    meta="Check formal wear style, fit planning and event timing with Checkmate.",
+    meta="Check formal wear style, fit planning and event timing with Checkmatela.",
     body=[
         section("Start with fit and timing.", '''<form class="look-finder" id="lookFinder">
 <label>Who are you dressing?<select name="wearer"><option value="men">Men</option><option value="kids">Kids</option><option value="women">Women</option></select></label>
@@ -299,7 +299,7 @@ def build(slug, p):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{re.sub("&amp;", "&", p["h1"])} | Checkmate</title>
+<title>{re.sub("&amp;", "&", p["h1"])} | Checkmatela</title>
 <meta name="description" content="{p["meta"]}">
 {FAVICON}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -347,9 +347,9 @@ def build_checkout():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout (preview) | Checkmate</title>
+<title>Checkout (preview) | Checkmatela</title>
 <meta name="robots" content="noindex">
-<meta name="description" content="Checkmate checkout preview — review your bag, delivery and shipping options.">
+<meta name="description" content="Checkmatela checkout preview — review your bag, delivery and shipping options.">
 {FAVICON}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

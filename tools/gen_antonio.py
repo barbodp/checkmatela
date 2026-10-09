@@ -248,7 +248,7 @@ def build_brand():
     shop_html = shop_block(cards, facets, "au", count_noun="pieces", review_facets=[])
     head = page_head(crumbs(*BASE_CRUMBS), esc(BRAND), f"Suits, tuxedos, jackets and pants: {total} pieces from {money(lo)}.")
     body = f"{head}\n{cats_nav('all')}\n{shop_html}"
-    write(BRAND_FILE, shell(f"{BRAND} — Men's Suits & Tuxedos | Checkmate", f"Antonio Uomo men's suits, tuxedos, jackets and pants at Checkmate: {total} pieces from {money(lo)}.", body,
+    write(BRAND_FILE, shell(f"{BRAND} — Men's Suits & Tuxedos | Checkmatela", f"Antonio Uomo men's suits, tuxedos, jackets and pants at Checkmatela: {total} pieces from {money(lo)}.", body,
                             extra_js='<script src="js/shop.js?v=5"></script>'))
 
 
@@ -262,7 +262,7 @@ def build_type(slug):
     shop_html = shop_block(cards, facets, "au", count_noun="pieces", review_facets=[])
     head = page_head(crumbs(*BASE_CRUMBS, (name, tfile(slug))), esc(name), esc(lead))
     body = f"{head}\n{cats_nav(slug)}\n{shop_html}"
-    write(tfile(slug), shell(f"{name} — {BRAND} | Checkmate", f"{name} by {BRAND}: {len(its)} pieces, {'from ' + money(lo) if lo != hi else money(lo)}. Browse colors and sizes at Checkmate.", body,
+    write(tfile(slug), shell(f"{name} — {BRAND} | Checkmatela", f"{name} by {BRAND}: {len(its)} pieces, {'from ' + money(lo) if lo != hi else money(lo)}. Browse colors and sizes at Checkmatela.", body,
                            extra_js='<script src="js/shop.js?v=5"></script>'))
 
 
@@ -359,8 +359,8 @@ def build_product(it):
     codeline = f"{esc(it['code'])} &middot; {it['code_label']} {esc(it['notation'])} &middot; {esc(tname)}" if opening else f"Style {esc(it['code'])} &middot; {esc(tname)}"
     body = pdp_body(it, eyebrow=f"{BRAND} &middot; Men", codeline=codeline, tag=it.get("tag") or f"{BRAND} · {it['style']}",
                     crumb_parts=[*BASE_CRUMBS, (tname, tfile(slug)), (it["name"], pfile(it))], related_html=rel_html)
-    write(pfile(it), shell(f"{it['name']} ({it['code']}) — {BRAND} | Checkmate",
-                           f"{it['name']} ({it['code']}) by {BRAND}, {money(it['price'])}. " if opening else f"{it['name']} by {BRAND}, style {it['code']}, {money(it['price'])}. " + (it["bullets"][0] + ". " if it["bullets"] else "") + "Sizes, details and size chart at Checkmate.",
+    write(pfile(it), shell(f"{it['name']} ({it['code']}) — {BRAND} | Checkmatela",
+                           f"{it['name']} ({it['code']}) by {BRAND}, {money(it['price'])}. " if opening else f"{it['name']} by {BRAND}, style {it['code']}, {money(it['price'])}. " + (it["bullets"][0] + ". " if it["bullets"] else "") + "Sizes, details and size chart at Checkmatela.",
                            body, extra_js='<script src="js/product.js?v=5"></script>'))
 
 

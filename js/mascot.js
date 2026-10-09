@@ -1,4 +1,4 @@
-/* "Sir Checkmate" — Checkmate's mascot: a small, glossy, inflated 3D gentleman who floats up the screen like a
+/* "Sir Checkmate" — Checkmatela's mascot: a small, glossy, inflated 3D gentleman who floats up the screen like a
    balloon. He is NOT tied to scrolling and not confined to the hero: he sweeps diagonally from the bottom of the viewport to
    the top — crossing most of the screen's width in a curving S — fades away near the top, pauses, then sets off again
    from the opposite side, so over time he covers the whole homepage.

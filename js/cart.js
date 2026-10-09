@@ -1,7 +1,7 @@
 /* Shopping bag — shared by every page.
    Stores the bag in localStorage (this browser only; nothing is sent anywhere), drives the header bag button + badge, the slide-out
    bag drawer, and quick "Add to bag" controls on the Bishop / Rook product cards. Quick View (js/shop.js) and the checkout page
-   (js/checkout.js) use the same API:  window.CheckmateBag = { add, remove, setQty, clear, items, count, subtotal, open, close, onChange, FREE_SHIP }.
+   (js/checkout.js) use the same API:  window.CheckmatelaBag = { add, remove, setQty, clear, items, count, subtotal, open, close, onChange, FREE_SHIP }.
    Prices/shipping rules are placeholders for the concept site. */
 (() => {
   "use strict";
@@ -137,7 +137,7 @@
     });
   }
 
-  window.CheckmateBag = { add, remove, setQty, clear, items: () => items.slice(), count, subtotal, bulkInfo, open, close, onChange: f => listeners.push(f), FREE_SHIP, money, optLabel };
+  window.CheckmatelaBag = { add, remove, setQty, clear, items: () => items.slice(), count, subtotal, bulkInfo, open, close, onChange: f => listeners.push(f), FREE_SHIP, money, optLabel };
   window.addEventListener('storage', e => { if (e.key === KEY) { load(); changed(); } });
   load();                                   // read the saved bag right away so other scripts (checkout) see it
   const start = () => { build(); wireHeader(); staticCards(); changed(); };
