@@ -10,8 +10,8 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "76"
-FAVICON = '<link rel="icon" type="image/svg+xml" href="brand/svg/favicon.svg?v=2">'
+CSS_VERSION = "78"
+FAVICON = '<link rel="icon" type="image/svg+xml" href="brand/svg/heritage-crest.svg?v=1">'
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
       <circle fill="currentColor" cx="50" cy="30" r="13"/>
@@ -43,7 +43,7 @@ HEADER = '''<header class="site-header" id="siteHeader">
       <a href="find-your-look.html" data-mega="discover">Discover</a>
     </nav>
   </div>
-  <a href="index.html" class="brand" aria-label="Checkmatela home"><img src="brand/svg/compact-horizontal.svg?v=2" alt="" width="235" height="45"></a>
+  <a href="index.html" class="brand" aria-label="Checkmate home"><img src="brand/svg/heritage-horizontal.svg?v=1" alt="" width="235" height="45"></a>
   <div class="header-actions">
     <a class="hdr-cta" href="find-your-look.html">Find your look</a>
     <button class="icon-btn search-ic" aria-label="Search" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
@@ -54,7 +54,7 @@ HEADER = '''<header class="site-header" id="siteHeader">
 FOOTER = '''<footer class="site-footer">
   <div class="container footer-top">
     <div class="footer-brand">
-      <a href="index.html" class="brand" aria-label="Checkmatela home"><img src="brand/svg/compact-horizontal-reverse.svg?v=2" alt="" width="235" height="45"></a>
+      <a href="index.html" class="brand" aria-label="Checkmate home"><img src="brand/svg/heritage-horizontal.svg?v=1" alt="" width="235" height="45"></a>
       <p>Formal wear for weddings, celebrations and the moments in between. Find a look that fits the occasion, then plan the details with confidence.</p>
       <div class="footer-social"><a href="mailto:suit.shop.dtla@gmail.com?subject=Checkmatela%20event%20enquiry" aria-label="Email Checkmatela about your event"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 7 9-7"/></svg></a></div>
     </div>
