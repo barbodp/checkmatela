@@ -4,21 +4,21 @@
 ============================================================ */
 
 :root{
-  --ink: #15181a;
-  --board-black: #17191b;
-  --paper: #faf8f2;
-  --paper-dim: #f0ebdd;
+  --ink: #181818;
+  --board-black: #181818;
+  --paper: #f5f0e6;
+  --paper-dim: #eae3d7;
   --card: #ffffff;
   --slate: #5c6058;
 
-  --pine: #1e4d3b;
-  --pine-deep: #0f2e22;
-  --pine-light: #4f8b71;
-  --pine-mist: #e7efe8;
+  --pine: #181818;
+  --pine-deep: #181818;
+  --pine-light: #68635b;
+  --pine-mist: #eee7db;
 
-  --brass: #ad7f3c;
-  --brass-light: #d9b876;
-  --brass-deep: #8a6528;
+  --brass: #a58a52;
+  --brass-light: #cfbc91;
+  --brass-deep: #776238;
 
   --burgundy: #7a2036;
   --burgundy-light: #a4425a;
@@ -1837,3 +1837,10 @@ body.nav-open .site-header{ z-index:95; }
 /* ---- WEDDING PARTY (Kids: ring bearer / flower girl cards) ---- */
 .style-grid--two{ grid-template-columns:repeat(2,minmax(0,380px)); margin-bottom:clamp(32px,4vw,48px); }
 @media (max-width:460px){ .style-grid--two{ grid-template-columns:1fr; } }
+
+/* Approved Classic Luxury: ivory, ink, restrained brass; retain the chessboard. */
+.eyebrow:not(.on-dark){ color:var(--brass-deep); }
+.eyebrow:not(.on-dark)::before{ background:var(--brass-deep); }
+.btn{ border-radius:0; }
+.site-header::before{ background:rgba(245,240,230,.97); }
+.product-card__price,.gallery-card__price{ color:var(--ink); }

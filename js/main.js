@@ -50,8 +50,8 @@
       e.preventDefault();
       const address = form.querySelector('input[type="email"]')?.value.trim();
       if (!address) return;
-      const subject = document.title.includes('Queen') ? 'Queen collection enquiry' : document.title.includes('Pawn') ? 'Pawn collection enquiry' : 'Checkmatela collection enquiry';
-      const body = `Hello Checkmatela,\n\nMy email is ${address}. I would like to hear about the collection.\n\nMy occasion / question: \n\n(Use code WELCOME10 for 10% off my first order.)`;
+      const subject = document.title.includes('Queen') ? 'Queen collection enquiry' : document.title.includes('Pawn') ? 'Pawn collection enquiry' : 'Checkmate collection enquiry';
+      const body = `Hello Checkmate,\n\nMy email is ${address}. I would like to hear about the collection.\n\nMy occasion / question: \n\n(Use code WELCOME10 for 10% off my first order.)`;
       form.classList.add('sent');
       window.location.href = `mailto:suit.shop.dtla@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
@@ -114,7 +114,7 @@
     form.addEventListener('submit', e => {
       e.preventDefault();
       const lines = [...new FormData(form).entries()].filter(([, v]) => String(v).trim()).map(([k, v]) => `${k}: ${v}`);
-      const href = `mailto:${form.dataset.mailto}?subject=${encodeURIComponent(form.dataset.subject || 'Checkmatela request')}&body=${encodeURIComponent(lines.join('\n'))}`;
+      const href = `mailto:${form.dataset.mailto}?subject=${encodeURIComponent(form.dataset.subject || 'Checkmate request')}&body=${encodeURIComponent(lines.join('\n'))}`;
       const ok = form.querySelector('.fit-form__ok');
       if (ok) ok.hidden = false;
       window.location.href = href;

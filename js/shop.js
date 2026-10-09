@@ -81,9 +81,9 @@
     $(".qv-add", qv).onclick = () => {
       const missing = optionDefs.find(o => o.required && !chosen[o.key]);
       if (missing) { $(".qv__msg", qv).textContent = "Please choose a " + missing.label.toLowerCase() + "."; const fs = $(`.qv-opt[data-key="${missing.key}"]`, qv); fs.classList.remove("shake"); void fs.offsetWidth; fs.classList.add("shake"); return; }
-      if (!window.CheckmatelaBag) { $(".qv__msg", qv).textContent = "The bag isn't available on this page."; return; }
-      window.CheckmatelaBag.add({ id, name, tag, price: Number(price), img: card.dataset.img, options: Object.assign({}, chosen) });
-      qv.close(); window.CheckmatelaBag.open();
+      if (!window.CheckmateBag) { $(".qv__msg", qv).textContent = "The bag isn't available on this page."; return; }
+      window.CheckmateBag.add({ id, name, tag, price: Number(price), img: card.dataset.img, options: Object.assign({}, chosen) });
+      qv.close(); window.CheckmateBag.open();
     };
     renderReviews($(".reviews__body", qv), reviews, rfacets, mail, $(".qv__rating", qv));
     qv.showModal();

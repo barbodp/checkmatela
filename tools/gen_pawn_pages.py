@@ -10,8 +10,8 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "76"
-FAVICON = '<link rel="icon" type="image/svg+xml" href="brand/svg/favicon.svg?v=2">'
+CSS_VERSION = "77"
+FAVICON = '<link rel="icon" type="image/svg+xml" href="brand/svg/classic-king.svg?v=1">'
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
       <circle fill="currentColor" cx="50" cy="30" r="13"/>
@@ -43,7 +43,7 @@ HEADER = '''<header class="site-header" id="siteHeader">
       <a href="find-your-look.html" data-mega="discover">Discover</a>
     </nav>
   </div>
-  <a href="index.html" class="brand" aria-label="Checkmatela home"><img src="brand/svg/compact-horizontal.svg?v=2" alt="" width="235" height="45"></a>
+  <a href="index.html" class="brand" aria-label="Checkmate home"><img src="brand/svg/classic-horizontal.svg?v=2" alt="" width="235" height="45"></a>
   <div class="header-actions">
     <a class="hdr-cta" href="find-your-look.html">Find your look</a>
     <button class="icon-btn search-ic" aria-label="Search" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
@@ -54,9 +54,9 @@ HEADER = '''<header class="site-header" id="siteHeader">
 FOOTER = '''<footer class="site-footer">
   <div class="container footer-top">
     <div class="footer-brand">
-      <a href="index.html" class="brand" aria-label="Checkmatela home"><img src="brand/svg/compact-horizontal-reverse.svg?v=2" alt="" width="235" height="45"></a>
+      <a href="index.html" class="brand" aria-label="Checkmate home"><img src="brand/svg/classic-horizontal-reverse.svg?v=2" alt="" width="235" height="45"></a>
       <p>Formal wear for weddings, celebrations and the moments in between. Find a look that fits the occasion, then plan the details with confidence.</p>
-      <div class="footer-social"><a href="mailto:suit.shop.dtla@gmail.com?subject=Checkmatela%20event%20enquiry" aria-label="Email Checkmatela about your event"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 7 9-7"/></svg></a></div>
+      <div class="footer-social"><a href="mailto:suit.shop.dtla@gmail.com?subject=Checkmate%20event%20enquiry" aria-label="Email Checkmate about your event"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 7 9-7"/></svg></a></div>
     </div>
     <div class="footer-col"><h5>The Board</h5><ul>
       <li><a href="king.html">King — Men</a></li>
@@ -79,7 +79,7 @@ FOOTER = '''<footer class="site-footer">
   </div>
   <div class="checker-strip"></div>
   <div class="container footer-bottom">
-    <span>© 2026 Checkmatela. All moves reserved.</span>
+    <span>© 2026 Checkmate. All moves reserved.</span>
     <div class="legal"><a href="shipping-returns.html">Service status</a><a href="mailto:suit.shop.dtla@gmail.com">Contact</a></div>
   </div>
 </footer>
@@ -112,24 +112,24 @@ PLAIN_ALTS = {1: "product only, front", 2: "product only, flat detail"}
 LINES = {
     "suit-vest-set": dict(
         file="pawn-suit-vest-set.html", label="Suit Vest Set", price=115,
-        title="Suit Vest Set — Pawn Kids | Checkmatela",
-        meta="Checkmatela Pawn collection — Suit Vest Set for kids, in Black, Indigo, Light Gray and Navy.",
+        title="Suit Vest Set — Pawn Kids | Checkmate",
+        meta="Checkmate Pawn collection — Suit Vest Set for kids, in Black, Indigo, Light Gray and Navy.",
         intro="An easy dressed-up option for warm-weather weddings, family photos and school celebrations. Explore four colorways and compare the details before choosing a size.",
         colors=[("black", "Black"), ("indigo", "Indigo"), ("light-gray", "Light Gray"), ("navy", "Navy")],
         hero=["black", "indigo", "navy"],
     ),
     "tuxedo-vest-set": dict(
         file="pawn-tuxedo-vest-set.html", label="Tuxedo Vest Set", price=125,
-        title="Tuxedo Vest Set — Pawn Kids | Checkmatela",
-        meta="Checkmatela Pawn collection — Tuxedo Vest Set for kids, in Black, Burgundy, Light Gray and Light Navy.",
+        title="Tuxedo Vest Set — Pawn Kids | Checkmate",
+        meta="Checkmate Pawn collection — Tuxedo Vest Set for kids, in Black, Burgundy, Light Gray and Light Navy.",
         intro="A polished vest look for formal celebrations when a full jacket is more than the moment needs. Compare four colorways and check measurements before the event.",
         colors=[("black", "Black"), ("burgundy", "Burgundy"), ("light-gray", "Light Gray"), ("light-navy", "Light Navy")],
         hero=["black", "burgundy", "light-navy"],
     ),
     "slim-fit": dict(
         file="pawn-slim-fit.html", label="Slim Fit", price=145,
-        title="Slim Fit — Pawn Kids | Checkmatela",
-        meta="Checkmatela Pawn collection — Slim Fit suits for kids in fourteen colorways.",
+        title="Slim Fit — Pawn Kids | Checkmate",
+        meta="Checkmate Pawn collection — Slim Fit suits for kids in fourteen colorways.",
         intro="A modern suit look for weddings, school events and family portraits. Browse fourteen colorways, then use the fit guide to plan ahead.",
         colors=[("black", "Black"), ("navy", "Navy"), ("charcoal", "Charcoal"), ("light-gray", "Light Gray"),
                 ("medium-gray", "Medium Gray"), ("white", "White"), ("beige-khaki", "Beige Khaki"),
@@ -140,8 +140,8 @@ LINES = {
     ),
     "tuxedo": dict(
         file="pawn-tuxedo.html", label="Tuxedo", price=159,
-        title="Tuxedo — Pawn Kids | Checkmatela",
-        meta="Checkmatela Pawn collection — shawl-lapel tuxedos for kids in twelve colorways.",
+        title="Tuxedo — Pawn Kids | Checkmate",
+        meta="Checkmate Pawn collection — shawl-lapel tuxedos for kids in twelve colorways.",
         intro="For black-tie weddings, prom and milestone celebrations. See the shawl-lapel look in twelve colorways and compare measurements before choosing.",
         colors=[("full-black", "Full Black"), ("white-black", "White &amp; Black"), ("full-white", "Full White"),
                 ("charcoal", "Charcoal"), ("shiny-charcoal", "Shiny Charcoal"), ("gray", "Gray"),
@@ -172,14 +172,14 @@ BRAND_FILE = "magen-kids.html"
 EXTRA_PAGES = {
     "husky": dict(
         file="pawn-husky.html", label="Husky Fit", groups=["husky-suit", "husky-tuxedo", "husky-dress-pants"], sizes=HUSKY_SIZES, glyph="glyph-pawn",
-        title="Husky Fit — Magen Kids | Checkmatela",
-        meta="Magen Kids husky-fit suits, tuxedos and dress pants for boys in larger sizes, in many colours, at Checkmatela.",
+        title="Husky Fit — Magen Kids | Checkmate",
+        meta="Magen Kids husky-fit suits, tuxedos and dress pants for boys in larger sizes, in many colours, at Checkmate.",
         intro="Suits, tuxedos and dress pants cut roomier for husky boys, in larger sizes: {n} pieces from ${lo}.",
     ),
     "pants": dict(
         file="pawn-pants.html", label="Pants", groups=["dress-pants"], sizes=None,
-        title="Kids' Dress Pants — Magen Kids | Checkmatela",
-        meta="Magen Kids dress pants for boys in black, navy, grey, hunter green, beige and white, at Checkmatela.",
+        title="Kids' Dress Pants — Magen Kids | Checkmate",
+        meta="Magen Kids dress pants for boys in black, navy, grey, hunter green, beige and white, at Checkmate.",
         intro="Classic dress pants for boys in six colours, to wear with a shirt and vest or to finish an outfit: {n} pieces from ${lo}.",
     ),
 }
@@ -187,10 +187,10 @@ EXTRA_ORDER = ["husky", "pants"]
 LANDING = [
     dict(file=LINES_FILE, label=LABEL, id=ID, img=IMG, alt=ALT, text=TEXT)
     for LINES_FILE, LABEL, ID, IMG, ALT, TEXT in [
-        ("pawn-slim-fit.html", "Slim Fit", "style-slimfit", "assets/img/pawn/slim-fit/navy/model-1.jpg", "Child model wearing the Checkmatela Slim Fit suit", "A modern suit look for weddings, school events and family portraits — 14 colorways."),
-        ("pawn-suit-vest-set.html", "Suit Vest Set", "style-vestset", "assets/img/pawn/suit-vest-set/black/model-1.jpg", "Child model wearing the Checkmatela Suit Vest Set", "Jacket-free and effortless — shirt, vest and trouser set in four colorways."),
-        ("pawn-tuxedo.html", "Tuxedo", "style-tuxedo", "assets/img/pawn/tuxedo/white-black/model-1.jpg", "Child model wearing the Checkmatela Tuxedo", "Black-tie formality, sized for the next generation's biggest nights — 12 colorways."),
-        ("pawn-tuxedo-vest-set.html", "Tuxedo Vest Set", "style-tuxedovest", "assets/img/pawn/tuxedo-vest-set/black/model-1.jpg", "Child model wearing the Checkmatela Tuxedo Vest Set", "The full tuxedo with vest, for the grandest occasions on the calendar."),
+        ("pawn-slim-fit.html", "Slim Fit", "style-slimfit", "assets/img/pawn/slim-fit/navy/model-1.jpg", "Child model wearing the Checkmate Slim Fit suit", "A modern suit look for weddings, school events and family portraits — 14 colorways."),
+        ("pawn-suit-vest-set.html", "Suit Vest Set", "style-vestset", "assets/img/pawn/suit-vest-set/black/model-1.jpg", "Child model wearing the Checkmate Suit Vest Set", "Jacket-free and effortless — shirt, vest and trouser set in four colorways."),
+        ("pawn-tuxedo.html", "Tuxedo", "style-tuxedo", "assets/img/pawn/tuxedo/white-black/model-1.jpg", "Child model wearing the Checkmate Tuxedo", "Black-tie formality, sized for the next generation's biggest nights — 12 colorways."),
+        ("pawn-tuxedo-vest-set.html", "Tuxedo Vest Set", "style-tuxedovest", "assets/img/pawn/tuxedo-vest-set/black/model-1.jpg", "Child model wearing the Checkmate Tuxedo Vest Set", "The full tuxedo with vest, for the grandest occasions on the calendar."),
     ]
 ] + [
     dict(file="pawn-husky.html", label="Husky Fit", id="style-husky", img="assets/img/pawn/husky-suit/navy/model-1.jpg", alt="Husky boy wearing the Magen Kids husky-fit suit", text="Suits, tuxedos and dress pants cut roomier for larger sizes — 14 colorways."),
@@ -367,8 +367,8 @@ def group_cards(group, eager_from=0):
 # the search index doesn't list them twice); Flower girl has no product yet and is a coming-soon page generated by gen_info_pages.py.
 RING_BEARER = dict(
     file="pawn-ring-bearer.html", label="Ring Bearer",
-    title="Ring Bearer Outfits — Kids | Checkmatela",
-    meta="Ring bearer outfits at Checkmatela: jacket-free vest sets, tuxedo vest sets, tuxedos and slim-fit suits for the youngest member of the wedding party.",
+    title="Ring Bearer Outfits — Kids | Checkmate",
+    meta="Ring bearer outfits at Checkmate: jacket-free vest sets, tuxedo vest sets, tuxedos and slim-fit suits for the youngest member of the wedding party.",
     intro="Outfits for the smallest member of the wedding party: easy vest sets, tuxedo vest sets and full suits that last through the ceremony and the photos.",
     picks=[("suit-vest-set", s) for s, _ in LINES["suit-vest-set"]["colors"]] + [("tuxedo-vest-set", s) for s, _ in LINES["tuxedo-vest-set"]["colors"]]
           + [("slim-fit", s) for s in ["navy", "charcoal", "light-gray", "beige-khaki", "black"]] + [("tuxedo", s) for s in ["full-black", "white-black", "navy", "charcoal"]],
@@ -432,8 +432,8 @@ def build_brand():
     pieces = all_pieces()
     cards = "\n\n".join(gallery_card(l, s, n, c, eager=False) for l, s, n, c in pieces)
     lo = min(c["price"] for *_, c in pieces)
-    cfg = dict(file=BRAND_FILE, title=f"{BRAND} — Kids' Suits, Tuxedos & Pants | Checkmatela",
-               meta=f"{BRAND} kids' suits, tuxedos, vest sets, husky-fit styles and dress pants at Checkmatela: {len(pieces)} pieces from ${lo}.")
+    cfg = dict(file=BRAND_FILE, title=f"{BRAND} — Kids' Suits, Tuxedos & Pants | Checkmate",
+               meta=f"{BRAND} kids' suits, tuxedos, vest sets, husky-fit styles and dress pants at Checkmate: {len(pieces)} pieces from ${lo}.")
     head = page_head(crumbs_html(), BRAND, f"Suits, tuxedos, vest sets, husky fits and dress pants for boys: {len(pieces)} pieces from ${lo}.") + "\n" + pills(BRAND_FILE)
     shop_html = shop_block(cards, ALL_FACETS, 'pawn', grid_class='gallery-grid', count_noun='pieces', review_facets=REVIEW_FACETS,
                            extra_attrs=' data-aggregate="1" data-options=\'' + KID_OPTIONS + '\'')

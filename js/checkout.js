@@ -3,7 +3,7 @@
    Rates, tax and the demo promo code are placeholders (see RATES). */
 (() => {
   "use strict";
-  const bag = window.CheckmatelaBag;
+  const bag = window.CheckmateBag;
   if (!bag) return;
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const money = n => '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });

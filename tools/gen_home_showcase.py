@@ -154,7 +154,7 @@ def welcome_slide():
         else:
             figs += fig(f"assets/img/pawn/{ref}/hero.webp", x, h=72, z=2, op=1, d=(x // 4) * 6, alt="")
     copy = f'''<div class="sc-copy sc-copy--welcome" data-cat="welcome">
-        <span class="sc-eyebrow">{glyph("glyph-king")}<span class="sc-welcome-line">Checkmatela — Formal wear for every piece</span></span>
+        <span class="sc-eyebrow">{glyph("glyph-king")}<span class="sc-welcome-line">Checkmate — Formal wear for every piece</span></span>
         <h1 class="sc-title">Be ready for<br><em>the moment.</em></h1>
         <p class="sc-sub">From weddings to black tie, find formal wear for men and kids. Check the fit and your event date before you choose a look.</p>
         <div class="sc-cta"><a href="find-your-look.html" class="btn">Check Fit &amp; Timing {ARROW}</a><a href="king.html" class="btn dark-ghost">Explore The Collection</a></div>
@@ -186,7 +186,7 @@ def build():
     stages[0] = stages[0].replace('<img data-src="', '<img fetchpriority="high" src="')
     chips = "".join(f'''<button type="button" class="sc-chip" data-cat="{k}">{glyph(CATS[k][2])}<span>{CATS[k][0]}</span></button>'''
                     for k in CHIP_ORDER)
-    return f'''<section class="showcase" id="showcase" aria-roledescription="carousel" aria-label="Featured Checkmatela collection" data-count="{len(seq)}">
+    return f'''<section class="showcase" id="showcase" aria-roledescription="carousel" aria-label="Featured Checkmate collection" data-count="{len(seq)}">
   <div class="showcase__bg"></div>
   <div class="showcase__inner">
     <div class="sc-copies" aria-live="off">
