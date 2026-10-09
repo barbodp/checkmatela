@@ -4,7 +4,7 @@
 ============================================================ */
 
 /* Heritage crest is the only identity change; the prior design is retained. */
-.footer-brand .brand:has(img[src*="heritage-horizontal"]){ background:#faf8f2; padding:8px 12px; }
+.footer-brand .brand{ background:transparent; }
 :root{
   --ink: #15181a;
   --board-black: #17191b;
