@@ -1,0 +1,40 @@
+{
+  "reference_job": "b73ecf8c-a21c-4896-a879-9aae6f2a48c3",
+  "model": "kling3_0",
+  "duration_per_shot": 6,
+  "aspect_ratio": "16:9",
+  "jobs": [
+    {
+      "index": 0,
+      "job_id": "4fb8afa8-2af3-4cb1-a8b1-48de306f5f98"
+    },
+    {
+      "index": 1,
+      "job_id": "5816fadb-ae49-4707-8442-140ec77b5cac"
+    },
+    {
+      "index": 2,
+      "job_id": "85b8d6d4-6e8d-4cbf-a2c0-df21dcea0e50"
+    },
+    {
+      "index": 3,
+      "job_id": "b44957e0-f5a4-4a19-a267-cb1821ee7744"
+    },
+    {
+      "index": 4,
+      "job_id": "f298e7fc-979b-45d2-a2fe-dfb16286f776"
+    },
+    {
+      "index": 5,
+      "job_id": "a0678f7a-42ab-414c-bdbf-10b0ca135c9d"
+    }
+  ],
+  "shots": [
+    "Wide full outfit head to toe beside marble bench, relaxed arms at sides. Very slow push in as he turns slightly.",
+    "Chest-height camera tracks backward as he walks calmly toward lens, natural arms and jacket movement. Full outfit remains visible.",
+    "Medium close-up waist to chest, one hand slowly opens jacket side to reveal lining and black belt, holds then releases. Slight lateral camera drift.",
+    "Close-up chest to waist, looks down and slowly fastens jacket button with one hand then smooths front. Show fabric texture.",
+    "Rear shoulder-height shot of jacket back and center vent; slowly turns head over shoulder, slow orbit to side.",
+    "Medium wide sitting on marble bench, one ankle resting on knee, arm on leg. Slow push toward face and shoulders. Visible crisp marble veining."
+  ]
+}
