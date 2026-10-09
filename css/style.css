@@ -5,6 +5,26 @@
 
 /* Heritage crest is the only identity change; the prior design is retained. */
 .footer-brand .brand{ background:transparent; }
+.featured-departments .section-head{max-width:800px;text-align:center;margin:0 auto 28px}
+.featured-departments .section-head p{max-width:65ch;margin:16px auto 0}
+.featured-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:20px}
+.featured-tabs button{padding:12px 30px;border:1px solid var(--paper-dim);background:var(--paper-dim);color:var(--ink);font-size:1.1rem;border-radius:4px}
+.featured-tabs button[aria-selected="true"]{background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)}
+.featured-tabs button:focus-visible,.featured-card:focus-visible{outline:2px solid var(--brass);outline-offset:5px}
+.featured-note{text-align:center;color:var(--slate);font-size:.9rem;margin-bottom:28px}
+.featured-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.featured-card__image{aspect-ratio:3/4;overflow:hidden;background:#fff;border-radius:4px}
+.featured-card img{width:100%;height:100%;object-fit:contain;transition:transform .3s}
+.featured-card:hover img{transform:scale(1.025)}
+.featured-card h3{font-size:1.25rem;margin:15px 0 4px}
+.featured-card p{color:var(--slate);font-size:.9rem;margin-bottom:10px}
+.featured-card>span{color:var(--burgundy);font-size:1.1rem}
+.featured-departments [hidden]{display:none!important}
+.featured-coming{padding:48px 24px;text-align:center;background:var(--paper-dim)}
+.featured-coming .glyph{display:block;width:64px;height:84px;margin:0 auto 20px;color:var(--brass-deep)}
+.featured-coming h3{font-size:2rem;margin:12px 0}
+.featured-coming p{max-width:50ch;margin:0 auto 24px;color:var(--slate)}
+@media(max-width:760px){.featured-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 14px}.featured-tabs button{padding:10px 22px}.featured-card h3{font-size:1.1rem}}
 :root{
   --ink: #15181a;
   --board-black: #17191b;

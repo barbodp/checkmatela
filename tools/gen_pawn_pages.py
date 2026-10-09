@@ -10,7 +10,7 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "79"
+CSS_VERSION = "80"
 FAVICON = '<link rel="icon" type="image/svg+xml" href="brand/svg/heritage-crest.svg?v=1">'
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=79">
+<link rel="stylesheet" href="css/style.css?v=80">
 <link rel="stylesheet" href="css/home-stone-board.css?v=3">
 </head>
 <body>
@@ -105,7 +105,8 @@
 
 
 <!-- Product carousel (removed from the live homepage; tag homepage-carousel-v1 has the old version).
-     Run tools/gen_home_showcase.py to fill this slot and add <script src="js/showcase.js"></script> before </body> to bring it back below the board. -->
+     Run tools/gen_home_showcase.py to fill this slot and add <script src="js/showcase.js"></script> before <script src="js/featured.js?v=1"></script>
+</body> to bring it back below the board. -->
 <!-- SHOWCASE:START -->
 <section class="showcase" id="showcase" aria-roledescription="carousel" aria-label="Featured Checkmatela collection" data-count="19">
   <div class="showcase__bg"></div>
@@ -524,142 +525,11 @@
 </section>
 
 <!-- ============ FEATURED OPENINGS — PRODUCT GRID ============ -->
-<section class="section" style="background:var(--paper)">
-  <div class="container">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">Featured Openings</span>
-      <h2>Ten ways to start<br>the game strong.</h2>
-      <p>Explore suits and tuxedos by style, then compare fit and timing before your event. Prices shown are illustrative.</p>
-    </div>
-
-    <p class="shop-status"><strong>Collection preview.</strong> Online ordering is not connected. <a href="book-a-fitting.html">Ask about availability, fit and timing →</a></p>
-    <div class="product-grid" data-reveal-group>
-      <a class="product-card" href="king.html">
-        <div class="product-card__frame">
-          <img src="assets/img/products/sicilian-onyx-tux.jpg" alt="Onyx shawl-lapel tuxedo with bow tie">
-          <span class="product-card__notation">1. e4</span>
-          <span class="product-card__quick"><span class="btn small ghost dark-ghost" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta">
-          <div><h4>The Sicilian</h4><span class="piece-tag">Onyx Tuxedo · King</span></div>
-          <span class="product-card__price">$219</span>
-        </div>
-      </a>
-
-      <a class="product-card" href="king.html">
-        <div class="product-card__frame">
-          <img src="assets/img/products/ruy-lopez-three-piece.jpg" alt="Black three-piece suit">
-          <span class="product-card__notation">1. e4 e5</span>
-          <span class="product-card__quick"><span class="btn small ghost dark-ghost" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta">
-          <div><h4>The Ruy Lopez</h4><span class="piece-tag">Onyx Three-Piece · King</span></div>
-          <span class="product-card__price">$249</span>
-        </div>
-      </a>
-
-      <a class="product-card" href="king.html">
-        <div class="product-card__frame">
-          <img src="assets/img/products/caro-kann-navy-plaid.jpg" alt="Navy plaid suit">
-          <span class="product-card__notation">1. e4 c6</span>
-          <span class="product-card__quick"><span class="btn small ghost dark-ghost" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta">
-          <div><h4>The Caro-Kann</h4><span class="piece-tag">Midnight Plaid · King</span></div>
-          <span class="product-card__price">$205</span>
-        </div>
-      </a>
-
-      <a class="product-card" href="king.html">
-        <div class="product-card__frame">
-          <img src="assets/img/products/kings-gambit-royal-plaid.jpg" alt="Royal blue plaid three-piece suit">
-          <span class="product-card__notation">1. e4 e5 2. f4</span>
-          <span class="product-card__quick"><span class="btn small ghost dark-ghost" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta">
-          <div><h4>The King's Gambit</h4><span class="piece-tag">Royal Plaid Three-Piece · King</span></div>
-          <span class="product-card__price">$235</span>
-        </div>
-      </a>
-
-      <a class="product-card" href="king.html">
-        <div class="product-card__frame">
-          <img src="assets/img/products/english-opening-charcoal.jpg" alt="Charcoal suit">
-          <span class="product-card__notation">1. c4</span>
-          <span class="product-card__quick"><span class="btn small ghost dark-ghost" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta">
-          <div><h4>The English Opening</h4><span class="piece-tag">Charcoal Classic · King</span></div>
-          <span class="product-card__price">$179</span>
-        </div>
-      </a>
-
-      <a class="product-card" href="king.html">
-        <div class="product-card__frame">
-          <img src="assets/img/products/queens-gambit-graphite.jpg" alt="Graphite suit with black shawl lapel and bow tie">
-          <span class="product-card__notation">1. d4 d5 2. c4</span>
-          <span class="product-card__quick"><span class="btn small ghost dark-ghost" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta">
-          <div><h4>The Queen's Gambit</h4><span class="piece-tag">Graphite Shawl · King</span></div>
-          <span class="product-card__price">$225</span>
-        </div>
-      </a>
-
-      <a class="product-card" href="king.html">
-        <div class="product-card__frame">
-          <img src="assets/img/products/london-system-stone.jpg" alt="Stone three-piece suit">
-          <span class="product-card__notation">1. d4 2. Nf3 3. Bf4</span>
-          <span class="product-card__quick"><span class="btn small ghost dark-ghost" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta">
-          <div><h4>The London System</h4><span class="piece-tag">Stone Three-Piece · King</span></div>
-          <span class="product-card__price">$209</span>
-        </div>
-      </a>
-
-      <a class="product-card" href="king.html">
-        <div class="product-card__frame">
-          <img src="assets/img/products/italian-game-bordeaux.jpg" alt="Bordeaux tuxedo with bow tie">
-          <span class="product-card__notation">1. e4 e5 2. Nf3</span>
-          <span class="product-card__quick"><span class="btn small ghost dark-ghost" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta">
-          <div><h4>The Italian Game</h4><span class="piece-tag">Bordeaux Tuxedo · King</span></div>
-          <span class="product-card__price">$219</span>
-        </div>
-      </a>
-
-      <a class="product-card" href="king.html">
-        <div class="product-card__frame">
-          <img src="assets/img/products/french-defense-slate-check.jpg" alt="Slate check suit">
-          <span class="product-card__notation">1. e4 e6</span>
-          <span class="product-card__quick"><span class="btn small ghost dark-ghost" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta">
-          <div><h4>The French Defense</h4><span class="piece-tag">Slate Check · King</span></div>
-          <span class="product-card__price">$189</span>
-        </div>
-      </a>
-
-      <a class="product-card" href="king.html">
-        <div class="product-card__frame">
-          <img src="assets/img/products/scotch-game-dove-grey.jpg" alt="Dove grey three-piece suit">
-          <span class="product-card__notation">1. e4 e5 2. Nf3 Nc6 3. d4</span>
-          <span class="product-card__quick"><span class="btn small ghost dark-ghost" style="background:var(--pine-deep);color:var(--paper);border-color:var(--pine-deep)">Quick View</span></span>
-        </div>
-        <div class="product-card__meta">
-          <div><h4>The Scotch Game</h4><span class="piece-tag">Dove Grey Three-Piece · King</span></div>
-          <span class="product-card__price">$199</span>
-        </div>
-      </a>
-    </div>
-
-    <div class="grid-foot">
-      <a href="king.html" class="btn dark-ghost">View Full Collection</a>
-    </div>
-  </div>
-</section>
+<section class="section featured-departments" id="featured" aria-labelledby="featured-title">
+<div class="container"><div class="section-head"><span class="eyebrow">Featured Openings</span>
+<h2 id="featured-title">Find your next great look.</h2><p>Standout suits, tuxedos and occasionwear. Explore a few of our favorites for every generation.</p></div>
+<div class="featured-tabs" role="tablist" aria-label="Featured collections">
+<button type="button" role="tab" id="featured-tab-men" aria-controls="featured-men" aria-selected="true" tabindex="0">Men</button><button type="button" role="tab" id="featured-tab-women" aria-controls="featured-women" aria-selected="false" tabindex="-1">Women</button><button type="button" role="tab" id="featured-tab-kids" aria-controls="featured-kids" aria-selected="false" tabindex="-1">Kids</button></div><p class="featured-note">Collection preview. Prices are illustrative; online ordering is not connected.</p><div role="tabpanel" id="featured-men" aria-labelledby="featured-tab-men" tabindex="0" ><div class="featured-grid"><a class="featured-card" href="king.html"><div class="featured-card__image"><img loading="lazy" src="assets/img/products/sicilian-onyx-tux.jpg" alt="Onyx shawl-lapel tuxedo with bow tie"></div><h3>The Sicilian</h3><p>Onyx Tuxedo</p><span>$219</span></a><a class="featured-card" href="king.html"><div class="featured-card__image"><img loading="lazy" src="assets/img/products/caro-kann-navy-plaid.jpg" alt="Navy plaid suit"></div><h3>The Caro-Kann</h3><p>Midnight Plaid</p><span>$205</span></a><a class="featured-card" href="king.html"><div class="featured-card__image"><img loading="lazy" src="assets/img/products/london-system-stone.jpg" alt="Stone three-piece suit"></div><h3>The London System</h3><p>Stone Three-Piece</p><span>$209</span></a><a class="featured-card" href="king.html"><div class="featured-card__image"><img loading="lazy" src="assets/img/products/scotch-game-dove-grey.jpg" alt="Dove grey three-piece suit"></div><h3>The Scotch Game</h3><p>Dove Grey Three-Piece</p><span>$199</span></a></div><div class="grid-foot"><a class="btn dark-ghost" href="king.html">Explore Men</a></div></div><div role="tabpanel" id="featured-women" aria-labelledby="featured-tab-women" tabindex="0" hidden><div class="featured-coming"><svg class="glyph" aria-hidden="true"><use href="#glyph-queen"/></svg><span class="eyebrow">Coming Soon</span><h3>A new chapter in occasionwear.</h3><p>Our women’s collection is taking shape. There are no products available in this department yet.</p><a class="btn dark-ghost" href="queen.html">Explore Women</a></div></div><div role="tabpanel" id="featured-kids" aria-labelledby="featured-tab-kids" tabindex="0" hidden><div class="featured-grid"><a class="featured-card" href="pawn-slim-fit.html"><div class="featured-card__image"><img loading="lazy" src="assets/img/pawn/slim-fit/navy/model-1.jpg" alt="Navy Slim Fit Suit on a child model"></div><h3>Navy Slim Fit Suit</h3><p>Modern fit · Kids</p><span>$145</span></a><a class="featured-card" href="pawn-tuxedo.html"><div class="featured-card__image"><img loading="lazy" src="assets/img/pawn/tuxedo/full-black/model-1.jpg" alt="Black Tuxedo on a child model"></div><h3>Black Tuxedo</h3><p>Black-tie occasions · Kids</p><span>$159</span></a><a class="featured-card" href="pawn-suit-vest-set.html"><div class="featured-card__image"><img loading="lazy" src="assets/img/pawn/suit-vest-set/light-gray/model-1.jpg" alt="Light Gray Vest Set on a child model"></div><h3>Light Gray Vest Set</h3><p>Celebrations &amp; ring bearers · Kids</p><span>$115</span></a><a class="featured-card" href="pawn-husky.html"><div class="featured-card__image"><img loading="lazy" src="assets/img/pawn/husky-suit/charcoal/model-1.jpg" alt="Charcoal Husky Suit on a child model"></div><h3>Charcoal Husky Suit</h3><p>Roomier fit · Kids</p><span>$155</span></a></div><div class="grid-foot"><a class="btn dark-ghost" href="pawn.html">Explore Kids</a></div></div></div></section>
 
 <!-- ============ BRAND STORY ============ -->
 <section class="story">
@@ -770,5 +640,6 @@
 <script src="js/cart.js?v=4"></script>
 <script type="module" src="js/home-stone-board.js?v=1"></script>
 <script type="module" src="js/mascot.js?v=2"></script>
+<script src="js/featured.js?v=1"></script>
 </body>
 </html>
