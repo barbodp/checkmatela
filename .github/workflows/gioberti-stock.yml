@@ -1,0 +1,59 @@
+# Keeps the Gioberti catalog in step with gioberti.com: stock, sold-out / restocked colours and sizes, prices, new and removed products.
+# Every 3 hours (and on demand from the Actions tab): tools/gb_fetch.py --update (only new photos are downloaded), tools/gen_gioberti.py,
+# then a commit to main if anything changed. Vercel deploys main to production as usual.
+name: Gioberti stock sync
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gioberti-stock-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install image libraries used by the page generators
+        run: pip install --quiet pillow numpy
+
+      - name: Refresh the Gioberti catalog and pages
+        env:
+          PYTHONUTF8: "1"
+        run: |
+          python tools/gb_fetch.py --update | tee "$RUNNER_TEMP/sync.log"
+          python tools/gen_gioberti.py | tee -a "$RUNNER_TEMP/sync.log"
+
+      - name: Flag products that need a category
+        run: |
+          grep -h "WARNING" "$RUNNER_TEMP/sync.log" | sed 's/^/::warning title=Gioberti::/' || true
+
+      - name: Publish changes
+        run: |
+          git config user.name "barbodp"
+          git config user.email "barbodp@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing changed at Gioberti since the last sync." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          {
+            echo "### Gioberti stock sync"
+            grep -h "wrote tools\|update:\|removed\|WARNING" "$RUNNER_TEMP/sync.log" || true
+            echo
+            git diff --cached --stat | tail -n 1
+          } >> "$GITHUB_STEP_SUMMARY"
+          git commit -q -m "Gioberti stock sync $(date -u '+%Y-%m-%d %H:%M') UTC"
+          git push

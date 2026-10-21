@@ -1,5 +1,10 @@
 # Checkmatela changes
 
+## 2026-10-21 — Automatic Gioberti stock sync, tidier categories
+
+- Stock, prices and products now refresh from gioberti.com every 3 hours (GitHub Actions, `.github/workflows/gioberti-stock.yml`): sold-out colours/sizes/products and restocks update on their own; changes publish only when something changed.
+- Men: Jackets and Outerwear merged into **Jackets & Outerwear** (old Outerwear link redirects); sweaters Gioberti filed under Outerwear/Hoodies moved to Sweaters; the fleece hoodie moved to Hoodies; Accessories renamed **Accessories & Footwear** (it has sandals). Filing is rule-based, so new products follow the same rules.
+
 ## 2026-10-20 — Gioberti catalog, Formal / Not So Formal for Men and Boys
 
 - Added the whole **Gioberti** catalog (gioberti.com, dropship supplier): 189 in-stock products, each with its own page (photos, colour and size pickers with sold-out combinations disabled, the photo follows the colour, price, details and that product's own size chart). Sold-out products and the gift card are left out.

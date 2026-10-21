@@ -33,7 +33,7 @@ DEPTS = {
 GROUP_LABEL = {"formal": "Formal", "nsf": "Not So Formal"}
 
 for _it in ITEMS:
-    _it["cat"] = category_of(_it["handle"], _it["ptype"])
+    _it["cat"] = category_of(_it["handle"], _it["ptype"], _it["name"])
     _it["file"] = f"gioberti-{_it['handle']}.html"
     _it["dept"] = dept_of(_it["handle"], _it["cat"])
 UNFILED = [i for i in ITEMS if not i["cat"]]
@@ -349,10 +349,11 @@ def main():
     stamp_bishop()
     stamp_dresscode_bar("king.html", "men")
     stamp_dresscode_bar("pawn.html", "boys")
-    wanted = {i["file"] for i in ITEMS}
-    for f in os.listdir(ROOT):                                   # drop pages of products Gioberti no longer sells
-        if f.startswith("gioberti-") and f.endswith(".html") and f not in wanted:
+    wanted = {i["file"] for i in ITEMS} | {f"{b['key']}.html" for b in built} | {d[g] for d in DEPTS.values() for g in ("formal", "nsf")}
+    for f in os.listdir(ROOT):                                   # drop pages of products Gioberti no longer sells and of categories that were merged away
+        if re.fullmatch(r"(gioberti|men|boys)-[a-z0-9-]+\.html", f) and f not in wanted:
             os.remove(os.path.join(ROOT, f))
+            print("removed", f)
     print("gioberti:", len(built), "category pages, 4 landing pages,", len(ITEMS), "product pages,", sum(map(len, ACCESSORIES.values())), "on bishop.html")
     import gen_nav
     gen_nav.main()

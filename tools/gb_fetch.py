@@ -9,7 +9,8 @@
    Size charts: Gioberti adds the product's own size chart as one of its photos (alt / file name "size chart"); it is kept out of the
    gallery and saved larger (<md5>-z.webp, max 1400px) so the numbers stay readable in the product's "Size chart" pop-up.
 
-Run from anywhere:  python3 tools/gb_fetch.py [--no-download] [--no-optimize]
+Run from anywhere:  python3 tools/gb_fetch.py [--update] [--no-download] [--no-optimize]
+(--update = quick stock/price refresh that only downloads new photos; the scheduled GitHub Action uses it)
 The gift card is left out; sold-out products are kept (`soldout`) and shown as sold out; tools/gen_gioberti.py builds the pages from the JSON.
 """
 import os, re, sys, json, html, hashlib, urllib.request, concurrent.futures as cf
@@ -122,7 +123,7 @@ def archive_paths(items):
     shared = {c for c in (i["code"] for i in items) if sum(1 for j in items if j["code"] == c) > 1}
     same_name = {(i["code"], i["name"]) for i in items if sum(1 for j in items if (j["code"], j["name"]) == (i["code"], i["name"])) > 1}
     for it in items:
-        cat = category_of(it["handle"], it["ptype"])
+        cat = category_of(it["handle"], it["ptype"], it["name"])
         base = os.path.join(DL, fs_name(folder_label(it["handle"], cat) if cat else it["ptype"]))
         style = it["code"] or it["handle"]
         if style in shared:                                    # same style number, same name too -> the supplier's URL handle tells them apart
@@ -142,13 +143,28 @@ def archive_paths(items):
 
 
 def main():
+    """Full run: download every photo (archive) and (re)build the web copies. --update: the quick run used by the scheduled stock sync
+    (.github/workflows/gioberti-stock.yml): stock, prices and products are refreshed, and only photos not seen before are downloaded."""
+    update = "--update" in sys.argv
     items, skipped = normalise(fetch_products())
     archive_paths(items)
-    for it in items:
-        for im in it["images"]:
-            im["file"] = im["files"][0]
-    if "--no-download" not in sys.argv:
-        jobs = [(im["src"], f) for it in items for im in it["images"] for f in im["files"]]
+    known = {}                                                            # photo URL -> web copy key, from the previous catalog
+    if update and os.path.exists(OUT_JSON):
+        for it in json.load(open(OUT_JSON, encoding="utf-8")):
+            for im in it["images"]:
+                k = im.get("key")
+                if im.get("url") and k and os.path.exists(os.path.join(ASSETS, k + ".webp")) and (not im["chart"] or os.path.exists(os.path.join(ASSETS, k + "-z.webp"))):
+                    known[im["url"]] = k
+    ims = [im for it in items for im in it["images"]]
+    for im in ims:
+        im["url"], im["file"] = im["src"].split("?")[0], im["files"][0]
+        if im["url"] in known:
+            im["key"] = known[im["url"]]
+    todo = [im for im in ims if "key" not in im] if update else ims
+    if update:
+        print(f"update: {len(ims) - len(todo)} photos already on the site, {len(todo)} new")
+    if "--no-download" not in sys.argv and todo:
+        jobs = [(im["src"], f) for im in todo for f in im["files"]]
         done = 0
         with cf.ThreadPoolExecutor(8) as ex:
             for dest, status in ex.map(download_one, jobs):
@@ -158,14 +174,20 @@ def main():
                 if done % 200 == 0:
                     print(f"downloaded {done}/{len(jobs)}", flush=True)
         print("download finished:", len(jobs), "images")
-    if "--no-optimize" not in sys.argv:
+    if "--no-optimize" not in sys.argv and todo:
         os.makedirs(ASSETS, exist_ok=True)
-        ims = [im for it in items for im in it["images"]]
         with cf.ThreadPoolExecutor(4) as ex:
-            keys = list(ex.map(lambda im: optimise(im["file"], im["chart"]), ims))
-        for im, k in zip(ims, keys):
+            keys = list(ex.map(lambda im: optimise(im["file"], im["chart"]), todo))
+        for im, k in zip(todo, keys):
             im["key"] = k
-        print("optimised", len(ims), "images ->", len(set(keys)), "unique files")
+        print("optimised", len(todo), "images ->", len(set(keys)), "unique files")
+    if all(im.get("key") for im in ims):                                  # drop web copies no product uses any more (products Gioberti removed)
+        used = {im["key"] for im in ims}
+        gone = [f for f in os.listdir(ASSETS) if re.fullmatch(r"[0-9a-f]{12}(-[ctz])?\.webp", f) and f[:12] not in used]
+        for f in gone:
+            os.remove(os.path.join(ASSETS, f))
+        if gone:
+            print("removed", len(gone), "unused web images")
     for it in items:
         by_id = {im["id"]: im.get("key") for im in it["images"]}
         it["colour_img"] = {c: by_id.get(i) for c, i in it["colour_img"].items() if by_id.get(i)}

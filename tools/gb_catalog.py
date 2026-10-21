@@ -1,6 +1,7 @@
 """Gioberti categories, shared by tools/gb_fetch.py (photo archive folders) and tools/gen_gioberti.py (pages, menus).
 
-Every Gioberti product is filed under one of our categories by its Gioberti product type (TYPE_MAP), with two exceptions in category_of().
+Every Gioberti product is filed under one of our categories by its Gioberti product type (TYPE_MAP), then corrected by its title (TITLE_RULES) where Gioberti's own type is misleading, e.g. a sweater filed
+as outerwear. The rules are generic, so new products are filed the same way.
 """
 import re
 
@@ -16,12 +17,11 @@ CATS = {
     "men-polo-shirts": ("men", "nsf", "Polo Shirts", "Short sleeve striped and solid polos."),
     "men-sweaters": ("men", "nsf", "Sweaters", "Knitted cardigans, pullovers and sweaters."),
     "men-hoodies": ("men", "nsf", "Hoodies", "Everyday hoodies and sweatshirts."),
-    "men-jackets": ("men", "nsf", "Jackets", "Cargo, twill and bomber jackets."),
-    "men-outerwear": ("men", "nsf", "Outerwear", "Coats and layers for cold weather."),
+    "men-jackets": ("men", "nsf", "Jackets & Outerwear", "Bomber, cargo, fleece, sherpa-lined, reversible and rain jackets."),
     "men-leather-jackets": ("men", "nsf", "Leather Jackets", "Leather and faux leather jackets."),
     "men-activewear": ("men", "nsf", "Activewear", "Athletic shorts, joggers and track pants."),
     "men-sleepwear": ("men", "nsf", "Sleepwear", "Pajamas and loungewear."),
-    "men-accessories": ("men", "nsf", "Accessories", "Ivy caps, sandals and everyday extras."),
+    "men-accessories": ("men", "nsf", "Accessories & Footwear", "Ivy caps, sandals and everyday extras."),
     "boys-suits-blazers": ("boys", "formal", "Suits & Blazers", "Formal suit sets, blazer and pants sets, and velvet, corduroy and tweed blazers."),
     "boys-suit-vests": ("boys", "formal", "Suit Vests & Vest Sets", "Suit vests, vest and pants sets, and four-piece vest sets with ties."),
     "boys-dress-shirts": ("boys", "formal", "Dress Shirts", "Dress shirts, shirt and tie sets, and tuxedo shirt sets."),
@@ -40,7 +40,7 @@ CATS = {
 TYPE_MAP = {
     "Mens Suits & Sport Coats": "men-blazers", "Mens Formal Vests": "men-suit-vests", "Mens Dress Shirts": "men-dress-shirts", "Mens Dress Pants": "men-dress-pants",
     "Mens Casual Shirt": "men-casual-shirts", "Mens Flannel Shirts": "men-flannel-shirts", "Mens Polo Shirts": "men-polo-shirts", "Mens Sweaters": "men-sweaters",
-    "Mens Hoodies": "men-hoodies", "Mens Jackets": "men-jackets", "Mens Outerwear": "men-outerwear", "Mens Leather Jacket": "men-leather-jackets",
+    "Mens Hoodies": "men-hoodies", "Mens Jackets": "men-jackets", "Mens Outerwear": "men-jackets", "Mens Leather Jacket": "men-leather-jackets",
     "Mens Active Wear": "men-activewear", "Mens": "men-activewear", "Mens Sleepwear": "men-sleepwear", "Mens Accessories": "men-accessories",
     "Boys Blazers": "boys-suits-blazers", "Boys Suit Vest": "boys-suit-vests", "Boys Dress Shirts": "boys-dress-shirts", "Boys Dress Pants": "boys-dress-pants",
     "Boys Button Down Shirts": "boys-casual-shirts", "Boys Polos and T-Shirts": "boys-polo-shirts", "Boys Sweaters": "boys-sweaters", "Boys Jackets": "boys-jackets",
@@ -49,12 +49,25 @@ TYPE_MAP = {
 FORMAL_ACCESSORIES = ("men-formal-accessories", "boys-formal-accessories")    # also shown on the Accessories page (bishop.html), men's and boys' apart
 
 
-def category_of(handle, ptype):
+# (title pattern, title must NOT match, the categories it applies to, the category it goes to) - first match wins
+TITLE_RULES = [
+    (r"\bsweaters?\b|cardigan", r"hoodie", {"men-jackets", "men-hoodies"}, "men-sweaters"),            # "Men's Super Soft Sweater" (outerwear), "Knitted Sweater w/ Sherpa" (hoodies)
+    (r"\bhoodie\b", r"jacket|flannel|shirt|sweater", {"men-jackets"}, "men-hoodies"),                   # "Men's Polar Fleece Hoodie" (outerwear)
+    (r"\bsweaters?\b|cardigan", r"hoodie", {"boys-jackets"}, "boys-sweaters"),
+    (r"\bhoodie\b", r"jacket|flannel|shirt|sweater", {"boys-jackets"}, "boys-sweaters"),
+]
+
+
+def category_of(handle, ptype, title=""):
     if re.search(r"cumberbund|cummerbund|suspender", handle):
         return "boys-formal-accessories" if re.match(r"(cm-8|susk)", handle) else "men-formal-accessories"
     if handle.startswith("si-501"):        # filed by Gioberti under dress shirts, but they are casual twill shirts
         return "men-casual-shirts"
-    return TYPE_MAP.get(ptype)
+    cat = TYPE_MAP.get(ptype)
+    for pat, unless, scope, to in TITLE_RULES:
+        if cat in scope and re.search(pat, title, re.I) and not re.search(unless, title, re.I):
+            return to
+    return cat
 
 
 def dept_of(handle, cat):
