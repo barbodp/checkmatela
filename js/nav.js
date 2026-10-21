@@ -26,7 +26,7 @@
         /* three closed dropdowns (Formal / Not So Formal / Occasion); the category pages are built by tools/gen_gioberti.py */
         { h: "Shop by", wide: true, dd: [
           { t: "Formal", links: [["All formal", "men-formal.html"], ["Two-piece suits", "king.html?style=Two-piece"], ["Three-piece suits", "king.html?style=Three-piece"], ["Tuxedos", "king.html?style=Tuxedo"],
-            ["Blazers & sport coats", "men-blazers.html"], ["Suit vests & vest sets", "men-suit-vests.html"], ["Dress shirts", "men-dress-shirts.html"], ["Dress pants", "men-dress-pants.html"], ["Accessories", "bishop.html"]] },
+            ["Blazers & sport coats", "men-blazers.html"], ["Suit vests & vest sets", "men-suit-vests.html"], ["Dress shirts", "men-dress-shirts.html"], ["Dress pants", "men-dress-pants.html"], ["Formal accessories", "men-formal-accessories.html"], ["All accessories", "bishop.html"]] },
           { t: "Not So Formal", links: [["All not so formal", "men-not-so-formal.html"], ["Casual shirts", "men-casual-shirts.html"], ["Flannel shirts", "men-flannel-shirts.html"], ["Polo shirts", "men-polo-shirts.html"],
             ["Sweaters", "men-sweaters.html"], ["Hoodies", "men-hoodies.html"], ["Jackets", "men-jackets.html"], ["Outerwear", "men-outerwear.html"], ["Leather jackets", "men-leather-jackets.html"],
             ["Activewear", "men-activewear.html"], ["Sleepwear", "men-sleepwear.html"], ["Accessories", "men-accessories.html"]] },
@@ -55,7 +55,7 @@
         { h: "Featured", links: [["All kids' styles", "pawn.html"], ["Boys' formal", "boys-formal.html"], ["Boys' not so formal", "boys-not-so-formal.html"], ["Husky fit", "pawn-husky.html"], ["Kids' size guide", "size-guide.html"], ["Free exchanges", "shipping-returns.html", "Free"]] },
         { h: "Shop by", wide: true, dd: [
           { t: "Formal", links: [["All formal", "boys-formal.html"], ["Suits", "pawn-slim-fit.html"], ["Tuxedos", "pawn-tuxedo.html"], ["Husky fit", "pawn-husky.html"], ["Ring bearer", "pawn-ring-bearer.html"],
-            ["Suits & blazers", "boys-suits-blazers.html"], ["Suit vests & vest sets", "boys-suit-vests.html"], ["Dress shirts", "boys-dress-shirts.html"], ["Dress pants", "boys-dress-pants.html"], ["Accessories", "bishop.html"]] },
+            ["Suits & blazers", "boys-suits-blazers.html"], ["Suit vests & vest sets", "boys-suit-vests.html"], ["Dress shirts", "boys-dress-shirts.html"], ["Dress pants", "boys-dress-pants.html"], ["Formal accessories", "boys-formal-accessories.html"]] },
           { t: "Not So Formal", links: [["All not so formal", "boys-not-so-formal.html"], ["Casual shirts", "boys-casual-shirts.html"], ["Polo shirts", "boys-polo-shirts.html"], ["Sweaters", "boys-sweaters.html"],
             ["Jackets", "boys-jackets.html"], ["Activewear", "boys-activewear.html"], ["Casual shorts", "boys-shorts.html"], ["Sleepwear", "boys-sleepwear.html"], ["Accessories", "boys-accessories.html"]] },
           { t: "Occasion", links: [["Ring bearer & wedding party", "pawn-ring-bearer.html"], ["Flower girl", "pawn-flower-girl.html", "Soon"], ["Formal events", "boys-formal.html"], ["School & everyday", "boys-not-so-formal.html"],
@@ -112,7 +112,7 @@
     if (IDX) return cb();
     idxWaiters.push(cb);
     if (withIndex.loading) return; withIndex.loading = true;
-    const s = document.createElement("script"); s.src = "js/search-index.js?v=3a19370a";
+    const s = document.createElement("script"); s.src = "js/search-index.js?v=c3c92ae2";
     s.onload = () => { IDX = window.CHECKMATELA_INDEX; prep(); idxWaiters.splice(0).forEach(f => f()); };
     document.head.appendChild(s);
   }

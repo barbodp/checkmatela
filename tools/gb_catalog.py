@@ -10,6 +10,7 @@ CATS = {
     "men-suit-vests": ("men", "formal", "Suit Vests & Vest Sets", "Five- and six-button suit vests in tweed, solids and pinstripes, plus four-piece vest sets with ties."),
     "men-dress-shirts": ("men", "formal", "Dress Shirts", "Long and short sleeve dress shirts and tuxedo shirt sets."),
     "men-dress-pants": ("men", "formal", "Dress Pants", "Formal dress pants, including expandable-waist styles."),
+    "men-formal-accessories": ("men", "formal", "Formal Accessories", "Cummerbund and suspender sets with matching bow ties and pocket squares."),
     "men-casual-shirts": ("men", "nsf", "Casual Shirts", "Button-down twill and casual shirts for weekends and smart-casual days."),
     "men-flannel-shirts": ("men", "nsf", "Flannel Shirts", "Soft brushed flannels for cooler days."),
     "men-polo-shirts": ("men", "nsf", "Polo Shirts", "Short sleeve striped and solid polos."),
@@ -25,6 +26,7 @@ CATS = {
     "boys-suit-vests": ("boys", "formal", "Suit Vests & Vest Sets", "Suit vests, vest and pants sets, and four-piece vest sets with ties."),
     "boys-dress-shirts": ("boys", "formal", "Dress Shirts", "Dress shirts, shirt and tie sets, and tuxedo shirt sets."),
     "boys-dress-pants": ("boys", "formal", "Dress Pants", "Adjustable-waist dress pants, including husky sizes."),
+    "boys-formal-accessories": ("boys", "formal", "Formal Accessories", "Cummerbund and suspender sets with matching bow ties and pocket squares."),
     "boys-casual-shirts": ("boys", "nsf", "Casual Shirts", "Button-down and casual shirts for school and weekends."),
     "boys-polo-shirts": ("boys", "nsf", "Polo Shirts", "Polos and t-shirts."),
     "boys-sweaters": ("boys", "nsf", "Sweaters", "Cardigans, sweater vests and pullovers."),
@@ -44,24 +46,21 @@ TYPE_MAP = {
     "Boys Button Down Shirts": "boys-casual-shirts", "Boys Polos and T-Shirts": "boys-polo-shirts", "Boys Sweaters": "boys-sweaters", "Boys Jackets": "boys-jackets",
     "Boys Active Wear": "boys-activewear", "Boys Shorts": "boys-shorts", "Boys Sleepwear": "boys-sleepwear", "Boys Accessories": "boys-accessories",
 }
-BISHOP = "bishop"                          # formal accessories -> the existing Accessories page (bishop.html)
+FORMAL_ACCESSORIES = ("men-formal-accessories", "boys-formal-accessories")    # also shown on the Accessories page (bishop.html), men's and boys' apart
 
 
 def category_of(handle, ptype):
     if re.search(r"cumberbund|cummerbund|suspender", handle):
-        return BISHOP
+        return "boys-formal-accessories" if re.match(r"(cm-8|susk)", handle) else "men-formal-accessories"
     if handle.startswith("si-501"):        # filed by Gioberti under dress shirts, but they are casual twill shirts
         return "men-casual-shirts"
     return TYPE_MAP.get(ptype)
 
 
 def dept_of(handle, cat):
-    if cat == BISHOP:
-        return "boys" if re.match(r"(cm-8|susk)", handle) else "men"
     return CATS[cat][0] if cat else None
 
 
 def folder_label(handle, cat):
     """Photo archive folder for a category: 'Men - Casual Shirts', 'Boys - Formal Accessories'…"""
-    dept = dept_of(handle, cat)
-    return f"{'Men' if dept == 'men' else 'Boys'} - {'Formal Accessories' if cat == BISHOP else CATS[cat][2]}"
+    return f"{'Men' if dept_of(handle, cat) == 'men' else 'Boys'} - {CATS[cat][2]}"

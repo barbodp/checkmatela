@@ -7,8 +7,8 @@
   men-<category>.html / boys-<category>.html      one filterable grid per category (no hero: subcategory pages use the compact page head)
   gioberti-<handle>.html                          one page per product: photos, colour + size pickers (sold-out combinations disabled, the photo
                                                   follows the colour), price, details and that product's own size chart pop-up
-  bishop.html                                     formal accessories (cummerbund and suspender sets) go in the existing Accessories grid,
-                                                  between <!-- GIOBERTI:START/END --> markers
+  men-/boys-formal-accessories.html               cummerbund and suspender sets, men's and boys' apart; they are also on bishop.html:
+                                                  men's in the main grid (<!-- GIOBERTI:START/END -->), boys' in a "For boys" section (<!-- GIOBERTI-BOYS -->)
   king.html / pawn.html                           a Formal / Not So Formal category bar under the intro (<!-- DRESSCODE:START/END -->)
 
 The Men / Kids menus (js/nav.js MEGA) list these as three closed dropdowns: Formal, Not So Formal and Occasion.
@@ -19,7 +19,7 @@ import os, re, json
 from gen_antonio import shell, crumbs, write, acc, money
 from gen_pawn_pages import page_head
 from shoplib import shop_block, replace_between, esc
-from gb_catalog import CATS, TYPE_MAP, BISHOP, category_of, dept_of
+from gb_catalog import CATS, TYPE_MAP, FORMAL_ACCESSORIES, category_of, dept_of
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ITEMS = json.load(open(os.path.join(ROOT, "tools", "catalog", "gioberti.json"), encoding="utf-8"))
@@ -41,7 +41,7 @@ ITEMS = [i for i in ITEMS if i["cat"]]
 BY_CAT = {}
 for _it in ITEMS:
     BY_CAT.setdefault(_it["cat"], []).append(_it)
-ACCESSORIES = BY_CAT.get(BISHOP, [])
+ACCESSORIES = {k: BY_CAT.get(k, []) for k in FORMAL_ACCESSORIES}       # also shown on bishop.html: men's in the main grid, boys' in their own section
 # Formal pages that already exist on the site, listed first in each Formal list (label, url)
 FORMAL_EXISTING = {
     "men": [("Two-piece suits", "king.html?style=Two-piece"), ("Three-piece suits", "king.html?style=Three-piece"), ("Tuxedos", "king.html?style=Tuxedo")],
@@ -76,11 +76,11 @@ def cat_files(dept, group):
 def card(it, with_cat=False):
     pic = img(cover(it), "-c")
     n = len(it["colours"])
-    label = "Accessories" if it["cat"] == BISHOP else CATS[it["cat"]][2]
+    label = CATS[it["cat"]][2]
     fx = f' data-f-color="{esc("|".join(it["families"]))}" data-f-brand="{BRAND}"' + (f' data-f-category="{esc(label)}"' if with_cat else "")
     return f'''            <a class="product-card au-card" href="{it["file"]}" data-id="gioberti/{it["handle"]}" data-name="{esc(it["name"])}" data-tag="{esc(label)}" data-price="{it["price"]:g}" data-img="{pic}"{fx}>
               <span class="au-card__img"><img src="{pic}" alt="{esc(it["name"])}" loading="lazy" width="480" height="640"></span>
-              <div class="product-card__meta"><div><h4>{esc(it["name"])}</h4><span class="piece-tag">{esc(label)}{f" &middot; {n} colours" if n > 1 else ""}</span></div><span class="product-card__price">{price_text(it)}</span></div>
+              <div class="product-card__meta"><div><h4>{esc(it["name"])}</h4><span class="piece-tag">{esc(label)} &middot; {esc(it["code"])}{f" &middot; {n} colours" if n > 1 else ""}</span></div><span class="product-card__price">{price_text(it)}</span></div>
             </a>'''
 
 
@@ -98,8 +98,8 @@ def pills(dept, group, active):
     if group == "formal":
         links += [(u, l) for l, u in FORMAL_EXISTING[dept]]
     links += [(f"{k}.html", CATS[k][2]) for k in cat_files(dept, group)]
-    if group == "formal":
-        links.append(("bishop.html", "Accessories"))
+    if group == "formal" and dept == "men":
+        links.append(("bishop.html", "All accessories"))                          # the Accessories department (bow ties, cufflinks…)
     on =' class="is-on" aria-current="page"'
     return f'<nav class="au-cats" aria-label="{GROUP_LABEL[group]} categories"><div class="container">' + "".join(
         f'<a href="{h}"{on if h == active else ""}>{esc(l)}</a>' for h, l in links) + "</div></nav>"
@@ -151,7 +151,8 @@ def build_landing(dept, group, built):
         tiles += [style_card(u, l, f"Browse the full {l.lower()} collection.", f"Shop {l.lower()}", glyph=d["glyph"]) for l, u in FORMAL_EXISTING[dept]]
     tiles += [style_card(f"{b['key']}.html", b["label"], f"{b['n']} pieces from {money(b['lo'])}.", f"Shop {b['label'].lower()}", photo=b["img"]) for b in built if CATS[b["key"]][0] == dept and CATS[b["key"]][1] == group]
     if group == "formal":
-        tiles.append(style_card("bishop.html", "Accessories", "Cummerbunds, suspenders, bow ties, pocket squares and cufflinks.", "Shop accessories", glyph=d["glyph"]))
+        if dept == "men":
+            tiles.append(style_card("bishop.html", "All accessories", "Bow ties, pocket squares, cufflinks and more.", "Shop accessories", glyph=d["glyph"]))
         lead = f"Everything for the formal occasion: suits, tuxedos, blazers, vests, dress shirts and dress pants for {who}."
         h2 = "Dressed for the occasion."
     else:
@@ -211,14 +212,10 @@ CHART_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke
 
 def build_product(it):
     cat = it["cat"]
-    if cat == BISHOP:
-        label, parts, eyebrow, more_href = "Accessories", [("Home", "index.html"), ("Accessories", "bishop.html"), (it["name"], it["file"])], f"{BRAND} &middot; Accessories", "bishop.html"
-        related = [i for i in ACCESSORIES if i is not it][:4]
-    else:
-        dept, group, label, _ = CATS[cat]
-        parts = dept_crumbs(dept, group, (label, f"{cat}.html"), (it["name"], it["file"]))
-        eyebrow, more_href = f"{BRAND} &middot; {DEPTS[dept]['label']} &middot; {GROUP_LABEL[group]}", f"{cat}.html"
-        related = [i for i in BY_CAT[cat] if i is not it][:4]
+    dept, group, label, _ = CATS[cat]
+    parts = dept_crumbs(dept, group, (label, f"{cat}.html"), (it["name"], it["file"]))
+    eyebrow, more_href = f"{BRAND} &middot; {DEPTS[dept]['label']} &middot; {GROUP_LABEL[group]}", f"{cat}.html"
+    related = [i for i in BY_CAT[cat] if i is not it][:4]
     chart = next((im for im in it["images"] if im["chart"] and im.get("key")), None)
     chart_btn = f'<button type="button" class="pdp-chart-btn" data-open-chart aria-haspopup="dialog">{CHART_ICON}Size chart</button>' if chart else ""
     chart_dialog = (f'<dialog class="shop-dialog au-chart" id="sizeChart" aria-labelledby="gbChartTitle"><button type="button" class="shop-dialog__x" aria-label="Close size chart">×</button>'
@@ -274,11 +271,24 @@ def build_product(it):
 
 def stamp_bishop():
     path = os.path.join(ROOT, "bishop.html")
+    """Men's cummerbund / suspender sets join the main Accessories grid; boys' sets get their own "For boys" section under it, so the two never mix."""
     src = open(path, encoding="utf-8").read()
-    block = "\n".join(card(i) for i in ACCESSORIES)
     if "<!-- GIOBERTI:START -->" not in src:
         src = src.replace('<div class="product-grid" data-reveal-group>', '<div class="product-grid" data-reveal-group>\n<!-- GIOBERTI:START -->\n<!-- GIOBERTI:END -->', 1)
-    src = replace_between(src, "<!-- GIOBERTI:START -->", "<!-- GIOBERTI:END -->", block)
+    src = replace_between(src, "<!-- GIOBERTI:START -->", "<!-- GIOBERTI:END -->", "\n".join(card(i) for i in ACCESSORIES["men-formal-accessories"]))
+    boys = ACCESSORIES["boys-formal-accessories"]
+    section = f'''<section class="section" id="boys" style="padding-top:0">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">For boys</span><h2>Boys' formal accessories</h2><p>Cummerbund and suspender sets sized for boys. <a class="link" href="boys-formal-accessories.html">Shop all boys' formal accessories</a></p></div>
+    <div class="product-grid">
+{chr(10).join(card(i) for i in boys)}
+    </div>
+  </div>
+</section>''' if boys else ""
+    if "<!-- GIOBERTI-BOYS:START -->" not in src:
+        i = src.index("</section>", src.index('<div class="product-grid" data-reveal-group>')) + len("</section>")
+        src = src[:i] + "\n\n<!-- GIOBERTI-BOYS:START -->\n<!-- GIOBERTI-BOYS:END -->" + src[i:]
+    src = replace_between(src, "<!-- GIOBERTI-BOYS:START -->", "<!-- GIOBERTI-BOYS:END -->", section)
     n = len(re.findall(r'<a class="product-card[ "]', src))
     src = re.sub(r'<span class="filter-bar__count">\d+ pieces in this collection</span>', f'<span class="filter-bar__count">{n} pieces in this collection</span>', src)
     open(path, "w", encoding="utf-8").write(src)
@@ -304,8 +314,9 @@ def stamp_dresscode_bar(page, dept):
 def index_products():
     out = []
     for it in ITEMS:
-        k, d = ("Bishop", "Accessories") if it["cat"] == BISHOP else (DEPTS[it["dept"]]["sub"], DEPTS[it["dept"]]["label"] if it["dept"] == "men" else "Kids")
-        label = it["name"] if it["cat"] == BISHOP else CATS[it["cat"]][2]
+        men_acc = it["cat"] == "men-formal-accessories"                   # men's cummerbund / suspender sets also belong to the Accessories department
+        k, d = ("Bishop", "Accessories") if men_acc else (DEPTS[it["dept"]]["sub"], DEPTS[it["dept"]]["label"] if it["dept"] == "men" else "Kids")
+        label = it["name"] if men_acc else CATS[it["cat"]][2]
         out.append(dict(k=k, d=d + " " + " ".join(it["colours"]), t=it["name"], s=f"{BRAND} · {label}", u=it["file"], p=it["price"], i=img(cover(it), "-c"), f={"color": it["families"][0]}))
     return out
 
@@ -338,7 +349,7 @@ def main():
     for f in os.listdir(ROOT):                                   # drop pages of products Gioberti no longer sells
         if f.startswith("gioberti-") and f.endswith(".html") and f not in wanted:
             os.remove(os.path.join(ROOT, f))
-    print("gioberti:", len(built), "category pages, 4 landing pages,", len(ITEMS), "product pages,", len(ACCESSORIES), "on bishop.html")
+    print("gioberti:", len(built), "category pages, 4 landing pages,", len(ITEMS), "product pages,", sum(map(len, ACCESSORIES.values())), "on bishop.html")
     import gen_nav
     gen_nav.main()
 

@@ -121,6 +121,7 @@
     if ($('[data-shop]') || !/(bishop|rook)/.test(location.pathname)) return;
     const shoes = /rook/.test(location.pathname);
     $$('.product-card').forEach(card => {
+      if (card.dataset.id) return;                 // a piece with its own product page (e.g. Gioberti) keeps its link and options there
       const name = ($('h4', card) || {}).textContent, tag = ($('.piece-tag', card) || {}).textContent, price = parseFloat((($('.product-card__price', card) || {}).textContent || '').replace(/[^0-9.]/g, '')), img = ($('img', card) || {}).getAttribute && $('img', card).getAttribute('src');
       if (!name || !price) return;
       card.href = 'book-a-fitting.html?look=' + encodeURIComponent(name);
