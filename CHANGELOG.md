@@ -1,5 +1,15 @@
 # Checkmatela changes
 
+## 2026-10-20 — Gioberti catalog, Formal / Not So Formal for Men and Boys
+
+- Added the whole **Gioberti** catalog (gioberti.com, dropship supplier): 189 in-stock products, each with its own page (photos, colour and size pickers with sold-out combinations disabled, the photo follows the colour, price, details and that product's own size chart). Sold-out products and the gift card are left out.
+- **Men and Boys now split by dress code.** *Formal* keeps the existing suits, tuxedos (Antonio Uomo, Magen Kids) and adds Blazers & Sport Coats, Suit Vests & Vest Sets, Dress Shirts and Dress Pants. *Not So Formal* is new and copies Gioberti's own categories (Casual Shirts, Flannel, Polos, Sweaters, Hoodies, Jackets, Outerwear, Leather Jackets, Activewear, Sleepwear, Casual Shorts, Accessories). Landing pages: `men-formal.html`, `men-not-so-formal.html`, `boys-formal.html`, `boys-not-so-formal.html`; one page per category (`men-*.html`, `boys-*.html`).
+- Formal accessories (cummerbund and suspender sets) went into the existing Accessories page (`bishop.html`).
+- **Menus:** Men and Kids panels (and the phone menu) now show three closed dropdowns — Formal, Not So Formal, Occasion — listing categories only.
+- King and Pawn landing pages got a Formal / Not So Formal category bar under the intro. Every new product is in site search.
+- Prices are Gioberti's listed prices, copied as placeholders — set the real markup before selling.
+- New tools: `tools/gb_fetch.py` (catalog + photos) and `tools/gen_gioberti.py` (pages); `gen_nav.py` indexes them.
+
 ## 2026-09-28 — Event-first customer messaging
 
 **Pre-change production snapshot:** [`codex/pre-customer-messaging-2026-09-28`](https://github.com/barbodp/checkmatela/tree/codex/pre-customer-messaging-2026-09-28) (commit `f5e8b94`). This branch preserves the exact `main` version before the changes below.

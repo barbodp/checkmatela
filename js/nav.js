@@ -22,10 +22,18 @@
   const MEGA = {
     king: { label: "Men", sub: "King", href: "king.html",
       cols: [
-        { h: "Featured", links: [["Shop all men", "king.html"], ["Two-piece suits", "king.html?style=Two-piece"], ["Three-piece suits", "king.html?style=Three-piece"], ["Tuxedos", "king.html?style=Tuxedo"], ["Dress pants", "king.html?style=Pants"], ["Jackets", "king.html?style=Jacket"], ["Groomsmen: save up to 15%", "king.html?occasion=Wedding", "Deal"]] },
-        { h: "Brands", brands: true, wide: true, links: [["Antonio Uomo", "antonio-uomo.html"]] },
+        { h: "Featured", links: [["Shop all men", "king.html"], ["Formal", "men-formal.html"], ["Not so formal", "men-not-so-formal.html"], ["Groomsmen: save up to 15%", "king.html?occasion=Wedding", "Deal"]] },
+        /* three closed dropdowns (Formal / Not So Formal / Occasion); the category pages are built by tools/gen_gioberti.py */
+        { h: "Shop by", wide: true, dd: [
+          { t: "Formal", links: [["All formal", "men-formal.html"], ["Two-piece suits", "king.html?style=Two-piece"], ["Three-piece suits", "king.html?style=Three-piece"], ["Tuxedos", "king.html?style=Tuxedo"],
+            ["Blazers & sport coats", "men-blazers.html"], ["Suit vests & vest sets", "men-suit-vests.html"], ["Dress shirts", "men-dress-shirts.html"], ["Dress pants", "men-dress-pants.html"], ["Accessories", "bishop.html"]] },
+          { t: "Not So Formal", links: [["All not so formal", "men-not-so-formal.html"], ["Casual shirts", "men-casual-shirts.html"], ["Flannel shirts", "men-flannel-shirts.html"], ["Polo shirts", "men-polo-shirts.html"],
+            ["Sweaters", "men-sweaters.html"], ["Hoodies", "men-hoodies.html"], ["Jackets", "men-jackets.html"], ["Outerwear", "men-outerwear.html"], ["Leather jackets", "men-leather-jackets.html"],
+            ["Activewear", "men-activewear.html"], ["Sleepwear", "men-sleepwear.html"], ["Accessories", "men-accessories.html"]] },
+          { t: "Occasion", links: [...["Wedding", "Black tie", "Prom", "Business", "Formal", "Summer"].map(o => [o, "king.html?occasion=" + encodeURIComponent(o)]), ["Casual & weekend", "men-not-so-formal.html"], ["Gym & lounge", "men-activewear.html"]] },
+        ] },
+        { h: "Brands", brands: true, links: [["Antonio Uomo", "antonio-uomo.html"]] },
         { h: "Color", sw: sw(["Black", "Charcoal", "Grey", "Navy", "Blue", "Burgundy", "Brown", "Beige"], "king.html?color=") },
-        { h: "Occasion", links: ["Wedding", "Black tie", "Prom", "Business", "Formal", "Summer"].map(o => [o, "king.html?occasion=" + encodeURIComponent(o)]) },
       ],
       tiles: [
         { img: "assets/img/categories/men-model.webp", t: "Wedding season", p: "Suits and tuxedos for the whole party. 10% off at 3+, 15% at 6+.", a: "Shop weddings", href: "king.html?occasion=Wedding" },
@@ -44,9 +52,16 @@
       help: "Planning ahead?", helpLink: ["Ask about timing", "book-a-fitting.html"] },
     pawn: { label: "Kids", sub: "Pawn", href: "pawn.html",
       cols: [
-        { h: "Featured", links: [["All kids' styles", "pawn.html"], ["Husky fit", "pawn-husky.html"], ["Dress pants", "pawn-pants.html"], ["Compare the cuts", "pawn.html"], ["Kids' size guide", "size-guide.html"], ["Ask about fit", "book-a-fitting.html"], ["Free exchanges", "shipping-returns.html", "Free"]] },
-        { h: "Wedding party", desk: true, links: [["Ring bearer", "pawn-ring-bearer.html"], ["Flower girl", "pawn-flower-girl.html", "Soon"], ["Groomsmen suits", "king.html?occasion=Wedding", "Deal"]] },
-        { h: "Brands", brands: true, wide: true, links: [["Magen Kids", "magen-kids.html"]] },
+        { h: "Featured", links: [["All kids' styles", "pawn.html"], ["Boys' formal", "boys-formal.html"], ["Boys' not so formal", "boys-not-so-formal.html"], ["Husky fit", "pawn-husky.html"], ["Kids' size guide", "size-guide.html"], ["Free exchanges", "shipping-returns.html", "Free"]] },
+        { h: "Shop by", wide: true, dd: [
+          { t: "Formal", links: [["All formal", "boys-formal.html"], ["Suits", "pawn-slim-fit.html"], ["Tuxedos", "pawn-tuxedo.html"], ["Husky fit", "pawn-husky.html"], ["Ring bearer", "pawn-ring-bearer.html"],
+            ["Suits & blazers", "boys-suits-blazers.html"], ["Suit vests & vest sets", "boys-suit-vests.html"], ["Dress shirts", "boys-dress-shirts.html"], ["Dress pants", "boys-dress-pants.html"], ["Accessories", "bishop.html"]] },
+          { t: "Not So Formal", links: [["All not so formal", "boys-not-so-formal.html"], ["Casual shirts", "boys-casual-shirts.html"], ["Polo shirts", "boys-polo-shirts.html"], ["Sweaters", "boys-sweaters.html"],
+            ["Jackets", "boys-jackets.html"], ["Activewear", "boys-activewear.html"], ["Casual shorts", "boys-shorts.html"], ["Sleepwear", "boys-sleepwear.html"], ["Accessories", "boys-accessories.html"]] },
+          { t: "Occasion", links: [["Ring bearer & wedding party", "pawn-ring-bearer.html"], ["Flower girl", "pawn-flower-girl.html", "Soon"], ["Formal events", "boys-formal.html"], ["School & everyday", "boys-not-so-formal.html"],
+            ["Sports & play", "boys-activewear.html"], ["Bedtime", "boys-sleepwear.html"]] },
+        ] },
+        { h: "Brands", brands: true, links: [["Magen Kids", "magen-kids.html"]] },
         { h: "Color", kidsColors: true },
       ],
       tiles: [
@@ -97,7 +112,7 @@
     if (IDX) return cb();
     idxWaiters.push(cb);
     if (withIndex.loading) return; withIndex.loading = true;
-    const s = document.createElement("script"); s.src = "js/search-index.js?v=a5187cea";
+    const s = document.createElement("script"); s.src = "js/search-index.js?v=0b40cff8";
     s.onload = () => { IDX = window.CHECKMATELA_INDEX; prep(); idxWaiters.splice(0).forEach(f => f()); };
     document.head.appendChild(s);
   }
@@ -179,6 +194,8 @@
 
   /* ---------------------------------------------------------------- panel content */
   const tagHTML = t => t ? `<em class="tag${t === "Deal" ? " tag--deal" : t === "Soon" ? " tag--soon" : ""}">${esc(t)}</em>` : "";
+  /* "dd" columns: each group is a closed dropdown, like a brand (same markup, so it looks and behaves the same in the panel and the phone menu) */
+  const ddHTML = c => c.dd.map(g => `<details class="brand-dd"><summary><span>${esc(g.t)}</span></summary><ul class="mega__list">${g.links.map(([l, u, t]) => `<li><a href="${u}"><span>${esc(l)}</span>${tagHTML(t)}</a></li>`).join("")}</ul></details>`).join("");
   const swHTML = list => `<ul class="mega__sw">${list.map(([n, href, hex]) => `<li><a href="${href}"><i style="--c:${hex}"></i><span>${esc(n)}</span></a></li>`).join("")}</ul>`;
   const navOf = key => (IDX && IDX.nav || []).find(d => d.key === key);
   const subPages = key => { const n = navOf(key); return n ? n.pages.filter(p => !p.landing) : []; };
@@ -195,6 +212,7 @@
     let inner;
     if (c.brands) { const bp = subPages(key).filter(p => p.children); inner = bp.length ? bp.map(p => brandDD(p, false)).join("") : `<ul class="mega__list">${c.links.map(([l, u]) => `<li><a href="${u}"><span>${esc(l)}</span></a></li>`).join("")}</ul>`; }
     else if (c.pages) { const sp = flatPages(key), list = sp.length ? sp.map(p => [p.t, p.u, p.n ? (p.m > p.p ? "from $" : "$") + p.p : "Soon", p.depth]) : c.links; inner = `<ul class="mega__list">${list.map(([l, u, t, dp]) => `<li class="${dp ? "is-child" : ""}"><a href="${u}"><span>${esc(l)}</span>${tagHTML(t)}</a></li>`).join("")}</ul>`; }
+    else if (c.dd) inner = ddHTML(c);
     else if (c.sw) inner = swHTML(c.sw);
     else if (c.kidsColors) inner = kidsColors().length ? swHTML(kidsColors()) : `<p class="mega__wait">Loading colours…</p>`;
     else if (c.pick) {
@@ -224,7 +242,7 @@
   header.appendChild(mega); header.after(megaScrim);
   let megaKey = null, megaTimer = 0;
   const here = location.pathname.split("/").pop() || "index.html";
-  navLinks.forEach(a => { const k = a.dataset.mega; if (a.getAttribute("href") === here || (k === "pawn" && /^(pawn|magen-kids)/.test(here))) a.setAttribute("aria-current", "page"); a.setAttribute("aria-haspopup", "true"); a.setAttribute("aria-expanded", "false"); a.setAttribute("aria-controls", "megaPanel"); });
+  navLinks.forEach(a => { const k = a.dataset.mega; if (a.getAttribute("href") === here || (k === "pawn" && /^(pawn|magen-kids|boys-)/.test(here)) || (k === "king" && /^(antonio-uomo|men-)/.test(here))) a.setAttribute("aria-current", "page"); a.setAttribute("aria-haspopup", "true"); a.setAttribute("aria-expanded", "false"); a.setAttribute("aria-controls", "megaPanel"); });
   function openMega(key) {
     clearTimeout(megaTimer);
     if (!wide.matches || megaKey === key) return;
@@ -262,7 +280,7 @@
   const menu = document.createElement("div");
   menu.className = "menu"; menu.id = "siteMenu"; menu.setAttribute("role", "dialog"); menu.setAttribute("aria-modal", "true"); menu.setAttribute("aria-label", "Site menu"); menu.hidden = true; menu.tabIndex = -1;
   const scrim = document.createElement("div"); scrim.className = "menu-scrim"; scrim.hidden = true;
-  const secHTML = c => c.sw ? `<h4>${esc(c.h)}</h4>${swHTML(c.sw)}`
+  const secHTML = c => c.dd ? `<h4>${esc(c.h)}</h4>${ddHTML(c)}` : c.sw ? `<h4>${esc(c.h)}</h4>${swHTML(c.sw)}`
     : c.kidsColors ? (kidsColors().length ? `<h4>${esc(c.h)}</h4>${swHTML(kidsColors())}` : "")
     : c.pick ? `<h4>${esc(c.h)}</h4><ul class="mega__list">${(IDX ? IDX.products.filter(p => p.k === c.pick[0] && c.pick[1].test(p.s)) : []).map(p => `<li><a href="${p.u}"><span>${esc(p.t)} <i>${esc(p.s)}</i></span><em>${money(p.p)}</em></a></li>`).join("") || `<li><a href="${c.fallback[1]}">${c.fallback[0]}</a></li>`}</ul>`
     : `<h4>${esc(c.h)}</h4><ul class="mega__list">${c.links.map(([l, u, t]) => `<li><a href="${u}"><span>${esc(l)}</span>${tagHTML(t)}</a></li>`).join("")}</ul>`;

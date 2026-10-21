@@ -1,0 +1,147 @@
+"""Gioberti (our dropship supplier for men's and boys' formal and casual wear) -> catalog + image library. Same pipeline as tools/au_fetch.py.
+
+1. Reads https://gioberti.com/products.json and normalises it into tools/catalog/gioberti.json: title, product type, style code, options
+   (colour first, then size), every variant with its price and availability, copy, and the photo for each colour.
+2. Downloads every original image into  ~/Downloads/Gioberti/<Product type>/<Title (handle)>/NN.jpg  (resumable: existing files are kept).
+3. Writes web-sized copies into assets/img/gioberti/ (content-addressed by md5, like Antonio Uomo):
+   <md5>.webp (max 900px wide), <md5>-t.webp (160px thumb), <md5>-c.webp (480px card image).
+   Size charts: Gioberti adds the product's own size chart as one of its photos (alt / file name "size chart"); it is kept out of the
+   gallery and saved larger (<md5>-z.webp, max 1400px) so the numbers stay readable in the product's "Size chart" pop-up.
+
+Run from anywhere:  python3 tools/gb_fetch.py [--no-download] [--no-optimize]
+Sold-out products (no available variant) and the gift card are left out; tools/gen_gioberti.py builds the pages from the JSON.
+"""
+import os, re, sys, json, html, hashlib, urllib.request, concurrent.futures as cf
+from PIL import Image, ImageOps
+from au_fetch import parse_body, download_one, ext_of, to_rgb, fs_name, slug
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT_JSON = os.path.join(ROOT, "tools", "catalog", "gioberti.json")
+DL = os.path.expanduser("~/Downloads/Gioberti")
+ASSETS = os.path.join(ROOT, "assets", "img", "gioberti")
+UA = {"User-Agent": "Mozilla/5.0"}
+SHOP = "https://gioberti.com"
+
+# Colour families (same names as the rest of the site's filters). A colour can belong to two families ("Metallic Black / Gold").
+FAMILY_RULES = [
+    ("Charcoal", r"charcoal|\bd gray\b|dark gr[ae]y|smoky"), ("Grey", r"(?<!d )(?<!dark )\b(gr[ae]y|heather|h gray|marled)\b"), ("Black", r"black"),
+    ("Navy", r"navy|midnight|indigo|dark blue"), ("Blue", r"(?<!dark )(?<!midnight )blue|royal|aqua|turquoise|denim|\bsky\b"), ("Teal", r"teal"),
+    ("White", r"white|ivory|cream|\boff\b"), ("Beige", r"beige|khaki|\btan\b|stone|camel|sand|oat"), ("Brown", r"brown|coffee|umber|mocha|chocolate|rust"),
+    ("Green", r"green|olive|mint|sage|hunter|forest"), ("Burgundy", r"burgundy|burgurdy|wine|maroon|crimson"), ("Red", r"\bred\b"),
+    ("Pink", r"pink|coral|fuchsia|rose|blush"), ("Purple", r"purple|lilac|lavender|violet|plum"), ("Yellow", r"yellow|banana|mustard"),
+    ("Gold", r"gold"), ("Orange", r"orange"), ("Silver", r"silver"),
+]
+
+
+def families(colours):
+    out = []
+    for c in colours:
+        for fam, rx in FAMILY_RULES:
+            if re.search(rx, c, re.I) and fam not in out:
+                out.append(fam)
+    return out or ["Other"]
+
+
+def is_chart(im):
+    return bool(re.search(r"size|chart", (im.get("alt") or "") + " " + im["src"].split("?")[0].rsplit("/", 1)[-1], re.I))
+
+
+def fetch_products():
+    out, page = [], 1
+    while True:
+        req = urllib.request.Request(f"{SHOP}/products.json?limit=250&page={page}", headers=UA)
+        data = json.load(urllib.request.urlopen(req, timeout=60))["products"]
+        if not data:
+            return out
+        out += data
+        page += 1
+
+
+def normalise(prods):
+    items, skipped = [], []
+    for p in prods:
+        if p["product_type"] == "Gift Card":
+            continue
+        if not any(v["available"] for v in p["variants"]):
+            skipped.append(p["handle"]); continue
+        opts = [o for o in p["options"] if not (o["name"] == "Title" and o["values"] == ["Default Title"])]
+        ci = next((i for i, o in enumerate(opts) if re.match(r"colou?r", o["name"], re.I)), None)
+        order = ([ci] if ci is not None else []) + [i for i in range(len(opts)) if i != ci]      # colour first, then size
+        pos = [o["position"] - 1 for o in opts]
+        variants = []
+        for v in p["variants"]:
+            vals = [v["option1"], v["option2"], v["option3"]]
+            variants.append(dict(o=[vals[pos[i]] for i in order], price=float(v["price"]), ok=bool(v["available"]),
+                                 img=(v.get("featured_image") or {}).get("id")))
+        options = [dict(name=opts[i]["name"], values=opts[i]["values"]) for i in order]
+        live = [v for v in variants if v["ok"]]
+        colours = [c for c in options[0]["values"] if any(v["o"][0] == c for v in live)] if ci is not None else []
+        colour_img = {}
+        for v in variants:
+            if ci is not None and v["img"] and v["o"][0] not in colour_img:
+                colour_img[v["o"][0]] = v["img"]
+        paras, bullets = parse_body(p["body_html"])
+        images = [dict(id=i["id"], src=i["src"], w=i["width"], h=i["height"], chart=is_chart(i)) for i in p["images"]]
+        prices = [v["price"] for v in live]
+        items.append(dict(
+            handle=p["handle"], name=html.unescape(p["title"]).strip(), ptype=p["product_type"], code=(p["variants"][0].get("sku") or "").split(":")[0],
+            options=options, variants=[[*v["o"], v["price"], int(v["ok"])] for v in variants], colours=colours, families=families(colours),
+            colour_img={c: i for c, i in colour_img.items()}, price=min(prices), price_max=max(prices),
+            paras=paras, bullets=bullets, images=images, supplier_url=f"{SHOP}/products/{p['handle']}",
+        ))
+    return items, skipped
+
+
+def optimise(path, chart=False):
+    """-> md5 key of the original; writes <key>.webp / -t.webp / -c.webp (and -z.webp for size charts), skipped when they exist."""
+    key = hashlib.md5(open(path, "rb").read()).hexdigest()[:12]
+    outs = {s: os.path.join(ASSETS, key + s) for s in ((".webp", "-t.webp", "-c.webp") + (("-z.webp",) if chart else ()))}
+    if not all(os.path.exists(f) for f in outs.values()):
+        im = to_rgb(Image.open(path))
+        def sized(w):
+            return im.resize((w, round(im.height * w / im.width)), Image.LANCZOS) if im.width > w else im
+        sized(900).save(outs[".webp"], "WEBP", quality=76, method=5)
+        sized(480).save(outs["-c.webp"], "WEBP", quality=74, method=5)
+        ImageOps.fit(im, (160, 160), Image.LANCZOS, centering=(0.5, 0.12 if im.height > im.width else 0.5)).save(outs["-t.webp"], "WEBP", quality=70, method=5)
+        if chart:
+            sized(1400).save(outs["-z.webp"], "WEBP", quality=88, method=5)
+    return key
+
+
+def main():
+    items, skipped = normalise(fetch_products())
+    for it in items:
+        folder = os.path.join(DL, fs_name(it["ptype"]), fs_name(f"{it['name']} ({it['handle']})"))
+        for n, im in enumerate(it["images"], 1):
+            im["file"] = os.path.join(folder, f"{n:02d}{ext_of(im['src'])}")
+    if "--no-download" not in sys.argv:
+        jobs = [(im["src"], im["file"]) for it in items for im in it["images"]]
+        done = 0
+        with cf.ThreadPoolExecutor(8) as ex:
+            for dest, status in ex.map(download_one, jobs):
+                done += 1
+                if status.startswith("FAILED"):
+                    print(status, dest)
+                if done % 200 == 0:
+                    print(f"downloaded {done}/{len(jobs)}", flush=True)
+        print("download finished:", len(jobs), "images")
+    if "--no-optimize" not in sys.argv:
+        os.makedirs(ASSETS, exist_ok=True)
+        ims = [im for it in items for im in it["images"]]
+        with cf.ThreadPoolExecutor(4) as ex:
+            keys = list(ex.map(lambda im: optimise(im["file"], im["chart"]), ims))
+        for im, k in zip(ims, keys):
+            im["key"] = k
+        print("optimised", len(ims), "images ->", len(set(keys)), "unique files")
+    for it in items:
+        by_id = {im["id"]: im.get("key") for im in it["images"]}
+        it["colour_img"] = {c: by_id.get(i) for c, i in it["colour_img"].items() if by_id.get(i)}
+        for im in it["images"]:
+            im.pop("file", None); im.pop("id", None); im.pop("src", None)
+    os.makedirs(os.path.dirname(OUT_JSON), exist_ok=True)
+    json.dump(items, open(OUT_JSON, "w", encoding="utf-8", newline="\n"), indent=1, ensure_ascii=False)
+    print("wrote", os.path.relpath(OUT_JSON, ROOT), len(items), "products;", len(skipped), "sold out and left out:", ", ".join(skipped))
+
+
+if __name__ == "__main__":
+    main()

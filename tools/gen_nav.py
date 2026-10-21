@@ -197,6 +197,10 @@ def main():
         import gen_antonio as au
     except Exception:                                  # catalog not fetched yet (tools/au_fetch.py)
         au = None
+    try:
+        import gen_gioberti as gb
+    except Exception:                                  # catalog not fetched yet (tools/gb_fetch.py)
+        gb = None
     products, nav = [], []
     for d in DEPTS:
         pages, total = [], 0
@@ -245,12 +249,16 @@ def main():
             lo, hi = min(c["p"] for c in allp), max(c["p"] for c in allp)
             children = [dict(t="Shop All", u=pw.BRAND_FILE, n=len(allp), p=lo, m=hi)] + kids
             pages = [p for p in pages if p["landing"]] + others + [dict(t=pw.BRAND, u=pw.BRAND_FILE, n=len(allp), p=lo, m=hi, landing=False, children=children)]
+        if gb:                                              # Gioberti: men-*/boys-* category pages and gioberti-*.html products (kept out of the page discovery above;
+            mine = [p for p in gb.index_products() if p["k"] == d["sub"]]        # the menus list them as the Formal / Not So Formal dropdowns in nav.js)
+            products += mine
+            total += len(mine)
         pages.sort(key=lambda x: (not x["landing"], x["n"] == 0))          # landing page first, then pages with products, "coming soon" pages last (stable: file order)
         nav.append(dict(key=d["key"], label=d["label"], sub=d["sub"], href=d["landing"], total=total, pages=pages))
     index = {
         "products": products,
         "nav": nav,
-        "pages": [dict(t=t, u=u, s=s, kw=kw) for t, u, s, kw in PAGES],
+        "pages": [dict(t=t, u=u, s=s, kw=kw) for t, u, s, kw in PAGES + (gb.search_pages() if gb else [])],
         "help": [dict(t=t, u=u, s=s, kw=kw) for t, u, s, kw in HELP],
     }
     out = os.path.join(ROOT, "js", "search-index.js")

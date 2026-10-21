@@ -1859,3 +1859,9 @@ body.nav-open .site-header{ z-index:95; }
 /* ---- WEDDING PARTY (Kids: ring bearer / flower girl cards) ---- */
 .style-grid--two{ grid-template-columns:repeat(2,minmax(0,380px)); margin-bottom:clamp(32px,4vw,48px); }
 @media (max-width:460px){ .style-grid--two{ grid-template-columns:1fr; } }
+
+/* ===================== GIOBERTI (tools/gen_gioberti.py): sold-out option chips, size chart image, dress-code bar ===================== */
+.pdp .chip-btn:disabled{ opacity:.35; text-decoration:line-through; cursor:not-allowed; }
+.au-chart .gb-chart{ display:block; width:100%; height:auto; margin:8px 0 12px; border:1px solid rgba(21,24,26,.1); }
+.au-cats--dresscode a b{ font-weight:700; }
+.mega__col .brand-dd + .brand-dd{ margin-top:2px; }
