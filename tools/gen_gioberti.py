@@ -121,7 +121,7 @@ def build_category(key):
     d = DEPTS[dept]
     its = BY_CAT[key]
     cards = [card(i) for i in its]
-    facets = [{"key": "color", "label": "Colour", "swatch": True}]
+    facets = [{"key": "color", "label": "Colour", "swatch": True}, {"key": "availability", "label": "Availability"}]      # a filter with one value hides itself
     if key in FROM_KING:
         cards += king_cards(FROM_KING[key])
         facets.append({"key": "brand", "label": "Brand"})
@@ -166,7 +166,7 @@ def build_landing(dept, group, built):
     grid = ""
     if group == "nsf":
         its = [i for k in cat_files(dept, "nsf") for i in BY_CAT[k]]
-        grid = shop_block("\n".join(card(i, with_cat=True) for i in its), [{"key": "category", "label": "Category"}, {"key": "color", "label": "Colour", "swatch": True}],
+        grid = shop_block("\n".join(card(i, with_cat=True) for i in its), [{"key": "category", "label": "Category"}, {"key": "color", "label": "Colour", "swatch": True}, {"key": "availability", "label": "Availability"}],
                           "gioberti", count_noun="pieces", review_facets=[])
     body = f'''{head}
 {pills(dept, group, page)}
