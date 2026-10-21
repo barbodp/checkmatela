@@ -56,7 +56,9 @@ def img(key, kind=""):
 
 
 def photos(it):
-    return [im for im in it["images"] if not im["chart"] and im.get("key")]
+    """Gallery photos: everything except the size chart and photos that only show sold-out colours."""
+    live = set(it["colours"])
+    return [im for im in it["images"] if not im["chart"] and im.get("key") and (not im.get("colours") or live & set(im["colours"]))]
 
 
 def cover(it):
