@@ -10,7 +10,7 @@
    gallery and saved larger (<md5>-z.webp, max 1400px) so the numbers stay readable in the product's "Size chart" pop-up.
 
 Run from anywhere:  python3 tools/gb_fetch.py [--no-download] [--no-optimize]
-Sold-out products (no available variant) and the gift card are left out; tools/gen_gioberti.py builds the pages from the JSON.
+The gift card is left out; sold-out products are kept (`soldout`) and shown as sold out; tools/gen_gioberti.py builds the pages from the JSON.
 """
 import os, re, sys, json, html, hashlib, urllib.request, concurrent.futures as cf
 from PIL import Image, ImageOps
@@ -64,8 +64,9 @@ def normalise(prods):
     for p in prods:
         if p["product_type"] == "Gift Card":
             continue
-        if not any(v["available"] for v in p["variants"]):
-            skipped.append(p["handle"]); continue
+        soldout = not any(v["available"] for v in p["variants"])           # kept and shown as "Sold out"
+        if soldout:
+            skipped.append(p["handle"])
         opts = [o for o in p["options"] if not (o["name"] == "Title" and o["values"] == ["Default Title"])]
         ci = next((i for i, o in enumerate(opts) if re.match(r"colou?r", o["name"], re.I)), None)
         order = ([ci] if ci is not None else []) + [i for i in range(len(opts)) if i != ci]      # colour first, then size
@@ -76,8 +77,9 @@ def normalise(prods):
             variants.append(dict(o=[vals[pos[i]] for i in order], price=float(v["price"]), ok=bool(v["available"]),
                                  img=(v.get("featured_image") or {}).get("id")))
         options = [dict(name=opts[i]["name"], values=opts[i]["values"]) for i in order]
-        live = [v for v in variants if v["ok"]]
+        live = [v for v in variants if v["ok"]] or variants                # a sold-out product: price / colours from every variant
         colours = [c for c in options[0]["values"] if any(v["o"][0] == c for v in live)] if ci is not None else []
+        all_colours = list(options[0]["values"]) if ci is not None else []
         colour_img = {}
         for v in variants:
             if ci is not None and v["img"] and v["o"][0] not in colour_img:
@@ -89,7 +91,8 @@ def normalise(prods):
         prices = [v["price"] for v in live]
         items.append(dict(
             handle=p["handle"], name=html.unescape(p["title"]).strip(), ptype=p["product_type"], code=(p["variants"][0].get("sku") or "").split(":")[0],
-            options=options, variants=[[*v["o"], v["price"], int(v["ok"])] for v in variants], colours=colours, families=families(colours),
+            options=options, variants=[[*v["o"], v["price"], int(v["ok"])] for v in variants], soldout=soldout,
+            colours=colours, all_colours=all_colours, families=families(all_colours),
             colour_img={c: i for c, i in colour_img.items()}, price=min(prices), price_max=max(prices),
             paras=paras, bullets=bullets, images=images, supplier_url=f"{SHOP}/products/{p['handle']}",
         ))
@@ -170,7 +173,7 @@ def main():
             im.pop("file", None); im.pop("files", None); im.pop("id", None); im.pop("src", None)
     os.makedirs(os.path.dirname(OUT_JSON), exist_ok=True)
     json.dump(items, open(OUT_JSON, "w", encoding="utf-8", newline="\n"), indent=1, ensure_ascii=False)
-    print("wrote", os.path.relpath(OUT_JSON, ROOT), len(items), "products;", len(skipped), "sold out and left out:", ", ".join(skipped))
+    print("wrote", os.path.relpath(OUT_JSON, ROOT), len(items), "products;", len(skipped), "of them sold out:", ", ".join(skipped))
 
 
 if __name__ == "__main__":

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=81">
+<link rel="stylesheet" href="css/style.css?v=82">
 <script type="application/ld+json" data-crumbs>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://checkmatela.vercel.app/"},{"@type":"ListItem","position":2,"name":"Men","item":"https://checkmatela.vercel.app/king.html"},{"@type":"ListItem","position":3,"name":"Antonio Uomo","item":"https://checkmatela.vercel.app/antonio-uomo.html"},{"@type":"ListItem","position":4,"name":"3 Piece Tuxedo","item":"https://checkmatela.vercel.app/antonio-uomo-3-piece-tuxedo.html"},{"@type":"ListItem","position":5,"name":"White 3 Piece Slim Fit Tuxedo","item":"https://checkmatela.vercel.app/antonio-uomo-3-piece-slim-fit-tuxedo-white-1874514.html"}]}</script>
 </head>
 <body>
@@ -75,8 +75,8 @@
         <p class="pdp-code">Style 1874514 &middot; 3 Piece Tuxedo</p>
         <p class="pdp-price">$219</p>
         <p class="pdp-lede">Upgrade your wardrobe today with an Antonio Uomo Suit. Achieve the classic, refined look you&#x27;ve been seeking.</p>
-        <fieldset class="pdp-opt" data-key="size"><legend>Size</legend><div class="pdp-chips"><button type="button" class="chip-btn" data-v="34" aria-pressed="false">34</button><button type="button" class="chip-btn" data-v="36" aria-pressed="false">36</button><button type="button" class="chip-btn" data-v="38" aria-pressed="false">38</button><button type="button" class="chip-btn" data-v="40" aria-pressed="false">40</button><button type="button" class="chip-btn" data-v="42" aria-pressed="false">42</button><button type="button" class="chip-btn" data-v="44" aria-pressed="false">44</button><button type="button" class="chip-btn" data-v="46" aria-pressed="false">46</button><button type="button" class="chip-btn" data-v="48" aria-pressed="false">48</button><button type="button" class="chip-btn" data-v="50" aria-pressed="false">50</button><button type="button" class="chip-btn" data-v="52" aria-pressed="false">52</button><button type="button" class="chip-btn" data-v="54" aria-pressed="false">54</button><button type="button" class="chip-btn" data-v="56" aria-pressed="false">56</button></div></fieldset>
-        <fieldset class="pdp-opt" data-key="length"><legend>Length</legend><div class="pdp-chips"><button type="button" class="chip-btn" data-v="Short" aria-pressed="false">Short</button><button type="button" class="chip-btn" data-v="Regular" aria-pressed="true">Regular</button><button type="button" class="chip-btn" data-v="Long" aria-pressed="false">Long</button></div></fieldset>
+        <div class="pdp-opt pdp-opt--select" data-key="size"><label class="pdp-opt__label" for="opt-size">Size</label><select id="opt-size" class="pdp-select"><option value="">Choose size</option><option value="34">34</option><option value="36">36</option><option value="38">38</option><option value="40">40</option><option value="42">42</option><option value="44">44</option><option value="46">46</option><option value="48">48</option><option value="50">50</option><option value="52">52</option><option value="54">54</option><option value="56">56</option></select></div>
+        <div class="pdp-opt pdp-opt--select" data-key="length"><label class="pdp-opt__label" for="opt-length">Length</label><select id="opt-length" class="pdp-select"><option value="">Choose length</option><option value="Short">Short</option><option value="Regular" selected>Regular</option><option value="Long">Long</option></select></div>
         <button type="button" class="pdp-chart-btn" data-open-chart aria-haspopup="dialog"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 15 15 3l6 6L9 21z"/><path d="M7 11l2 2M10 8l2 2M13 5l2 2M5 13l1 1"/></svg>Size chart</button>
         <p class="pdp-msg" role="status"></p>
         <div class="pdp-cta"><button type="button" class="btn pdp-add">Add to preview bag</button><a class="btn dark-ghost" href="book-a-fitting.html?look=White%203%20Piece%20Slim%20Fit%20Tuxedo">Ask about fit</a></div>
@@ -152,7 +152,7 @@
 
 <script src="js/nav.js?v=25"></script>
 <script src="js/main.js"></script>
-<script src="js/product.js?v=6"></script>
+<script src="js/product.js?v=7"></script>
 <script src="js/cart.js?v=5"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@ generated here as well: every Antonio Uomo piece in one filterable grid. Run:  p
 import os, json, re, html
 from gen_pawn_pages import HEADER, FOOTER, ANNOUNCE, CSS_VERSION, FAVICON, page_head
 from gen_info_pages import glyph_defs
-from shoplib import shop_block, replace_between, esc
+from shoplib import shop_block, replace_between, esc, select_opt
 import au_sizes
 import suit_info
 from suit_info import DESIGN
@@ -249,7 +249,7 @@ def build_brand():
     head = page_head(crumbs(*BASE_CRUMBS), esc(BRAND), f"Suits, tuxedos, jackets and pants: {total} pieces from {money(lo)}.")
     body = f"{head}\n{cats_nav('all')}\n{shop_html}"
     write(BRAND_FILE, shell(f"{BRAND} — Men's Suits & Tuxedos | Checkmatela", f"Antonio Uomo men's suits, tuxedos, jackets and pants at Checkmatela: {total} pieces from {money(lo)}.", body,
-                            extra_js='<script src="js/shop.js?v=6"></script>'))
+                            extra_js='<script src="js/shop.js?v=7"></script>'))
 
 
 def build_type(slug):
@@ -263,7 +263,7 @@ def build_type(slug):
     head = page_head(crumbs(*BASE_CRUMBS, (name, tfile(slug))), esc(name), esc(lead))
     body = f"{head}\n{cats_nav(slug)}\n{shop_html}"
     write(tfile(slug), shell(f"{name} — {BRAND} | Checkmatela", f"{name} by {BRAND}: {len(its)} pieces, {'from ' + money(lo) if lo != hi else money(lo)}. Browse colors and sizes at Checkmatela.", body,
-                           extra_js='<script src="js/shop.js?v=6"></script>'))
+                           extra_js='<script src="js/shop.js?v=7"></script>'))
 
 
 def gallery(it):
@@ -280,8 +280,8 @@ def gallery(it):
 
 
 def chips(key, label, values, default=None):
-    btns = "".join(f'<button type="button" class="chip-btn" data-v="{esc(v)}" aria-pressed="{"true" if v == default else "false"}">{esc(v)}</button>' for v in values)
-    return f'<fieldset class="pdp-opt" data-key="{key}"><legend>{label}</legend><div class="pdp-chips">{btns}</div></fieldset>'
+    """A product option as a dropdown (shoplib.select_opt; js/product.js reads it). The name is kept from when these were chip buttons."""
+    return select_opt(key, label, values, default)
 
 
 def acc(title, inner, open_=False):
@@ -361,7 +361,7 @@ def build_product(it):
                     crumb_parts=[*BASE_CRUMBS, (tname, tfile(slug)), (it["name"], pfile(it))], related_html=rel_html)
     write(pfile(it), shell(f"{it['name']} ({it['code']}) — {BRAND} | Checkmatela",
                            f"{it['name']} ({it['code']}) by {BRAND}, {money(it['price'])}. " if opening else f"{it['name']} by {BRAND}, style {it['code']}, {money(it['price'])}. " + (it["bullets"][0] + ". " if it["bullets"] else "") + "Sizes, details and size chart at Checkmatela.",
-                           body, extra_js='<script src="js/product.js?v=6"></script>'))
+                           body, extra_js='<script src="js/product.js?v=7"></script>'))
 
 
 def category_of(it):
@@ -377,7 +377,7 @@ def build_king_page():
     path = os.path.join(ROOT, "king.html")
     src = open(path, encoding="utf-8").read()
     src = replace_between(src, "<!-- SHOP:START -->", "<!-- SHOP:END -->", block)
-    src = src.replace("js/shop.js?v=", "js/shop.js?v=") if "js/shop.js" in src else src.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/shop.js?v=6"></script>')
+    src = src.replace("js/shop.js?v=", "js/shop.js?v=") if "js/shop.js" in src else src.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/shop.js?v=7"></script>')
     open(path, "w", encoding="utf-8").write(src)
 
 

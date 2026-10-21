@@ -1865,3 +1865,19 @@ body.nav-open .site-header{ z-index:95; }
 .au-chart .gb-chart{ display:block; width:100%; height:auto; margin:8px 0 12px; border:1px solid rgba(21,24,26,.1); }
 .au-cats--dresscode a b{ font-weight:700; }
 .mega__col .brand-dd + .brand-dd{ margin-top:2px; }
+/* product options as dropdowns (product pages + quick view) and the Gioberti "Sold out" mark */
+.pdp-opt--select{ display:flex; flex-direction:column; gap:8px; margin:20px 0 0; }
+.qv__opts .pdp-opt--select{ margin:14px 0 0; }
+.pdp-opt__label{ font-size:.82rem; letter-spacing:.18em; text-transform:uppercase; font-weight:700; }
+.pdp-opt.is-missing .pdp-opt__label{ color:var(--burgundy); }
+.pdp-select{ appearance:none; -webkit-appearance:none; width:100%; max-width:420px; min-height:48px; padding:.55em 2.6em .55em .9em; font:inherit; font-size:1.05rem; font-weight:600; color:var(--ink);
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2315181a' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right .95em center;
+  border:1.5px solid rgba(21,24,26,.75); border-radius:0; cursor:pointer; }
+.pdp-select:focus-visible{ outline:2px solid var(--brass); outline-offset:2px; }
+.pdp-opt.is-missing .pdp-select{ border-color:var(--burgundy); }
+.pdp-add:disabled{ opacity:.55; cursor:not-allowed; }
+.au-card__img{ position:relative; }
+.gb-soldout{ position:absolute; left:10px; top:10px; padding:.25em .7em; background:var(--ink); color:#fff; font-style:normal; font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+.gb-soldout--inline{ position:static; display:inline-block; margin-left:12px; vertical-align:middle; }
+.product-card.is-soldout .au-card__img img{ opacity:.6; }
+.product-card.is-soldout .product-card__price{ color:var(--slate); }

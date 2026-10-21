@@ -59,7 +59,7 @@
           <p class="qv__price">${money(price)}</p>
           <p class="qv__rating"></p>
           <dl class="qv__attrs">${attrs.map(a => `<div><dt>${esc(a[0])}</dt><dd>${esc(a[1])}</dd></div>`).join("")}</dl>
-          <div class="qv__opts">${optionDefs.map(o => `<fieldset class="qv-opt" data-key="${o.key}"><legend>${esc(o.label)}${o.required ? "" : ""}</legend><div class="qv-opt__chips">${o.values.map(v => `<button type="button" class="chip-btn" data-v="${esc(v)}" aria-pressed="${v === o.default}">${esc(v)}</button>`).join("")}</div></fieldset>`).join("")}</div>
+          <div class="qv__opts">${optionDefs.map(o => `<div class="qv-opt pdp-opt--select" data-key="${o.key}"><label class="pdp-opt__label" for="qv-${o.key}">${esc(o.label)}</label><select id="qv-${o.key}" class="pdp-select">${o.default ? "" : `<option value="">Choose ${esc(o.label.toLowerCase())}</option>`}${o.values.map(v => `<option value="${esc(v)}"${v === o.default ? " selected" : ""}>${esc(v)}</option>`).join("")}</select></div>`).join("")}</div>
           <p class="qv__size">${sizeNote} · ${page ? `<a class="link" href="${page}#size-chart">Size chart</a>` : `<a class="link" href="size-guide.html">Check measurements</a>`}</p>
           ${details.length ? `<ul class="qv__details">${details.map(d => `<li>${esc(d)}</li>`).join("")}</ul>` : ""}
           <p class="qv__size">Preview only: prices and availability are not confirmed. <a class="link" href="book-a-fitting.html?look=${encodeURIComponent(name)}">Ask about this look</a>.</p>
@@ -75,12 +75,10 @@
     });
     // options (size / length) + add to bag
     const chosen = {}; optionDefs.forEach(o => { if (o.default) chosen[o.key] = o.default; });
-    $$(".qv-opt", qv).forEach(fs => $$(".chip-btn", fs).forEach(b => b.onclick = () => {
-      $$(".chip-btn", fs).forEach(x => x.setAttribute("aria-pressed", "false")); b.setAttribute("aria-pressed", "true"); chosen[fs.dataset.key] = b.dataset.v; $(".qv__msg", qv).textContent = "";
-    }));
+    $$(".qv-opt", qv).forEach(fs => { $("select", fs).onchange = e => { chosen[fs.dataset.key] = e.target.value || undefined; if (!e.target.value) delete chosen[fs.dataset.key]; $(".qv__msg", qv).textContent = ""; }; });
     $(".qv-add", qv).onclick = () => {
       const missing = optionDefs.find(o => o.required && !chosen[o.key]);
-      if (missing) { $(".qv__msg", qv).textContent = "Please choose a " + missing.label.toLowerCase() + "."; const fs = $(`.qv-opt[data-key="${missing.key}"]`, qv); fs.classList.remove("shake"); void fs.offsetWidth; fs.classList.add("shake"); return; }
+      if (missing) { $(".qv__msg", qv).textContent = "Please choose a " + missing.label.toLowerCase() + "."; const fs = $(`.qv-opt[data-key="${missing.key}"]`, qv); fs.classList.remove("shake"); void fs.offsetWidth; fs.classList.add("shake"); $("select", fs).focus(); return; }
       if (!window.CheckmatelaBag) { $(".qv__msg", qv).textContent = "The bag isn't available on this page."; return; }
       window.CheckmatelaBag.add({ id, name, tag, price: Number(price), img: card.dataset.img, options: Object.assign({}, chosen) });
       qv.close(); window.CheckmatelaBag.open();

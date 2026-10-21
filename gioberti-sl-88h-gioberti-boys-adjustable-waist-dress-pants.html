@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=81">
+<link rel="stylesheet" href="css/style.css?v=82">
 <script type="application/ld+json" data-crumbs>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://checkmatela.vercel.app/"},{"@type":"ListItem","position":2,"name":"Kids","item":"https://checkmatela.vercel.app/pawn.html"},{"@type":"ListItem","position":3,"name":"Formal","item":"https://checkmatela.vercel.app/boys-formal.html"},{"@type":"ListItem","position":4,"name":"Dress Pants","item":"https://checkmatela.vercel.app/boys-dress-pants.html"},{"@type":"ListItem","position":5,"name":"Boy's Husky Dress Pants","item":"https://checkmatela.vercel.app/gioberti-sl-88h-gioberti-boys-adjustable-waist-dress-pants.html"}]}</script>
 </head>
 <body>
@@ -82,8 +82,8 @@
         <p class="pdp-code">Style SL-88H &middot; Dress Pants</p>
         <p class="pdp-price">$25.99</p>
         <p class="pdp-lede">Boy&#x27;s Husky Dress Pants by Gioberti. Choose your options, then add it to your preview bag or ask us about fit.</p>
-        <fieldset class="pdp-opt" data-key="color"><legend>Color</legend><div class="pdp-chips"><button type="button" class="chip-btn" data-v="Black" data-img="assets/img/gioberti/4330b410f062.webp" data-w="1200" data-h="1600" aria-pressed="true">Black</button></div></fieldset>
-        <fieldset class="pdp-opt" data-key="size"><legend>Size</legend><div class="pdp-chips"><button type="button" class="chip-btn" data-v="8 Husky" aria-pressed="false">8 Husky</button><button type="button" class="chip-btn" data-v="10 Husky" aria-pressed="false">10 Husky</button><button type="button" class="chip-btn" data-v="12 Husky" aria-pressed="false">12 Husky</button><button type="button" class="chip-btn" data-v="14 Husky" aria-pressed="false">14 Husky</button><button type="button" class="chip-btn" data-v="16 Husky" aria-pressed="false">16 Husky</button><button type="button" class="chip-btn" data-v="18 Husky" aria-pressed="false">18 Husky</button></div></fieldset>
+        <div class="pdp-opt pdp-opt--select" data-key="color"><label class="pdp-opt__label" for="opt-color">Color</label><select id="opt-color" class="pdp-select"><option value="Black" data-img="assets/img/gioberti/4330b410f062.webp" data-w="1200" data-h="1600" selected>Black</option></select></div>
+        <div class="pdp-opt pdp-opt--select" data-key="size"><label class="pdp-opt__label" for="opt-size">Size</label><select id="opt-size" class="pdp-select"><option value="">Choose size</option><option value="8 Husky">8 Husky</option><option value="10 Husky">10 Husky</option><option value="12 Husky">12 Husky</option><option value="14 Husky">14 Husky</option><option value="16 Husky">16 Husky</option><option value="18 Husky">18 Husky</option></select></div>
         
         <p class="pdp-msg" role="status"></p>
         <div class="pdp-cta"><button type="button" class="btn pdp-add">Add to preview bag</button><a class="btn dark-ghost" href="book-a-fitting.html?look=Boy&#x27;s%20Husky%20Dress%20Pants">Ask about fit</a></div>
@@ -103,7 +103,7 @@
   <div class="container">
     <div class="section-head"><span class="eyebrow">More like this</span><h2>Dress Pants</h2></div>
     <div class="product-grid">
-            <a class="product-card au-card" href="gioberti-sl-88-gioberti-boys-adjustable-waist-dress-pants.html" data-id="gioberti/sl-88-gioberti-boys-adjustable-waist-dress-pants" data-name="Boy&#x27;s Adjustable Dress Pants" data-tag="Dress Pants" data-price="25.99" data-img="assets/img/gioberti/c80ad9225198-c.webp" data-f-color="Beige|Black|Charcoal|Grey|Green|Navy|White|Blue" data-f-brand="Gioberti">
+            <a class="product-card au-card" href="gioberti-sl-88-gioberti-boys-adjustable-waist-dress-pants.html" data-id="gioberti/sl-88-gioberti-boys-adjustable-waist-dress-pants" data-name="Boy&#x27;s Adjustable Dress Pants" data-tag="Dress Pants" data-price="25.99" data-img="assets/img/gioberti/c80ad9225198-c.webp" data-f-color="Beige|Black|Charcoal|Grey|Green|Navy|White|Blue" data-f-brand="Gioberti" data-f-availability="In stock">
               <span class="au-card__img"><img src="assets/img/gioberti/c80ad9225198-c.webp" alt="Boy&#x27;s Adjustable Dress Pants" loading="lazy" width="480" height="640"></span>
               <div class="product-card__meta"><div><h4>Boy&#x27;s Adjustable Dress Pants</h4><span class="piece-tag">Dress Pants &middot; SL-28 &middot; 10 colours</span></div><span class="product-card__price">$25.99</span></div>
             </a>
@@ -147,7 +147,7 @@
 
 <script src="js/nav.js?v=25"></script>
 <script src="js/main.js"></script>
-<script src="js/product.js?v=6"></script>
+<script src="js/product.js?v=7"></script>
 <script src="js/cart.js?v=5"></script>
 </body>
 </html>

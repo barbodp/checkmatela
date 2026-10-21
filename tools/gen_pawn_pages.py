@@ -10,7 +10,7 @@ from PIL import Image
 from shoplib import shop_block, replace_between, swatch_hex, tone_of, esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VERSION = "81"
+CSS_VERSION = "82"
 FAVICON = '<link rel="icon" type="image/svg+xml" href="brand/svg/heritage-crest.svg?v=1">'
 
 GLYPH_PAWN = '''    <symbol id="glyph-pawn" viewBox="0 0 100 130">
@@ -343,7 +343,7 @@ def page_shell(cfg, head, shop_html, others, glyph_extra=""):
 
 {FOOTER}
 '''
-    html = html.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/shop.js?v=6"></script>')
+    html = html.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/shop.js?v=7"></script>')
     with open(os.path.join(ROOT, cfg["file"]), "w", encoding="utf-8") as f:
         f.write(html)
 

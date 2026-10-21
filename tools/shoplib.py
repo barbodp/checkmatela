@@ -44,6 +44,15 @@ def shop_block(cards_html, facets, kind, grid_class="product-grid", count_noun="
 </section>'''
 
 
+def select_opt(key, label, values, default=None, attrs=None, soldout=()):
+    """A product option (colour, size, length…) as a dropdown, read by js/product.js. attrs: {value: ' data-img="…"'}; soldout: values marked "sold out"."""
+    attrs, one = attrs or {}, len(values) == 1
+    opts = "".join(f'<option value="{esc(v)}"{attrs.get(v, "")}{" selected" if v == default or one else ""}>{esc(v)}{" — sold out" if v in soldout else ""}</option>' for v in values)
+    first = "" if one else f'<option value="">Choose {esc(label.lower())}</option>'
+    return (f'<div class="pdp-opt pdp-opt--select" data-key="{key}"><label class="pdp-opt__label" for="opt-{key}">{esc(label)}</label>'
+            f'<select id="opt-{key}" class="pdp-select">{first}{opts}</select></div>')
+
+
 def replace_between(src, start, end, block):
     i, j = src.index(start) + len(start), src.index(end)
     return src[:i] + "\n" + block + "\n" + src[j:]

@@ -18,7 +18,7 @@ Run:  python3 tools/gen_gioberti.py   (gen_nav.py runs at the end). Refresh the 
 import os, re, json
 from gen_antonio import shell, crumbs, write, acc, money
 from gen_pawn_pages import page_head
-from shoplib import shop_block, replace_between, esc
+from shoplib import shop_block, replace_between, esc, select_opt
 from gb_catalog import CATS, TYPE_MAP, FORMAL_ACCESSORIES, category_of, dept_of
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -38,6 +38,7 @@ for _it in ITEMS:
     _it["dept"] = dept_of(_it["handle"], _it["cat"])
 UNFILED = [i for i in ITEMS if not i["cat"]]
 ITEMS = [i for i in ITEMS if i["cat"]]
+ITEMS.sort(key=lambda i: i["soldout"])                         # sold-out products last in every list (stable: supplier order otherwise)
 BY_CAT = {}
 for _it in ITEMS:
     BY_CAT.setdefault(_it["cat"], []).append(_it)
@@ -56,9 +57,8 @@ def img(key, kind=""):
 
 
 def photos(it):
-    """Gallery photos: everything except the size chart and photos that only show sold-out colours."""
-    live = set(it["colours"])
-    return [im for im in it["images"] if not im["chart"] and im.get("key") and (not im.get("colours") or live & set(im["colours"]))]
+    """Gallery photos: every photo except the size chart (sold-out colours too: they stay listed, marked sold out)."""
+    return [im for im in it["images"] if not im["chart"] and im.get("key")]
 
 
 def cover(it):
@@ -77,12 +77,13 @@ def cat_files(dept, group):
 
 def card(it, with_cat=False):
     pic = img(cover(it), "-c")
-    n = len(it["colours"])
+    n = len(it["all_colours"])
     label = CATS[it["cat"]][2]
-    fx = f' data-f-color="{esc("|".join(it["families"]))}" data-f-brand="{BRAND}"' + (f' data-f-category="{esc(label)}"' if with_cat else "")
-    return f'''            <a class="product-card au-card" href="{it["file"]}" data-id="gioberti/{it["handle"]}" data-name="{esc(it["name"])}" data-tag="{esc(label)}" data-price="{it["price"]:g}" data-img="{pic}"{fx}>
-              <span class="au-card__img"><img src="{pic}" alt="{esc(it["name"])}" loading="lazy" width="480" height="640"></span>
-              <div class="product-card__meta"><div><h4>{esc(it["name"])}</h4><span class="piece-tag">{esc(label)} &middot; {esc(it["code"])}{f" &middot; {n} colours" if n > 1 else ""}</span></div><span class="product-card__price">{price_text(it)}</span></div>
+    fx = f' data-f-color="{esc("|".join(it["families"]))}" data-f-brand="{BRAND}" data-f-availability="{"Sold out" if it["soldout"] else "In stock"}"' + (f' data-f-category="{esc(label)}"' if with_cat else "")
+    badge = '<em class="gb-soldout">Sold out</em>' if it["soldout"] else ""
+    return f'''            <a class="product-card au-card{" is-soldout" if it["soldout"] else ""}" href="{it["file"]}" data-id="gioberti/{it["handle"]}" data-name="{esc(it["name"])}" data-tag="{esc(label)}" data-price="{it["price"]:g}" data-img="{pic}"{fx}>
+              <span class="au-card__img"><img src="{pic}" alt="{esc(it["name"])}" loading="lazy" width="480" height="640">{badge}</span>
+              <div class="product-card__meta"><div><h4>{esc(it["name"])}</h4><span class="piece-tag">{esc(label)} &middot; {esc(it["code"])}{f" &middot; {n} colours" if n > 1 else ""}</span></div><span class="product-card__price">{"Sold out" if it["soldout"] else price_text(it)}</span></div>
             </a>'''
 
 
@@ -112,7 +113,7 @@ def dept_crumbs(dept, group, *more):
     return [("Home", "index.html"), d["crumb"], (GROUP_LABEL[group], d[group]), *more]
 
 
-SHOP_JS = '<script src="js/shop.js?v=6"></script>'
+SHOP_JS = '<script src="js/shop.js?v=7"></script>'
 
 
 def build_category(key):
@@ -191,21 +192,21 @@ def gallery(it):
     return f'<div class="pdp-gallery"><div class="pdp-main" id="pdpFrame" style="--r:{first["w"] / first["h"]:.4f}">{main}</div>{f"<div class=pdp-thumbs>{thumbs}</div>" if len(ims) > 1 else ""}</div>'.replace("<div class=pdp-thumbs>", '<div class="pdp-thumbs">')
 
 
-def option_chips(it):
-    """One chip group per option (colour first). Only values with at least one in-stock variant; a colour chip carries its own photo."""
+def option_selects(it):
+    """One dropdown per option (colour first) listing every value the supplier offers; values with no in-stock variant say "sold out"
+    (js/product.js keeps that up to date as the other option changes). A colour option carries its own photo."""
     dims = {im["key"]: im for im in it["images"] if im.get("key")}
     out = []
     for oi, o in enumerate(it["options"]):
-        vals = [v for v in o["values"] if any(r[oi] == v and r[-1] for r in it["variants"])]
-        btns = []
-        for v in vals:
-            extra = ""
-            if oi == 0 and v in it["colour_img"] and it["colour_img"][v] in dims:
-                im = dims[it["colour_img"][v]]
-                extra = f' data-img="{img(im["key"])}" data-w="{im["w"]}" data-h="{im["h"]}"'
-            btns.append(f'<button type="button" class="chip-btn" data-v="{esc(v)}"{extra} aria-pressed="{"true" if len(vals) == 1 else "false"}">{esc(v)}</button>')
+        attrs = {}
+        if oi == 0 and it["all_colours"]:
+            for v in o["values"]:
+                if v in it["colour_img"] and it["colour_img"][v] in dims:
+                    im = dims[it["colour_img"][v]]
+                    attrs[v] = f' data-img="{img(im["key"])}" data-w="{im["w"]}" data-h="{im["h"]}"'
+        out_vals = [v for v in o["values"] if not any(r[oi] == v and r[-1] for r in it["variants"])]
         key = re.sub(r"[^a-z]", "", o["name"].lower()) or "option"
-        out.append(f'<fieldset class="pdp-opt" data-key="{key}"><legend>{esc(o["name"])}</legend><div class="pdp-chips">{"".join(btns)}</div></fieldset>')
+        out.append(select_opt(key, o["name"], o["values"], attrs=attrs, soldout=out_vals))
     return "\n        ".join(out)
 
 
@@ -223,8 +224,9 @@ def build_product(it):
     chart_dialog = (f'<dialog class="shop-dialog au-chart" id="sizeChart" aria-labelledby="gbChartTitle"><button type="button" class="shop-dialog__x" aria-label="Close size chart">×</button>'
                     f'<div class="au-chart__body"><h2 class="au-chart__title" id="gbChartTitle">{esc(it["name"])} size chart</h2><img class="gb-chart" src="{img(chart["key"], "-z")}" alt="{esc(it["name"])} size chart" loading="lazy" width="{min(1400, chart["w"])}" height="{round(min(1400, chart["w"]) * chart["h"] / chart["w"])}">'
                     f'<p class="au-size__note">Measurements from {BRAND}, for this product. Not sure between two sizes? <a class="link" href="book-a-fitting.html?look={esc(it["name"].replace(" ", "%20"))}">Ask us about fit</a>.</p></div></dialog>') if chart else ""
-    n = len(it["colours"])
-    lede = f"{it['name']} by {BRAND}" + (f", in {n} colours." if n > 1 else ".") + " Choose your options, then add it to your preview bag or ask us about fit."
+    n = len(it["all_colours"])
+    lede = f"{it['name']} by {BRAND}" + (f", in {n} colours." if n > 1 else ".") + (
+        " This piece is currently sold out; ask us about restocks." if it["soldout"] else " Choose your options, then add it to your preview bag or ask us about fit.")
     details = (f'<ul class="pdp-list">{"".join(f"<li>{esc(b)}</li>" for b in it["bullets"])}</ul>' if it["bullets"] else "") + "".join(f"<p>{esc(p)}</p>" for p in it["paras"])
     variants = json.dumps({"n": len(it["options"]), "v": it["variants"]}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     rel = ""
@@ -247,12 +249,12 @@ def build_product(it):
         <span class="eyebrow">{eyebrow}</span>
         <h1>{esc(it["name"])}</h1>
         <p class="pdp-code">Style {esc(it["code"])} &middot; {esc(label)}</p>
-        <p class="pdp-price">{price_text(it)}</p>
+        <p class="pdp-price">{price_text(it)}{'<span class="gb-soldout gb-soldout--inline">Sold out</span>' if it["soldout"] else ""}</p>
         <p class="pdp-lede">{esc(lede)}</p>
-        {option_chips(it)}
+        {option_selects(it)}
         {chart_btn}
         <p class="pdp-msg" role="status"></p>
-        <div class="pdp-cta"><button type="button" class="btn pdp-add">Add to preview bag</button><a class="btn dark-ghost" href="book-a-fitting.html?look={esc(it["name"].replace(" ", "%20"))}">Ask about fit</a></div>
+        <div class="pdp-cta">{'<button type="button" class="btn pdp-add" disabled>Sold out</button>' if it["soldout"] else '<button type="button" class="btn pdp-add">Add to preview bag</button>'}<a class="btn dark-ghost" href="book-a-fitting.html?look={esc(it["name"].replace(" ", "%20"))}">Ask about fit</a></div>
         <p class="pdp-assure"><a href="shipping-returns.html">Free exchanges and easy returns</a></p>
         <p class="pdp-fine">Preview only: prices and availability are not confirmed, and checkout is not connected.</p>
         <div class="pdp-accs">
@@ -268,7 +270,7 @@ def build_product(it):
 {rel}'''
     glyph = "glyph-pawn" if it["dept"] == "boys" else "glyph-king"
     write(it["file"], shell(f"{it['name']} ({it['code']}) — {BRAND} | Checkmatela", f"{it['name']} by {BRAND}, style {it['code']}, {price_text(it)}. Colours, sizes, details and size chart at Checkmatela.",
-                            body, glyph=glyph, extra_js='<script src="js/product.js?v=6"></script>'))
+                            body, glyph=glyph, extra_js='<script src="js/product.js?v=7"></script>'))
 
 
 def stamp_bishop():
@@ -319,7 +321,7 @@ def index_products():
         men_acc = it["cat"] == "men-formal-accessories"                   # men's cummerbund / suspender sets also belong to the Accessories department
         k, d = ("Bishop", "Accessories") if men_acc else (DEPTS[it["dept"]]["sub"], DEPTS[it["dept"]]["label"] if it["dept"] == "men" else "Kids")
         label = it["name"] if men_acc else CATS[it["cat"]][2]
-        out.append(dict(k=k, d=d + " " + " ".join(it["colours"]), t=it["name"], s=f"{BRAND} · {label}", u=it["file"], p=it["price"], i=img(cover(it), "-c"), f={"color": it["families"][0]}))
+        out.append(dict(k=k, d=d + " " + " ".join(it["all_colours"]), t=it["name"], s=f"{BRAND} · {label}" + (" · Sold out" if it["soldout"] else ""), u=it["file"], p=it["price"], i=img(cover(it), "-c"), f={"color": it["families"][0]}))
     return out
 
 
