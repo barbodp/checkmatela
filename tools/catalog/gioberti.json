@@ -1,5 +1,40 @@
 [
  {
+  "handle": "_additional-price",
+  "name": "_Additional Price",
+  "ptype": "",
+  "code": "",
+  "options": [],
+  "variants": [
+   [
+    1.0,
+    1
+   ]
+  ],
+  "soldout": false,
+  "colours": [],
+  "all_colours": [],
+  "families": [
+   "Other"
+  ],
+  "colour_img": {},
+  "price": 1.0,
+  "price_max": 1.0,
+  "paras": [],
+  "bullets": [],
+  "images": [
+   {
+    "w": 600,
+    "h": 601,
+    "chart": false,
+    "colours": [],
+    "url": "https://cdn.shopify.com/s/files/1/0841/5985/files/additional-price.png",
+    "key": "8d97002e0b67"
+   }
+  ],
+  "supplier_url": "https://gioberti.com/products/_additional-price"
+ },
+ {
   "handle": "sl-88h-gioberti-boys-adjustable-waist-dress-pants",
   "name": "Boy's Husky Dress Pants",
   "ptype": "Boys Dress Pants",
@@ -45115,43 +45150,73 @@
    {
     "name": "Color",
     "values": [
+     "8 - Light Brown Herringbone",
      "36 - Gray Herringbone",
+     "37 - Umber Herringbone",
+     "39 - Gray Checkered",
+     "40 - Brown Checkered",
      "53 - Donegal Dark Brown",
      "65 - Charcoal Graph",
-     "39 - Gray Checkered",
      "73 - Brown Herringbone Graph",
+     "74 - Camel Herringbone Graph",
      "96 - Gray Graph",
      "97 - Charcoal Graph",
      "98 - Gray Gridwork",
      "99 - Brown Gridwork",
-     "74 - Camel Herringbone Graph",
-     "37 - Umber Herringbone",
-     "40 - Brown Checkered",
-     "71 - Brown Herringbone",
+     "1 - Herringbone Charcoal",
+     "2 - Herringbone Gray",
+     "7 - Herringbone Khaki",
+     "9 - Barleycorn Tan",
+     "10 - Barleycorn Gray",
+     "80 - Midnight Blue Graph",
      "66 - Olive Herringbone Graph",
      "67 - Brown Barleycorn",
-     "72 - Gray Herringbone Graph",
-     "8 - Light Brown Herringbone"
+     "71 - Brown Herringbone",
+     "72 - Gray Herringbone Graph"
     ]
    },
    {
     "name": "Size",
     "values": [
      "X-Small",
-     "4X-Large",
      "Small",
+     "Medium",
+     "Large",
+     "X-Large",
      "2X-Large",
      "3X-Large",
-     "5X-Large",
-     "Large",
-     "Medium",
-     "X-Large"
+     "4X-Large",
+     "5X-Large"
     ]
    }
   ],
   "variants": [
    [
+    "8 - Light Brown Herringbone",
+    "X-Small",
+    32.99,
+    1
+   ],
+   [
     "36 - Gray Herringbone",
+    "X-Small",
+    32.99,
+    1
+   ],
+   [
+    "37 - Umber Herringbone",
+    "X-Small",
+    32.99,
+    1
+   ],
+   [
+    "39 - Gray Checkered",
+    "X-Small",
+    32.99,
+    1
+   ],
+   [
+    "40 - Brown Checkered",
     "X-Small",
     32.99,
     1
@@ -45169,16 +45234,16 @@
     1
    ],
    [
-    "39 - Gray Checkered",
+    "73 - Brown Herringbone Graph",
     "X-Small",
     32.99,
     1
    ],
    [
-    "73 - Brown Herringbone Graph",
+    "74 - Camel Herringbone Graph",
     "X-Small",
     32.99,
-    1
+    0
    ],
    [
     "96 - Gray Graph",
@@ -45205,10 +45270,52 @@
     1
    ],
    [
-    "74 - Camel Herringbone Graph",
-    "4X-Large",
+    "1 - Herringbone Charcoal",
+    "X-Small",
     32.99,
-    0
+    1
+   ],
+   [
+    "2 - Herringbone Gray",
+    "X-Small",
+    32.99,
+    1
+   ],
+   [
+    "7 - Herringbone Khaki",
+    "X-Small",
+    32.99,
+    1
+   ],
+   [
+    "9 - Barleycorn Tan",
+    "X-Small",
+    32.99,
+    1
+   ],
+   [
+    "10 - Barleycorn Gray",
+    "X-Small",
+    32.99,
+    1
+   ],
+   [
+    "80 - Midnight Blue Graph",
+    "X-Small",
+    32.99,
+    1
+   ],
+   [
+    "8 - Light Brown Herringbone",
+    "Small",
+    32.99,
+    1
+   ],
+   [
+    "36 - Gray Herringbone",
+    "Small",
+    32.99,
+    1
    ],
    [
     "37 - Umber Herringbone",
@@ -45229,25 +45336,13 @@
     1
    ],
    [
-    "74 - Camel Herringbone Graph",
-    "Small",
-    32.99,
-    0
-   ],
-   [
-    "71 - Brown Herringbone",
+    "53 - Donegal Dark Brown",
     "Small",
     32.99,
     1
    ],
    [
     "65 - Charcoal Graph",
-    "Small",
-    32.99,
-    1
-   ],
-   [
-    "53 - Donegal Dark Brown",
     "Small",
     32.99,
     1
@@ -45265,266 +45360,122 @@
     1
    ],
    [
+    "71 - Brown Herringbone",
+    "Small",
+    32.99,
+    1
+   ],
+   [
     "72 - Gray Herringbone Graph",
     "Small",
     32.99,
     1
    ],
    [
-    "36 - Gray Herringbone",
+    "73 - Brown Herringbone Graph",
     "Small",
     32.99,
     1
    ],
    [
-    "36 - Gray Herringbone",
-    "2X-Large",
-    32.99,
-    1
-   ],
-   [
-    "36 - Gray Herringbone",
-    "3X-Large",
-    32.99,
-    1
-   ],
-   [
-    "36 - Gray Herringbone",
-    "4X-Large",
-    32.99,
-    1
-   ],
-   [
-    "36 - Gray Herringbone",
-    "5X-Large",
-    32.99,
-    1
-   ],
-   [
-    "36 - Gray Herringbone",
-    "Large",
-    32.99,
-    1
-   ],
-   [
-    "36 - Gray Herringbone",
-    "Medium",
-    32.99,
-    1
-   ],
-   [
-    "36 - Gray Herringbone",
-    "X-Large",
-    32.99,
-    1
-   ],
-   [
-    "37 - Umber Herringbone",
-    "2X-Large",
-    32.99,
-    1
-   ],
-   [
-    "37 - Umber Herringbone",
-    "3X-Large",
-    32.99,
-    1
-   ],
-   [
-    "37 - Umber Herringbone",
-    "4X-Large",
-    32.99,
-    1
-   ],
-   [
-    "37 - Umber Herringbone",
-    "5X-Large",
-    32.99,
-    1
-   ],
-   [
-    "37 - Umber Herringbone",
-    "Large",
-    32.99,
-    1
-   ],
-   [
-    "37 - Umber Herringbone",
-    "Medium",
-    32.99,
-    1
-   ],
-   [
-    "37 - Umber Herringbone",
-    "X-Large",
-    32.99,
-    1
-   ],
-   [
-    "37 - Umber Herringbone",
-    "X-Small",
-    32.99,
-    1
-   ],
-   [
-    "39 - Gray Checkered",
-    "2X-Large",
-    32.99,
-    1
-   ],
-   [
-    "39 - Gray Checkered",
-    "3X-Large",
-    32.99,
-    1
-   ],
-   [
-    "39 - Gray Checkered",
-    "4X-Large",
-    32.99,
-    1
-   ],
-   [
-    "39 - Gray Checkered",
-    "5X-Large",
-    32.99,
-    1
-   ],
-   [
-    "39 - Gray Checkered",
-    "Large",
-    32.99,
-    1
-   ],
-   [
-    "39 - Gray Checkered",
-    "Medium",
-    32.99,
-    1
-   ],
-   [
-    "39 - Gray Checkered",
-    "X-Large",
-    32.99,
-    1
-   ],
-   [
-    "40 - Brown Checkered",
-    "2X-Large",
-    32.99,
-    1
-   ],
-   [
-    "40 - Brown Checkered",
-    "3X-Large",
-    32.99,
-    1
-   ],
-   [
-    "40 - Brown Checkered",
-    "4X-Large",
-    32.99,
-    1
-   ],
-   [
-    "40 - Brown Checkered",
-    "5X-Large",
-    32.99,
-    1
-   ],
-   [
-    "40 - Brown Checkered",
-    "Large",
-    32.99,
-    1
-   ],
-   [
-    "40 - Brown Checkered",
-    "Medium",
-    32.99,
-    1
-   ],
-   [
-    "40 - Brown Checkered",
-    "X-Large",
-    32.99,
-    1
-   ],
-   [
-    "40 - Brown Checkered",
-    "X-Small",
-    32.99,
-    1
-   ],
-   [
-    "53 - Donegal Dark Brown",
-    "2X-Large",
-    32.99,
-    1
-   ],
-   [
-    "53 - Donegal Dark Brown",
-    "3X-Large",
-    32.99,
-    1
-   ],
-   [
-    "53 - Donegal Dark Brown",
-    "4X-Large",
-    32.99,
-    1
-   ],
-   [
-    "53 - Donegal Dark Brown",
-    "5X-Large",
+    "74 - Camel Herringbone Graph",
+    "Small",
     32.99,
     0
    ],
    [
-    "53 - Donegal Dark Brown",
-    "Large",
+    "96 - Gray Graph",
+    "Small",
     32.99,
     1
    ],
    [
-    "53 - Donegal Dark Brown",
+    "97 - Charcoal Graph",
+    "Small",
+    32.99,
+    1
+   ],
+   [
+    "98 - Gray Gridwork",
+    "Small",
+    32.99,
+    1
+   ],
+   [
+    "99 - Brown Gridwork",
+    "Small",
+    32.99,
+    1
+   ],
+   [
+    "1 - Herringbone Charcoal",
+    "Small",
+    32.99,
+    1
+   ],
+   [
+    "2 - Herringbone Gray",
+    "Small",
+    32.99,
+    1
+   ],
+   [
+    "7 - Herringbone Khaki",
+    "Small",
+    32.99,
+    1
+   ],
+   [
+    "9 - Barleycorn Tan",
+    "Small",
+    32.99,
+    1
+   ],
+   [
+    "10 - Barleycorn Gray",
+    "Small",
+    32.99,
+    1
+   ],
+   [
+    "80 - Midnight Blue Graph",
+    "Small",
+    32.99,
+    1
+   ],
+   [
+    "8 - Light Brown Herringbone",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "36 - Gray Herringbone",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "37 - Umber Herringbone",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "39 - Gray Checkered",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "40 - Brown Checkered",
     "Medium",
     32.99,
     1
    ],
    [
     "53 - Donegal Dark Brown",
-    "X-Large",
-    32.99,
-    1
-   ],
-   [
-    "65 - Charcoal Graph",
-    "2X-Large",
-    32.99,
-    1
-   ],
-   [
-    "65 - Charcoal Graph",
-    "3X-Large",
-    32.99,
-    1
-   ],
-   [
-    "65 - Charcoal Graph",
-    "4X-Large",
-    32.99,
-    0
-   ],
-   [
-    "65 - Charcoal Graph",
-    "5X-Large",
-    32.99,
-    0
-   ],
-   [
-    "65 - Charcoal Graph",
-    "Large",
+    "Medium",
     32.99,
     1
    ],
@@ -45533,22 +45484,142 @@
     "Medium",
     32.99,
     0
-   ],
-   [
-    "65 - Charcoal Graph",
-    "X-Large",
-    32.99,
-    1
    ],
    [
     "66 - Olive Herringbone Graph",
-    "2X-Large",
+    "Medium",
     32.99,
     1
    ],
    [
-    "66 - Olive Herringbone Graph",
-    "3X-Large",
+    "67 - Brown Barleycorn",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "71 - Brown Herringbone",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "72 - Gray Herringbone Graph",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "73 - Brown Herringbone Graph",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "74 - Camel Herringbone Graph",
+    "Medium",
+    32.99,
+    0
+   ],
+   [
+    "96 - Gray Graph",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "97 - Charcoal Graph",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "98 - Gray Gridwork",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "99 - Brown Gridwork",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "1 - Herringbone Charcoal",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "2 - Herringbone Gray",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "7 - Herringbone Khaki",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "9 - Barleycorn Tan",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "10 - Barleycorn Gray",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "80 - Midnight Blue Graph",
+    "Medium",
+    32.99,
+    1
+   ],
+   [
+    "8 - Light Brown Herringbone",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "36 - Gray Herringbone",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "37 - Umber Herringbone",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "39 - Gray Checkered",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "40 - Brown Checkered",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "53 - Donegal Dark Brown",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "65 - Charcoal Graph",
+    "Large",
     32.99,
     1
    ],
@@ -45559,56 +45630,284 @@
     1
    ],
    [
+    "67 - Brown Barleycorn",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "71 - Brown Herringbone",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "72 - Gray Herringbone Graph",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "73 - Brown Herringbone Graph",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "74 - Camel Herringbone Graph",
+    "Large",
+    32.99,
+    0
+   ],
+   [
+    "96 - Gray Graph",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "97 - Charcoal Graph",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "98 - Gray Gridwork",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "99 - Brown Gridwork",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "1 - Herringbone Charcoal",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "2 - Herringbone Gray",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "7 - Herringbone Khaki",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "9 - Barleycorn Tan",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "10 - Barleycorn Gray",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "80 - Midnight Blue Graph",
+    "Large",
+    32.99,
+    1
+   ],
+   [
+    "8 - Light Brown Herringbone",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "36 - Gray Herringbone",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "37 - Umber Herringbone",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "39 - Gray Checkered",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "40 - Brown Checkered",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "53 - Donegal Dark Brown",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "65 - Charcoal Graph",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
     "66 - Olive Herringbone Graph",
-    "Medium",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "67 - Brown Barleycorn",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "71 - Brown Herringbone",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "72 - Gray Herringbone Graph",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "73 - Brown Herringbone Graph",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "74 - Camel Herringbone Graph",
+    "X-Large",
+    32.99,
+    0
+   ],
+   [
+    "96 - Gray Graph",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "97 - Charcoal Graph",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "98 - Gray Gridwork",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "99 - Brown Gridwork",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "1 - Herringbone Charcoal",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "2 - Herringbone Gray",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "7 - Herringbone Khaki",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "9 - Barleycorn Tan",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "10 - Barleycorn Gray",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "80 - Midnight Blue Graph",
+    "X-Large",
+    32.99,
+    1
+   ],
+   [
+    "8 - Light Brown Herringbone",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "36 - Gray Herringbone",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "37 - Umber Herringbone",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "39 - Gray Checkered",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "40 - Brown Checkered",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "53 - Donegal Dark Brown",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "65 - Charcoal Graph",
+    "2X-Large",
     32.99,
     1
    ],
    [
     "66 - Olive Herringbone Graph",
-    "X-Large",
-    32.99,
-    1
-   ],
-   [
-    "67 - Brown Barleycorn",
     "2X-Large",
     32.99,
     1
    ],
    [
     "67 - Brown Barleycorn",
-    "3X-Large",
-    32.99,
-    1
-   ],
-   [
-    "67 - Brown Barleycorn",
-    "4X-Large",
-    32.99,
-    1
-   ],
-   [
-    "67 - Brown Barleycorn",
-    "5X-Large",
-    32.99,
-    0
-   ],
-   [
-    "67 - Brown Barleycorn",
-    "Large",
-    32.99,
-    1
-   ],
-   [
-    "67 - Brown Barleycorn",
-    "Medium",
-    32.99,
-    1
-   ],
-   [
-    "67 - Brown Barleycorn",
-    "X-Large",
+    "2X-Large",
     32.99,
     1
    ],
@@ -45619,86 +45918,278 @@
     1
    ],
    [
+    "72 - Gray Herringbone Graph",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "73 - Brown Herringbone Graph",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "74 - Camel Herringbone Graph",
+    "2X-Large",
+    32.99,
+    0
+   ],
+   [
+    "96 - Gray Graph",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "97 - Charcoal Graph",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "98 - Gray Gridwork",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "99 - Brown Gridwork",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "1 - Herringbone Charcoal",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "2 - Herringbone Gray",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "7 - Herringbone Khaki",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "9 - Barleycorn Tan",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "10 - Barleycorn Gray",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "80 - Midnight Blue Graph",
+    "2X-Large",
+    32.99,
+    1
+   ],
+   [
+    "8 - Light Brown Herringbone",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "36 - Gray Herringbone",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "37 - Umber Herringbone",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "39 - Gray Checkered",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "40 - Brown Checkered",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "53 - Donegal Dark Brown",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "65 - Charcoal Graph",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "66 - Olive Herringbone Graph",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "67 - Brown Barleycorn",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
     "71 - Brown Herringbone",
     "3X-Large",
     32.99,
     1
    ],
    [
+    "72 - Gray Herringbone Graph",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "73 - Brown Herringbone Graph",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "74 - Camel Herringbone Graph",
+    "3X-Large",
+    32.99,
+    0
+   ],
+   [
+    "96 - Gray Graph",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "97 - Charcoal Graph",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "98 - Gray Gridwork",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "99 - Brown Gridwork",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "1 - Herringbone Charcoal",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "2 - Herringbone Gray",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "7 - Herringbone Khaki",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "9 - Barleycorn Tan",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "10 - Barleycorn Gray",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "80 - Midnight Blue Graph",
+    "3X-Large",
+    32.99,
+    1
+   ],
+   [
+    "8 - Light Brown Herringbone",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
+    "36 - Gray Herringbone",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
+    "37 - Umber Herringbone",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
+    "39 - Gray Checkered",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
+    "40 - Brown Checkered",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
+    "53 - Donegal Dark Brown",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
+    "65 - Charcoal Graph",
+    "4X-Large",
+    32.99,
+    0
+   ],
+   [
+    "67 - Brown Barleycorn",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
     "71 - Brown Herringbone",
     "4X-Large",
     32.99,
     1
    ],
    [
-    "71 - Brown Herringbone",
-    "Large",
-    32.99,
-    1
-   ],
-   [
-    "71 - Brown Herringbone",
-    "Medium",
-    32.99,
-    1
-   ],
-   [
-    "71 - Brown Herringbone",
-    "X-Large",
-    32.99,
-    1
-   ],
-   [
-    "72 - Gray Herringbone Graph",
-    "2X-Large",
-    32.99,
-    1
-   ],
-   [
-    "72 - Gray Herringbone Graph",
-    "3X-Large",
-    32.99,
-    1
-   ],
-   [
     "72 - Gray Herringbone Graph",
     "4X-Large",
-    32.99,
-    1
-   ],
-   [
-    "72 - Gray Herringbone Graph",
-    "5X-Large",
-    32.99,
-    1
-   ],
-   [
-    "72 - Gray Herringbone Graph",
-    "Large",
-    32.99,
-    1
-   ],
-   [
-    "72 - Gray Herringbone Graph",
-    "Medium",
-    32.99,
-    1
-   ],
-   [
-    "72 - Gray Herringbone Graph",
-    "X-Large",
-    32.99,
-    1
-   ],
-   [
-    "73 - Brown Herringbone Graph",
-    "2X-Large",
-    32.99,
-    1
-   ],
-   [
-    "73 - Brown Herringbone Graph",
-    "3X-Large",
     32.99,
     1
    ],
@@ -45709,91 +46200,67 @@
     1
    ],
    [
-    "73 - Brown Herringbone Graph",
-    "5X-Large",
-    32.99,
-    1
-   ],
-   [
-    "73 - Brown Herringbone Graph",
-    "Large",
-    32.99,
-    1
-   ],
-   [
-    "73 - Brown Herringbone Graph",
-    "Medium",
-    32.99,
-    1
-   ],
-   [
-    "73 - Brown Herringbone Graph",
-    "Small",
-    32.99,
-    1
-   ],
-   [
-    "73 - Brown Herringbone Graph",
-    "X-Large",
-    32.99,
-    1
-   ],
-   [
     "74 - Camel Herringbone Graph",
-    "2X-Large",
+    "4X-Large",
     32.99,
     0
    ],
    [
-    "74 - Camel Herringbone Graph",
-    "3X-Large",
-    32.99,
-    0
-   ],
-   [
-    "74 - Camel Herringbone Graph",
-    "5X-Large",
-    32.99,
-    0
-   ],
-   [
-    "74 - Camel Herringbone Graph",
-    "Large",
-    32.99,
-    0
-   ],
-   [
-    "74 - Camel Herringbone Graph",
-    "Medium",
-    32.99,
-    0
-   ],
-   [
-    "74 - Camel Herringbone Graph",
-    "X-Large",
-    32.99,
-    0
-   ],
-   [
-    "74 - Camel Herringbone Graph",
-    "X-Small",
-    32.99,
-    0
-   ],
-   [
-    "8 - Light Brown Herringbone",
-    "2X-Large",
+    "96 - Gray Graph",
+    "4X-Large",
     32.99,
     1
    ],
    [
-    "8 - Light Brown Herringbone",
-    "3X-Large",
+    "97 - Charcoal Graph",
+    "4X-Large",
     32.99,
     1
    ],
    [
-    "8 - Light Brown Herringbone",
+    "98 - Gray Gridwork",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
+    "99 - Brown Gridwork",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
+    "1 - Herringbone Charcoal",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
+    "2 - Herringbone Gray",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
+    "7 - Herringbone Khaki",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
+    "9 - Barleycorn Tan",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
+    "10 - Barleycorn Gray",
+    "4X-Large",
+    32.99,
+    1
+   ],
+   [
+    "80 - Midnight Blue Graph",
     "4X-Large",
     32.99,
     1
@@ -45805,52 +46272,64 @@
     1
    ],
    [
-    "8 - Light Brown Herringbone",
-    "Large",
+    "36 - Gray Herringbone",
+    "5X-Large",
     32.99,
     1
    ],
    [
-    "8 - Light Brown Herringbone",
-    "Medium",
+    "37 - Umber Herringbone",
+    "5X-Large",
     32.99,
     1
    ],
    [
-    "8 - Light Brown Herringbone",
-    "Small",
+    "39 - Gray Checkered",
+    "5X-Large",
     32.99,
     1
    ],
    [
-    "8 - Light Brown Herringbone",
-    "X-Large",
+    "40 - Brown Checkered",
+    "5X-Large",
     32.99,
     1
    ],
    [
-    "8 - Light Brown Herringbone",
-    "X-Small",
+    "53 - Donegal Dark Brown",
+    "5X-Large",
+    32.99,
+    0
+   ],
+   [
+    "65 - Charcoal Graph",
+    "5X-Large",
+    32.99,
+    0
+   ],
+   [
+    "67 - Brown Barleycorn",
+    "5X-Large",
+    32.99,
+    0
+   ],
+   [
+    "72 - Gray Herringbone Graph",
+    "5X-Large",
     32.99,
     1
    ],
    [
-    "96 - Gray Graph",
-    "2X-Large",
+    "73 - Brown Herringbone Graph",
+    "5X-Large",
     32.99,
     1
    ],
    [
-    "96 - Gray Graph",
-    "3X-Large",
+    "74 - Camel Herringbone Graph",
+    "5X-Large",
     32.99,
-    1
-   ],
-   [
-    "96 - Gray Graph",
-    "4X-Large",
-    32.99,
-    1
+    0
    ],
    [
     "96 - Gray Graph",
@@ -45859,134 +46338,8 @@
     1
    ],
    [
-    "96 - Gray Graph",
-    "Large",
-    32.99,
-    1
-   ],
-   [
-    "96 - Gray Graph",
-    "Medium",
-    32.99,
-    1
-   ],
-   [
-    "96 - Gray Graph",
-    "Small",
-    32.99,
-    1
-   ],
-   [
-    "96 - Gray Graph",
-    "X-Large",
-    32.99,
-    1
-   ],
-   [
-    "97 - Charcoal Graph",
-    "2X-Large",
-    32.99,
-    1
-   ],
-   [
-    "97 - Charcoal Graph",
-    "3X-Large",
-    32.99,
-    1
-   ],
-   [
-    "97 - Charcoal Graph",
-    "4X-Large",
-    32.99,
-    1
-   ],
-   [
-    "97 - Charcoal Graph",
-    "Large",
-    32.99,
-    1
-   ],
-   [
-    "97 - Charcoal Graph",
-    "Medium",
-    32.99,
-    1
-   ],
-   [
-    "97 - Charcoal Graph",
-    "Small",
-    32.99,
-    1
-   ],
-   [
-    "97 - Charcoal Graph",
-    "X-Large",
-    32.99,
-    1
-   ],
-   [
-    "98 - Gray Gridwork",
-    "2X-Large",
-    32.99,
-    1
-   ],
-   [
-    "98 - Gray Gridwork",
-    "3X-Large",
-    32.99,
-    1
-   ],
-   [
-    "98 - Gray Gridwork",
-    "4X-Large",
-    32.99,
-    1
-   ],
-   [
     "98 - Gray Gridwork",
     "5X-Large",
-    32.99,
-    1
-   ],
-   [
-    "98 - Gray Gridwork",
-    "Large",
-    32.99,
-    1
-   ],
-   [
-    "98 - Gray Gridwork",
-    "Medium",
-    32.99,
-    1
-   ],
-   [
-    "98 - Gray Gridwork",
-    "Small",
-    32.99,
-    1
-   ],
-   [
-    "98 - Gray Gridwork",
-    "X-Large",
-    32.99,
-    1
-   ],
-   [
-    "99 - Brown Gridwork",
-    "2X-Large",
-    32.99,
-    1
-   ],
-   [
-    "99 - Brown Gridwork",
-    "3X-Large",
-    32.99,
-    1
-   ],
-   [
-    "99 - Brown Gridwork",
-    "4X-Large",
     32.99,
     1
    ],
@@ -45997,93 +46350,124 @@
     0
    ],
    [
-    "99 - Brown Gridwork",
-    "Large",
+    "1 - Herringbone Charcoal",
+    "5X-Large",
     32.99,
     1
    ],
    [
-    "99 - Brown Gridwork",
-    "Medium",
+    "2 - Herringbone Gray",
+    "5X-Large",
     32.99,
     1
    ],
    [
-    "99 - Brown Gridwork",
-    "Small",
+    "7 - Herringbone Khaki",
+    "5X-Large",
     32.99,
     1
    ],
    [
-    "99 - Brown Gridwork",
-    "X-Large",
+    "9 - Barleycorn Tan",
+    "5X-Large",
+    32.99,
+    1
+   ],
+   [
+    "10 - Barleycorn Gray",
+    "5X-Large",
+    32.99,
+    1
+   ],
+   [
+    "80 - Midnight Blue Graph",
+    "5X-Large",
     32.99,
     1
    ]
   ],
   "soldout": false,
   "colours": [
+   "8 - Light Brown Herringbone",
    "36 - Gray Herringbone",
+   "37 - Umber Herringbone",
+   "39 - Gray Checkered",
+   "40 - Brown Checkered",
    "53 - Donegal Dark Brown",
    "65 - Charcoal Graph",
-   "39 - Gray Checkered",
    "73 - Brown Herringbone Graph",
    "96 - Gray Graph",
    "97 - Charcoal Graph",
    "98 - Gray Gridwork",
    "99 - Brown Gridwork",
-   "37 - Umber Herringbone",
-   "40 - Brown Checkered",
-   "71 - Brown Herringbone",
+   "1 - Herringbone Charcoal",
+   "2 - Herringbone Gray",
+   "7 - Herringbone Khaki",
+   "9 - Barleycorn Tan",
+   "10 - Barleycorn Gray",
+   "80 - Midnight Blue Graph",
    "66 - Olive Herringbone Graph",
    "67 - Brown Barleycorn",
-   "72 - Gray Herringbone Graph",
-   "8 - Light Brown Herringbone"
+   "71 - Brown Herringbone",
+   "72 - Gray Herringbone Graph"
   ],
   "all_colours": [
+   "8 - Light Brown Herringbone",
    "36 - Gray Herringbone",
+   "37 - Umber Herringbone",
+   "39 - Gray Checkered",
+   "40 - Brown Checkered",
    "53 - Donegal Dark Brown",
    "65 - Charcoal Graph",
-   "39 - Gray Checkered",
    "73 - Brown Herringbone Graph",
+   "74 - Camel Herringbone Graph",
    "96 - Gray Graph",
    "97 - Charcoal Graph",
    "98 - Gray Gridwork",
    "99 - Brown Gridwork",
-   "74 - Camel Herringbone Graph",
-   "37 - Umber Herringbone",
-   "40 - Brown Checkered",
-   "71 - Brown Herringbone",
+   "1 - Herringbone Charcoal",
+   "2 - Herringbone Gray",
+   "7 - Herringbone Khaki",
+   "9 - Barleycorn Tan",
+   "10 - Barleycorn Gray",
+   "80 - Midnight Blue Graph",
    "66 - Olive Herringbone Graph",
    "67 - Brown Barleycorn",
-   "72 - Gray Herringbone Graph",
-   "8 - Light Brown Herringbone"
+   "71 - Brown Herringbone",
+   "72 - Gray Herringbone Graph"
   ],
   "families": [
-   "Grey",
    "Brown",
+   "Grey",
    "Charcoal",
    "Beige",
+   "Navy",
    "Green"
   ],
   "colour_img": {
+   "8 - Light Brown Herringbone": "d5381cbba09b",
    "36 - Gray Herringbone": "19a1f49a7b0f",
+   "37 - Umber Herringbone": "35f3b0ee03d2",
+   "39 - Gray Checkered": "eef105c129c8",
+   "40 - Brown Checkered": "3207c7955e7f",
    "53 - Donegal Dark Brown": "0634efaa8e00",
    "65 - Charcoal Graph": "9c706f136de5",
-   "39 - Gray Checkered": "eef105c129c8",
    "73 - Brown Herringbone Graph": "86a1d6e37e5c",
+   "74 - Camel Herringbone Graph": "8a3ab10ea946",
    "96 - Gray Graph": "5d824162296f",
    "97 - Charcoal Graph": "527415b0cdbd",
    "98 - Gray Gridwork": "d66632473539",
    "99 - Brown Gridwork": "dabfb7eb3339",
-   "74 - Camel Herringbone Graph": "8a3ab10ea946",
-   "37 - Umber Herringbone": "35f3b0ee03d2",
-   "40 - Brown Checkered": "3207c7955e7f",
-   "71 - Brown Herringbone": "11431c3a417d",
+   "1 - Herringbone Charcoal": "9fbfdd01a652",
+   "2 - Herringbone Gray": "606e913e3afd",
+   "7 - Herringbone Khaki": "075e9129b252",
+   "9 - Barleycorn Tan": "97dc6df3e3f2",
+   "10 - Barleycorn Gray": "4f0aa88a2445",
+   "80 - Midnight Blue Graph": "434aa8861649",
    "66 - Olive Herringbone Graph": "b2a135b6f751",
    "67 - Brown Barleycorn": "21d367e8f681",
-   "72 - Gray Herringbone Graph": "936f040604d7",
-   "8 - Light Brown Herringbone": "d5381cbba09b"
+   "71 - Brown Herringbone": "11431c3a417d",
+   "72 - Gray Herringbone Graph": "936f040604d7"
   },
   "price": 32.99,
   "price_max": 32.99,
@@ -46115,14 +46499,6 @@
     "colours": [],
     "url": "https://cdn.shopify.com/s/files/1/0841/5985/files/VS-953-37-3_c1ef7fab-0c2f-4a9f-ac31-fc1843b911cb.jpg",
     "key": "60d75935cf0f"
-   },
-   {
-    "w": 1200,
-    "h": 1600,
-    "chart": false,
-    "colours": [],
-    "url": "https://cdn.shopify.com/s/files/1/0841/5985/files/VS-953-37-6_9b13a464-a59f-45f9-bb96-b930280b3874.jpg",
-    "key": "b2b69e81fdea"
    },
    {
     "w": 1200,
@@ -46283,6 +46659,66 @@
     ],
     "url": "https://cdn.shopify.com/s/files/1/0841/5985/files/VS-953-99Front_7be5dd7f-2c33-4ca0-8dc9-8edafe6afdca.jpg",
     "key": "dabfb7eb3339"
+   },
+   {
+    "w": 1200,
+    "h": 1233,
+    "chart": false,
+    "colours": [
+     "10 - Barleycorn Gray"
+    ],
+    "url": "https://cdn.shopify.com/s/files/1/0841/5985/files/VS-953-10Front.jpg",
+    "key": "4f0aa88a2445"
+   },
+   {
+    "w": 1200,
+    "h": 1233,
+    "chart": false,
+    "colours": [
+     "1 - Herringbone Charcoal"
+    ],
+    "url": "https://cdn.shopify.com/s/files/1/0841/5985/files/VS-953-1Front.jpg",
+    "key": "9fbfdd01a652"
+   },
+   {
+    "w": 1200,
+    "h": 1233,
+    "chart": false,
+    "colours": [
+     "2 - Herringbone Gray"
+    ],
+    "url": "https://cdn.shopify.com/s/files/1/0841/5985/files/VS-953-2Front.jpg",
+    "key": "606e913e3afd"
+   },
+   {
+    "w": 1200,
+    "h": 1233,
+    "chart": false,
+    "colours": [
+     "7 - Herringbone Khaki"
+    ],
+    "url": "https://cdn.shopify.com/s/files/1/0841/5985/files/VS-953-7Front.jpg",
+    "key": "075e9129b252"
+   },
+   {
+    "w": 1200,
+    "h": 1233,
+    "chart": false,
+    "colours": [
+     "80 - Midnight Blue Graph"
+    ],
+    "url": "https://cdn.shopify.com/s/files/1/0841/5985/files/VS-953-80Front.jpg",
+    "key": "434aa8861649"
+   },
+   {
+    "w": 1200,
+    "h": 1233,
+    "chart": false,
+    "colours": [
+     "9 - Barleycorn Tan"
+    ],
+    "url": "https://cdn.shopify.com/s/files/1/0841/5985/files/VS-953-9Front.jpg",
+    "key": "97dc6df3e3f2"
    },
    {
     "w": 1200,
@@ -77034,7 +77470,7 @@
     "Black",
     "7",
     12.99,
-    1
+    0
    ],
    [
     "Black",
@@ -77082,13 +77518,13 @@
     "Gray",
     "6",
     12.99,
-    0
+    1
    ],
    [
     "Gray",
     "7",
     12.99,
-    1
+    0
    ],
    [
     "Gray",
@@ -77148,7 +77584,7 @@
     "Khaki",
     "8",
     12.99,
-    1
+    0
    ],
    [
     "Khaki",
@@ -77160,13 +77596,13 @@
     "Khaki",
     "12",
     12.99,
-    1
+    0
    ],
    [
     "Khaki",
     "14",
     12.99,
-    1
+    0
    ],
    [
     "Khaki",
@@ -77190,7 +77626,7 @@
     "Light Blue",
     "6",
     12.99,
-    1
+    0
    ],
    [
     "Light Blue",
@@ -77244,7 +77680,7 @@
     "Navy",
     "6",
     12.99,
-    1
+    0
    ],
    [
     "Navy",
@@ -88591,7 +89027,7 @@
     "Red",
     "10",
     19.99,
-    1
+    0
    ],
    [
     "Red",
