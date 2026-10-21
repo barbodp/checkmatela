@@ -2,7 +2,8 @@
 
 1. Reads https://gioberti.com/products.json and normalises it into tools/catalog/gioberti.json: title, product type, style code, options
    (colour first, then size), every variant with its price and availability, copy, and the photo for each colour.
-2. Downloads every original image into  ~/Downloads/Gioberti/<Product type>/<Title (handle)>/NN.jpg  (resumable: existing files are kept).
+2. Downloads every original image into the photo archive  ~/Downloads/Gioberti/<Men|Boys - Category>/<Style number - Colour>/NN.jpg
+   (shared photos and the size chart in <Style number - All Colours>; see archive_paths(). Resumable: existing files are kept).
 3. Writes web-sized copies into assets/img/gioberti/ (content-addressed by md5, like Antonio Uomo):
    <md5>.webp (max 900px wide), <md5>-t.webp (160px thumb), <md5>-c.webp (480px card image).
    Size charts: Gioberti adds the product's own size chart as one of its photos (alt / file name "size chart"); it is kept out of the
@@ -14,6 +15,7 @@ Sold-out products (no available variant) and the gift card are left out; tools/g
 import os, re, sys, json, html, hashlib, urllib.request, concurrent.futures as cf
 from PIL import Image, ImageOps
 from au_fetch import parse_body, download_one, ext_of, to_rgb, fs_name, slug
+from gb_catalog import category_of, folder_label
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_JSON = os.path.join(ROOT, "tools", "catalog", "gioberti.json")
@@ -81,7 +83,9 @@ def normalise(prods):
             if ci is not None and v["img"] and v["o"][0] not in colour_img:
                 colour_img[v["o"][0]] = v["img"]
         paras, bullets = parse_body(p["body_html"])
-        images = [dict(id=i["id"], src=i["src"], w=i["width"], h=i["height"], chart=is_chart(i)) for i in p["images"]]
+        vcol = {v["id"]: [v["option1"], v["option2"], v["option3"]][pos[ci]] for v in p["variants"]} if ci is not None else {}
+        images = [dict(id=i["id"], src=i["src"], w=i["width"], h=i["height"], chart=is_chart(i),
+                       colours=[c for c in options[0]["values"] if c in {vcol.get(v) for v in i.get("variant_ids", [])}] if ci is not None else []) for i in p["images"]]
         prices = [v["price"] for v in live]
         items.append(dict(
             handle=p["handle"], name=html.unescape(p["title"]).strip(), ptype=p["product_type"], code=(p["variants"][0].get("sku") or "").split(":")[0],
@@ -108,14 +112,40 @@ def optimise(path, chart=False):
     return key
 
 
+def archive_paths(items):
+    """~/Downloads/Gioberti/<Men|Boys - Category>/<Style - Colour>/NN.jpg: each photo in the folder of the colour it shows (a photo of two colours
+    goes in both); photos of no single colour (details, lifestyle) and the size chart go in <Style - All Colours>. When two products share a style
+    number, the product name is added to the folder ("VSM-96P (Men's 4 pc Paisley Vest Set) - Red")."""
+    shared = {c for c in (i["code"] for i in items) if sum(1 for j in items if j["code"] == c) > 1}
+    same_name = {(i["code"], i["name"]) for i in items if sum(1 for j in items if (j["code"], j["name"]) == (i["code"], i["name"])) > 1}
+    for it in items:
+        cat = category_of(it["handle"], it["ptype"])
+        base = os.path.join(DL, fs_name(folder_label(it["handle"], cat) if cat else it["ptype"]))
+        style = it["code"] or it["handle"]
+        if style in shared:                                    # same style number, same name too -> the supplier's URL handle tells them apart
+            style = f"{style} ({it['handle'] if (it['code'], it['name']) in same_name else it['name']})"
+        count = {}
+        for im in it["images"]:
+            folders = [f"{style} - {c}" for c in im["colours"]] or [f"{style} - All Colours" if it["colours"] else style]
+            im["files"] = []
+            for fo in folders:
+                if im["chart"] and not im["colours"]:
+                    count["chart " + fo] = count.get("chart " + fo, 0) + 1
+                    name = "Size Chart" + ("" if count["chart " + fo] == 1 else f" {count['chart ' + fo]}")
+                else:
+                    count[fo] = count.get(fo, 0) + 1
+                    name = f"{count[fo]:02d}"
+                im["files"].append(os.path.join(base, fs_name(fo), name + ext_of(im["src"])))
+
+
 def main():
     items, skipped = normalise(fetch_products())
+    archive_paths(items)
     for it in items:
-        folder = os.path.join(DL, fs_name(it["ptype"]), fs_name(f"{it['name']} ({it['handle']})"))
-        for n, im in enumerate(it["images"], 1):
-            im["file"] = os.path.join(folder, f"{n:02d}{ext_of(im['src'])}")
+        for im in it["images"]:
+            im["file"] = im["files"][0]
     if "--no-download" not in sys.argv:
-        jobs = [(im["src"], im["file"]) for it in items for im in it["images"]]
+        jobs = [(im["src"], f) for it in items for im in it["images"] for f in im["files"]]
         done = 0
         with cf.ThreadPoolExecutor(8) as ex:
             for dest, status in ex.map(download_one, jobs):
@@ -137,7 +167,7 @@ def main():
         by_id = {im["id"]: im.get("key") for im in it["images"]}
         it["colour_img"] = {c: by_id.get(i) for c, i in it["colour_img"].items() if by_id.get(i)}
         for im in it["images"]:
-            im.pop("file", None); im.pop("id", None); im.pop("src", None)
+            im.pop("file", None); im.pop("files", None); im.pop("id", None); im.pop("src", None)
     os.makedirs(os.path.dirname(OUT_JSON), exist_ok=True)
     json.dump(items, open(OUT_JSON, "w", encoding="utf-8", newline="\n"), indent=1, ensure_ascii=False)
     print("wrote", os.path.relpath(OUT_JSON, ROOT), len(items), "products;", len(skipped), "sold out and left out:", ", ".join(skipped))
