@@ -63,7 +63,8 @@ def site_rules():
 
 
 def main():
-    out = sys.argv[1] if len(sys.argv) > 1 else DEFAULT
+    args = [a for i, a in enumerate(sys.argv[1:], 1) if a != "--sheets-json" and sys.argv[i - 1] != "--sheets-json"]
+    out = args[0] if args else DEFAULT
     os.makedirs(os.path.dirname(out), exist_ok=True)
     log_path = os.path.join(os.path.dirname(out), "removed-log.json")
     log = json.load(open(log_path, encoding="utf-8")) if os.path.exists(log_path) else {}
@@ -129,6 +130,28 @@ def main():
                     continue
                 ok, n = stock(it, c)
                 colours_out.append((cfg["name"], it, c, ok, n))
+
+    if "--sheets-json" in sys.argv:                                    # rows for the Google Sheets copy: photos as =IMAGE() of Gioberti's own photo URL
+        def src(it, colour=None):
+            im = next((im for im in it["images"] if colour in (im.get("colours") or []) and not im["chart"]), None) if colour else None
+            im = im or next((im for im in it["images"] if not im["chart"]), None)
+            return (im["src"] + ("&" if "?" in im["src"] else "?") + "width=200") if im else ""
+        pic = lambda u: f'=IMAGE("{u}")' if u else ""
+        link = lambda u: f'=HYPERLINK("{u}","Open on gioberti.com")'
+        data = {"Removed Products": [], "Removed Colours": [], "Full Catalog": []}
+        for it, why, when in sorted(removed, key=lambda x: (cat_label(x[0]["handle"], x[0]), x[0]["name"])):
+            ok, total = stock(it)
+            data["Removed Products"].append([pic(src(it, it["colours"][0] if it["colours"] else None)), it["name"], it["code"], cat_label(it["handle"], it), why, when,
+                                             "Sold out" if it["soldout"] else f"{ok} of {total} options in stock", ", ".join(it["all_colours"]),
+                                             ", ".join(it["options"][1]["values"] if len(it["options"]) > 1 else []), it["price"], link(it["supplier_url"])])
+        for site_name, it, c, ok, n in sorted(colours_out, key=lambda x: (x[0], x[1]["code"], x[2])):
+            data["Removed Colours"].append([pic(src(it, c)), c, site_name, it["name"], it["code"], f"{ok} of {n}", link(it["supplier_url"])])
+        for it, status, where, ok, total in sorted(catalog, key=lambda x: (x[1] != "On site", cat_label(x[0]["handle"], x[0]), x[0]["name"])):
+            data["Full Catalog"].append([it["name"], it["code"], status, where, cat_label(it["handle"], it), it["ptype"], it["price"], len(it["all_colours"]),
+                                         "Sold out" if it["soldout"] else f"{ok} of {total}", link(it["supplier_url"])])
+        path = sys.argv[sys.argv.index("--sheets-json") + 1]
+        json.dump(data, open(path, "w", encoding="utf-8"), ensure_ascii=False)
+        print("wrote", path, {k: len(v) for k, v in data.items()})
 
     wb = Workbook()
     wb.calculation.fullCalcOnLoad = True                               # Summary counts are formulas: Excel works them out when the file opens

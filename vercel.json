@@ -146,6 +146,46 @@
       "permanent": true
     },
     {
+      "source": "/gioberti-ss-82-boys-plaid-short-sleeve-shirt.html",
+      "destination": "/gioberti-boys-plaid-short-sleeve-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-82-boys-plaid-long-sleeve-button-down-shirt.html",
+      "destination": "/gioberti-boys-plaid-long-sleeve-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ss-82w-western-plaid-pearl-snap-short-sleeve-shirt.html",
+      "destination": "/gioberti-boys-plaid-pearl-snap-short-sleeve-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-82w-boys-plaid-long-sleeve-pearl-snaps-shirt.html",
+      "destination": "/gioberti-boys-plaid-pearl-snap-long-sleeve-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ss-85w-boys-solid-short-sleeve-western-shirt.html",
+      "destination": "/gioberti-boys-solid-pearl-snap-short-sleeve-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-85w-boys-casual-western-long-sleeve-pearl-snaps-shirt.html",
+      "destination": "/gioberti-boys-solid-pearl-snap-long-sleeve-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-84fc-boys-flannel-shirt-with-courduroy-constast.html",
+      "destination": "/gioberti-boys-flannel-shirt-with-corduroy-contrast.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-22r-boys-long-sleeve-roll-up-plaid-checked-shirt.html",
+      "destination": "/gioberti-toddlers-checkered-roll-up-shirt.html",
+      "permanent": true
+    },
+    {
       "source": "/gioberti-sw-924-mens-pullover-sweater.html",
       "destination": "/gioberti-mens-knitted-pullover-sweater.html",
       "permanent": true
@@ -208,6 +248,11 @@
     {
       "source": "/gioberti-fh-96-mens-sherpa-lined-fleece-hoodie.html",
       "destination": "/men-jackets.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-82h-boys-plaid-checkered-flannel-shirt-with-hoodie.html",
+      "destination": "/boys-casual-shirts.html",
       "permanent": true
     },
     {

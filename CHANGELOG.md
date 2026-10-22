@@ -1,5 +1,11 @@
 # Checkmatela changes
 
+## 2026-10-22 — Boys' casual shirts trimmed
+
+- Boy's Removable Hoodie Shirt removed. Plaid listings cut to colours with sizes in stock, one of each colour story, matching the men's picks where possible: Plaid Short Sleeve 17 -> 11, Plaid Long Sleeve 29 -> 8, Plaid Pearl Snap Short Sleeve 21 -> 6, Plaid Pearl Snap Long Sleeve 15 -> 5, Flannel w/ Corduroy 19 plaids -> 10 (all 4 solids kept), Toddler Roll-Up 20 -> 10. Solid pearl snap shirts keep every colour.
+- Renamed to match the men's (e.g. "Boy's Plaid Pearl Snap Short Sleeve Shirt"); old pages redirect.
+- `tools/gb_database.py --sheets-json` exports the database for the Google Sheets copy.
+
 ## 2026-10-22 — Product database (off the site)
 
 - New `tools/gb_database.py` builds the owner's Excel database outside the website: every removed product and trimmed colourway (with photos, reasons, stock and links) plus the full Gioberti catalog with what is on the site.
