@@ -87,6 +87,7 @@ def folder_label(handle, cat):
 # becomes ONE product page built from its source listings, showing only the plaids listed (Gioberti fabric number -> display name),
 # picked for stock depth, fabrics Gioberti makes in several styles (its core fabrics), its best-seller order and one of each colour story.
 # solids=True keeps every solid colour of the sources (user: solids are never cut). colours=None keeps every colour.
+# A colours key is either a Gioberti fabric number (plaids: the number is kept in the colour name) or an exact Gioberti colour name (polos).
 # Short and long sleeve stay separate listings (user). The stock sync keeps these colours' stock current; colours not listed here never come
 # back on their own — edit this list to change the range. retired: earlier combined pages that now redirect here.
 CURATED = [
@@ -132,4 +133,39 @@ CURATED = [
          colours={"78": "Orange / Khaki / Teal", "48": "Black / Red Check", "1139": "Blue / Gray / Black", "56": "Dark Blue / Gray",
                   "1146": "Royal Blue / Midnight / Yellow", "97": "Gray / Black", "54": "Dark Green / Red", "1116": "Black / Gray / Coral",
                   "1117": "Brown / Khaki", "1079": "Aqua / Turquoise / Orange"}),
+    # Men's polo shirts: all striped designs (no solids). The 9 strongest designs (Gioberti best-seller order, stock), each with a name that says
+    # which stripe it is (Gioberti calls most of them "Jersey Polo" / "Striped Polo"); duplicate colours (Charcoal A/B/C, logo copies…) and colours with no stock cut.
+    dict(handle="mens-gradient-stripe-polo", name="Men's Gradient Stripe Polo w/ Pocket", code="PS-931", sources=["ps-931-mens-stripe-polo-shirt-with-pockets"],
+         colours={"Blue": "Blue", "Cobalt": "Cobalt", "Red": "Red", "Khaki": "Khaki", "Camel": "Camel", "Brown": "Brown", "Olive": "Olive", "Green": "Green",
+                  "Charcoal C": "Charcoal", "White": "White"}),
+    dict(handle="mens-fine-stripe-polo", name="Men's Fine Stripe Polo w/ Pocket", code="PS-942", sources=["ps-942-mens-stripe-polo-shirt-with-pockets"], colours=None),
+    dict(handle="mens-chest-stripe-polo", name="Men's Chest Stripe Polo", code="PS-9327", sources=["ps-9327-mens-striped-polo-shirt-with-pocket"],
+         colours={"Black B": "Black", "Gray": "Gray", "Hunter Green": "Hunter Green", "NavyB": "Navy", "White B": "White"}),
+    dict(handle="mens-heather-stripe-polo", name="Men's Heather Stripe Polo", code="PS-943", sources=["ps-943-mens-stripe-polo-shirt"],
+         colours={"Brown": "Brown", "Blue": "Blue", "Gray": "Gray", "Hunter": "Hunter Green", "Navy": "Navy"}),
+    dict(handle="mens-accent-stripe-polo", name="Men's Accent Stripe Polo", code="PS-934", sources=["ps-934-mens-stripe-polo-shirt"], colours=None),
+    dict(handle="mens-multi-stripe-polo", name="Men's Multi-Stripe Polo", code="PS-947", sources=["ps-947-mens-stripe-polo-shirt"],
+         colours={"Burgundy - Style 947": "Burgundy", "Camel - Style 947": "Camel", "Charcoal - Style 947": "Charcoal"}),
+    dict(handle="mens-pin-stripe-polo", name="Men's Pin Stripe Polo", code="PS-945", sources=["ps-945-mens-stripe-polo-shirt"],
+         colours={"Hunter Green - Style 945": "Hunter Green", "Red - Style 945": "Red", "Brown - Style 945": "Brown"}),
+    dict(handle="mens-jersey-stripe-polo", name="Men's Jersey Stripe Polo", code="PS-937",
+         sources=["ps-937-mens-striped-short-jersey-sleeve-polo-shirt", "ps-937-mens-striped-short-jersey-sleeve-polo-shirt-pocket"],
+         colours={"Black B": "Black", "White C": "White", "Royal Blue": "Royal Blue (with pocket)"}),
+    dict(handle="mens-bold-stripe-polo", name="Men's Bold Stripe Polo w/ Pocket", code="PS-933", sources=["ps-933-mens-stripe-polo-shirt-with-pockets"],
+         colours={"Black A - Style 933": "Black / Red", "Black B - Style 933": "Black / Blue", "Charcoal - Style 933": "Charcoal / Blue", "Royal Blue - Style 933": "Royal Blue / Black"}),
+    # Boys' polo: Gioberti's PS-851XP listing mixes three yacht-club designs with the same colours; one of each colour, the version with most stock.
+    dict(handle="boys-yacht-club-pique-polo", name="Boy's Yacht Club Pique Polo", code="PS-851XP", sources=["ps-851xp-kids-yacht-club-pique-polo-shirt"],
+         colours={"Black- 8510P": "Black", "Navy- 8511P": "Navy", "White- 8510P": "White", "Aqua- 8512P": "Aqua", "Gray- 8511P": "Gray",
+                  "Red- 8511P": "Red", "Royal Blue- 8511P": "Royal Blue"}),
 ]
+
+# Gioberti listings left off the site on purpose (user, 2026-10-22: "highest chance of selling", no repetition). Their old pages redirect to their category.
+HIDDEN = {
+    "ps-9-mens-striped-polo-shirt": "three different styles in one listing, low seller",
+    "ps-939-mens-striped-polo-shirt": "low seller",
+    "ps-946-mens-stripe-polo-shirt": "low seller",
+    "ps-9323-mens-striped-polo-shirt": "low seller, logo / no-logo duplicate colours",
+    "ps-9328-mens-striped-polo-shirt-with-pocket": "lowest seller",
+    "ps-944-mens-stripe-polo-shirt": "most colours out of stock",
+    "ps-9306-mens-stripe-polo-shirt-with-pockets": "near-duplicate of the Bold Stripe Polo",
+}

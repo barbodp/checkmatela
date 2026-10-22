@@ -19,7 +19,7 @@ import os, re, json
 from gen_antonio import shell, crumbs, write, acc, money
 from gen_pawn_pages import page_head
 from shoplib import shop_block, replace_between, esc, select_opt, colour_row
-from gb_catalog import CATS, TYPE_MAP, FORMAL_ACCESSORIES, CURATED, category_of, dept_of
+from gb_catalog import CATS, TYPE_MAP, FORMAL_ACCESSORIES, CURATED, HIDDEN, category_of, dept_of
 from gb_fetch import families
 from PIL import Image
 import html as htmllib
@@ -77,7 +77,9 @@ def curate(items):
                     disp = _plain(c)
                     if disp not in solid_names:
                         solid_names.append(disp)
-                elif _fabric(c) in wanted:
+                elif c in wanted:                                        # an exact Gioberti colour name (polos)
+                    disp = wanted[c]
+                elif _fabric(c) in wanted:                               # a fabric number (plaids): the number stays in the name
                     disp = f"{wanted[_fabric(c)]} ({_fabric(c)})"
                 else:
                     continue
@@ -88,7 +90,7 @@ def curate(items):
             names = [c for it in srcs for c in it["all_colours"]]
             names = [n for i, n in enumerate(names) if n not in names[:i]]
         else:
-            names = [f"{n} ({k})" for k, n in wanted.items()] + solid_names
+            names = [f"{n} ({k})" if k.isdigit() else n for k, n in wanted.items()] + solid_names
         names = [n for n in names if n in pick]
         sizes = []
         for it in srcs:
@@ -118,6 +120,8 @@ def curate(items):
 
 
 ITEMS = curate(ITEMS)
+HIDDEN_PAGES = {h: category_of(i["handle"], i["ptype"], i["name"]) for i in ITEMS for h in [i["handle"]] if h in HIDDEN}   # left off on purpose -> their category
+ITEMS = [i for i in ITEMS if i["handle"] not in HIDDEN]
 
 
 for _it in ITEMS:
@@ -551,6 +555,7 @@ def redirect_merged():
     cfg = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
     keep = [r for r in cfg.get("redirects", []) if not r["source"].startswith("/gioberti-")]
     new = [{"source": f"/gioberti-{h}.html", "destination": f"/{it['file']}", "permanent": True} for it in ITEMS for h in it.get("merged_from", [])]
+    new += [{"source": f"/gioberti-{h}.html", "destination": f"/{cat}.html", "permanent": True} for h, cat in HIDDEN_PAGES.items() if cat]
     cfg["redirects"] = keep + new
     open(path, "w", encoding="utf-8", newline="\n").write(json.dumps(cfg, indent=2) + "\n")
 

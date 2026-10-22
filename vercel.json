@@ -89,6 +89,96 @@
       "source": "/gioberti-ls-94fc-mens-long-sleeve-flannel-shirt.html",
       "destination": "/gioberti-mens-flannel-shirt-with-corduroy-contrast.html",
       "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-931-mens-stripe-polo-shirt-with-pockets.html",
+      "destination": "/gioberti-mens-gradient-stripe-polo.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-942-mens-stripe-polo-shirt-with-pockets.html",
+      "destination": "/gioberti-mens-fine-stripe-polo.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-9327-mens-striped-polo-shirt-with-pocket.html",
+      "destination": "/gioberti-mens-chest-stripe-polo.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-943-mens-stripe-polo-shirt.html",
+      "destination": "/gioberti-mens-heather-stripe-polo.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-934-mens-stripe-polo-shirt.html",
+      "destination": "/gioberti-mens-accent-stripe-polo.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-947-mens-stripe-polo-shirt.html",
+      "destination": "/gioberti-mens-multi-stripe-polo.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-945-mens-stripe-polo-shirt.html",
+      "destination": "/gioberti-mens-pin-stripe-polo.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-937-mens-striped-short-jersey-sleeve-polo-shirt.html",
+      "destination": "/gioberti-mens-jersey-stripe-polo.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-937-mens-striped-short-jersey-sleeve-polo-shirt-pocket.html",
+      "destination": "/gioberti-mens-jersey-stripe-polo.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-933-mens-stripe-polo-shirt-with-pockets.html",
+      "destination": "/gioberti-mens-bold-stripe-polo.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-851xp-kids-yacht-club-pique-polo-shirt.html",
+      "destination": "/gioberti-boys-yacht-club-pique-polo.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-9323-mens-striped-polo-shirt.html",
+      "destination": "/men-polo-shirts.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-946-mens-stripe-polo-shirt.html",
+      "destination": "/men-polo-shirts.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-939-mens-striped-polo-shirt.html",
+      "destination": "/men-polo-shirts.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-9328-mens-striped-polo-shirt-with-pocket.html",
+      "destination": "/men-polo-shirts.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-9-mens-striped-polo-shirt.html",
+      "destination": "/men-polo-shirts.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-9306-mens-stripe-polo-shirt-with-pockets.html",
+      "destination": "/men-polo-shirts.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ps-944-mens-stripe-polo-shirt.html",
+      "destination": "/men-polo-shirts.html",
+      "permanent": true
     }
   ]
 }

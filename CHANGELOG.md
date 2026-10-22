@@ -1,5 +1,10 @@
 # Checkmatela changes
 
+## 2026-10-22 — Polos trimmed
+
+- Men's polo shirts: 17 listings (87 colours, five called "Jersey Polo Shirt") are now 9 distinct striped designs with 43 colours, each named for its stripe (Gradient, Fine, Chest, Heather, Accent, Multi-Stripe, Pin, Jersey, Bold). Kept by Gioberti's best-seller order and stock; duplicate colours and out-of-stock colours removed; the with/without-pocket listings combined. 7 weaker listings left off (old links go to Polo Shirts).
+- Boys' Yacht Club Pique Polo: 16 colours from three mixed designs -> one of each colour (7).
+
 ## 2026-10-22 — Flannel shirts trimmed; short and long sleeve separate again
 
 - Men's flannel shirts: 6 listings with 160+ plaids are now 4 (Plaid Flannel, Removable Hoodie Flannel, Flannel w/ Snaps, Flannel w/ Corduroy Contrast), 10–12 plaids each, and **every solid colour kept**.
