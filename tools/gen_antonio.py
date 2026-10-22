@@ -362,7 +362,7 @@ def build_product(it):
                     crumb_parts=[*BASE_CRUMBS, (tname, tfile(slug)), (it["name"], pfile(it))], related_html=rel_html)
     write(pfile(it), shell(f"{it['name']} ({it['code']}) — {BRAND} | Checkmatela",
                            f"{it['name']} ({it['code']}) by {BRAND}, {money(it['price'])}. " if opening else f"{it['name']} by {BRAND}, style {it['code']}, {money(it['price'])}. " + (it["bullets"][0] + ". " if it["bullets"] else "") + "Sizes, details and size chart at Checkmatela.",
-                           body, extra_js='<script src="js/product.js?v=8"></script>'))
+                           body, extra_js='<script src="js/product.js?v=9"></script>'))
 
 
 def category_of(it):

@@ -19,12 +19,24 @@
     $("span", c).textContent = o && o.value ? o.value : "";
     if (o && o.value && o.dataset.thumb) { im.src = o.dataset.thumb; im.hidden = false; } else im.hidden = true;
   };
+  /* a combined listing (colour + sleeve): show the photo of the chosen colour in the chosen sleeve, when there is one */
+  const matchPhoto = () => {
+    const sl = groups.find(x => x.dataset.key === "sleeve"), cg = groups.find(x => $(".pdp-opt__chosen", x));
+    if (!sl || !cg) return;
+    const c = valueOf(cg), v = valueOf(sl);
+    const t = c && v && $$(".pdp-thumb").find(b => b.dataset.colour === c && b.dataset.sleeve === v);
+    if (t) show(t.dataset.src, t.dataset.w, t.dataset.h);
+  };
   /* a gallery photo of one colour selects that colour */
   $$(".pdp-thumb").forEach(b => b.addEventListener("click", () => {
     show(b.dataset.src, b.dataset.w, b.dataset.h);
     const g = groups.find(x => $(".pdp-opt__chosen", x)), s = g && $("select", g);
     if (s && b.dataset.colour && s.value !== b.dataset.colour && [...s.options].some(o => o.value === b.dataset.colour)) {
       s.value = b.dataset.colour; g.classList.remove("is-missing"); showChosen(g); syncVariants();
+    }
+    const sl = groups.find(x => x.dataset.key === "sleeve"), ss = sl && $("select", sl);
+    if (ss && b.dataset.sleeve && ss.value !== b.dataset.sleeve) {
+      ss.value = b.dataset.sleeve; sl.classList.remove("is-missing"); syncVariants();
     }
   }));
 
@@ -59,7 +71,7 @@
       g.classList.remove("is-missing");
       const o = s.selectedOptions[0];
       if (o && o.dataset.img) show(o.dataset.img, o.dataset.w, o.dataset.h);
-      showChosen(g); msg.textContent = ""; syncVariants();
+      showChosen(g); matchPhoto(); msg.textContent = ""; syncVariants();
     });
     else g.addEventListener("click", e => {
       const b = e.target.closest(".chip-btn"); if (!b) return;

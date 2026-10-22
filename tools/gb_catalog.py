@@ -81,3 +81,26 @@ def dept_of(handle, cat):
 def folder_label(handle, cat):
     """Photo archive folder for a category: 'Men - Casual Shirts', 'Boys - Formal Accessories'…"""
     return f"{'Men' if dept_of(handle, cat) == 'men' else 'Boys'} - {CATS[cat][2]}"
+
+# ---------------------------------------------------------------- curated, combined listings (user, 2026-10-22)
+# Gioberti sells the same shirt as several listings (one per sleeve length, sometimes two for the same style) with dozens of near-identical
+# plaids. Each entry below becomes ONE product page with a Sleeve choice; only the listed colours are shown (fabric number -> display name),
+# picked for stock depth in both sleeves, Gioberti's best-seller order and distinct colour stories. colours=None keeps every colour (solids).
+# The stock sync keeps these colours' stock current; colours not listed here never come back on their own. Edit this list to change the range.
+CURATED = [
+    dict(handle="mens-plaid-shirt", name="Men's Plaid Shirt", code="SS-92 / LS-92",
+         sources={"Short": ["ss-92-mens-casual-plaid-short-sleeve-button-down-dress-shirt", "ss-92-special-mens-plaid-short-sleeve-shirt"],
+                  "Long": ["ls-92-gioberti-plaid-long-sleeve-shirt"]},
+         colours={"1049": "Red / Black / Gray", "632": "Black / White", "1055": "Red / Navy / White", "1053": "Blue / Navy / White",
+                  "727": "Khaki / Navy", "1090": "Blue / Grey / Black", "1018": "Navy / White", "1164": "Green / White", "1163": "Royal / White",
+                  "1096": "Teal / Brown / White", "1154": "Cobalt / Peach / White", "777": "Turquoise"}),
+    dict(handle="mens-plaid-pearl-snap-western-shirt", name="Men's Plaid Pearl Snap Western Shirt", code="SS-92W / LS-92W",
+         sources={"Short": ["ss-92w-mens-plaid-western-short-sleeve-shirt", "ss-92w-special-mens-plaid-western-short-sleeve-shirt"],
+                  "Long": ["ls-92w-gioberti-western-plaid-long-sleeve-shirt"]},
+         colours={"727": "Khaki / Navy", "978": "Black / White / Gray", "1103": "Red / Navy / Yellow", "1049": "Red / Black / Gray",
+                  "1036": "Red / Navy / White", "1053": "Blue / Navy / White", "995": "Blue / Khaki / White", "1061": "Orange / White / Navy",
+                  "1060": "Blue Checkered", "1059": "Green / White", "777": "Turquoise", "26": "Brown / Yellow / Turquoise"}),
+    dict(handle="mens-solid-pearl-snap-western-shirt", name="Men's Solid Pearl Snap Western Shirt", code="SS-95W / LS-95W",
+         sources={"Short": ["ss-95w-mens-casual-western-solid-short-sleeve-shirt-with-pearl-snaps"], "Long": ["ls-95w-mens-solid-long-sleeve-western-shirt"]},
+         colours=None),
+]

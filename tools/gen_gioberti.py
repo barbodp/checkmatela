@@ -19,7 +19,7 @@ import os, re, json
 from gen_antonio import shell, crumbs, write, acc, money
 from gen_pawn_pages import page_head
 from shoplib import shop_block, replace_between, esc, select_opt, colour_row
-from gb_catalog import CATS, TYPE_MAP, FORMAL_ACCESSORIES, category_of, dept_of
+from gb_catalog import CATS, TYPE_MAP, FORMAL_ACCESSORIES, CURATED, category_of, dept_of
 from gb_fetch import families
 from PIL import Image
 import html as htmllib
@@ -35,6 +35,83 @@ DEPTS = {
     "boys": dict(label="Boys", poss="Boys'", crumb=("Kids", "pawn.html"), glyph="glyph-pawn", formal="boys-formal.html", nsf="boys-not-so-formal.html", sub="Pawn"),
 }
 GROUP_LABEL = {"formal": "Formal", "nsf": "Not So Formal"}
+
+# ---------------------------------------------------------------- curated, combined listings (gb_catalog.CURATED)
+SLEEVE_ORDER = ["Short", "Long"]
+SIZE_ORDER = ["X-Small", "Small", "Medium", "Large", "X-Large", "2X-Large", "3X-Large", "4X-Large", "5X-Large", "6X-Large"]
+
+
+def _fabric(colour):
+    """'1049 - Red / Black / Gray', '1018- Navy/White', '20W Turquoise White Red' -> '1049', '1018', '20'"""
+    m = re.match(r"\s*(\d+)W?\b", colour)
+    return m.group(1) if m else colour.strip()
+
+
+def curate(items):
+    """Replace each CURATED group of Gioberti listings by one combined listing (Colour, Sleeve, Size) holding only the chosen colours."""
+    by = {i["handle"]: i for i in items}
+    used, out = set(), []
+    for cfg in CURATED:
+        srcs = [(sl, by[h]) for sl in SLEEVE_ORDER for h in cfg["sources"].get(sl, []) if h in by]
+        if not srcs:
+            continue
+        wanted = cfg["colours"]
+        names = list(wanted.values()) if wanted else []
+        pick = {}                                                      # (display colour, sleeve) -> (source item, source colour, in-stock sizes)
+        for sl, it in srcs:
+            for c in it["all_colours"]:
+                key = _fabric(c) if wanted else c
+                if wanted and key not in wanted:
+                    continue
+                disp = f"{wanted[key]} ({key})" if wanted else c
+                if not wanted and disp not in names:
+                    names.append(disp)
+                ok = sum(1 for r in it["variants"] if r[0] == c and r[-1])
+                if (disp, sl) not in pick or ok > pick[(disp, sl)][2]:
+                    pick[(disp, sl)] = (it, c, ok)
+        if wanted:
+            names = [f"{n} ({k})" for k, n in wanted.items()]
+        names = [n for n in names if any((n, sl) in pick for sl in SLEEVE_ORDER)]
+        sleeves = [sl for sl in SLEEVE_ORDER if any((n, sl) in pick for n in names)]
+        sizes = []
+        for sl, it in srcs:
+            sizes += [v for v in it["options"][1]["values"] if v not in sizes]
+        sizes.sort(key=lambda v: SIZE_ORDER.index(v) if v in SIZE_ORDER else 99)
+        rows, images, colour_img = [], [], {}
+        for n in names:
+            for sl in sleeves:
+                if (n, sl) not in pick:
+                    continue
+                it, c, _ = pick[(n, sl)]
+                rows += [[n, sl, r[1], r[2], r[3]] for r in it["variants"] if r[0] == c]
+                for im in it["images"]:
+                    if c in (im.get("colours") or []) and im.get("key") and not im["chart"]:
+                        images.append(dict(im, colours=[n], sleeve=sl))
+                if n not in colour_img and c in it["colour_img"]:
+                    colour_img[n] = it["colour_img"][c]
+        charts = []
+        for sl in sleeves:
+            it = next(i for s_, i in srcs if s_ == sl)
+            ch = next((im for im in it["images"] if im["chart"] and im.get("key")), None)
+            if ch:
+                charts.append(dict(ch, colours=[], label=f"{sl} sleeve"))
+        live = [r for r in rows if r[-1]]
+        first = srcs[0][1]
+        bullets = [f"{sl} sleeve: Gioberti style {next(i for s_, i in srcs if s_ == sl)['code']}" for sl in sleeves]
+        bullets += [b for b in first["bullets"] if not re.match(r"(style|sizes?)\b", b, re.I)]
+        prices = [r[3] for r in (live or rows)]
+        colours = [n for n in names if any(r[0] == n and r[-1] for r in rows)] or names
+        out.append(dict(first, handle=cfg["handle"], name=cfg["name"], code=cfg["code"], soldout=not live,
+                        options=[dict(name="Color", values=names), dict(name="Sleeve", values=sleeves), dict(name="Size", values=sizes)],
+                        variants=rows, colours=colours, all_colours=names, families=families(names), colour_img=colour_img,
+                        price=min(prices), price_max=max(prices), bullets=bullets, images=images + charts,
+                        supplier_url=" ".join(i["supplier_url"] for _, i in srcs), merged_from=[i["handle"] for _, i in srcs]))
+        used.update(i["handle"] for _, i in srcs)
+    return [i for i in items if i["handle"] not in used] + out
+
+
+ITEMS = curate(ITEMS)
+
 
 for _it in ITEMS:
     _it["cat"] = category_of(_it["handle"], _it["ptype"], _it["name"])
@@ -242,7 +319,7 @@ def gallery(it):
     ims = photos(it)
     first_key = cover(it)
     first = next((im for im in ims if im["key"] == first_key), ims[0])
-    thumbs = "".join(f'<button type="button" class="pdp-thumb{" is-active" if im is first else ""}" data-src="{img(im["key"])}" data-w="{im["w"]}" data-h="{im["h"]}"{f' data-colour="{esc(im["colours"][0])}"' if len(im.get("colours") or []) == 1 else ""} aria-label="Show photo {n} of {len(ims)}"><img src="{img(im["key"], "-t")}" alt="" loading="lazy" width="72" height="72"></button>'
+    thumbs = "".join(f'<button type="button" class="pdp-thumb{" is-active" if im is first else ""}" data-src="{img(im["key"])}" data-w="{im["w"]}" data-h="{im["h"]}"{f' data-colour="{esc(im["colours"][0])}"' if len(im.get("colours") or []) == 1 else ""}{f' data-sleeve="{im["sleeve"]}"' if im.get("sleeve") else ""} aria-label="Show photo {n} of {len(ims)}"><img src="{img(im["key"], "-t")}" alt="" loading="lazy" width="72" height="72"></button>'
                      for n, im in enumerate(ims, 1))
     main = f'<img id="pdpMain" src="{img(first["key"])}" alt="{esc(it["name"])}" width="900" height="{round(900 * first["h"] / first["w"])}" fetchpriority="high">'
     return f'<div class="pdp-gallery"><div class="pdp-main" id="pdpFrame" style="--r:{first["w"] / first["h"]:.4f}">{main}</div>{f"<div class=pdp-thumbs>{thumbs}</div>" if len(ims) > 1 else ""}</div>'.replace("<div class=pdp-thumbs>", '<div class="pdp-thumbs">')
@@ -276,10 +353,11 @@ def build_product(it):
     parts = dept_crumbs(dept, group, (label, f"{cat}.html"), (it["name"], it["file"]))
     eyebrow, more_href = f"{BRAND} &middot; {DEPTS[dept]['label']} &middot; {GROUP_LABEL[group]}", f"{cat}.html"
     related = [i for i in BY_CAT[cat] if i is not it][:4]
-    chart = next((im for im in it["images"] if im["chart"] and im.get("key")), None)
+    charts = [im for im in it["images"] if im["chart"] and im.get("key")]
+    chart = charts[0] if charts else None
     chart_btn = f'<button type="button" class="pdp-chart-btn" data-open-chart aria-haspopup="dialog">{CHART_ICON}Size chart</button>' if chart else ""
     chart_dialog = (f'<dialog class="shop-dialog au-chart" id="sizeChart" aria-labelledby="gbChartTitle"><button type="button" class="shop-dialog__x" aria-label="Close size chart">×</button>'
-                    f'<div class="au-chart__body"><h2 class="au-chart__title" id="gbChartTitle">{esc(it["name"])} size chart</h2><img class="gb-chart" src="{img(chart["key"], "-z")}" alt="{esc(it["name"])} size chart" loading="lazy" width="{min(1400, chart["w"])}" height="{round(min(1400, chart["w"]) * chart["h"] / chart["w"])}">'
+                    f'<div class="au-chart__body"><h2 class="au-chart__title" id="gbChartTitle">{esc(it["name"])} size chart</h2>{"".join((f'<h3 class="au-chart__sub">{esc(ch["label"])}</h3>' if ch.get("label") else "") + f'<img class="gb-chart" src="{img(ch["key"], "-z")}" alt="{esc(it["name"])} size chart" loading="lazy" width="{min(1400, ch["w"])}" height="{round(min(1400, ch["w"]) * ch["h"] / ch["w"])}">' for ch in charts)}'
                     f'<p class="au-size__note">Measurements from {BRAND}, for this product. Not sure between two sizes? <a class="link" href="book-a-fitting.html?look={esc(it["name"].replace(" ", "%20"))}">Ask us about fit</a>.</p></div></dialog>') if chart else ""
     n = len(it["all_colours"])
     lede = f"{it['name']} by {BRAND}" + (f", in {n} colours." if n > 1 else ".") + (
@@ -327,7 +405,7 @@ def build_product(it):
 {rel}'''
     glyph = "glyph-pawn" if it["dept"] == "boys" else "glyph-king"
     write(it["file"], shell(f"{it['name']} ({it['code']}) — {BRAND} | Checkmatela", f"{it['name']} by {BRAND}, style {it['code']}, {price_text(it)}. Colours, sizes, details and size chart at Checkmatela.",
-                            body, glyph=glyph, extra_js='<script src="js/product.js?v=8"></script>'))
+                            body, glyph=glyph, extra_js='<script src="js/product.js?v=9"></script>'))
 
 
 def build_magen_product(m):
@@ -393,7 +471,7 @@ def build_magen_product(m):
 
 {rel}'''
     write(m["file"], shell(f"{m['name']} — {MAGEN} | Checkmatela", f"{m['name']} by {MAGEN}, {money(m['price'])}. Sizes {m['sizes'][0]} to {m['sizes'][-1]}, photos and details at Checkmatela.",
-                           body, glyph="glyph-pawn", extra_js='<script src="js/product.js?v=8"></script>'))
+                           body, glyph="glyph-pawn", extra_js='<script src="js/product.js?v=9"></script>'))
 
 
 def stamp_bishop():
@@ -460,6 +538,16 @@ def search_pages():
     return pages
 
 
+def redirect_merged():
+    """Permanent redirects in vercel.json from the pages of listings that were combined (CURATED) to the combined page."""
+    path = os.path.join(ROOT, "vercel.json")
+    cfg = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
+    keep = [r for r in cfg.get("redirects", []) if not r["source"].startswith("/gioberti-")]
+    new = [{"source": f"/gioberti-{h}.html", "destination": f"/{it['file']}", "permanent": True} for it in ITEMS for h in it.get("merged_from", [])]
+    cfg["redirects"] = keep + new
+    open(path, "w", encoding="utf-8", newline="\n").write(json.dumps(cfg, indent=2) + "\n")
+
+
 def main():
     if UNFILED:
         print("WARNING: no category for", ", ".join(f"{i['handle']} ({i['ptype']})" for i in UNFILED), "- add the type to TYPE_MAP")
@@ -479,6 +567,7 @@ def main():
         if re.fullmatch(r"(gioberti|men|boys|magen-kids)-[a-z0-9-]+\.html", f) and f not in wanted:
             os.remove(os.path.join(ROOT, f))
             print("removed", f)
+    redirect_merged()
     print("gioberti:", len(built), "category pages, 4 landing pages,", len(ITEMS), "Gioberti +", len(MAGEN_ITEMS), "Magen Kids product pages,", sum(map(len, ACCESSORIES.values())), "on bishop.html")
     import gen_nav
     gen_nav.main()

@@ -1,5 +1,49 @@
 {
   "redirects": [
-    { "source": "/men-outerwear.html", "destination": "/men-jackets.html", "permanent": true }
+    {
+      "source": "/men-outerwear.html",
+      "destination": "/men-jackets.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ss-92-mens-casual-plaid-short-sleeve-button-down-dress-shirt.html",
+      "destination": "/gioberti-mens-plaid-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ss-92-special-mens-plaid-short-sleeve-shirt.html",
+      "destination": "/gioberti-mens-plaid-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-92-gioberti-plaid-long-sleeve-shirt.html",
+      "destination": "/gioberti-mens-plaid-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ss-92w-mens-plaid-western-short-sleeve-shirt.html",
+      "destination": "/gioberti-mens-plaid-pearl-snap-western-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ss-92w-special-mens-plaid-western-short-sleeve-shirt.html",
+      "destination": "/gioberti-mens-plaid-pearl-snap-western-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-92w-gioberti-western-plaid-long-sleeve-shirt.html",
+      "destination": "/gioberti-mens-plaid-pearl-snap-western-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ss-95w-mens-casual-western-solid-short-sleeve-shirt-with-pearl-snaps.html",
+      "destination": "/gioberti-mens-solid-pearl-snap-western-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-95w-mens-solid-long-sleeve-western-shirt.html",
+      "destination": "/gioberti-mens-solid-pearl-snap-western-shirt.html",
+      "permanent": true
+    }
   ]
 }

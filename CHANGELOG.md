@@ -1,5 +1,10 @@
 # Checkmatela changes
 
+## 2026-10-22 — Men's casual shirts: fewer plaids, one page per shirt
+
+- The plaid and pearl snap shirts were 8 listings with 340+ colourways (many near-identical, many with 1–2 sizes left). Now 3 listings, each one page with a Sleeve choice: **Men's Plaid Shirt** (12 plaids), **Men's Plaid Pearl Snap Western Shirt** (12 plaids) and **Men's Solid Pearl Snap Western Shirt** (13 solids, Gioberti's best seller). Plaids chosen for stock depth in both sleeves and distinct colours. Old pages redirect to the new ones.
+- Every product page shows the chosen colour (name + swatch); choosing a sleeve shows that version's photo.
+
 ## 2026-10-22 — Categories combine every brand
 
 - Each Formal category is now one page with every brand: Men's **Suits** (93 Antonio Uomo) and **Tuxedos** (41) are new category pages; Blazers and Dress Pants keep Gioberti + Antonio Uomo together. Kids' **Suits & Blazers**, new **Tuxedos**, **Suit Vests** and **Dress Pants** now include the Magen Kids pieces (regular and husky) next to Gioberti's. Brand and Fit filters on every category page.
