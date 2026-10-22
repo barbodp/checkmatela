@@ -567,9 +567,10 @@ def stamp_rook():
     """Gioberti footwear (sandals) in the Shoes grid (rook.html), between <!-- GIOBERTI:START/END --> markers."""
     path = os.path.join(ROOT, "rook.html")
     src = open(path, encoding="utf-8").read()
-    if "<!-- GIOBERTI:START -->" not in src:
-        src = src.replace('<div class="product-grid" data-reveal-group>', '<div class="product-grid" data-reveal-group>\n<!-- GIOBERTI:START -->\n<!-- GIOBERTI:END -->', 1)
-    src = replace_between(src, "<!-- GIOBERTI:START -->", "<!-- GIOBERTI:END -->", "\n".join(card(i) for i in BY_CAT.get("men-shoes", [])))
+    src = re.sub(r"\n?<!-- GIOBERTI:START -->.*?<!-- GIOBERTI:END -->", "", src, flags=re.S)     # (re)placed after the house shoes: formal first, sandals last
+    grid = src.index('<div class="product-grid" data-reveal-group>')
+    end = src.index("\n    </div>\n  </div>\n</section>", grid)
+    src = src[:end] + "\n<!-- GIOBERTI:START -->\n" + "\n".join(card(i) for i in BY_CAT.get("men-shoes", [])) + "\n<!-- GIOBERTI:END -->" + src[end:]
     n = len(re.findall(r'<a class="product-card[ "]', src))
     src = re.sub(r'<span class="filter-bar__count">\d+ pairs in this collection</span>', f'<span class="filter-bar__count">{n} pairs in this collection</span>', src)
     open(path, "w", encoding="utf-8").write(src)
