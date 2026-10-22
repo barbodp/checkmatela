@@ -24390,8 +24390,8 @@
     "values": [
      "Small",
      "Medium",
-     "X-Large",
      "Large",
+     "X-Large",
      "2X-Large",
      "3X-Large"
     ]
@@ -24814,204 +24814,6 @@
    ],
    [
     "1077 - Brown / Lime / Khaki",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "1079 - Aqua / Turquoise / Orange",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "1082 - Aqua / Brown / Orange",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "1116 - Black / Gray / Coral",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "1117 - Brown / Khaki Highlight",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "1119 - Gray / Blue / White Highlight",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "1134 - Charcoal / Gray / Coral Highlight",
-    "X-Large",
-    31.99,
-    0
-   ],
-   [
-    "1136 - Green / Red",
-    "X-Large",
-    31.99,
-    0
-   ],
-   [
-    "1139 - Blue / Gray / Black",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "1140 - Blue / Cobalt / Yellow Highlight",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "1146 - Royal Blue / Midnight / Yellow White Highlight",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "1148 - Olive/White/Orange",
-    "X-Large",
-    31.99,
-    0
-   ],
-   [
-    "1150 - Gray/Burnt Orange/Red",
-    "X-Large",
-    31.99,
-    0
-   ],
-   [
-    "1151 - Navy/Brown/Magenta",
-    "X-Large",
-    31.99,
-    0
-   ],
-   [
-    "10 - Blue / Navy",
-    "X-Large",
-    31.99,
-    0
-   ],
-   [
-    "48 - Black / Red Checkered",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "52 - Night Blue",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "53 - Black / Red Gradient",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "54 - Dark Green / Red Highlight",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "56C - Dark Blue / Gray",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "57C - Chocolate / Black",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "66 - Grey / Royal",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "68 - Orange / Black / White Highlight",
-    "X-Large",
-    31.99,
-    0
-   ],
-   [
-    "70 - Blue / Navy / White Highlight",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "71 - Black / Red / Blue Highlight",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "78 - Orange / Khaki / Teal",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "86 - Black / Charcoal / Gray",
-    "X-Large",
-    31.99,
-    0
-   ],
-   [
-    "90 - Black / Gray / White Highlight",
-    "X-Large",
-    31.99,
-    0
-   ],
-   [
-    "97 - Gray / Black",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "Black",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "Heather Charcoal",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "Heather Green",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "Heather Navy",
-    "X-Large",
-    31.99,
-    1
-   ],
-   [
-    "1077 - Brown / Lime / Khaki",
     "Large",
     31.99,
     1
@@ -25211,6 +25013,204 @@
    [
     "Heather Navy",
     "Large",
+    31.99,
+    1
+   ],
+   [
+    "1077 - Brown / Lime / Khaki",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "1079 - Aqua / Turquoise / Orange",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "1082 - Aqua / Brown / Orange",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "1116 - Black / Gray / Coral",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "1117 - Brown / Khaki Highlight",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "1119 - Gray / Blue / White Highlight",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "1134 - Charcoal / Gray / Coral Highlight",
+    "X-Large",
+    31.99,
+    0
+   ],
+   [
+    "1136 - Green / Red",
+    "X-Large",
+    31.99,
+    0
+   ],
+   [
+    "1139 - Blue / Gray / Black",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "1140 - Blue / Cobalt / Yellow Highlight",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "1146 - Royal Blue / Midnight / Yellow White Highlight",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "1148 - Olive/White/Orange",
+    "X-Large",
+    31.99,
+    0
+   ],
+   [
+    "1150 - Gray/Burnt Orange/Red",
+    "X-Large",
+    31.99,
+    0
+   ],
+   [
+    "1151 - Navy/Brown/Magenta",
+    "X-Large",
+    31.99,
+    0
+   ],
+   [
+    "10 - Blue / Navy",
+    "X-Large",
+    31.99,
+    0
+   ],
+   [
+    "48 - Black / Red Checkered",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "52 - Night Blue",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "53 - Black / Red Gradient",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "54 - Dark Green / Red Highlight",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "56C - Dark Blue / Gray",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "57C - Chocolate / Black",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "66 - Grey / Royal",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "68 - Orange / Black / White Highlight",
+    "X-Large",
+    31.99,
+    0
+   ],
+   [
+    "70 - Blue / Navy / White Highlight",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "71 - Black / Red / Blue Highlight",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "78 - Orange / Khaki / Teal",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "86 - Black / Charcoal / Gray",
+    "X-Large",
+    31.99,
+    0
+   ],
+   [
+    "90 - Black / Gray / White Highlight",
+    "X-Large",
+    31.99,
+    0
+   ],
+   [
+    "97 - Gray / Black",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "Black",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "Heather Charcoal",
+    "X-Large",
+    31.99,
+    1
+   ],
+   [
+    "Heather Green",
+    "X-Large",
+    31.99,
+    0
+   ],
+   [
+    "Heather Navy",
+    "X-Large",
     31.99,
     1
    ],
