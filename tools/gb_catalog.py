@@ -157,6 +157,17 @@ CURATED = [
     dict(handle="boys-yacht-club-pique-polo", name="Boy's Yacht Club Pique Polo", code="PS-851XP", sources=["ps-851xp-kids-yacht-club-pique-polo-shirt"],
          colours={"Black- 8510P": "Black", "Navy- 8511P": "Navy", "White- 8510P": "White", "Aqua- 8512P": "Aqua", "Gray- 8511P": "Gray",
                   "Red- 8511P": "Red", "Royal Blue- 8511P": "Royal Blue"}),
+    # Men's sweaters: the Knitted Pullover / Quarter Zip / Turtleneck / V-Neck come in plain and ombré (fades darker) versions that Gioberti names
+    # "Solid Red" vs "Red B"; renamed so customers can tell them apart (no colours cut; the Pullover's two repeats, "Blue" = "Blue B" and "Olive" = "Solid Olive", dropped).
+    dict(handle="mens-knitted-pullover-sweater", name="Men's Knitted Pullover Sweater", code="SW-924", sources=["sw-924-mens-pullover-sweater"],
+         colours={"Black": "Black", "Blue B": "Blue Ombré", "Charcoal": "Charcoal Ombré", "Coffee": "Coffee Ombré", "Solid Gray": "Gray", "Gray": "Gray Ombré",
+                  "Solid Navy": "Navy", "Solid Olive": "Olive", "Solid Red": "Red", "Red B": "Red Ombré"}),
+    dict(handle="mens-knitted-quarter-zip-sweater", name="Men's Knitted Quarter Zip Sweater", code="SW-928", sources=["sw-928-mens-quarter-zip-sweater"],
+         colours={"Black": "Black", "Blue B": "Blue Ombré", "Coffee": "Coffee Ombré", "Gray": "Gray Ombré", "Red B": "Red Ombré", "Solid Navy": "Navy", "Solid Red": "Red"}),
+    dict(handle="mens-knitted-turtleneck-sweater", name="Men's Knitted Turtleneck Sweater", code="SW-927", sources=["sw-927-mens-turtleneck-sweater"],
+         colours={"Black": "Black", "Blue B": "Blue Ombré", "Coffee": "Coffee Ombré", "Gray": "Gray Ombré", "Red B": "Red Ombré", "Solid Navy": "Navy", "Solid Red": "Red"}),
+    dict(handle="mens-knitted-v-neck-sweater", name="Men's Knitted V-Neck Sweater", code="SW-926", sources=["sw-926-mens-v-neck-sweater"],
+         colours={"Black": "Black", "Blue B": "Blue Ombré", "Coffee": "Coffee Ombré", "Gray": "Gray Ombré", "Red B": "Red Ombré", "Solid Navy": "Navy", "Solid Red": "Red"}),
 ]
 
 # Gioberti listings left off the site on purpose (user, 2026-10-22: "highest chance of selling", no repetition). Their old pages redirect to their category.
@@ -168,4 +179,16 @@ HIDDEN = {
     "ps-9328-mens-striped-polo-shirt-with-pocket": "lowest seller",
     "ps-944-mens-stripe-polo-shirt": "most colours out of stock",
     "ps-9306-mens-stripe-polo-shirt-with-pockets": "near-duplicate of the Bold Stripe Polo",
+# Men's sweaters removed by the owner (2026-10-22)
+    "sw-911-mens-knitted-full-zip-cardigan-sweater": "removed by owner (Knitted Sweater w/ Sherpa)",
+    "sw-922-mens-knitted-turtleneck-collar-pullover-sweater": "removed by owner (Turtleneck Collar Sweater)",
+    "sw-918-mens-full-zip-lightweight-geometric-design-cardigan-sweater": "removed by owner (Geometric Design Sweater)",
+    "sw-914-mens-full-zip-cardigan-patch-design-sweater": "removed by owner (Patch Design Sweater)",
+    "sw-913-mens-knitted-full-zip-cardigan-sweater": "removed by owner (Knitted Cardigan Sweater)",
+    "sw-912-mens-knitted-full-zip-cardigan-sweater": "removed by owner (Knitted Sweater)",
+    "sw-910-mens-knitted-full-zip-cardigan-sweater": "removed by owner (Cardigan Sweater)",
+    "ja-907-mens-super-soft-pullover-sweater": "removed by owner (Super Soft Sweater)",
+    "af-1203-cardigan-twisted-knit-zip-up-sweater": "removed by owner (Cardigan Knit Sweater)",
+    "sw-916-mens-knitted-vneck-button-down-cardigan-sweater": "removed by owner (V-Neck Cardigan Sweater)",
+    "sw-915-mens-full-zip-block-design-cardigan-sweater": "removed by owner (Block Design Sweater)",
 }

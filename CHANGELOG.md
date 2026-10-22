@@ -1,5 +1,10 @@
 # Checkmatela changes
 
+## 2026-10-22 — Men's sweaters trimmed
+
+- Removed 11 men's sweaters at the owner's request (Sherpa, Turtleneck Collar, Geometric, Patch Design, Knitted Cardigan, Knitted Sweater, Cardigan Sweater, Super Soft, Cardigan Knit, V-Neck Cardigan, Block Design): 25 listings -> 14. Old links go to Men's Sweaters.
+- Knitted Pullover, Quarter Zip, Turtleneck and V-Neck colours now say plain or ombré ("Red" / "Red Ombré"); two repeated Pullover colours removed.
+
 ## 2026-10-22 — Polos trimmed
 
 - Men's polo shirts: 17 listings (87 colours, five called "Jersey Polo Shirt") are now 9 distinct striped designs with 43 colours, each named for its stripe (Gradient, Fine, Chest, Heather, Accent, Multi-Stripe, Pin, Jersey, Bold). Kept by Gioberti's best-seller order and stock; duplicate colours and out-of-stock colours removed; the with/without-pocket listings combined. 7 weaker listings left off (old links go to Polo Shirts).

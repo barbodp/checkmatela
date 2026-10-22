@@ -146,6 +146,26 @@
       "permanent": true
     },
     {
+      "source": "/gioberti-sw-924-mens-pullover-sweater.html",
+      "destination": "/gioberti-mens-knitted-pullover-sweater.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-sw-928-mens-quarter-zip-sweater.html",
+      "destination": "/gioberti-mens-knitted-quarter-zip-sweater.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-sw-927-mens-turtleneck-sweater.html",
+      "destination": "/gioberti-mens-knitted-turtleneck-sweater.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-sw-926-mens-v-neck-sweater.html",
+      "destination": "/gioberti-mens-knitted-v-neck-sweater.html",
+      "permanent": true
+    },
+    {
       "source": "/gioberti-ps-9323-mens-striped-polo-shirt.html",
       "destination": "/men-polo-shirts.html",
       "permanent": true
@@ -176,8 +196,63 @@
       "permanent": true
     },
     {
+      "source": "/gioberti-sw-911-mens-knitted-full-zip-cardigan-sweater.html",
+      "destination": "/men-sweaters.html",
+      "permanent": true
+    },
+    {
       "source": "/gioberti-ps-944-mens-stripe-polo-shirt.html",
       "destination": "/men-polo-shirts.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-sw-922-mens-knitted-turtleneck-collar-pullover-sweater.html",
+      "destination": "/men-sweaters.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-sw-916-mens-knitted-vneck-button-down-cardigan-sweater.html",
+      "destination": "/men-sweaters.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-sw-918-mens-full-zip-lightweight-geometric-design-cardigan-sweater.html",
+      "destination": "/men-sweaters.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-sw-915-mens-full-zip-block-design-cardigan-sweater.html",
+      "destination": "/men-sweaters.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-sw-914-mens-full-zip-cardigan-patch-design-sweater.html",
+      "destination": "/men-sweaters.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-sw-913-mens-knitted-full-zip-cardigan-sweater.html",
+      "destination": "/men-sweaters.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-sw-912-mens-knitted-full-zip-cardigan-sweater.html",
+      "destination": "/men-sweaters.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-sw-910-mens-knitted-full-zip-cardigan-sweater.html",
+      "destination": "/men-sweaters.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ja-907-mens-super-soft-pullover-sweater.html",
+      "destination": "/men-sweaters.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-af-1203-cardigan-twisted-knit-zip-up-sweater.html",
+      "destination": "/men-sweaters.html",
       "permanent": true
     }
   ]
