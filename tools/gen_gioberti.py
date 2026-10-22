@@ -347,7 +347,8 @@ def build_magen_product(m):
         bullets.append(f"Best for: {inc['best']}")
     if m["fit"] == "Husky":
         bullets.append(f"Husky fit: cut roomier, sizes {m['sizes'][0]} to {m['sizes'][-1]} (preview range, confirm with us)")
-    bullets.append(f"Sizes {m['sizes'][0]} to {m['sizes'][-1]}")
+    else:
+        bullets.append(f"Sizes {m['sizes'][0]} to {m['sizes'][-1]}")
     lede = htmllib.unescape(cfg.get("intro", "")) or f"{m['name']} by {MAGEN}, for weddings, church, school events and family portraits."
     details = "<ul class=\"pdp-list\">" + "".join(f"<li>{esc(b)}</li>" for b in bullets) + "</ul>"
     sib = [x for x in MAGEN_ITEMS if x["line"] == m["line"] and x is not m]
