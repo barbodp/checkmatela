@@ -1,4 +1,5 @@
-"""Gioberti categories, shared by tools/gb_fetch.py (photo archive folders) and tools/gen_gioberti.py (pages, menus).
+"""The site's Men / Kids categories (all brands), shared by tools/gb_fetch.py (photo archive folders) and tools/gen_gioberti.py (pages, menus).
+men-suits, men-tuxedos and boys-tuxedos only hold other brands' pieces (Antonio Uomo, Magen Kids) for now.
 
 Every Gioberti product is filed under one of our categories by its Gioberti product type (TYPE_MAP), then corrected by its title (TITLE_RULES) where Gioberti's own type is misleading, e.g. a sweater filed
 as outerwear. The rules are generic, so new products are filed the same way.
@@ -7,6 +8,8 @@ import re
 
 # category key -> (department, group, label, one-line description). Order = order in menus, pills and landing pages.
 CATS = {
+    "men-suits": ("men", "formal", "Suits", "Two- and three-piece suits in slim and classic fits: solids, plaids and textured fabrics."),
+    "men-tuxedos": ("men", "formal", "Tuxedos", "Two- and three-piece tuxedos for black tie, prom and weddings."),
     "men-blazers": ("men", "formal", "Blazers & Sport Coats", "Formal, velvet and linen blazers to wear with suit pants or over a dress shirt."),
     "men-suit-vests": ("men", "formal", "Suit Vests & Vest Sets", "Five- and six-button suit vests in tweed, solids and pinstripes, plus four-piece vest sets with ties."),
     "men-dress-shirts": ("men", "formal", "Dress Shirts", "Long and short sleeve dress shirts and tuxedo shirt sets."),
@@ -22,7 +25,8 @@ CATS = {
     "men-activewear": ("men", "nsf", "Activewear", "Athletic shorts, joggers and track pants."),
     "men-sleepwear": ("men", "nsf", "Sleepwear", "Pajamas and loungewear."),
     "men-accessories": ("men", "nsf", "Accessories & Footwear", "Ivy caps, sandals and everyday extras."),
-    "boys-suits-blazers": ("boys", "formal", "Suits & Blazers", "Formal suit sets, blazer and pants sets, and velvet, corduroy and tweed blazers."),
+    "boys-suits-blazers": ("boys", "formal", "Suits & Blazers", "Slim-fit and husky suits, formal suit sets, blazer and pants sets, and velvet, corduroy and tweed blazers."),
+    "boys-tuxedos": ("boys", "formal", "Tuxedos", "Shawl-lapel tuxedos in regular and husky fits."),
     "boys-suit-vests": ("boys", "formal", "Suit Vests & Vest Sets", "Suit vests, vest and pants sets, and four-piece vest sets with ties."),
     "boys-dress-shirts": ("boys", "formal", "Dress Shirts", "Dress shirts, shirt and tie sets, and tuxedo shirt sets."),
     "boys-dress-pants": ("boys", "formal", "Dress Pants", "Adjustable-waist dress pants, including husky sizes."),

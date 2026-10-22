@@ -218,6 +218,9 @@ def main():
                     own = f"{d['prefix']}-{c['id'].split('/', 1)[1]}.html"
                     if os.path.exists(os.path.join(ROOT, own)):
                         c["u"] = own
+                    mk = "magen-kids-" + c["id"].split("/", 1)[1].replace("/", "-") + ".html"   # Magen Kids pieces have their own page (gen_gioberti.py)
+                    if os.path.exists(os.path.join(ROOT, mk)):
+                        c["mk"] = mk                          # applied after the brand totals below, which find Magen Kids pieces by their category page
             label = page_label(text, d["label"] if f == d["landing"] else f)
             for c in found:
                 c["d"] = d["label"]
@@ -255,6 +258,9 @@ def main():
             total += len(mine)
         pages.sort(key=lambda x: (not x["landing"], x["n"] == 0))          # landing page first, then pages with products, "coming soon" pages last (stable: file order)
         nav.append(dict(key=d["key"], label=d["label"], sub=d["sub"], href=d["landing"], total=total, pages=pages))
+    for c in products:
+        if c.get("mk"):
+            c["u"] = c.pop("mk")
     index = {
         "products": products,
         "nav": nav,

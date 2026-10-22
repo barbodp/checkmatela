@@ -1,5 +1,11 @@
 # Checkmatela changes
 
+## 2026-10-22 — Categories combine every brand
+
+- Each Formal category is now one page with every brand: Men's **Suits** (93 Antonio Uomo) and **Tuxedos** (41) are new category pages; Blazers and Dress Pants keep Gioberti + Antonio Uomo together. Kids' **Suits & Blazers**, new **Tuxedos**, **Suit Vests** and **Dress Pants** now include the Magen Kids pieces (regular and husky) next to Gioberti's. Brand and Fit filters on every category page.
+- Magen Kids pieces have their own product pages (photos, size dropdown, what's included), like the other brands.
+- The Formal menus link to the combined pages; brand pages stay under Brands. Hidden Gioberti helper items (a "$1 additional price" add-on) are skipped by the stock sync.
+
 ## 2026-10-21 — Automatic Gioberti stock sync, tidier categories
 
 - Stock, prices and products now refresh from gioberti.com every 3 hours (GitHub Actions, `.github/workflows/gioberti-stock.yml`): sold-out colours/sizes/products and restocks update on their own; changes publish only when something changed.

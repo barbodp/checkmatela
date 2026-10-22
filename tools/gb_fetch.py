@@ -63,8 +63,8 @@ def fetch_products():
 def normalise(prods):
     items, skipped = [], []
     for p in prods:
-        if p["product_type"] == "Gift Card":
-            continue
+        if p["product_type"] == "Gift Card" or p["handle"].startswith("_") or not p["product_type"]:
+            continue                                                  # gift card and hidden helper items (e.g. "_Additional Price", a $1 fee add-on)
         soldout = not any(v["available"] for v in p["variants"])           # kept and shown as "Sold out"
         if soldout:
             skipped.append(p["handle"])
