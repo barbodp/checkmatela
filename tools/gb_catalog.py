@@ -83,24 +83,53 @@ def folder_label(handle, cat):
     return f"{'Men' if dept_of(handle, cat) == 'men' else 'Boys'} - {CATS[cat][2]}"
 
 # ---------------------------------------------------------------- curated, combined listings (user, 2026-10-22)
-# Gioberti sells the same shirt as several listings (one per sleeve length, sometimes two for the same style) with dozens of near-identical
-# plaids. Each entry below becomes ONE product page with a Sleeve choice; only the listed colours are shown (fabric number -> display name),
-# picked for stock depth in both sleeves, Gioberti's best-seller order and distinct colour stories. colours=None keeps every colour (solids).
-# The stock sync keeps these colours' stock current; colours not listed here never come back on their own. Edit this list to change the range.
+# Gioberti sells the same shirt as several listings (sometimes two for one style) with dozens of near-identical plaids. Each entry below
+# becomes ONE product page built from its source listings, showing only the plaids listed (Gioberti fabric number -> display name),
+# picked for stock depth, fabrics Gioberti makes in several styles (its core fabrics), its best-seller order and one of each colour story.
+# solids=True keeps every solid colour of the sources (user: solids are never cut). colours=None keeps every colour.
+# Short and long sleeve stay separate listings (user). The stock sync keeps these colours' stock current; colours not listed here never come
+# back on their own — edit this list to change the range. retired: earlier combined pages that now redirect here.
 CURATED = [
-    dict(handle="mens-plaid-shirt", name="Men's Plaid Shirt", code="SS-92 / LS-92",
-         sources={"Short": ["ss-92-mens-casual-plaid-short-sleeve-button-down-dress-shirt", "ss-92-special-mens-plaid-short-sleeve-shirt"],
-                  "Long": ["ls-92-gioberti-plaid-long-sleeve-shirt"]},
-         colours={"1049": "Red / Black / Gray", "632": "Black / White", "1055": "Red / Navy / White", "1053": "Blue / Navy / White",
-                  "727": "Khaki / Navy", "1090": "Blue / Grey / Black", "1018": "Navy / White", "1164": "Green / White", "1163": "Royal / White",
-                  "1096": "Teal / Brown / White", "1154": "Cobalt / Peach / White", "777": "Turquoise"}),
-    dict(handle="mens-plaid-pearl-snap-western-shirt", name="Men's Plaid Pearl Snap Western Shirt", code="SS-92W / LS-92W",
-         sources={"Short": ["ss-92w-mens-plaid-western-short-sleeve-shirt", "ss-92w-special-mens-plaid-western-short-sleeve-shirt"],
-                  "Long": ["ls-92w-gioberti-western-plaid-long-sleeve-shirt"]},
-         colours={"727": "Khaki / Navy", "978": "Black / White / Gray", "1103": "Red / Navy / Yellow", "1049": "Red / Black / Gray",
-                  "1036": "Red / Navy / White", "1053": "Blue / Navy / White", "995": "Blue / Khaki / White", "1061": "Orange / White / Navy",
-                  "1060": "Blue Checkered", "1059": "Green / White", "777": "Turquoise", "26": "Brown / Yellow / Turquoise"}),
-    dict(handle="mens-solid-pearl-snap-western-shirt", name="Men's Solid Pearl Snap Western Shirt", code="SS-95W / LS-95W",
-         sources={"Short": ["ss-95w-mens-casual-western-solid-short-sleeve-shirt-with-pearl-snaps"], "Long": ["ls-95w-mens-solid-long-sleeve-western-shirt"]},
-         colours=None),
+    # Men's casual shirts
+    dict(handle="mens-plaid-short-sleeve-shirt", name="Men's Plaid Short Sleeve Shirt", code="SS-92", retired=["mens-plaid-shirt"],
+         sources=["ss-92-mens-casual-plaid-short-sleeve-button-down-dress-shirt", "ss-92-special-mens-plaid-short-sleeve-shirt"],
+         colours={"1049": "Red / Black / Gray", "632": "Black / White", "1055": "Red / Navy / White", "1053": "Blue / Navy / White", "727": "Khaki / Navy",
+                  "1090": "Blue / Grey / Black", "1018": "Navy / White", "1164": "Green / White", "1163": "Royal / White", "1096": "Teal / Brown / White"}),
+    dict(handle="mens-plaid-long-sleeve-shirt", name="Men's Plaid Long Sleeve Shirt", code="LS-92",
+         sources=["ls-92-gioberti-plaid-long-sleeve-shirt"],
+         colours={"1049": "Red / Black / Gray", "632": "Black / White", "1055": "Red / Navy / White", "1053": "Blue / Navy / White", "727": "Khaki / Navy",
+                  "1090": "Blue / Grey / Black", "1018": "Navy / White", "1154": "Cobalt / Peach / White", "777": "Turquoise", "1086": "Teal / Brown",
+                  "211": "Light Blue / Yellow / White"}),
+    dict(handle="mens-plaid-pearl-snap-short-sleeve-shirt", name="Men's Plaid Pearl Snap Short Sleeve Shirt", code="SS-92W", retired=["mens-plaid-pearl-snap-western-shirt"],
+         sources=["ss-92w-mens-plaid-western-short-sleeve-shirt", "ss-92w-special-mens-plaid-western-short-sleeve-shirt"],
+         colours={"727": "Khaki / Navy", "978": "Black / White / Gray", "1103": "Red / Navy / Yellow", "1049": "Red / Black / Gray", "1036": "Red / Navy / White",
+                  "1053": "Blue / Navy / White", "995": "Blue / Khaki / White", "1061": "Orange / White / Navy", "1060": "Blue Checkered", "1059": "Green / White"}),
+    dict(handle="mens-plaid-pearl-snap-long-sleeve-shirt", name="Men's Plaid Pearl Snap Long Sleeve Shirt", code="LS-92W",
+         sources=["ls-92w-gioberti-western-plaid-long-sleeve-shirt"],
+         colours={"727": "Khaki / Navy", "978": "Black / White / Gray", "1103": "Red / Navy / Yellow", "1049": "Red / Black / Gray", "1036": "Red / Navy / White",
+                  "1053": "Blue / Navy / White", "777": "Turquoise", "26": "Brown / Yellow / Turquoise", "1154": "Cobalt / Peach / White",
+                  "124": "Red / Black / Orange", "6": "Sage / Olive / Khaki", "252": "Charcoal / Orange / White"}),
+    dict(handle="mens-solid-pearl-snap-short-sleeve-shirt", name="Men's Solid Pearl Snap Short Sleeve Shirt", code="SS-95W", retired=["mens-solid-pearl-snap-western-shirt"],
+         sources=["ss-95w-mens-casual-western-solid-short-sleeve-shirt-with-pearl-snaps"], colours=None),
+    dict(handle="mens-solid-pearl-snap-long-sleeve-shirt", name="Men's Solid Pearl Snap Long Sleeve Shirt", code="LS-95W",
+         sources=["ls-95w-mens-solid-long-sleeve-western-shirt"], colours=None),
+    # Men's flannel shirts (all long sleeve)
+    dict(handle="mens-plaid-flannel-shirt", name="Men's Plaid Flannel Shirt", code="LS-92F", solids=True,
+         sources=["ls-92f-mens-long-sleeve-plaid-checkered-flannel", "ls-92f-special-mens-long-sleeve-plaid-checkered-flannel"],
+         colours={"86": "Black / Charcoal", "48": "Red / Black", "78": "Orange / Khaki / Teal", "98": "Charcoal / Red", "35": "Black / White / Red",
+                  "99": "Black / White", "89": "Green / Black / Royal Blue", "79": "Black / Blue Check", "1135": "Gray / Navy / White",
+                  "85": "Red / Navy / Gray", "727": "Khaki / Navy", "971": "Navy / Orange"}),
+    dict(handle="mens-hooded-flannel-shirt", name="Men's Removable Hoodie Flannel Shirt", code="LS-92H", solids=True,
+         sources=["ls-92h-mens-hooded-long-sleeve-plaid-flannel", "ls-92h-special-mens-hooded-long-sleeve-plaid-flannel"],
+         colours={"86": "Black / Charcoal / Gray", "9": "Charcoal / Red", "1139": "Blue / Gray / Black", "99": "Black / White", "89": "Black / Green / Royal Blue",
+                  "51": "Khaki / Umber", "48": "Red / Black Check", "12": "Blue / Gold", "1135": "Gray / Navy / White", "79": "Royal / Black Check"}),
+    dict(handle="mens-flannel-shirt-with-snaps", name="Men's Flannel Shirt w/ Snaps", code="LS-92FS", solids=True,
+         sources=["ls-92fs-mens-long-sleeve-flannel-shirt-with-snap-button"],
+         colours={"86": "Charcoal / Gray / Black", "48": "Red / Black Check", "78": "Orange / Khaki / Teal", "35": "Black / White / Red", "971": "Navy / Orange",
+                  "727": "Khaki / Navy", "1151": "Navy / Brown / Magenta", "1139": "Blue / Gray / Black", "774": "Dark Green / Black", "1166": "Blue / Red / White"}),
+    dict(handle="mens-flannel-shirt-with-corduroy-contrast", name="Men's Flannel Shirt w/ Corduroy Contrast", code="LS-94FC", solids=True,
+         sources=["ls-94fc-mens-long-sleeve-flannel-shirt"],
+         colours={"78": "Orange / Khaki / Teal", "48": "Black / Red Check", "1139": "Blue / Gray / Black", "56": "Dark Blue / Gray",
+                  "1146": "Royal Blue / Midnight / Yellow", "97": "Gray / Black", "54": "Dark Green / Red", "1116": "Black / Gray / Coral",
+                  "1117": "Brown / Khaki", "1079": "Aqua / Turquoise / Orange"}),
 ]

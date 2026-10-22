@@ -37,79 +37,83 @@ DEPTS = {
 GROUP_LABEL = {"formal": "Formal", "nsf": "Not So Formal"}
 
 # ---------------------------------------------------------------- curated, combined listings (gb_catalog.CURATED)
-SLEEVE_ORDER = ["Short", "Long"]
 SIZE_ORDER = ["X-Small", "Small", "Medium", "Large", "X-Large", "2X-Large", "3X-Large", "4X-Large", "5X-Large", "6X-Large"]
-
-
 SIZE_SAME = {"XX-Large": "2X-Large", "XXX-Large": "3X-Large", "X Large": "X-Large", "2X Large": "2X-Large", "X Small": "X-Small", "Laarge": "Large"}   # one spelling per size across combined listings
 
 
 def _fabric(colour):
-    """'1049 - Red / Black / Gray', '1018- Navy/White', '20W Turquoise White Red' -> '1049', '1018', '20'"""
-    m = re.match(r"\s*(\d+)W?\b", colour)
-    return m.group(1) if m else colour.strip()
+    """'1049 - Red / Black / Gray', '1018- Navy/White', '56C - Dark Blue / Gray' -> '1049', '1018', '56'"""
+    m = re.match(r"\s*(\d+)[A-Z]?\b", colour)
+    return m.group(1) if m else None
+
+
+def _plain(colour):
+    return re.sub(r"^\s*\d+[A-Z]?\s*-\s*", "", colour).strip()
+
+
+def is_solid(colour):
+    """A single colour ('Heather Navy', 'Black', '52 - Night Blue'), not a plaid ('Charcoal Red', 'Red / Black', '… Check')."""
+    name = _plain(colour)
+    if "/" in name or re.search(r"plaid|check|line|highlight|fade|gradient|contrast|stitch|stripe", name, re.I):
+        return False
+    return name.lower().startswith("heather") or len(families([name])) == 1
 
 
 def curate(items):
-    """Replace each CURATED group of Gioberti listings by one combined listing (Colour, Sleeve, Size) holding only the chosen colours."""
+    """Replace each CURATED group of Gioberti listings by one listing holding only the chosen plaids (plus every solid when solids=True)."""
     by = {i["handle"]: i for i in items}
     used, out = set(), []
     for cfg in CURATED:
-        srcs = [(sl, by[h]) for sl in SLEEVE_ORDER for h in cfg["sources"].get(sl, []) if h in by]
+        srcs = [by[h] for h in cfg["sources"] if h in by]
         if not srcs:
             continue
-        wanted = cfg["colours"]
-        names = list(wanted.values()) if wanted else []
-        pick = {}                                                      # (display colour, sleeve) -> (source item, source colour, in-stock sizes)
-        for sl, it in srcs:
+        wanted, solids = cfg.get("colours"), cfg.get("solids")
+        pick, solid_names = {}, []                                   # display colour -> (source item, source colour, in-stock sizes)
+        for it in srcs:
             for c in it["all_colours"]:
-                key = _fabric(c) if wanted else c
-                if wanted and key not in wanted:
+                if wanted is None:
+                    disp = c
+                elif solids and is_solid(c):
+                    disp = _plain(c)
+                    if disp not in solid_names:
+                        solid_names.append(disp)
+                elif _fabric(c) in wanted:
+                    disp = f"{wanted[_fabric(c)]} ({_fabric(c)})"
+                else:
                     continue
-                disp = f"{wanted[key]} ({key})" if wanted else c
-                if not wanted and disp not in names:
-                    names.append(disp)
                 ok = sum(1 for r in it["variants"] if r[0] == c and r[-1])
-                if (disp, sl) not in pick or ok > pick[(disp, sl)][2]:
-                    pick[(disp, sl)] = (it, c, ok)
-        if wanted:
-            names = [f"{n} ({k})" for k, n in wanted.items()]
-        names = [n for n in names if any((n, sl) in pick for sl in SLEEVE_ORDER)]
-        sleeves = [sl for sl in SLEEVE_ORDER if any((n, sl) in pick for n in names)]
+                if disp not in pick or ok > pick[disp][2]:
+                    pick[disp] = (it, c, ok)
+        if wanted is None:
+            names = [c for it in srcs for c in it["all_colours"]]
+            names = [n for i, n in enumerate(names) if n not in names[:i]]
+        else:
+            names = [f"{n} ({k})" for k, n in wanted.items()] + solid_names
+        names = [n for n in names if n in pick]
         sizes = []
-        for sl, it in srcs:
+        for it in srcs:
             sizes += [SIZE_SAME.get(v, v) for v in it["options"][1]["values"] if SIZE_SAME.get(v, v) not in sizes]
         sizes.sort(key=lambda v: SIZE_ORDER.index(v) if v in SIZE_ORDER else 99)
         rows, images, colour_img = [], [], {}
         for n in names:
-            for sl in sleeves:
-                if (n, sl) not in pick:
-                    continue
-                it, c, _ = pick[(n, sl)]
-                rows += [[n, sl, SIZE_SAME.get(r[1], r[1]), r[2], r[3]] for r in it["variants"] if r[0] == c]
-                for im in it["images"]:
-                    if c in (im.get("colours") or []) and im.get("key") and not im["chart"]:
-                        images.append(dict(im, colours=[n], sleeve=sl))
-                if n not in colour_img and c in it["colour_img"]:
-                    colour_img[n] = it["colour_img"][c]
-        charts = []
-        for sl in sleeves:
-            it = next(i for s_, i in srcs if s_ == sl)
-            ch = next((im for im in it["images"] if im["chart"] and im.get("key")), None)
-            if ch:
-                charts.append(dict(ch, colours=[], label=f"{sl} sleeve"))
+            it, c, _ = pick[n]
+            rows += [[n, SIZE_SAME.get(r[1], r[1]), r[2], r[3]] for r in it["variants"] if r[0] == c]
+            images += [dict(im, colours=[n]) for im in it["images"] if c in (im.get("colours") or []) and im.get("key") and not im["chart"]]
+            if c in it["colour_img"]:
+                colour_img[n] = it["colour_img"][c]
+        chart = next((im for it in srcs for im in it["images"] if im["chart"] and im.get("key")), None)
         live = [r for r in rows if r[-1]]
-        first = srcs[0][1]
-        bullets = [f"{sl} sleeve: Gioberti style {next(i for s_, i in srcs if s_ == sl)['code']}" for sl in sleeves]
-        bullets += [b for b in first["bullets"] if not re.match(r"(style|sizes?)\b", b, re.I)]
-        prices = [r[3] for r in (live or rows)]
+        first = srcs[0]
+        prices = [r[2] for r in (live or rows)]
         colours = [n for n in names if any(r[0] == n and r[-1] for r in rows)] or names
+        bullets = [f"Gioberti style {cfg['code']}"] + [b for b in first["bullets"] if not re.match(r"(style|sizes?)\b", b, re.I)]
         out.append(dict(first, handle=cfg["handle"], name=cfg["name"], code=cfg["code"], soldout=not live,
-                        options=[dict(name="Color", values=names), dict(name="Sleeve", values=sleeves), dict(name="Size", values=sizes)],
-                        variants=rows, colours=colours, all_colours=names, families=families(names), colour_img=colour_img,
-                        price=min(prices), price_max=max(prices), bullets=bullets, images=images + charts,
-                        supplier_url=" ".join(i["supplier_url"] for _, i in srcs), merged_from=[i["handle"] for _, i in srcs]))
-        used.update(i["handle"] for _, i in srcs)
+                        options=[dict(name="Color", values=names), dict(name="Size", values=sizes)], variants=rows,
+                        colours=colours, all_colours=names, families=families(names), colour_img=colour_img,
+                        price=min(prices), price_max=max(prices), bullets=bullets, images=images + ([chart] if chart else []),
+                        supplier_url=" ".join(i["supplier_url"] for i in srcs),
+                        merged_from=[i["handle"] for i in srcs] + cfg.get("retired", [])))
+        used.update(i["handle"] for i in srcs)
     return [i for i in items if i["handle"] not in used] + out
 
 

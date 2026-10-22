@@ -7,42 +7,87 @@
     },
     {
       "source": "/gioberti-ss-92-mens-casual-plaid-short-sleeve-button-down-dress-shirt.html",
-      "destination": "/gioberti-mens-plaid-shirt.html",
+      "destination": "/gioberti-mens-plaid-short-sleeve-shirt.html",
       "permanent": true
     },
     {
       "source": "/gioberti-ss-92-special-mens-plaid-short-sleeve-shirt.html",
-      "destination": "/gioberti-mens-plaid-shirt.html",
+      "destination": "/gioberti-mens-plaid-short-sleeve-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-mens-plaid-shirt.html",
+      "destination": "/gioberti-mens-plaid-short-sleeve-shirt.html",
       "permanent": true
     },
     {
       "source": "/gioberti-ls-92-gioberti-plaid-long-sleeve-shirt.html",
-      "destination": "/gioberti-mens-plaid-shirt.html",
+      "destination": "/gioberti-mens-plaid-long-sleeve-shirt.html",
       "permanent": true
     },
     {
       "source": "/gioberti-ss-92w-mens-plaid-western-short-sleeve-shirt.html",
-      "destination": "/gioberti-mens-plaid-pearl-snap-western-shirt.html",
+      "destination": "/gioberti-mens-plaid-pearl-snap-short-sleeve-shirt.html",
       "permanent": true
     },
     {
       "source": "/gioberti-ss-92w-special-mens-plaid-western-short-sleeve-shirt.html",
-      "destination": "/gioberti-mens-plaid-pearl-snap-western-shirt.html",
+      "destination": "/gioberti-mens-plaid-pearl-snap-short-sleeve-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-mens-plaid-pearl-snap-western-shirt.html",
+      "destination": "/gioberti-mens-plaid-pearl-snap-short-sleeve-shirt.html",
       "permanent": true
     },
     {
       "source": "/gioberti-ls-92w-gioberti-western-plaid-long-sleeve-shirt.html",
-      "destination": "/gioberti-mens-plaid-pearl-snap-western-shirt.html",
+      "destination": "/gioberti-mens-plaid-pearl-snap-long-sleeve-shirt.html",
       "permanent": true
     },
     {
       "source": "/gioberti-ss-95w-mens-casual-western-solid-short-sleeve-shirt-with-pearl-snaps.html",
-      "destination": "/gioberti-mens-solid-pearl-snap-western-shirt.html",
+      "destination": "/gioberti-mens-solid-pearl-snap-short-sleeve-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-mens-solid-pearl-snap-western-shirt.html",
+      "destination": "/gioberti-mens-solid-pearl-snap-short-sleeve-shirt.html",
       "permanent": true
     },
     {
       "source": "/gioberti-ls-95w-mens-solid-long-sleeve-western-shirt.html",
-      "destination": "/gioberti-mens-solid-pearl-snap-western-shirt.html",
+      "destination": "/gioberti-mens-solid-pearl-snap-long-sleeve-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-92f-mens-long-sleeve-plaid-checkered-flannel.html",
+      "destination": "/gioberti-mens-plaid-flannel-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-92f-special-mens-long-sleeve-plaid-checkered-flannel.html",
+      "destination": "/gioberti-mens-plaid-flannel-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-92h-mens-hooded-long-sleeve-plaid-flannel.html",
+      "destination": "/gioberti-mens-hooded-flannel-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-92h-special-mens-hooded-long-sleeve-plaid-flannel.html",
+      "destination": "/gioberti-mens-hooded-flannel-shirt.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-92fs-mens-long-sleeve-flannel-shirt-with-snap-button.html",
+      "destination": "/gioberti-mens-flannel-shirt-with-snaps.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ls-94fc-mens-long-sleeve-flannel-shirt.html",
+      "destination": "/gioberti-mens-flannel-shirt-with-corduroy-contrast.html",
       "permanent": true
     }
   ]

@@ -1,5 +1,10 @@
 # Checkmatela changes
 
+## 2026-10-22 — Flannel shirts trimmed; short and long sleeve separate again
+
+- Men's flannel shirts: 6 listings with 160+ plaids are now 4 (Plaid Flannel, Removable Hoodie Flannel, Flannel w/ Snaps, Flannel w/ Corduroy Contrast), 10–12 plaids each, and **every solid colour kept**.
+- Men's casual shirts: short and long sleeve are separate listings again (Plaid, Plaid Pearl Snap and Solid Pearl Snap, each in short and long sleeve), keeping the trimmed plaid range. Old pages redirect.
+
 ## 2026-10-22 — Men's casual shirts: fewer plaids, one page per shirt
 
 - The plaid and pearl snap shirts were 8 listings with 340+ colourways (many near-identical, many with 1–2 sizes left). Now 3 listings, each one page with a Sleeve choice: **Men's Plaid Shirt** (12 plaids), **Men's Plaid Pearl Snap Western Shirt** (12 plaids) and **Men's Solid Pearl Snap Western Shirt** (13 solids, Gioberti's best seller). Plaids chosen for stock depth in both sleeves and distinct colours. Old pages redirect to the new ones.
