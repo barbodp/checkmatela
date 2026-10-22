@@ -39,6 +39,6 @@ if 'js/featured.js' not in s:
     s = s.replace('</body>', '<script src="js/featured.js?v=1"></script>\n</body>')
 p.write_text(s)
 for p in list(ROOT.glob('*.html'))+list((ROOT/'tools').glob('gen_*.py')):
-    s = re.sub(r'css/style\.css\?v=\d+', 'css/style.css?v=82', p.read_text())
-    s = re.sub(r'CSS_VERSION = "\d+"', 'CSS_VERSION = "82"', s)
+    s = re.sub(r'css/style\.css\?v=\d+', 'css/style.css?v=83', p.read_text())
+    s = re.sub(r'CSS_VERSION = "\d+"', 'CSS_VERSION = "83"', s)
     p.write_text(s)

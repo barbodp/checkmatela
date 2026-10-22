@@ -18,7 +18,7 @@ Run:  python3 tools/gen_gioberti.py   (gen_nav.py runs at the end). Refresh the 
 import os, re, json
 from gen_antonio import shell, crumbs, write, acc, money
 from gen_pawn_pages import page_head
-from shoplib import shop_block, replace_between, esc, select_opt
+from shoplib import shop_block, replace_between, esc, select_opt, colour_row
 from gb_catalog import CATS, TYPE_MAP, FORMAL_ACCESSORIES, category_of, dept_of
 from gb_fetch import families
 from PIL import Image
@@ -242,7 +242,7 @@ def gallery(it):
     ims = photos(it)
     first_key = cover(it)
     first = next((im for im in ims if im["key"] == first_key), ims[0])
-    thumbs = "".join(f'<button type="button" class="pdp-thumb{" is-active" if im is first else ""}" data-src="{img(im["key"])}" data-w="{im["w"]}" data-h="{im["h"]}" aria-label="Show photo {n} of {len(ims)}"><img src="{img(im["key"], "-t")}" alt="" loading="lazy" width="72" height="72"></button>'
+    thumbs = "".join(f'<button type="button" class="pdp-thumb{" is-active" if im is first else ""}" data-src="{img(im["key"])}" data-w="{im["w"]}" data-h="{im["h"]}"{f' data-colour="{esc(im["colours"][0])}"' if len(im.get("colours") or []) == 1 else ""} aria-label="Show photo {n} of {len(ims)}"><img src="{img(im["key"], "-t")}" alt="" loading="lazy" width="72" height="72"></button>'
                      for n, im in enumerate(ims, 1))
     main = f'<img id="pdpMain" src="{img(first["key"])}" alt="{esc(it["name"])}" width="900" height="{round(900 * first["h"] / first["w"])}" fetchpriority="high">'
     return f'<div class="pdp-gallery"><div class="pdp-main" id="pdpFrame" style="--r:{first["w"] / first["h"]:.4f}">{main}</div>{f"<div class=pdp-thumbs>{thumbs}</div>" if len(ims) > 1 else ""}</div>'.replace("<div class=pdp-thumbs>", '<div class="pdp-thumbs">')
@@ -259,10 +259,11 @@ def option_selects(it):
             for v in o["values"]:
                 if v in it["colour_img"] and it["colour_img"][v] in dims:
                     im = dims[it["colour_img"][v]]
-                    attrs[v] = f' data-img="{img(im["key"])}" data-w="{im["w"]}" data-h="{im["h"]}"'
+                    attrs[v] = f' data-img="{img(im["key"])}" data-w="{im["w"]}" data-h="{im["h"]}" data-thumb="{img(im["key"], "-t")}"'
         out_vals = [v for v in o["values"] if not any(r[oi] == v and r[-1] for r in it["variants"])]
         key = re.sub(r"[^a-z]", "", o["name"].lower()) or "option"
-        out.append(select_opt(key, o["name"], o["values"], attrs=attrs, soldout=out_vals))
+        shown = next((c for c in it["colours"] if it["colour_img"].get(c) == cover(it)), None) if oi == 0 and it["all_colours"] else None   # the colour in the main photo
+        out.append(select_opt(key, o["name"], o["values"], default=shown, attrs=attrs, soldout=out_vals, show_chosen=oi == 0 and bool(it["all_colours"])))
     return "\n        ".join(out)
 
 
@@ -326,7 +327,7 @@ def build_product(it):
 {rel}'''
     glyph = "glyph-pawn" if it["dept"] == "boys" else "glyph-king"
     write(it["file"], shell(f"{it['name']} ({it['code']}) — {BRAND} | Checkmatela", f"{it['name']} by {BRAND}, style {it['code']}, {price_text(it)}. Colours, sizes, details and size chart at Checkmatela.",
-                            body, glyph=glyph, extra_js='<script src="js/product.js?v=7"></script>'))
+                            body, glyph=glyph, extra_js='<script src="js/product.js?v=8"></script>'))
 
 
 def build_magen_product(m):
@@ -375,6 +376,7 @@ def build_magen_product(m):
         <p class="pdp-code">{code}{esc(label)}</p>
         <p class="pdp-price">{money(m["price"])}</p>
         <p class="pdp-lede">{esc(lede)}</p>
+        {colour_row(m["colour"], m["pics"][0]["thumb"])}
         {select_opt("size", "Size", m["sizes"])}
         <a class="pdp-chart-btn" href="size-guide.html">{CHART_ICON}Kids' size guide</a>
         <p class="pdp-msg" role="status"></p>
@@ -391,7 +393,7 @@ def build_magen_product(m):
 
 {rel}'''
     write(m["file"], shell(f"{m['name']} — {MAGEN} | Checkmatela", f"{m['name']} by {MAGEN}, {money(m['price'])}. Sizes {m['sizes'][0]} to {m['sizes'][-1]}, photos and details at Checkmatela.",
-                           body, glyph="glyph-pawn", extra_js='<script src="js/product.js?v=7"></script>'))
+                           body, glyph="glyph-pawn", extra_js='<script src="js/product.js?v=8"></script>'))
 
 
 def stamp_bishop():

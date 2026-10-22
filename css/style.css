@@ -1867,6 +1867,11 @@ body.nav-open .site-header{ z-index:95; }
 .mega__col .brand-dd + .brand-dd{ margin-top:2px; }
 /* product options as dropdowns (product pages + quick view) and the Gioberti "Sold out" mark */
 .pdp-opt--select{ display:flex; flex-direction:column; gap:8px; margin:20px 0 0; }
+.pdp-opt__head{ display:flex; align-items:center; gap:12px; min-height:28px; }
+.pdp-opt__chosen{ display:inline-flex; align-items:center; gap:8px; font-size:1.05rem; font-weight:600; letter-spacing:0; text-transform:none; }
+.pdp-opt__chosen img{ width:28px; height:28px; object-fit:cover; object-position:50% 25%; border:1px solid rgba(21,24,26,.25); border-radius:50%; background:#fff; }
+.pdp-opt__chosen img[hidden]{ display:none; }
+.pdp-colour{ margin:20px 0 0; }
 .qv__opts .pdp-opt--select{ margin:14px 0 0; }
 .pdp-opt__label{ font-size:.82rem; letter-spacing:.18em; text-transform:uppercase; font-weight:700; }
 .pdp-opt.is-missing .pdp-opt__label{ color:var(--burgundy); }

@@ -11,7 +11,7 @@ generated here as well: every Antonio Uomo piece in one filterable grid. Run:  p
 import os, json, re, html
 from gen_pawn_pages import HEADER, FOOTER, ANNOUNCE, CSS_VERSION, FAVICON, page_head
 from gen_info_pages import glyph_defs
-from shoplib import shop_block, replace_between, esc, select_opt
+from shoplib import shop_block, replace_between, esc, select_opt, colour_row
 import au_sizes
 import suit_info
 from suit_info import DESIGN
@@ -321,6 +321,7 @@ def pdp_body(it, *, eyebrow, codeline, crumb_parts, tag, related_html):
         <p class="pdp-code">{codeline}</p>
         <p class="pdp-price">{money(it["price"])}</p>
         <p class="pdp-lede">{esc(lede)}</p>
+        {colour_row(it["colour"], img_url(it["images"][0], "-t") if "key" in it["images"][0] else it["images"][0]["path"]) if it.get("colour") else ""}
         {sizes}
         {length}
         {chart_btn}
@@ -361,7 +362,7 @@ def build_product(it):
                     crumb_parts=[*BASE_CRUMBS, (tname, tfile(slug)), (it["name"], pfile(it))], related_html=rel_html)
     write(pfile(it), shell(f"{it['name']} ({it['code']}) — {BRAND} | Checkmatela",
                            f"{it['name']} ({it['code']}) by {BRAND}, {money(it['price'])}. " if opening else f"{it['name']} by {BRAND}, style {it['code']}, {money(it['price'])}. " + (it["bullets"][0] + ". " if it["bullets"] else "") + "Sizes, details and size chart at Checkmatela.",
-                           body, extra_js='<script src="js/product.js?v=7"></script>'))
+                           body, extra_js='<script src="js/product.js?v=8"></script>'))
 
 
 def category_of(it):

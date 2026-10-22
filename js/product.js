@@ -5,14 +5,28 @@
   if (!root) return;
   const $ = (s, r = root) => r.querySelector(s), $$ = (s, r = root) => [...r.querySelectorAll(s)];
   const main = $("#pdpMain"), frame = $("#pdpFrame"), msg = $(".pdp-msg"), add = $(".pdp-add");
-  const groups = $$(".pdp-opt");
+  const groups = $$(".pdp-opt:not(.pdp-colour)");                 // the option dropdowns (the colour row of a one-colour page is just information)
 
   const show = (src, w, h) => {
     main.src = src;
     if (w && h) frame.style.setProperty("--r", (w / h).toFixed(4));   // the frame follows each photo's own shape, so it is always filled
     $$(".pdp-thumb").forEach(t => t.classList.toggle("is-active", t.dataset.src === src));
   };
-  $$(".pdp-thumb").forEach(b => b.addEventListener("click", () => show(b.dataset.src, b.dataset.w, b.dataset.h)));
+  /* the chosen colour (name + swatch photo) next to the Colour label, so the customer always sees which colour is on screen */
+  const showChosen = g => {
+    const c = $(".pdp-opt__chosen", g), s = $("select", g); if (!c || !s) return;
+    const o = s.selectedOptions[0], im = $("img", c);
+    $("span", c).textContent = o && o.value ? o.value : "";
+    if (o && o.value && o.dataset.thumb) { im.src = o.dataset.thumb; im.hidden = false; } else im.hidden = true;
+  };
+  /* a gallery photo of one colour selects that colour */
+  $$(".pdp-thumb").forEach(b => b.addEventListener("click", () => {
+    show(b.dataset.src, b.dataset.w, b.dataset.h);
+    const g = groups.find(x => $(".pdp-opt__chosen", x)), s = g && $("select", g);
+    if (s && b.dataset.colour && s.value !== b.dataset.colour && [...s.options].some(o => o.value === b.dataset.colour)) {
+      s.value = b.dataset.colour; g.classList.remove("is-missing"); showChosen(g); syncVariants();
+    }
+  }));
 
   /* the chosen value of an option group: a <select> or a row of chip buttons */
   const valueOf = g => { const s = $("select", g); if (s) return s.value || null; const on = $(".chip-btn[aria-pressed=true]", g); return on ? on.dataset.v : null; };
@@ -45,7 +59,7 @@
       g.classList.remove("is-missing");
       const o = s.selectedOptions[0];
       if (o && o.dataset.img) show(o.dataset.img, o.dataset.w, o.dataset.h);
-      msg.textContent = ""; syncVariants();
+      showChosen(g); msg.textContent = ""; syncVariants();
     });
     else g.addEventListener("click", e => {
       const b = e.target.closest(".chip-btn"); if (!b) return;
@@ -55,6 +69,7 @@
       syncVariants();
     });
   });
+  groups.forEach(showChosen);
   syncVariants();
 
   const dlg = $("#sizeChart"), opener = $("[data-open-chart]");

@@ -44,13 +44,21 @@ def shop_block(cards_html, facets, kind, grid_class="product-grid", count_noun="
 </section>'''
 
 
-def select_opt(key, label, values, default=None, attrs=None, soldout=()):
-    """A product option (colour, size, length…) as a dropdown, read by js/product.js. attrs: {value: ' data-img="…"'}; soldout: values marked "sold out"."""
+def select_opt(key, label, values, default=None, attrs=None, soldout=(), show_chosen=False):
+    """A product option (colour, size, length…) as a dropdown, read by js/product.js. attrs: {value: ' data-img="…" data-thumb="…"'}; soldout: values
+    marked "sold out". show_chosen: the chosen value (and its data-thumb swatch photo) is shown next to the label, so the customer sees which colour is on screen."""
     attrs, one = attrs or {}, len(values) == 1
     opts = "".join(f'<option value="{esc(v)}"{attrs.get(v, "")}{" selected" if v == default or one else ""}>{esc(v)}{" — sold out" if v in soldout else ""}</option>' for v in values)
     first = "" if one else f'<option value="">Choose {esc(label.lower())}</option>'
-    return (f'<div class="pdp-opt pdp-opt--select" data-key="{key}"><label class="pdp-opt__label" for="opt-{key}">{esc(label)}</label>'
+    chosen = '<span class="pdp-opt__chosen" aria-hidden="true"><img alt="" width="28" height="28" hidden><span></span></span>' if show_chosen else ""
+    return (f'<div class="pdp-opt pdp-opt--select" data-key="{key}"><div class="pdp-opt__head"><label class="pdp-opt__label" for="opt-{key}">{esc(label)}</label>{chosen}</div>'
             f'<select id="opt-{key}" class="pdp-select">{first}{opts}</select></div>')
+
+
+def colour_row(name, thumb):
+    """A one-colour product page (Antonio Uomo, Magen Kids): the colour of the piece on screen, with a swatch photo."""
+    return (f'<div class="pdp-opt pdp-colour"><div class="pdp-opt__head"><span class="pdp-opt__label">Colour</span>'
+            f'<span class="pdp-opt__chosen"><img src="{thumb}" alt="" width="28" height="28"><span>{esc(name)}</span></span></div></div>')
 
 
 def replace_between(src, start, end, block):
