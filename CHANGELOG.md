@@ -1,5 +1,11 @@
 # Checkmatela changes
 
+## 2026-10-22 — Hoodies out, jackets refined, vests moved, photos flow by colour
+
+- Men's Hoodies removed (category and its 4 listings). Jackets & Outerwear: Wool-Like Jacket, both Reversible Jackets, the Sherpa Lined Jacket and the sherpa zip hoodie removed (14 -> 8 listings); the Checkered Flannel Jacket moved to Flannel Shirts.
+- Men's vests (Diamond, V-Neck Cardigan, V-Neck Sweater, Full Zipper) moved from Sweaters to Suit Vests & Vest Sets.
+- Every product's colours now sit in shade order (blacks and greys, neutrals, reds, greens, blues) and the photo gallery runs colour by colour, with each model shot right after its colour.
+
 ## 2026-10-22 — Men's sweaters trimmed
 
 - Removed 11 men's sweaters at the owner's request (Sherpa, Turtleneck Collar, Geometric, Patch Design, Knitted Cardigan, Knitted Sweater, Cardigan Sweater, Super Soft, Cardigan Knit, V-Neck Cardigan, Block Design): 25 listings -> 14. Old links go to Men's Sweaters.

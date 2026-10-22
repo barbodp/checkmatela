@@ -55,6 +55,7 @@ FORMAL_ACCESSORIES = ("men-formal-accessories", "boys-formal-accessories")    # 
 
 # (title pattern, title must NOT match, the categories it applies to, the category it goes to) - first match wins
 TITLE_RULES = [
+    (r"\bvest\b", r"suit vest|vest set", {"men-sweaters"}, "men-suit-vests"),          # sweater / fleece vests -> the vest section (owner, 2026-10-22)
     (r"\bsweaters?\b|cardigan", r"hoodie", {"men-jackets", "men-hoodies"}, "men-sweaters"),            # "Men's Super Soft Sweater" (outerwear), "Knitted Sweater w/ Sherpa" (hoodies)
     (r"\bhoodie\b", r"jacket|flannel|shirt|sweater", {"men-jackets"}, "men-hoodies"),                   # "Men's Polar Fleece Hoodie" (outerwear)
     (r"\bsweaters?\b|cardigan", r"hoodie", {"boys-jackets"}, "boys-sweaters"),
@@ -62,7 +63,17 @@ TITLE_RULES = [
 ]
 
 
+# Single products moved to another category by the owner (handle -> category)
+CAT_OVERRIDES = {
+    "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining": "men-flannel-shirts",      # Checkered Flannel Jacket -> Flannel Shirts (owner, 2026-10-22)
+}
+# Whole categories taken off the site (owner, 2026-10-22: "take out all the hoodies"); new Gioberti products that would land here stay off too
+HIDDEN_CATS = {"men-hoodies"}
+
+
 def category_of(handle, ptype, title=""):
+    if handle in CAT_OVERRIDES:
+        return CAT_OVERRIDES[handle]
     if re.search(r"cumberbund|cummerbund|suspender", handle):
         return "boys-formal-accessories" if re.match(r"(cm-8|susk)", handle) else "men-formal-accessories"
     if handle.startswith("si-501"):        # filed by Gioberti under dress shirts, but they are casual twill shirts
@@ -191,4 +202,10 @@ HIDDEN = {
     "af-1203-cardigan-twisted-knit-zip-up-sweater": "removed by owner (Cardigan Knit Sweater)",
     "sw-916-mens-knitted-vneck-button-down-cardigan-sweater": "removed by owner (V-Neck Cardigan Sweater)",
     "sw-915-mens-full-zip-block-design-cardigan-sweater": "removed by owner (Block Design Sweater)",
+    # Men's jackets & outerwear removed by the owner (2026-10-22)
+    "ja-902-mens-full-zip-wool-like-plaid-jacket": "removed by owner (Wool-Like Jacket)",
+    "fs-905-mens-zip-up-reversible-polar-fleece-heavy-jacket": "removed by owner (Men's Reversible Jacket)",
+    "ja-946-mens-reversible-jacket-with-polar-fleece-lining": "removed by owner (Men's Reversible Jacket)",
+    "fh-9003-mens-fleece-jacket": "removed by owner (Sherpa Lined Jacket)",
+    "fh-96-mens-sherpa-lined-fleece-hoodie": "removed by owner (a sherpa-lined zip hoodie, titled Sherpa Lined Fleece Jacket)",
 }

@@ -19,9 +19,10 @@ import os, re, json
 from gen_antonio import shell, crumbs, write, acc, money
 from gen_pawn_pages import page_head
 from shoplib import shop_block, replace_between, esc, select_opt, colour_row
-from gb_catalog import CATS, TYPE_MAP, FORMAL_ACCESSORIES, CURATED, HIDDEN, category_of, dept_of
+from gb_catalog import CATS, TYPE_MAP, FORMAL_ACCESSORIES, CURATED, HIDDEN, HIDDEN_CATS, category_of, dept_of
 from gb_fetch import families
 from PIL import Image
+import numpy as np
 import html as htmllib
 import gen_pawn_pages as pw
 
@@ -120,8 +121,74 @@ def curate(items):
 
 
 ITEMS = curate(ITEMS)
-HIDDEN_PAGES = {h: category_of(i["handle"], i["ptype"], i["name"]) for i in ITEMS for h in [i["handle"]] if h in HIDDEN}   # left off on purpose -> their category
-ITEMS = [i for i in ITEMS if i["handle"] not in HIDDEN]
+HIDDEN_PAGES = {i["handle"]: category_of(i["handle"], i["ptype"], i["name"]) for i in ITEMS if i["handle"] in HIDDEN}   # left off on purpose -> their category
+HIDDEN_PAGES.update({i["handle"]: None for i in ITEMS if category_of(i["handle"], i["ptype"], i["name"]) in HIDDEN_CATS})   # a whole category off -> its department
+ITEMS = [i for i in ITEMS if i["handle"] not in HIDDEN_PAGES]
+
+
+# ---------------------------------------------------------------- photo flow (owner, 2026-10-22: "reorganize the pictures to flow better by color and model")
+# Colours are listed so similar shades sit together (dropdown and gallery), and the gallery runs colour by colour: each colour's own photo, then the
+# model / detail shots of that colour. Gioberti leaves most model shots untagged; each is matched to the colour shot it looks most like (garment
+# colours in the middle of the photo), and kept at the end when no colour is a clear match.
+SHADE_ORDER = ["Black", "Charcoal", "Grey", "Silver", "White", "Beige", "Brown", "Gold", "Yellow", "Orange", "Red", "Burgundy", "Pink", "Purple",
+               "Green", "Teal", "Blue", "Navy", "Other"]
+
+
+def _shade(colour):
+    first = re.split(r"\s*/\s*|\s+w/\s+", _plain(re.sub(r"\s*\(\d+\)$", "", colour)))[0]
+    fam = families([first])[0]
+    return SHADE_ORDER.index(fam) if fam in SHADE_ORDER else len(SHADE_ORDER)
+
+
+_SIG = {}
+
+
+def _signature(key):
+    """Colour histogram of the garment area (middle of the photo, white background left out)."""
+    if key not in _SIG:
+        im = Image.open(os.path.join(ROOT, ASSET, key + "-t.webp")).convert("RGB")
+        w, h = im.size
+        px = np.asarray(im.crop((int(w * .25), int(h * .3), int(w * .75), int(h * .75)))).reshape(-1, 3).astype(int)
+        px = px[px.min(axis=1) < 225]
+        q = px // 43                                                       # 6 levels per channel: tells dark plaids apart
+        hist = np.bincount(q[:, 0] * 36 + q[:, 1] * 6 + q[:, 2], minlength=216).astype(float)
+        _SIG[key] = list(hist / (hist.sum() or 1))
+    return _SIG[key]
+
+
+def flow(it):
+    colour_opt = it["options"][0] if it["all_colours"] else None
+    if colour_opt:
+        keep_solids_last = any("(" in c for c in it["all_colours"])        # curated plaids first, then the solids
+        order = sorted(colour_opt["values"], key=lambda c: ((keep_solids_last and "(" not in c), _shade(c), colour_opt["values"].index(c)))
+        colour_opt["values"] = order
+        it["all_colours"] = [c for c in order if c in it["all_colours"]]
+        it["colours"] = [c for c in order if c in it["colours"]]
+    shots = [im for im in it["images"] if not im["chart"] and im.get("key")]
+    charts = [im for im in it["images"] if im["chart"]]
+    tagged = [im for im in shots if im.get("colours")]
+    if not colour_opt or not tagged:
+        return
+    placed = {c: [] for c in it["all_colours"]}
+    loose = []
+    for im in shots:
+        if im.get("colours"):
+            placed.setdefault(im["colours"][0], []).append(im)
+            continue
+        sig = _signature(im["key"])
+        dist = sorted((sum(abs(a - b) for a, b in zip(sig, _signature(t["key"]))), t["colours"][0]) for t in tagged)
+        if dist and (len(dist) == 1 or dist[0][0] < 0.85 * dist[1][0]) and dist[0][0] < 1.3:
+            placed.setdefault(dist[0][1], []).append(dict(im, colours=[dist[0][1]], matched=True))
+        else:
+            loose.append(im)
+    for c in placed:                                                       # each colour: its own photo first, then its model / detail shots
+        placed[c].sort(key=lambda im: bool(im.get("matched")))
+    ordered = [im for c in it["all_colours"] for im in placed.get(c, [])] + [im for c, ims in placed.items() if c not in it["all_colours"] for im in ims]
+    it["images"] = ordered + loose + charts
+
+
+for _it in ITEMS:
+    flow(_it)
 
 
 for _it in ITEMS:
@@ -553,9 +620,10 @@ def redirect_merged():
     """Permanent redirects in vercel.json from the pages of listings that were combined (CURATED) to the combined page."""
     path = os.path.join(ROOT, "vercel.json")
     cfg = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
-    keep = [r for r in cfg.get("redirects", []) if not r["source"].startswith("/gioberti-")]
+    keep = [r for r in cfg.get("redirects", []) if not r["source"].startswith("/gioberti-") and r["source"] not in {f"/{c}.html" for c in HIDDEN_CATS}]
     new = [{"source": f"/gioberti-{h}.html", "destination": f"/{it['file']}", "permanent": True} for it in ITEMS for h in it.get("merged_from", [])]
-    new += [{"source": f"/gioberti-{h}.html", "destination": f"/{cat}.html", "permanent": True} for h, cat in HIDDEN_PAGES.items() if cat]
+    new += [{"source": f"/gioberti-{h}.html", "destination": f"/{cat}.html" if cat else "/men-not-so-formal.html", "permanent": True} for h, cat in HIDDEN_PAGES.items()]
+    new += [{"source": f"/{c}.html", "destination": f"/{DEPTS[CATS[c][0]][CATS[c][1]]}", "permanent": True} for c in sorted(HIDDEN_CATS)]       # removed category pages
     cfg["redirects"] = keep + new
     open(path, "w", encoding="utf-8", newline="\n").write(json.dumps(cfg, indent=2) + "\n")
 

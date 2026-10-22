@@ -206,6 +206,16 @@
       "permanent": true
     },
     {
+      "source": "/gioberti-fh-96-mens-sherpa-lined-fleece-hoodie.html",
+      "destination": "/men-jackets.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ja-902-mens-full-zip-wool-like-plaid-jacket.html",
+      "destination": "/men-jackets.html",
+      "permanent": true
+    },
+    {
       "source": "/gioberti-sw-922-mens-knitted-turtleneck-collar-pullover-sweater.html",
       "destination": "/men-sweaters.html",
       "permanent": true
@@ -251,8 +261,48 @@
       "permanent": true
     },
     {
+      "source": "/gioberti-fs-905-mens-zip-up-reversible-polar-fleece-heavy-jacket.html",
+      "destination": "/men-jackets.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-ja-946-mens-reversible-jacket-with-polar-fleece-lining.html",
+      "destination": "/men-jackets.html",
+      "permanent": true
+    },
+    {
       "source": "/gioberti-af-1203-cardigan-twisted-knit-zip-up-sweater.html",
       "destination": "/men-sweaters.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-fh-9003-mens-fleece-jacket.html",
+      "destination": "/men-jackets.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-fh-99-mens-polar-fleece-zip-up-hoodie-with-sherpa-lining.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-pht-926-mens-long-sleeve-t-shirt-hoodie.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-fh-98-mens-full-zip-up-hoodie-with-metal-zipper-pockets.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-sw-923-mens-knitted-pullover-hoodie-sweater.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/men-hoodies.html",
+      "destination": "/men-not-so-formal.html",
       "permanent": true
     }
   ]
