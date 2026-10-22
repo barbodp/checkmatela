@@ -17,7 +17,7 @@ CATS = {
     "men-formal-accessories": ("men", "formal", "Formal Accessories", "Cummerbund and suspender sets with matching bow ties and pocket squares."),
     "men-casual-shirts": ("men", "nsf", "Casual Shirts", "Button-down twill and casual shirts for weekends and smart-casual days."),
     "men-flannel-shirts": ("men", "nsf", "Flannel Shirts", "Soft brushed flannels for cooler days."),
-    "men-polo-shirts": ("men", "nsf", "Polo Shirts", "Short sleeve striped and solid polos."),
+    "men-polo-shirts": ("men", "nsf", "Polo Shirts", "Short sleeve striped polos, from fine pinstripes to bold bars."),
     "men-sweaters": ("men", "nsf", "Sweaters", "Knitted cardigans, pullovers and sweaters."),
     "men-hoodies": ("men", "nsf", "Hoodies", "Everyday hoodies and sweatshirts."),
     "men-jackets": ("men", "nsf", "Jackets & Outerwear", "Bomber, cargo, fleece, sherpa-lined, reversible and rain jackets."),
