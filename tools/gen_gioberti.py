@@ -41,6 +41,9 @@ SLEEVE_ORDER = ["Short", "Long"]
 SIZE_ORDER = ["X-Small", "Small", "Medium", "Large", "X-Large", "2X-Large", "3X-Large", "4X-Large", "5X-Large", "6X-Large"]
 
 
+SIZE_SAME = {"XX-Large": "2X-Large", "XXX-Large": "3X-Large", "X Large": "X-Large", "2X Large": "2X-Large", "X Small": "X-Small", "Laarge": "Large"}   # one spelling per size across combined listings
+
+
 def _fabric(colour):
     """'1049 - Red / Black / Gray', '1018- Navy/White', '20W Turquoise White Red' -> '1049', '1018', '20'"""
     m = re.match(r"\s*(\d+)W?\b", colour)
@@ -75,7 +78,7 @@ def curate(items):
         sleeves = [sl for sl in SLEEVE_ORDER if any((n, sl) in pick for n in names)]
         sizes = []
         for sl, it in srcs:
-            sizes += [v for v in it["options"][1]["values"] if v not in sizes]
+            sizes += [SIZE_SAME.get(v, v) for v in it["options"][1]["values"] if SIZE_SAME.get(v, v) not in sizes]
         sizes.sort(key=lambda v: SIZE_ORDER.index(v) if v in SIZE_ORDER else 99)
         rows, images, colour_img = [], [], {}
         for n in names:
@@ -83,7 +86,7 @@ def curate(items):
                 if (n, sl) not in pick:
                     continue
                 it, c, _ = pick[(n, sl)]
-                rows += [[n, sl, r[1], r[2], r[3]] for r in it["variants"] if r[0] == c]
+                rows += [[n, sl, SIZE_SAME.get(r[1], r[1]), r[2], r[3]] for r in it["variants"] if r[0] == c]
                 for im in it["images"]:
                     if c in (im.get("colours") or []) and im.get("key") and not im["chart"]:
                         images.append(dict(im, colours=[n], sleeve=sl))
