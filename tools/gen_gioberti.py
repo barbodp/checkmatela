@@ -19,7 +19,7 @@ import os, re, json
 from gen_antonio import shell, crumbs, write, acc, money
 from gen_pawn_pages import page_head
 from shoplib import shop_block, replace_between, esc, select_opt, colour_row
-from gb_catalog import CATS, TYPE_MAP, FORMAL_ACCESSORIES, CURATED, HIDDEN, HIDDEN_CATS, category_of, dept_of
+from gb_catalog import CATS, TYPE_MAP, FORMAL_ACCESSORIES, CURATED, HIDDEN, HIDDEN_CATS, RETIRED_CATS, category_of, dept_of
 from gb_fetch import families
 from PIL import Image
 import numpy as np
@@ -320,7 +320,17 @@ def pills(dept, group, active):
         f'<a href="{h}"{on if h == active else ""}>{esc(l)}</a>' for h, l in links) + "</div></nav>"
 
 
+DEPT_PAGES = {"bishop": ("Accessories", "bishop.html"), "rook": ("Shoes", "rook.html")}     # pieces shown on a department page, not a category page
+
+
+def cat_page(cat):
+    group = CATS[cat][1]
+    return DEPT_PAGES[group][1] if group in DEPT_PAGES else f"{cat}.html"
+
+
 def dept_crumbs(dept, group, *more):
+    if group in DEPT_PAGES:
+        return [("Home", "index.html"), DEPT_PAGES[group], *more]
     d = DEPTS[dept]
     return [("Home", "index.html"), d["crumb"], (GROUP_LABEL[group], d[group]), *more]
 
@@ -428,8 +438,9 @@ CHART_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke
 def build_product(it):
     cat = it["cat"]
     dept, group, label, _ = CATS[cat]
-    parts = dept_crumbs(dept, group, (label, f"{cat}.html"), (it["name"], it["file"]))
-    eyebrow, more_href = f"{BRAND} &middot; {DEPTS[dept]['label']} &middot; {GROUP_LABEL[group]}", f"{cat}.html"
+    parts = dept_crumbs(dept, group, (it["name"], it["file"])) if group in DEPT_PAGES else dept_crumbs(dept, group, (label, f"{cat}.html"), (it["name"], it["file"]))
+    eyebrow = f"{BRAND} &middot; {DEPTS[dept]['label']} &middot; {DEPT_PAGES[group][0] if group in DEPT_PAGES else GROUP_LABEL[group]}"
+    more_href = cat_page(cat)
     related = [i for i in BY_CAT[cat] if i is not it][:4]
     charts = [im for im in it["images"] if im["chart"] and im.get("key")]
     chart = charts[0] if charts else None
@@ -552,13 +563,25 @@ def build_magen_product(m):
                            body, glyph="glyph-pawn", extra_js='<script src="js/product.js?v=9"></script>'))
 
 
+def stamp_rook():
+    """Gioberti footwear (sandals) in the Shoes grid (rook.html), between <!-- GIOBERTI:START/END --> markers."""
+    path = os.path.join(ROOT, "rook.html")
+    src = open(path, encoding="utf-8").read()
+    if "<!-- GIOBERTI:START -->" not in src:
+        src = src.replace('<div class="product-grid" data-reveal-group>', '<div class="product-grid" data-reveal-group>\n<!-- GIOBERTI:START -->\n<!-- GIOBERTI:END -->', 1)
+    src = replace_between(src, "<!-- GIOBERTI:START -->", "<!-- GIOBERTI:END -->", "\n".join(card(i) for i in BY_CAT.get("men-shoes", [])))
+    n = len(re.findall(r'<a class="product-card[ "]', src))
+    src = re.sub(r'<span class="filter-bar__count">\d+ pairs in this collection</span>', f'<span class="filter-bar__count">{n} pairs in this collection</span>', src)
+    open(path, "w", encoding="utf-8").write(src)
+
+
 def stamp_bishop():
     path = os.path.join(ROOT, "bishop.html")
     """Men's cummerbund / suspender sets join the main Accessories grid; boys' sets get their own "For boys" section under it, so the two never mix."""
     src = open(path, encoding="utf-8").read()
     if "<!-- GIOBERTI:START -->" not in src:
         src = src.replace('<div class="product-grid" data-reveal-group>', '<div class="product-grid" data-reveal-group>\n<!-- GIOBERTI:START -->\n<!-- GIOBERTI:END -->', 1)
-    src = replace_between(src, "<!-- GIOBERTI:START -->", "<!-- GIOBERTI:END -->", "\n".join(card(i) for i in ACCESSORIES["men-formal-accessories"]))
+    src = replace_between(src, "<!-- GIOBERTI:START -->", "<!-- GIOBERTI:END -->", "\n".join(card(i) for i in ACCESSORIES["men-formal-accessories"] + BY_CAT.get("men-accessories-main", [])))
     boys = ACCESSORIES["boys-formal-accessories"]
     section = f'''<section class="section" id="boys" style="padding-top:0">
   <div class="container">
@@ -597,7 +620,11 @@ def stamp_dresscode_bar(page, dept):
 def index_products():
     out = []
     for it in ITEMS:
-        men_acc = it["cat"] == "men-formal-accessories"                   # men's cummerbund / suspender sets also belong to the Accessories department
+        men_acc = it["cat"] in ("men-formal-accessories", "men-accessories-main")   # men's accessories belong to the Accessories department
+        if it["cat"] == "men-shoes":
+            out.append(dict(k="Rook", d="Shoes " + " ".join(it["all_colours"]), t=it["name"], s=f"{BRAND} · {it['name']}" + (" · Sold out" if it["soldout"] else ""),
+                            u=it["file"], p=it["price"], i=img(cover(it), "-c"), f={"color": it["families"][0]}))
+            continue
         k, d = ("Bishop", "Accessories") if men_acc else (DEPTS[it["dept"]]["sub"], DEPTS[it["dept"]]["label"] if it["dept"] == "men" else "Kids")
         label = it["name"] if men_acc else CATS[it["cat"]][2]
         out.append(dict(k=k, d=d + " " + " ".join(it["all_colours"]), t=it["name"], s=f"{BRAND} · {label}" + (" · Sold out" if it["soldout"] else ""), u=it["file"], p=it["price"], i=img(cover(it), "-c"), f={"color": it["families"][0]}))
@@ -610,7 +637,7 @@ def search_pages():
         kw = "men mens" if dept == "men" else "kids boys"
         pages.append((f"{d['poss']} Formal", d["formal"], d["crumb"][0], f"formal suits tuxedos blazers vests dress shirts dress pants {kw}"))
         pages.append((f"{d['poss']} Not So Formal", d["nsf"], d["crumb"][0], f"not so formal casual everyday sweaters hoodies jackets polos activewear sleepwear {kw}"))
-    for k, (dept, group, label, _) in CATS.items():
+    for k, (dept, group, label, _) in ((k, v) for k, v in CATS.items() if v[1] not in DEPT_PAGES):
         if BY_CAT.get(k) or EXTERNAL.get(k):
             pages.append((f"{DEPTS[dept]['poss']} {label}", f"{k}.html", DEPTS[dept]["crumb"][0], f"{label} {GROUP_LABEL[group]} {'men mens' if dept == 'men' else 'kids boys'} gioberti".lower()))
     return pages
@@ -620,10 +647,11 @@ def redirect_merged():
     """Permanent redirects in vercel.json from the pages of listings that were combined (CURATED) to the combined page."""
     path = os.path.join(ROOT, "vercel.json")
     cfg = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
-    keep = [r for r in cfg.get("redirects", []) if not r["source"].startswith("/gioberti-") and r["source"] not in {f"/{c}.html" for c in HIDDEN_CATS}]
+    keep = [r for r in cfg.get("redirects", []) if not r["source"].startswith("/gioberti-") and r["source"] not in {f"/{c}.html" for c in set(HIDDEN_CATS) | set(RETIRED_CATS)}]
     new = [{"source": f"/gioberti-{h}.html", "destination": f"/{it['file']}", "permanent": True} for it in ITEMS for h in it.get("merged_from", [])]
     new += [{"source": f"/gioberti-{h}.html", "destination": f"/{cat}.html" if cat else "/men-not-so-formal.html", "permanent": True} for h, cat in HIDDEN_PAGES.items()]
     new += [{"source": f"/{c}.html", "destination": f"/{DEPTS[CATS[c][0]][CATS[c][1]]}", "permanent": True} for c in sorted(HIDDEN_CATS)]       # removed category pages
+    new += [{"source": f"/{c}.html", "destination": f"/{dest}", "permanent": True} for c, dest in RETIRED_CATS.items()]
     cfg["redirects"] = keep + new
     open(path, "w", encoding="utf-8", newline="\n").write(json.dumps(cfg, indent=2) + "\n")
 
@@ -631,7 +659,7 @@ def redirect_merged():
 def main():
     if UNFILED:
         print("WARNING: no category for", ", ".join(f"{i['handle']} ({i['ptype']})" for i in UNFILED), "- add the type to TYPE_MAP")
-    built = [build_category(k) for k in CATS if BY_CAT.get(k) or EXTERNAL.get(k)]
+    built = [build_category(k) for k in CATS if CATS[k][1] not in DEPT_PAGES and (BY_CAT.get(k) or EXTERNAL.get(k))]
     for dept in DEPTS:
         for group in ("formal", "nsf"):
             build_landing(dept, group, built)
@@ -640,6 +668,7 @@ def main():
     for m in MAGEN_ITEMS:
         build_magen_product(m)
     stamp_bishop()
+    stamp_rook()
     stamp_dresscode_bar("king.html", "men")
     stamp_dresscode_bar("pawn.html", "boys")
     wanted = {i["file"] for i in ITEMS} | {m["file"] for m in MAGEN_ITEMS} | {f"{b['key']}.html" for b in built} | {d[g] for d in DEPTS.values() for g in ("formal", "nsf")}

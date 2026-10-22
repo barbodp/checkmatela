@@ -28,9 +28,8 @@
           { t: "Formal", links: [["All formal", "men-formal.html"], ["Suits", "men-suits.html"], ["Tuxedos", "men-tuxedos.html"],
             ["Blazers & sport coats", "men-blazers.html"], ["Suit vests & vest sets", "men-suit-vests.html"], ["Dress shirts", "men-dress-shirts.html"], ["Dress pants", "men-dress-pants.html"], ["Formal accessories", "men-formal-accessories.html"], ["All accessories", "bishop.html"]] },
           { t: "Not So Formal", links: [["All not so formal", "men-not-so-formal.html"], ["Casual shirts", "men-casual-shirts.html"], ["Flannel shirts", "men-flannel-shirts.html"], ["Polo shirts", "men-polo-shirts.html"],
-            ["Sweaters", "men-sweaters.html"], ["Jackets & outerwear", "men-jackets.html"], ["Leather jackets", "men-leather-jackets.html"],
-            ["Activewear", "men-activewear.html"], ["Sleepwear", "men-sleepwear.html"], ["Accessories & footwear", "men-accessories.html"]] },
-          { t: "Occasion", links: [...["Wedding", "Black tie", "Prom", "Business", "Formal", "Summer"].map(o => [o, "king.html?occasion=" + encodeURIComponent(o)]), ["Casual & weekend", "men-not-so-formal.html"], ["Gym & lounge", "men-activewear.html"]] },
+            ["Sweaters", "men-sweaters.html"], ["Jackets & outerwear", "men-jackets.html"], ["Leather jackets", "men-leather-jackets.html"]] },
+          { t: "Occasion", links: [...["Wedding", "Black tie", "Prom", "Business", "Formal", "Summer"].map(o => [o, "king.html?occasion=" + encodeURIComponent(o)]), ["Casual & weekend", "men-not-so-formal.html"]] },
         ] },
         { h: "Brands", brands: true, links: [["Antonio Uomo", "antonio-uomo.html"]] },
         { h: "Color", sw: sw(["Black", "Charcoal", "Grey", "Navy", "Blue", "Burgundy", "Brown", "Beige"], "king.html?color=") },
@@ -112,7 +111,7 @@
     if (IDX) return cb();
     idxWaiters.push(cb);
     if (withIndex.loading) return; withIndex.loading = true;
-    const s = document.createElement("script"); s.src = "js/search-index.js?v=e1be6fff";
+    const s = document.createElement("script"); s.src = "js/search-index.js?v=8eae5f7a";
     s.onload = () => { IDX = window.CHECKMATELA_INDEX; prep(); idxWaiters.splice(0).forEach(f => f()); };
     document.head.appendChild(s);
   }

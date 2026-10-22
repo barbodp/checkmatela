@@ -24,7 +24,9 @@ CATS = {
     "men-leather-jackets": ("men", "nsf", "Leather Jackets", "Leather and faux leather jackets."),
     "men-activewear": ("men", "nsf", "Activewear", "Athletic shorts, joggers and track pants."),
     "men-sleepwear": ("men", "nsf", "Sleepwear", "Pajamas and loungewear."),
-    "men-accessories": ("men", "nsf", "Accessories & Footwear", "Ivy caps, sandals and everyday extras."),
+    # Men's pieces shown on the department pages instead of a category page (owner, 2026-10-22): the main Accessories page (bishop.html) and Shoes (rook.html)
+    "men-accessories-main": ("men", "bishop", "Accessories", "Caps and everyday accessories."),
+    "men-shoes": ("men", "rook", "Shoes", "Sandals and casual footwear."),
     "boys-suits-blazers": ("boys", "formal", "Suits & Blazers", "Slim-fit and husky suits, formal suit sets, blazer and pants sets, and velvet, corduroy and tweed blazers."),
     "boys-tuxedos": ("boys", "formal", "Tuxedos", "Shawl-lapel tuxedos in regular and husky fits."),
     "boys-suit-vests": ("boys", "formal", "Suit Vests & Vest Sets", "Suit vests, suit and tuxedo vest sets, vest and pants sets, and four-piece vest sets with ties."),
@@ -45,7 +47,7 @@ TYPE_MAP = {
     "Mens Suits & Sport Coats": "men-blazers", "Mens Formal Vests": "men-suit-vests", "Mens Dress Shirts": "men-dress-shirts", "Mens Dress Pants": "men-dress-pants",
     "Mens Casual Shirt": "men-casual-shirts", "Mens Flannel Shirts": "men-flannel-shirts", "Mens Polo Shirts": "men-polo-shirts", "Mens Sweaters": "men-sweaters",
     "Mens Hoodies": "men-hoodies", "Mens Jackets": "men-jackets", "Mens Outerwear": "men-jackets", "Mens Leather Jacket": "men-leather-jackets",
-    "Mens Active Wear": "men-activewear", "Mens": "men-activewear", "Mens Sleepwear": "men-sleepwear", "Mens Accessories": "men-accessories",
+    "Mens Active Wear": "men-activewear", "Mens": "men-activewear", "Mens Sleepwear": "men-sleepwear", "Mens Accessories": "men-accessories-main",
     "Boys Blazers": "boys-suits-blazers", "Boys Suit Vest": "boys-suit-vests", "Boys Dress Shirts": "boys-dress-shirts", "Boys Dress Pants": "boys-dress-pants",
     "Boys Button Down Shirts": "boys-casual-shirts", "Boys Polos and T-Shirts": "boys-polo-shirts", "Boys Sweaters": "boys-sweaters", "Boys Jackets": "boys-jackets",
     "Boys Active Wear": "boys-activewear", "Boys Shorts": "boys-shorts", "Boys Sleepwear": "boys-sleepwear", "Boys Accessories": "boys-accessories",
@@ -55,6 +57,7 @@ FORMAL_ACCESSORIES = ("men-formal-accessories", "boys-formal-accessories")    # 
 
 # (title pattern, title must NOT match, the categories it applies to, the category it goes to) - first match wins
 TITLE_RULES = [
+    (r"sandal|slide|slipper|shoe|boot|loafer", r"shoe ?horn|shoe ?tree", {"men-accessories-main"}, "men-shoes"),   # footwear -> Shoes page
     (r"\bvest\b", r"suit vest|vest set", {"men-sweaters"}, "men-suit-vests"),          # sweater / fleece vests -> the vest section (owner, 2026-10-22)
     (r"\bsweaters?\b|cardigan", r"hoodie", {"men-jackets", "men-hoodies"}, "men-sweaters"),            # "Men's Super Soft Sweater" (outerwear), "Knitted Sweater w/ Sherpa" (hoodies)
     (r"\bhoodie\b", r"jacket|flannel|shirt|sweater", {"men-jackets"}, "men-hoodies"),                   # "Men's Polar Fleece Hoodie" (outerwear)
@@ -68,7 +71,9 @@ CAT_OVERRIDES = {
     "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining": "men-flannel-shirts",      # Checkered Flannel Jacket -> Flannel Shirts (owner, 2026-10-22)
 }
 # Whole categories taken off the site (owner, 2026-10-22: "take out all the hoodies"); new Gioberti products that would land here stay off too
-HIDDEN_CATS = {"men-hoodies"}
+HIDDEN_CATS = {"men-hoodies", "men-activewear", "men-sleepwear"}      # owner, 2026-10-22: take out activewear and sleepwear (men)
+# Category pages that no longer exist -> where their old address goes
+RETIRED_CATS = {"men-accessories": "bishop.html"}
 
 
 def category_of(handle, ptype, title=""):

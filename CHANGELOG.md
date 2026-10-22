@@ -1,5 +1,10 @@
 # Checkmatela changes
 
+## 2026-10-22 — Men's activewear and sleepwear out; cap to Accessories, sandals to Shoes
+
+- Men's Activewear (6) and Sleepwear (3) removed; old links go to Not So Formal.
+- The Tweed Ivy Cap is on the main Accessories page and the two sandals on the Shoes page; the "Accessories & Footwear" category is gone (its old link goes to Accessories).
+
 ## 2026-10-22 — Hoodies out, jackets refined, vests moved, photos flow by colour
 
 - Men's Hoodies removed (category and its 4 listings). Jackets & Outerwear: Wool-Like Jacket, both Reversible Jackets, the Sherpa Lined Jacket and the sherpa zip hoodie removed (14 -> 8 listings); the Checkered Flannel Jacket moved to Flannel Shirts.

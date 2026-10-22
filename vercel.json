@@ -291,7 +291,17 @@
       "permanent": true
     },
     {
+      "source": "/gioberti-ys-955-mens-active-yoga-shorts.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
       "source": "/gioberti-fh-98-mens-full-zip-up-hoodie-with-metal-zipper-pockets.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-pj-92-mens-flannel-pajama-pants-elastic-waist.html",
       "destination": "/men-not-so-formal.html",
       "permanent": true
     },
@@ -301,8 +311,58 @@
       "permanent": true
     },
     {
+      "source": "/gioberti-pjs-93-mens-2-pc-super-soft-plush-pajama-pants.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-pj-93-mens-super-soft-plush-pajama-pants.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-bbs-955-mens-sports-athletic-basketball-shorts-elastic-waist.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-tp-963-mens-athletic-track-pants-with-ribbed-zipper-cuff.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-tp-962-mens-athletic-track-pants-with-ribbed-cuff.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-jp-98-mens-french-terry-jogger-pants.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/gioberti-tp-960-mens-athletic-track-pants.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/men-activewear.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
       "source": "/men-hoodies.html",
       "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/men-sleepwear.html",
+      "destination": "/men-not-so-formal.html",
+      "permanent": true
+    },
+    {
+      "source": "/men-accessories.html",
+      "destination": "/bishop.html",
       "permanent": true
     }
   ]
