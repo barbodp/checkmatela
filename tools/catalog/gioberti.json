@@ -12057,7 +12057,7 @@
     "Navy",
     "Small",
     26.99,
-    1
+    0
    ],
    [
     "Pink",
@@ -12069,7 +12069,7 @@
     "Purple B",
     "Small",
     26.99,
-    1
+    0
    ],
    [
     "Red",
@@ -12087,7 +12087,7 @@
     "Sky Blue",
     "Small",
     26.99,
-    1
+    0
    ],
    [
     "Teal",
@@ -12099,7 +12099,7 @@
     "Teal Green",
     "Small",
     26.99,
-    1
+    0
    ],
    [
     "Turquoise B",
@@ -12141,7 +12141,7 @@
     "Dark Gray",
     "Medium",
     26.99,
-    1
+    0
    ],
    [
     "Green",
@@ -12195,7 +12195,7 @@
     "Red",
     "Medium",
     26.99,
-    1
+    0
    ],
    [
     "Royal Blue",
@@ -12537,7 +12537,7 @@
     "Navy",
     "2X-Large",
     26.99,
-    0
+    1
    ],
    [
     "Pink",
@@ -12747,7 +12747,7 @@
     "Green",
     "4X-Large",
     26.99,
-    0
+    1
    ],
    [
     "Mint B",
@@ -12783,7 +12783,7 @@
     "Pink",
     "4X-Large",
     26.99,
-    1
+    0
    ],
    [
     "Purple B",
@@ -12807,7 +12807,7 @@
     "Sky Blue",
     "4X-Large",
     26.99,
-    1
+    0
    ],
    [
     "Teal",
@@ -12927,7 +12927,7 @@
     "Sky Blue",
     "5X-Large",
     26.99,
-    1
+    0
    ],
    [
     "Teal",
@@ -12970,7 +12970,6 @@
    "Pink",
    "Purple B",
    "Red",
-   "Sky Blue",
    "Teal",
    "Teal Green",
    "White"
@@ -29922,7 +29921,7 @@
     "1053- Blue/Navy/White",
     "Large",
     28.99,
-    1
+    0
    ],
    [
     "1088- Black/Red",
@@ -32391,7 +32390,7 @@
     "252-Charcoal/Orange/White",
     "X-Large",
     28.99,
-    1
+    0
    ],
    [
     "294-Blue/Black",
@@ -48668,7 +48667,7 @@
     "Gray",
     "4X-Large",
     32.99,
-    1
+    0
    ],
    [
     "Gold",
@@ -48776,7 +48775,7 @@
     "Khaki",
     "Small",
     32.99,
-    1
+    0
    ],
    [
     "Khaki",
@@ -48860,13 +48859,13 @@
     "Mint",
     "4X-Large",
     32.99,
-    1
+    0
    ],
    [
     "Purple B",
     "X-Small",
     32.99,
-    1
+    0
    ],
    [
     "Red",
@@ -48968,7 +48967,7 @@
     "Turquoise B",
     "X-Small",
     32.99,
-    1
+    0
    ],
    [
     "Turquoise B",
@@ -49071,10 +49070,8 @@
    "Green",
    "Khaki",
    "Mint",
-   "Purple B",
    "Red",
    "Royal Blue",
-   "Turquoise B",
    "White"
   ],
   "all_colours": [
@@ -54178,7 +54175,7 @@
     "Red",
     "7",
     19.99,
-    1
+    0
    ],
    [
     "Red",
@@ -86193,7 +86190,7 @@
     "Gray",
     "16",
     39.99,
-    1
+    0
    ],
    [
     "Gray",
@@ -88738,7 +88735,7 @@
     "Black / White",
     "7",
     19.99,
-    1
+    0
    ],
    [
     "Black / White",
@@ -89032,7 +89029,7 @@
     "Silver",
     "6",
     19.99,
-    1
+    0
    ],
    [
     "Silver",
