@@ -6,11 +6,27 @@
   const $ = (s, r = root) => r.querySelector(s), $$ = (s, r = root) => [...r.querySelectorAll(s)];
   const main = $("#pdpMain"), frame = $("#pdpFrame"), msg = $(".pdp-msg"), add = $(".pdp-add");
   const groups = $$(".pdp-opt:not(.pdp-colour)");                 // the option dropdowns (the colour row of a one-colour page is just information)
+  const colorGallery = $("[data-color-gallery]");
+  const visiblePhotos = () => $$(".pdp-thumb").filter(t => !t.hidden);
+  const galleryStatus = () => {
+    if (!colorGallery) return;
+    const photos = visiblePhotos(), index = photos.findIndex(t => t.dataset.src === main.getAttribute("src"));
+    const current = photos[index];
+    $("[data-gallery-status]").textContent = current ? `${current.dataset.colour} · ${index + 1} / ${photos.length}` : "";
+    [$("[data-gallery-prev]"), $("[data-gallery-next]")].forEach(b => { b.disabled = photos.length < 2; });
+  };
 
   const show = (src, w, h) => {
     main.src = src;
-    if (w && h) frame.style.setProperty("--r", (w / h).toFixed(4));   // the frame follows each photo's own shape, so it is always filled
-    $$(".pdp-thumb").forEach(t => t.classList.toggle("is-active", t.dataset.src === src));
+    if (colorGallery) root.dataset.img = src;
+    if (w && h && !colorGallery) frame.style.setProperty("--r", (w / h).toFixed(4));
+    $$(".pdp-thumb").forEach(t => {
+      const active = t.dataset.src === src;
+      t.classList.toggle("is-active", active);
+      if (colorGallery) t.setAttribute("aria-pressed", String(active));
+      if (active && t.dataset.label) main.alt = t.dataset.label;
+    });
+    galleryStatus();
   };
   /* the chosen colour (name + swatch photo) next to the Colour label, so the customer always sees which colour is on screen */
   const showChosen = g => {
@@ -42,6 +58,28 @@
 
   /* the chosen value of an option group: a <select> or a row of chip buttons */
   const valueOf = g => { const s = $("select", g); if (s) return s.value || null; const on = $(".chip-btn[aria-pressed=true]", g); return on ? on.dataset.v : null; };
+  const filterColorGallery = () => {
+    if (!colorGallery) return;
+    const group = groups.find(g => g.dataset.key === "color"), color = group && valueOf(group);
+    $$(".pdp-thumb").forEach(t => { t.hidden = t.dataset.colour !== color; });
+    const first = visiblePhotos()[0];
+    if (first) show(first.dataset.src, first.dataset.w, first.dataset.h);
+    else { main.removeAttribute("src"); main.alt = "Choose a color to see its photos"; galleryStatus(); }
+  };
+  if (colorGallery) {
+    const step = delta => {
+      const photos = visiblePhotos();
+      if (!photos.length) return;
+      const current = photos.findIndex(t => t.dataset.src === main.getAttribute("src"));
+      const next = photos[(current + delta + photos.length) % photos.length];
+      show(next.dataset.src, next.dataset.w, next.dataset.h);
+    };
+    $("[data-gallery-prev]").addEventListener("click", () => step(-1));
+    $("[data-gallery-next]").addEventListener("click", () => step(1));
+    colorGallery.addEventListener("keydown", e => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") { e.preventDefault(); step(e.key === "ArrowLeft" ? -1 : 1); }
+    });
+  }
 
   /* Gioberti pages: #pdpVariants = {n: number of options, v: [[option values…, price, in stock 0/1], …]}. Every value stays listed; one with
      no in-stock combination (given the other choice) reads "— sold out", the price follows the selection, and a sold-out combination can't be added. */
@@ -70,8 +108,9 @@
     if (s) s.addEventListener("change", () => {
       g.classList.remove("is-missing");
       const o = s.selectedOptions[0];
-      if (o && o.dataset.img) show(o.dataset.img, o.dataset.w, o.dataset.h);
+      if (o && o.dataset.img && !(colorGallery && g.dataset.key === "color")) show(o.dataset.img, o.dataset.w, o.dataset.h);
       showChosen(g); matchPhoto(); msg.textContent = ""; syncVariants();
+      if (g.dataset.key === "color") filterColorGallery();
     });
     else g.addEventListener("click", e => {
       const b = e.target.closest(".chip-btn"); if (!b) return;
@@ -83,6 +122,7 @@
   });
   groups.forEach(showChosen);
   syncVariants();
+  filterColorGallery();
 
   const dlg = $("#sizeChart"), opener = $("[data-open-chart]");
   if (dlg && opener) {

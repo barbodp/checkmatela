@@ -1,0 +1,2213 @@
+{
+  "style": "White seamless studio, diffuse soft light, no props; original fictional adult models.",
+  "images": [
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Black",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Gray",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/gray/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Gray",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/gray/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Ivory",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/ivory/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Ivory",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/ivory/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "White",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/white/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "White",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/white/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Gray",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/gray/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Khaki",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/khaki/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Khaki",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/khaki/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Khaki",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/khaki/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Ivory",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/ivory/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "White",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/white/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Red",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/red/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Red",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/red/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Red",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/red/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Burgundy",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/burgundy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Burgundy",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/burgundy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Burgundy",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/burgundy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Olive",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/olive/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Olive",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/olive/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Olive",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/olive/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Aqua",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/aqua/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Aqua",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/aqua/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Aqua",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/aqua/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Light Blue",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/light-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Light Blue",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/light-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Light Blue",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/light-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Royal Blue",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/royal-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Royal Blue",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/royal-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Royal Blue",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/royal-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Navy",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/navy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Navy",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/navy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Navy",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/navy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Black",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501c-mens-twill-oxford-shirt-contrast",
+      "color": "Black",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501c-mens-twill-oxford-shirt-contrast/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Black",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Black",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Black",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Gray",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/gray/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Gray",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/gray/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Gray",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/gray/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Ivory",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/ivory/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Ivory",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/ivory/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Ivory",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/ivory/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "White",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/white/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "White",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/white/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "White",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/white/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Khaki",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/khaki/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Khaki",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/khaki/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Khaki",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/khaki/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Red",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/red/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Red",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/red/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Red",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/red/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Burgundy",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/burgundy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Burgundy",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/burgundy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Burgundy",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/burgundy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Olive",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/olive/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Olive",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/olive/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Olive",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/olive/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Aqua",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/aqua/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Aqua",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/aqua/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Aqua",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/aqua/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Light Blue",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/light-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Light Blue",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/light-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Light Blue",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/light-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Royal Blue",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/royal-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Royal Blue",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/royal-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Royal Blue",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/royal-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Navy",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/navy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Navy",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/navy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "si-501-mens-long-sleeve-casual-twill-shirt",
+      "color": "Navy",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/si-501-mens-long-sleeve-casual-twill-shirt/navy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Black / White (632)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/black-white-632/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Black / White (632)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/black-white-632/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Black / White (632)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/black-white-632/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Khaki / Navy (727)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/khaki-navy-727/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Khaki / Navy (727)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/khaki-navy-727/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Khaki / Navy (727)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/khaki-navy-727/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Red / Black / Gray (1049)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/red-black-gray-1049/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Red / Black / Gray (1049)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/red-black-gray-1049/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Red / Black / Gray (1049)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/red-black-gray-1049/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Red / Navy / White (1055)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/red-navy-white-1055/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Red / Navy / White (1055)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/red-navy-white-1055/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Red / Navy / White (1055)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/red-navy-white-1055/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Green / White (1164)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/green-white-1164/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Green / White (1164)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/green-white-1164/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Green / White (1164)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/green-white-1164/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Teal / Brown / White (1096)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/teal-brown-white-1096/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Teal / Brown / White (1096)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/teal-brown-white-1096/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Teal / Brown / White (1096)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/teal-brown-white-1096/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Blue / Navy / White (1053)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/blue-navy-white-1053/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Blue / Navy / White (1053)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/blue-navy-white-1053/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Blue / Navy / White (1053)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/blue-navy-white-1053/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Blue / Grey / Black (1090)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/blue-grey-black-1090/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Blue / Grey / Black (1090)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/blue-grey-black-1090/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Blue / Grey / Black (1090)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/blue-grey-black-1090/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Royal / White (1163)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/royal-white-1163/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Royal / White (1163)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/royal-white-1163/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Royal / White (1163)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/royal-white-1163/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Navy / White (1018)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/navy-white-1018/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Navy / White (1018)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/navy-white-1018/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-short-sleeve-shirt",
+      "color": "Navy / White (1018)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-short-sleeve-shirt/navy-white-1018/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Black / White (632)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/black-white-632/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Black / White (632)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/black-white-632/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Black / White (632)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/black-white-632/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Khaki / Navy (727)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/khaki-navy-727/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Khaki / Navy (727)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/khaki-navy-727/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Khaki / Navy (727)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/khaki-navy-727/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Red / Black / Gray (1049)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/red-black-gray-1049/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Red / Black / Gray (1049)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/red-black-gray-1049/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Red / Navy / White (1055)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/red-navy-white-1055/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Red / Navy / White (1055)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/red-navy-white-1055/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Red / Navy / White (1055)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/red-navy-white-1055/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Teal / Brown (1086)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/teal-brown-1086/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Teal / Brown (1086)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/teal-brown-1086/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Teal / Brown (1086)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/teal-brown-1086/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Blue / Navy / White (1053)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/blue-navy-white-1053/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Blue / Navy / White (1053)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/blue-navy-white-1053/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Blue / Navy / White (1053)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/blue-navy-white-1053/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Blue / Grey / Black (1090)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/blue-grey-black-1090/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Blue / Grey / Black (1090)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/blue-grey-black-1090/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Blue / Grey / Black (1090)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/blue-grey-black-1090/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Turquoise (777)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/turquoise-777/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Turquoise (777)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/turquoise-777/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Light Blue / Yellow / White (211)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/light-blue-yellow-white-211/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Light Blue / Yellow / White (211)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/light-blue-yellow-white-211/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Navy / White (1018)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/navy-white-1018/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Navy / White (1018)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/navy-white-1018/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Navy / White (1018)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/navy-white-1018/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Cobalt / Peach / White (1154)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/cobalt-peach-white-1154/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Cobalt / Peach / White (1154)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/cobalt-peach-white-1154/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Red / Black / Gray (1049)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/red-black-gray-1049/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Turquoise (777)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/turquoise-777/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Light Blue / Yellow / White (211)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/light-blue-yellow-white-211/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-long-sleeve-shirt",
+      "color": "Cobalt / Peach / White (1154)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-long-sleeve-shirt/cobalt-peach-white-1154/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Black / White / Gray (978)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/black-white-gray-978/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Black / White / Gray (978)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/black-white-gray-978/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Black / White / Gray (978)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/black-white-gray-978/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Khaki / Navy (727)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/khaki-navy-727/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Khaki / Navy (727)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/khaki-navy-727/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Khaki / Navy (727)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/khaki-navy-727/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Orange / White / Navy (1061)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/orange-white-navy-1061/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Orange / White / Navy (1061)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/orange-white-navy-1061/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Orange / White / Navy (1061)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/orange-white-navy-1061/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Red / Navy / Yellow (1103)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/red-navy-yellow-1103/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Red / Navy / Yellow (1103)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/red-navy-yellow-1103/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Red / Navy / Yellow (1103)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/red-navy-yellow-1103/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Red / Black / Gray (1049)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/red-black-gray-1049/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Red / Black / Gray (1049)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/red-black-gray-1049/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Red / Black / Gray (1049)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/red-black-gray-1049/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Red / Navy / White (1036)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/red-navy-white-1036/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Red / Navy / White (1036)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/red-navy-white-1036/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Red / Navy / White (1036)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/red-navy-white-1036/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Green / White (1059)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/green-white-1059/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Green / White (1059)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/green-white-1059/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Green / White (1059)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/green-white-1059/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Blue / Navy / White (1053)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/blue-navy-white-1053/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Blue / Navy / White (1053)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/blue-navy-white-1053/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Blue / Navy / White (1053)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/blue-navy-white-1053/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Blue / Khaki / White (995)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/blue-khaki-white-995/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Blue / Khaki / White (995)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/blue-khaki-white-995/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Blue / Khaki / White (995)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/blue-khaki-white-995/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Blue Checkered (1060)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/blue-checkered-1060/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Blue Checkered (1060)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/blue-checkered-1060/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-short-sleeve-shirt",
+      "color": "Blue Checkered (1060)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-short-sleeve-shirt/blue-checkered-1060/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Black / White / Gray (978)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/black-white-gray-978/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Black / White / Gray (978)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/black-white-gray-978/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Black / White / Gray (978)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/black-white-gray-978/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Charcoal / Orange / White (252)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/charcoal-orange-white-252/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Charcoal / Orange / White (252)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/charcoal-orange-white-252/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Charcoal / Orange / White (252)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/charcoal-orange-white-252/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Khaki / Navy (727)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/khaki-navy-727/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Khaki / Navy (727)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/khaki-navy-727/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Khaki / Navy (727)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/khaki-navy-727/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Brown / Yellow / Turquoise (26)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/brown-yellow-turquoise-26/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Brown / Yellow / Turquoise (26)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/brown-yellow-turquoise-26/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Brown / Yellow / Turquoise (26)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/brown-yellow-turquoise-26/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Red / Navy / Yellow (1103)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/red-navy-yellow-1103/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Red / Navy / Yellow (1103)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/red-navy-yellow-1103/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Red / Navy / Yellow (1103)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/red-navy-yellow-1103/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Red / Black / Gray (1049)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/red-black-gray-1049/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Red / Black / Gray (1049)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/red-black-gray-1049/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Red / Black / Gray (1049)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/red-black-gray-1049/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Red / Navy / White (1036)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/red-navy-white-1036/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Red / Navy / White (1036)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/red-navy-white-1036/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Red / Navy / White (1036)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/red-navy-white-1036/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Red / Black / Orange (124)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/red-black-orange-124/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Red / Black / Orange (124)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/red-black-orange-124/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Red / Black / Orange (124)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/red-black-orange-124/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Sage / Olive / Khaki (6)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/sage-olive-khaki-6/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Sage / Olive / Khaki (6)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/sage-olive-khaki-6/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Sage / Olive / Khaki (6)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/sage-olive-khaki-6/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Blue / Navy / White (1053)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/blue-navy-white-1053/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Blue / Navy / White (1053)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/blue-navy-white-1053/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Blue / Navy / White (1053)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/blue-navy-white-1053/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Turquoise (777)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/turquoise-777/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Turquoise (777)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/turquoise-777/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Turquoise (777)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/turquoise-777/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Cobalt / Peach / White (1154)",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/cobalt-peach-white-1154/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Cobalt / Peach / White (1154)",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/cobalt-peach-white-1154/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-pearl-snap-long-sleeve-shirt",
+      "color": "Cobalt / Peach / White (1154)",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-plaid-pearl-snap-long-sleeve-shirt/cobalt-peach-white-1154/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Black",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Black",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Black",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Gray",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/gray/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Gray",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/gray/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Gray",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/gray/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Ivory",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/ivory/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Ivory",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/ivory/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Ivory",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/ivory/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "White",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/white/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "White",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/white/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "White",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/white/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Khaki",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/khaki/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Khaki",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/khaki/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Khaki",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/khaki/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Brown",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/brown/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Brown",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/brown/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Brown",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/brown/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Red",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/red/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Red",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/red/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Black",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Red",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/red/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Black",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Black",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Burgundy",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/burgundy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Burgundy",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/burgundy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Gray",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/gray/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Burgundy",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/burgundy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Gray",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/gray/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Gray",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/gray/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Teal",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/teal/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Teal",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/teal/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Teal",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/teal/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Ivory",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/ivory/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Ivory",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/ivory/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Ivory",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/ivory/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Light Blue",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/light-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "White",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/white/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Light Blue",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/light-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "White",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/white/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Light Blue",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/light-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "White",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/white/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Royal Blue",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/royal-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Royal Blue",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/royal-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Royal Blue",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/royal-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Khaki",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/khaki/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Khaki",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/khaki/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Khaki",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/khaki/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Turquoise",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/turquoise/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Brown",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/brown/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Turquoise",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/turquoise/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Brown",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/brown/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Turquoise",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/turquoise/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Brown",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/brown/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Navy",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/navy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Navy",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/navy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-short-sleeve-shirt",
+      "color": "Navy",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-short-sleeve-shirt/navy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Red",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/red/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Red",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/red/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Red",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/red/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Burgundy",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/burgundy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Burgundy",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/burgundy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Burgundy",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/burgundy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Light Blue",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/light-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Light Blue",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/light-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Light Blue",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/light-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Royal Blue",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/royal-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Royal Blue",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/royal-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Royal Blue",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/royal-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Turquoise",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/turquoise/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Turquoise",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/turquoise/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Turquoise",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/turquoise/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Navy",
+      "angle": "front",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/navy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Navy",
+      "angle": "threequarter",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/navy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-solid-pearl-snap-long-sleeve-shirt",
+      "color": "Navy",
+      "angle": "back",
+      "src": "assets/img/gioberti-studio/mens-solid-pearl-snap-long-sleeve-shirt/navy/back.webp",
+      "w": 1024,
+      "h": 1536
+    }
+  ]
+}
