@@ -25,6 +25,7 @@ from PIL import Image
 import numpy as np
 import html as htmllib
 import gen_pawn_pages as pw
+import casual_studio
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ITEMS = json.load(open(os.path.join(ROOT, "tools", "catalog", "gioberti.json"), encoding="utf-8"))
@@ -296,6 +297,8 @@ def cat_files(dept, group):
 
 def card(it, with_cat=False):
     pic = img(cover(it), "-c")
+    if it['cat'] == 'men-casual-shirts':
+        pic = casual_studio.cover(it, cover(it)) or pic
     n = len(it["all_colours"])
     label = CATS[it["cat"]][2]
     fx = f' data-f-color="{esc("|".join(it["families"]))}" data-f-brand="{BRAND}" data-f-fit="{"Husky" if "husky" in it["name"].lower() else "Regular"}" data-f-availability="{"Sold out" if it["soldout"] else "In stock"}"' + (f' data-f-category="{esc(label)}"' if with_cat else "")
@@ -406,6 +409,8 @@ def build_landing(dept, group, built):
 def gallery(it):
     ims = photos(it)
     first_key = cover(it)
+    if it['cat'] == 'men-casual-shirts':
+        return casual_studio.gallery(it, ims, first_key)
     first = next((im for im in ims if im["key"] == first_key), ims[0])
     thumbs = "".join(f'<button type="button" class="pdp-thumb{" is-active" if im is first else ""}" data-src="{img(im["key"])}" data-w="{im["w"]}" data-h="{im["h"]}"{f' data-colour="{esc(im["colours"][0])}"' if len(im.get("colours") or []) == 1 else ""}{f' data-sleeve="{im["sleeve"]}"' if im.get("sleeve") else ""} aria-label="Show photo {n} of {len(ims)}"><img src="{img(im["key"], "-t")}" alt="" loading="lazy" width="72" height="72"></button>'
                      for n, im in enumerate(ims, 1))
@@ -494,7 +499,7 @@ def build_product(it):
 {rel}'''
     glyph = "glyph-pawn" if it["dept"] == "boys" else "glyph-king"
     write(it["file"], shell(f"{it['name']} ({it['code']}) — {BRAND} | Checkmatela", f"{it['name']} by {BRAND}, style {it['code']}, {price_text(it)}. Colours, sizes, details and size chart at Checkmatela.",
-                            body, glyph=glyph, extra_js='<script src="js/product.js?v=9"></script>'))
+                            body, glyph=glyph, extra_js='<script src="js/product.js?v=10"></script>'))
 
 
 def build_magen_product(m):
