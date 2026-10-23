@@ -1,5 +1,9 @@
 # Checkmatela changes
 
+## 2026-10-22 — Product database (off the site)
+
+- New `tools/gb_database.py` builds the owner's Excel database outside the website: every removed product and trimmed colourway (with photos, reasons, stock and links) plus the full Gioberti catalog with what is on the site.
+
 ## 2026-10-22 — Men's activewear and sleepwear out; cap to Accessories, sandals to Shoes
 
 - Men's Activewear (6) and Sleepwear (3) removed; old links go to Not So Formal.

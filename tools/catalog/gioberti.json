@@ -41527,98 +41527,98 @@
    [
     "Gray",
     "Small",
-    29.99,
+    49.99,
     1
    ],
    [
     "Gray",
     "Medium",
-    29.99,
+    49.99,
     0
    ],
    [
     "Gray",
     "Large",
-    29.99,
-    0
+    49.99,
+    1
    ],
    [
     "Gray",
     "X-Large",
-    29.99,
+    49.99,
     0
    ],
    [
     "Gray",
     "2X-Large",
-    29.99,
-    0
-   ],
-   [
-    "Charcoal",
-    "Small",
-    29.99,
+    49.99,
     1
    ],
    [
     "Charcoal",
+    "Small",
+    49.99,
+    0
+   ],
+   [
+    "Charcoal",
     "Medium",
-    29.99,
+    49.99,
     0
    ],
    [
     "Charcoal",
     "Large",
-    29.99,
+    49.99,
     0
    ],
    [
     "Charcoal",
     "X-Large",
-    29.99,
+    49.99,
     0
    ],
    [
     "Charcoal",
     "2X-Large",
-    29.99,
+    49.99,
     0
    ],
    [
     "Black",
     "Small",
-    29.99,
-    0
+    49.99,
+    1
    ],
    [
     "Black",
     "Medium",
-    29.99,
+    49.99,
     0
    ],
    [
     "Black",
     "Large",
-    29.99,
-    0
+    49.99,
+    1
    ],
    [
     "Black",
     "X-Large",
-    29.99,
-    0
+    49.99,
+    1
    ],
    [
     "Black",
     "2X-Large",
-    29.99,
+    49.99,
     0
    ]
   ],
   "soldout": false,
   "colours": [
    "Gray",
-   "Charcoal"
+   "Black"
   ],
   "all_colours": [
    "Gray",
@@ -41635,8 +41635,8 @@
    "Charcoal": "8d100f311572",
    "Black": "d2aac9c6f650"
   },
-  "price": 29.99,
-  "price_max": 29.99,
+  "price": 49.99,
+  "price_max": 49.99,
   "paras": [],
   "bullets": [
    "Style: FH-99",
@@ -53130,7 +53130,7 @@
     "Gray",
     "Large",
     32.99,
-    1
+    0
    ],
    [
     "Gray",
@@ -78631,7 +78631,7 @@
     "Black",
     "14",
     27.99,
-    1
+    0
    ],
    [
     "Black",
@@ -85107,7 +85107,7 @@
     "Red",
     "6",
     19.99,
-    1
+    0
    ],
    [
     "Red",
@@ -88912,7 +88912,7 @@
     "Olive",
     "6",
     19.99,
-    1
+    0
    ],
    [
     "Olive",
@@ -108764,7 +108764,7 @@
     "Black",
     "20",
     54.99,
-    1
+    0
    ],
    [
     "Burgundy",
@@ -111341,7 +111341,7 @@
     "Black",
     "X-Large",
     23.99,
-    1
+    0
    ],
    [
     "Black",
