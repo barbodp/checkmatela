@@ -1161,6 +1161,294 @@
       "src": "assets/img/mens-studio/mens-bold-stripe-polo/royal-blue-black/back.webp",
       "w": 1024,
       "h": 1536
+    },
+    {
+      "handle": "sw-925-mens-cardigan-sweater",
+      "color": "Black",
+      "model": "M10",
+      "angle": "front",
+      "src": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "af-1207-mens-milano-rib-knitted-sweater",
+      "color": "Royal",
+      "model": "M11",
+      "angle": "front",
+      "src": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/royal/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "af-1206-mens-button-down-collar-knitted-pullover-sweater",
+      "color": "Black",
+      "model": "M12",
+      "angle": "front",
+      "src": "assets/img/mens-studio/af-1206-mens-button-down-collar-knitted-pullover-sweater/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+      "color": "Black",
+      "model": "M13",
+      "angle": "front",
+      "src": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+      "color": "Black",
+      "model": "M14",
+      "angle": "front",
+      "src": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+      "color": "Black",
+      "model": "M15",
+      "angle": "front",
+      "src": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-knitted-pullover-sweater",
+      "color": "Black",
+      "model": "M16",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-knitted-pullover-sweater/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-knitted-quarter-zip-sweater",
+      "color": "Black",
+      "model": "M17",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-knitted-turtleneck-sweater",
+      "color": "Black",
+      "model": "M18",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-knitted-v-neck-sweater",
+      "color": "Black",
+      "model": "M19",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-knitted-v-neck-sweater/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "sw-925-mens-cardigan-sweater",
+      "color": "Black",
+      "model": "M10",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "sw-925-mens-cardigan-sweater",
+      "color": "Black",
+      "model": "M10",
+      "angle": "back",
+      "src": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "af-1207-mens-milano-rib-knitted-sweater",
+      "color": "Royal",
+      "model": "M11",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/royal/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "af-1207-mens-milano-rib-knitted-sweater",
+      "color": "Royal",
+      "model": "M11",
+      "angle": "back",
+      "src": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/royal/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "af-1206-mens-button-down-collar-knitted-pullover-sweater",
+      "color": "Black",
+      "model": "M12",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/af-1206-mens-button-down-collar-knitted-pullover-sweater/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "af-1206-mens-button-down-collar-knitted-pullover-sweater",
+      "color": "Black",
+      "model": "M12",
+      "angle": "back",
+      "src": "assets/img/mens-studio/af-1206-mens-button-down-collar-knitted-pullover-sweater/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+      "color": "Black",
+      "model": "M13",
+      "angle": "back",
+      "src": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+      "color": "Black",
+      "model": "M14",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+      "color": "Black",
+      "model": "M14",
+      "angle": "back",
+      "src": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+      "color": "Black",
+      "model": "M15",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+      "color": "Black",
+      "model": "M15",
+      "angle": "back",
+      "src": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-knitted-pullover-sweater",
+      "color": "Black",
+      "model": "M16",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-knitted-pullover-sweater/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-knitted-pullover-sweater",
+      "color": "Black",
+      "model": "M16",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-knitted-pullover-sweater/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-knitted-quarter-zip-sweater",
+      "color": "Black",
+      "model": "M17",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-knitted-quarter-zip-sweater",
+      "color": "Black",
+      "model": "M17",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-knitted-turtleneck-sweater",
+      "color": "Black",
+      "model": "M18",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-knitted-turtleneck-sweater",
+      "color": "Black",
+      "model": "M18",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-knitted-v-neck-sweater",
+      "color": "Black",
+      "model": "M19",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-knitted-v-neck-sweater/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-knitted-v-neck-sweater",
+      "color": "Black",
+      "model": "M19",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-knitted-v-neck-sweater/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+      "color": "Black",
+      "model": "M13",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "sw-925-mens-cardigan-sweater",
+      "color": "Charcoal",
+      "model": "M10",
+      "angle": "front",
+      "src": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/charcoal/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "sw-925-mens-cardigan-sweater",
+      "color": "Charcoal",
+      "model": "M10",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/charcoal/threequarter.webp",
+      "w": 1024,
+      "h": 1536
     }
   ]
 }
