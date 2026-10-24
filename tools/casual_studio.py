@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MANIFESTS = ['casual-shirt-studio.json', 'flannel-studio.json']
+MANIFESTS = ['casual-shirt-studio.json', 'flannel-studio.json', 'mens-studio.json']
 STUDIO = []
 for name in MANIFESTS:
     manifest = ROOT / 'tools/catalog' / name

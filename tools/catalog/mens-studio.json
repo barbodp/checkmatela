@@ -1,0 +1,1166 @@
+{
+  "style": "White seamless studio, diffuse soft light, no props; original fictional adult models unique per product.",
+  "images": [
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Charcoal",
+      "model": "M01",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/charcoal/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Black",
+      "model": "M02",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "Black",
+      "model": "M03",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Gray",
+      "model": "M04",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/gray/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-accent-stripe-polo",
+      "color": "Charcoal",
+      "model": "M05",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-accent-stripe-polo/charcoal/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-multi-stripe-polo",
+      "color": "Charcoal",
+      "model": "M06",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-multi-stripe-polo/charcoal/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-pin-stripe-polo",
+      "color": "Brown",
+      "model": "M07",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-pin-stripe-polo/brown/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-jersey-stripe-polo",
+      "color": "Royal Blue (with pocket)",
+      "model": "M08",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-jersey-stripe-polo/royal-blue-with-pocket/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-bold-stripe-polo",
+      "color": "Black / Red",
+      "model": "M09",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-bold-stripe-polo/black-red/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Charcoal",
+      "model": "M01",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/charcoal/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Charcoal",
+      "model": "M01",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/charcoal/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Black",
+      "model": "M02",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Black",
+      "model": "M02",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "Black",
+      "model": "M03",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "Black",
+      "model": "M03",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Gray",
+      "model": "M04",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/gray/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Gray",
+      "model": "M04",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/gray/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-accent-stripe-polo",
+      "color": "Charcoal",
+      "model": "M05",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-accent-stripe-polo/charcoal/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-accent-stripe-polo",
+      "color": "Charcoal",
+      "model": "M05",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-accent-stripe-polo/charcoal/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-multi-stripe-polo",
+      "color": "Charcoal",
+      "model": "M06",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-multi-stripe-polo/charcoal/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-multi-stripe-polo",
+      "color": "Charcoal",
+      "model": "M06",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-multi-stripe-polo/charcoal/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-pin-stripe-polo",
+      "color": "Brown",
+      "model": "M07",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-pin-stripe-polo/brown/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-pin-stripe-polo",
+      "color": "Brown",
+      "model": "M07",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-pin-stripe-polo/brown/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-jersey-stripe-polo",
+      "color": "Royal Blue (with pocket)",
+      "model": "M08",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-jersey-stripe-polo/royal-blue-with-pocket/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-jersey-stripe-polo",
+      "color": "Royal Blue (with pocket)",
+      "model": "M08",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-jersey-stripe-polo/royal-blue-with-pocket/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-bold-stripe-polo",
+      "color": "Black / Red",
+      "model": "M09",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-bold-stripe-polo/black-red/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-bold-stripe-polo",
+      "color": "Black / Red",
+      "model": "M09",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-bold-stripe-polo/black-red/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "White",
+      "model": "M01",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/white/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "White",
+      "model": "M01",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/white/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "White",
+      "model": "M01",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/white/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Khaki",
+      "model": "M01",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/khaki/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Khaki",
+      "model": "M01",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/khaki/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Khaki",
+      "model": "M01",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/khaki/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Camel",
+      "model": "M01",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/camel/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Camel",
+      "model": "M01",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/camel/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Camel",
+      "model": "M01",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/camel/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Brown",
+      "model": "M01",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/brown/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Brown",
+      "model": "M01",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/brown/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Brown",
+      "model": "M01",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/brown/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Red",
+      "model": "M01",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/red/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Red",
+      "model": "M01",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/red/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Red",
+      "model": "M01",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/red/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Olive",
+      "model": "M01",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/olive/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Olive",
+      "model": "M01",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/olive/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Olive",
+      "model": "M01",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/olive/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Green",
+      "model": "M01",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/green/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Green",
+      "model": "M01",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/green/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Green",
+      "model": "M01",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/green/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Blue",
+      "model": "M01",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Blue",
+      "model": "M01",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Blue",
+      "model": "M01",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Cobalt",
+      "model": "M01",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/cobalt/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Cobalt",
+      "model": "M01",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/cobalt/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-gradient-stripe-polo",
+      "color": "Cobalt",
+      "model": "M01",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-gradient-stripe-polo/cobalt/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Camel",
+      "model": "M02",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/camel/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Camel",
+      "model": "M02",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/camel/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Camel",
+      "model": "M02",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/camel/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Burgundy",
+      "model": "M02",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/burgundy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Burgundy",
+      "model": "M02",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/burgundy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Burgundy",
+      "model": "M02",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/burgundy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Olive",
+      "model": "M02",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/olive/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Olive",
+      "model": "M02",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/olive/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Olive",
+      "model": "M02",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/olive/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Royal",
+      "model": "M02",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/royal/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Royal",
+      "model": "M02",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/royal/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Royal",
+      "model": "M02",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/royal/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Navy",
+      "model": "M02",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/navy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Navy",
+      "model": "M02",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/navy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-fine-stripe-polo",
+      "color": "Navy",
+      "model": "M02",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-fine-stripe-polo/navy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "Gray",
+      "model": "M03",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/gray/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "Gray",
+      "model": "M03",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/gray/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "Gray",
+      "model": "M03",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/gray/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "White",
+      "model": "M03",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/white/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "White",
+      "model": "M03",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/white/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "White",
+      "model": "M03",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/white/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "Hunter Green",
+      "model": "M03",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/hunter-green/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "Hunter Green",
+      "model": "M03",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/hunter-green/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "Hunter Green",
+      "model": "M03",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/hunter-green/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "Navy",
+      "model": "M03",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/navy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "Navy",
+      "model": "M03",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/navy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-chest-stripe-polo",
+      "color": "Navy",
+      "model": "M03",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-chest-stripe-polo/navy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Brown",
+      "model": "M04",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/brown/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Brown",
+      "model": "M04",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/brown/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Brown",
+      "model": "M04",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/brown/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Hunter Green",
+      "model": "M04",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/hunter-green/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Hunter Green",
+      "model": "M04",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/hunter-green/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Hunter Green",
+      "model": "M04",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/hunter-green/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Blue",
+      "model": "M04",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Blue",
+      "model": "M04",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Blue",
+      "model": "M04",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Navy",
+      "model": "M04",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/navy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Navy",
+      "model": "M04",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/navy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-heather-stripe-polo",
+      "color": "Navy",
+      "model": "M04",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-heather-stripe-polo/navy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-accent-stripe-polo",
+      "color": "White",
+      "model": "M05",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-accent-stripe-polo/white/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-accent-stripe-polo",
+      "color": "White",
+      "model": "M05",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-accent-stripe-polo/white/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-accent-stripe-polo",
+      "color": "White",
+      "model": "M05",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-accent-stripe-polo/white/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-accent-stripe-polo",
+      "color": "Royal Blue",
+      "model": "M05",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-accent-stripe-polo/royal-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-accent-stripe-polo",
+      "color": "Royal Blue",
+      "model": "M05",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-accent-stripe-polo/royal-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-accent-stripe-polo",
+      "color": "Royal Blue",
+      "model": "M05",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-accent-stripe-polo/royal-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-accent-stripe-polo",
+      "color": "Navy",
+      "model": "M05",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-accent-stripe-polo/navy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-accent-stripe-polo",
+      "color": "Navy",
+      "model": "M05",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-accent-stripe-polo/navy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-accent-stripe-polo",
+      "color": "Navy",
+      "model": "M05",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-accent-stripe-polo/navy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-multi-stripe-polo",
+      "color": "Camel",
+      "model": "M06",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-multi-stripe-polo/camel/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-multi-stripe-polo",
+      "color": "Camel",
+      "model": "M06",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-multi-stripe-polo/camel/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-multi-stripe-polo",
+      "color": "Camel",
+      "model": "M06",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-multi-stripe-polo/camel/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-multi-stripe-polo",
+      "color": "Burgundy",
+      "model": "M06",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-multi-stripe-polo/burgundy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-multi-stripe-polo",
+      "color": "Burgundy",
+      "model": "M06",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-multi-stripe-polo/burgundy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-multi-stripe-polo",
+      "color": "Burgundy",
+      "model": "M06",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-multi-stripe-polo/burgundy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-pin-stripe-polo",
+      "color": "Red",
+      "model": "M07",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-pin-stripe-polo/red/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-pin-stripe-polo",
+      "color": "Red",
+      "model": "M07",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-pin-stripe-polo/red/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-pin-stripe-polo",
+      "color": "Red",
+      "model": "M07",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-pin-stripe-polo/red/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-pin-stripe-polo",
+      "color": "Hunter Green",
+      "model": "M07",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-pin-stripe-polo/hunter-green/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-pin-stripe-polo",
+      "color": "Hunter Green",
+      "model": "M07",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-pin-stripe-polo/hunter-green/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-pin-stripe-polo",
+      "color": "Hunter Green",
+      "model": "M07",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-pin-stripe-polo/hunter-green/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-jersey-stripe-polo",
+      "color": "Black",
+      "model": "M08",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-jersey-stripe-polo/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-jersey-stripe-polo",
+      "color": "Black",
+      "model": "M08",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-jersey-stripe-polo/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-jersey-stripe-polo",
+      "color": "Black",
+      "model": "M08",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-jersey-stripe-polo/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-jersey-stripe-polo",
+      "color": "White",
+      "model": "M08",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-jersey-stripe-polo/white/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-jersey-stripe-polo",
+      "color": "White",
+      "model": "M08",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-jersey-stripe-polo/white/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-jersey-stripe-polo",
+      "color": "White",
+      "model": "M08",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-jersey-stripe-polo/white/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-bold-stripe-polo",
+      "color": "Black / Blue",
+      "model": "M09",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-bold-stripe-polo/black-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-bold-stripe-polo",
+      "color": "Black / Blue",
+      "model": "M09",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-bold-stripe-polo/black-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-bold-stripe-polo",
+      "color": "Black / Blue",
+      "model": "M09",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-bold-stripe-polo/black-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-bold-stripe-polo",
+      "color": "Charcoal / Blue",
+      "model": "M09",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-bold-stripe-polo/charcoal-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-bold-stripe-polo",
+      "color": "Charcoal / Blue",
+      "model": "M09",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-bold-stripe-polo/charcoal-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-bold-stripe-polo",
+      "color": "Charcoal / Blue",
+      "model": "M09",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-bold-stripe-polo/charcoal-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-bold-stripe-polo",
+      "color": "Royal Blue / Black",
+      "model": "M09",
+      "angle": "front",
+      "src": "assets/img/mens-studio/mens-bold-stripe-polo/royal-blue-black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-bold-stripe-polo",
+      "color": "Royal Blue / Black",
+      "model": "M09",
+      "angle": "threequarter",
+      "src": "assets/img/mens-studio/mens-bold-stripe-polo/royal-blue-black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-bold-stripe-polo",
+      "color": "Royal Blue / Black",
+      "model": "M09",
+      "angle": "back",
+      "src": "assets/img/mens-studio/mens-bold-stripe-polo/royal-blue-black/back.webp",
+      "w": 1024,
+      "h": 1536
+    }
+  ]
+}
