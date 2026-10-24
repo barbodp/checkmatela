@@ -1,0 +1,1895 @@
+{
+  "style": "White seamless studio, diffuse soft light, no props; original fictional adult models.",
+  "images": [
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "86 - Black / Charcoal / Gray",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/86-black-charcoal-gray/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "86 - Black / Charcoal / Gray",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/86-black-charcoal-gray/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black / Charcoal (86)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black-charcoal-86/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black / Charcoal (86)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black-charcoal-86/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black / Charcoal (86)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black-charcoal-86/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "34 - Charcoal / Black",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/34-charcoal-black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "34 - Charcoal / Black",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/34-charcoal-black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "66 - Gray / Royal Blue / Black",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/66-gray-royal-blue-black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Black / Charcoal / Gray (86)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/black-charcoal-gray-86/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Black / Charcoal / Gray (86)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/black-charcoal-gray-86/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "66 - Gray / Royal Blue / Black",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/66-gray-royal-blue-black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "1089 - Gray / Black / Orange Highlight",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/1089-gray-black-orange-highlight/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Black / White (99)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/black-white-99/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "1089 - Gray / Black / Orange Highlight",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/1089-gray-black-orange-highlight/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Black / White (99)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/black-white-99/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Black / White (99)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/black-white-99/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Black / Green / Royal Blue (89)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/black-green-royal-blue-89/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "54 - Dark Green / Red Highlight",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/54-dark-green-red-highlight/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Black / Green / Royal Blue (89)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/black-green-royal-blue-89/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "54 - Dark Green / Red Highlight",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/54-dark-green-red-highlight/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Black / Green / Royal Blue (89)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/black-green-royal-blue-89/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Charcoal / Red (9)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/charcoal-red-9/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Charcoal / Red (9)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/charcoal-red-9/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Charcoal / Red (9)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/charcoal-red-9/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "93 - Navy / Gray / Royal Blue Contrast Line",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/93-navy-gray-royal-blue-contrast-line/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "93 - Navy / Gray / Royal Blue Contrast Line",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/93-navy-gray-royal-blue-contrast-line/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Gray / Navy / White (1135)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/gray-navy-white-1135/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Gray / Navy / White (1135)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/gray-navy-white-1135/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black / White / Red (35)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black-white-red-35/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black / White / Red (35)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black-white-red-35/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black / White / Red (35)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black-white-red-35/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black / White (99)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black-white-99/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black / White (99)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black-white-99/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black / White (99)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black-white-99/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black / Blue Check (79)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black-blue-check-79/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black / Blue Check (79)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black-blue-check-79/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black / Blue Check (79)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black-blue-check-79/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Charcoal / Red (98)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/charcoal-red-98/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Charcoal / Red (98)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/charcoal-red-98/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Charcoal / Red (98)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/charcoal-red-98/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Gray / Navy / White (1135)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/gray-navy-white-1135/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Gray / Navy / White (1135)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/gray-navy-white-1135/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Gray / Navy / White (1135)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/gray-navy-white-1135/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Gray / Navy / White (1135)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/gray-navy-white-1135/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Khaki / Umber (51)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/khaki-umber-51/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Khaki / Navy (727)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/khaki-navy-727/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Khaki / Navy (727)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/khaki-navy-727/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Khaki / Umber (51)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/khaki-umber-51/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Khaki / Umber (51)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/khaki-umber-51/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Khaki / Navy (727)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/khaki-navy-727/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Red / Black Check (48)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/red-black-check-48/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Red / Black Check (48)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/red-black-check-48/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Red / Black Check (48)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/red-black-check-48/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Orange / Khaki / Teal (78)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/orange-khaki-teal-78/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Orange / Khaki / Teal (78)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/orange-khaki-teal-78/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Orange / Khaki / Teal (78)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/orange-khaki-teal-78/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Blue / Gray / Black (1139)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/blue-gray-black-1139/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Blue / Gray / Black (1139)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/blue-gray-black-1139/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Blue / Gray / Black (1139)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/blue-gray-black-1139/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Red / Black (48)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/red-black-48/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Blue / Gold (12)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/blue-gold-12/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Blue / Gold (12)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/blue-gold-12/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Red / Black (48)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/red-black-48/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Blue / Gold (12)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/blue-gold-12/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Red / Black (48)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/red-black-48/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Royal / Black Check (79)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/royal-black-check-79/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Royal / Black Check (79)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/royal-black-check-79/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Royal / Black Check (79)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/royal-black-check-79/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Red / Navy / Gray (85)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/red-navy-gray-85/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Red / Navy / Gray (85)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/red-navy-gray-85/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Red / Navy / Gray (85)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/red-navy-gray-85/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Black",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Green / Black / Royal Blue (89)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/green-black-royal-blue-89/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Black",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Green / Black / Royal Blue (89)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/green-black-royal-blue-89/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Green / Black / Royal Blue (89)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/green-black-royal-blue-89/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Black",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Navy / Orange (971)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/navy-orange-971/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Navy / Orange (971)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/navy-orange-971/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Navy / Orange (971)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/navy-orange-971/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Heather Charcoal",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/heather-charcoal/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Heather Charcoal",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/heather-charcoal/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Black",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Heather Charcoal",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/heather-charcoal/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Heather Charcoal",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/heather-charcoal/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Heather Charcoal",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/heather-charcoal/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Heather Charcoal",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/heather-charcoal/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Heather Navy",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/heather-navy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Heather Navy",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/heather-navy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Heather Navy",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/heather-navy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Heather Navy",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/heather-navy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Heather Olive",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/heather-olive/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Heather Navy",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/heather-navy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Heather Olive",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/heather-olive/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Heather Navy",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/heather-navy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "86 - Black / Charcoal / Gray",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/86-black-charcoal-gray/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Heather Olive",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/heather-olive/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Night Blue",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/night-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Heather Olive",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/heather-olive/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "34 - Charcoal / Black",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/34-charcoal-black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Heather Olive",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/heather-olive/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Night Blue",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/night-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "66 - Gray / Royal Blue / Black",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/66-gray-royal-blue-black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Heather Olive",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/heather-olive/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Night Blue",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/night-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "1089 - Gray / Black / Orange Highlight",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/1089-gray-black-orange-highlight/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Heather Green",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/heather-green/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Heather Green",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/heather-green/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Heather Green",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/heather-green/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Black / White / Red (35)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/black-white-red-35/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Black / White / Red (35)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/black-white-red-35/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Olive Green",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/olive-green/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Black / White / Red (35)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/black-white-red-35/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Olive Green",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/olive-green/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "54 - Dark Green / Red Highlight",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/54-dark-green-red-highlight/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining",
+      "color": "93 - Navy / Gray / Royal Blue Contrast Line",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/fj-91-mens-checkered-flannel-shirt-jacket-velvet-underlining/93-navy-gray-royal-blue-contrast-line/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Charcoal / Gray / Black (86)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/charcoal-gray-black-86/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Olive Green",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/olive-green/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Charcoal / Gray / Black (86)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/charcoal-gray-black-86/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Blue",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Charcoal / Gray / Black (86)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/charcoal-gray-black-86/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Blue",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Khaki / Navy (727)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/khaki-navy-727/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-plaid-flannel-shirt",
+      "color": "Blue",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-plaid-flannel-shirt/blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Khaki / Navy (727)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/khaki-navy-727/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Khaki / Navy (727)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/khaki-navy-727/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Orange / Khaki / Teal (78)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/orange-khaki-teal-78/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Orange / Khaki / Teal (78)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/orange-khaki-teal-78/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Orange / Khaki / Teal (78)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/orange-khaki-teal-78/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Red / Black Check (48)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/red-black-check-48/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Red / Black Check (48)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/red-black-check-48/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Red / Black Check (48)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/red-black-check-48/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Dark Green / Black (774)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/dark-green-black-774/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Dark Green / Black (774)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/dark-green-black-774/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Dark Green / Black (774)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/dark-green-black-774/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Blue / Gray / Black (1139)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/blue-gray-black-1139/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Blue / Gray / Black (1139)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/blue-gray-black-1139/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Blue / Gray / Black (1139)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/blue-gray-black-1139/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Blue / Red / White (1166)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/blue-red-white-1166/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Blue / Red / White (1166)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/blue-red-white-1166/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Blue / Red / White (1166)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/blue-red-white-1166/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Navy / Orange (971)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/navy-orange-971/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Navy / Orange (971)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/navy-orange-971/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Navy / Orange (971)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/navy-orange-971/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Navy / Brown / Magenta (1151)",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/navy-brown-magenta-1151/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Navy / Brown / Magenta (1151)",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/navy-brown-magenta-1151/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Navy / Brown / Magenta (1151)",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/navy-brown-magenta-1151/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Black",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Black",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Black",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Heather Charcoal",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/heather-charcoal/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Heather Charcoal",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/heather-charcoal/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Heather Charcoal",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/heather-charcoal/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Heather Navy",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/heather-navy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Heather Navy",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/heather-navy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Heather Navy",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/heather-navy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Heather Olive",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/heather-olive/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Heather Olive",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/heather-olive/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Heather Olive",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/heather-olive/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Night Blue",
+      "model": "B",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/night-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-hooded-flannel-shirt",
+      "color": "Black / Charcoal / Gray (86)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-hooded-flannel-shirt/black-charcoal-gray-86/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Night Blue",
+      "model": "B",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/night-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-snaps",
+      "color": "Night Blue",
+      "model": "B",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-snaps/night-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Black / Red Check (48)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/black-red-check-48/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Black / Red Check (48)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/black-red-check-48/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Black / Red Check (48)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/black-red-check-48/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Black / Gray / Coral (1116)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/black-gray-coral-1116/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Black / Gray / Coral (1116)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/black-gray-coral-1116/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Black / Gray / Coral (1116)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/black-gray-coral-1116/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Brown / Khaki (1117)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/brown-khaki-1117/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Brown / Khaki (1117)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/brown-khaki-1117/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Brown / Khaki (1117)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/brown-khaki-1117/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Dark Green / Red (54)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/dark-green-red-54/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Dark Green / Red (54)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/dark-green-red-54/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Dark Green / Red (54)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/dark-green-red-54/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Blue / Gray / Black (1139)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/blue-gray-black-1139/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Blue / Gray / Black (1139)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/blue-gray-black-1139/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Blue / Gray / Black (1139)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/blue-gray-black-1139/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Royal Blue / Midnight / Yellow (1146)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/royal-blue-midnight-yellow-1146/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Royal Blue / Midnight / Yellow (1146)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/royal-blue-midnight-yellow-1146/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Royal Blue / Midnight / Yellow (1146)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/royal-blue-midnight-yellow-1146/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Aqua / Turquoise / Orange (1079)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/aqua-turquoise-orange-1079/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Aqua / Turquoise / Orange (1079)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/aqua-turquoise-orange-1079/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Aqua / Turquoise / Orange (1079)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/aqua-turquoise-orange-1079/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Dark Blue / Gray (56)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/dark-blue-gray-56/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Dark Blue / Gray (56)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/dark-blue-gray-56/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Dark Blue / Gray (56)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/dark-blue-gray-56/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Heather Charcoal",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/heather-charcoal/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Heather Charcoal",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/heather-charcoal/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Heather Charcoal",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/heather-charcoal/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Heather Green",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/heather-green/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Heather Green",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/heather-green/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Heather Green",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/heather-green/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Black",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/black/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Black",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/black/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Black",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/black/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Heather Navy",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/heather-navy/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Gray / Black (97)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/gray-black-97/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Heather Navy",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/heather-navy/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Gray / Black (97)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/gray-black-97/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Gray / Black (97)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/gray-black-97/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Heather Navy",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/heather-navy/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Orange / Khaki / Teal (78)",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/orange-khaki-teal-78/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Orange / Khaki / Teal (78)",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/orange-khaki-teal-78/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Night Blue",
+      "model": "A",
+      "angle": "front",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/night-blue/front.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Orange / Khaki / Teal (78)",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/orange-khaki-teal-78/back.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Night Blue",
+      "model": "A",
+      "angle": "threequarter",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/night-blue/threequarter.webp",
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "handle": "mens-flannel-shirt-with-corduroy-contrast",
+      "color": "Night Blue",
+      "model": "A",
+      "angle": "back",
+      "src": "assets/img/flannel-studio/mens-flannel-shirt-with-corduroy-contrast/night-blue/back.webp",
+      "w": 1024,
+      "h": 1536
+    }
+  ]
+}
