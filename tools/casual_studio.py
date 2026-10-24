@@ -4,14 +4,19 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MANIFEST = ROOT / 'tools/catalog/casual-shirt-studio.json'
-STUDIO = json.loads(MANIFEST.read_text(encoding='utf-8'))['images'] if MANIFEST.exists() else []
+MANIFESTS = ['casual-shirt-studio.json', 'flannel-studio.json']
+STUDIO = []
+for name in MANIFESTS:
+    manifest = ROOT / 'tools/catalog' / name
+    if manifest.exists():
+        STUDIO.extend(json.loads(manifest.read_text(encoding='utf-8'))['images'])
 ANGLES = {'front': 'Front view', 'threequarter': 'Three-quarter view', 'back': 'Back view'}
 esc = lambda value: html.escape(str(value), quote=True)
 
 
 def cover(item, default):
-    color = next((c for c in item['colours'] if item['colour_img'].get(c) == default), None)
+    colors = item.get('all_colours') or item['colours']
+    color = next((c for c in colors if item['colour_img'].get(c) == default), colors[0] if colors else None)
     return next((im['src'] for im in STUDIO if im['handle'] == item['handle'] and im['color'] == color and im['angle'] == 'front'), None)
 
 
