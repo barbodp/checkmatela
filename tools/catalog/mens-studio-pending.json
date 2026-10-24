@@ -1,0 +1,3278 @@
+[
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Charcoal",
+    "angle": "back",
+    "reference": "assets/img/gioberti/afd4ae4d793c.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/charcoal/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Camel",
+    "angle": "front",
+    "reference": "assets/img/gioberti/dc74fa199004.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/camel/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Camel",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/dc74fa199004.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/camel/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Camel",
+    "angle": "back",
+    "reference": "assets/img/gioberti/dc74fa199004.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/camel/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/5c98c79315c2.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/navy/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/5c98c79315c2.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/navy/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/5c98c79315c2.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/navy/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Design 1",
+    "angle": "front",
+    "reference": "assets/img/gioberti/b8ac4b843598.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/design-1/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Design 1",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/b8ac4b843598.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/design-1/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Design 1",
+    "angle": "back",
+    "reference": "assets/img/gioberti/b8ac4b843598.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/design-1/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Design 2",
+    "angle": "front",
+    "reference": "assets/img/gioberti/da2a597a52cd.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/design-2/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Design 2",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/da2a597a52cd.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/design-2/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Design 2",
+    "angle": "back",
+    "reference": "assets/img/gioberti/da2a597a52cd.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/design-2/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Design 4",
+    "angle": "front",
+    "reference": "assets/img/gioberti/2602e44d7d4b.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/design-4/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Design 4",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/2602e44d7d4b.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/design-4/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M10",
+    "handle": "sw-925-mens-cardigan-sweater",
+    "color": "Design 4",
+    "angle": "back",
+    "reference": "assets/img/gioberti/2602e44d7d4b.webp",
+    "output": "assets/img/mens-studio/sw-925-mens-cardigan-sweater/design-4/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Black",
+    "angle": "front",
+    "reference": "assets/img/gioberti/4610459db4b2.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/black/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Black",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/4610459db4b2.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/black/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Black",
+    "angle": "back",
+    "reference": "assets/img/gioberti/4610459db4b2.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/black/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Charcoal",
+    "angle": "front",
+    "reference": "assets/img/gioberti/57a195c7a55e.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/charcoal/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Charcoal",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/57a195c7a55e.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/charcoal/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Charcoal",
+    "angle": "back",
+    "reference": "assets/img/gioberti/57a195c7a55e.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/charcoal/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Camel",
+    "angle": "front",
+    "reference": "assets/img/gioberti/05f0aeffb5b3.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/camel/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Camel",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/05f0aeffb5b3.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/camel/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Camel",
+    "angle": "back",
+    "reference": "assets/img/gioberti/05f0aeffb5b3.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/camel/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Stone",
+    "angle": "front",
+    "reference": "assets/img/gioberti/b145fa46cbc6.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/stone/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Stone",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/b145fa46cbc6.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/stone/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Stone",
+    "angle": "back",
+    "reference": "assets/img/gioberti/b145fa46cbc6.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/stone/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Olive",
+    "angle": "front",
+    "reference": "assets/img/gioberti/b58f3230332e.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/olive/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Olive",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/b58f3230332e.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/olive/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M11",
+    "handle": "af-1207-mens-milano-rib-knitted-sweater",
+    "color": "Olive",
+    "angle": "back",
+    "reference": "assets/img/gioberti/b58f3230332e.webp",
+    "output": "assets/img/mens-studio/af-1207-mens-milano-rib-knitted-sweater/olive/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M12",
+    "handle": "af-1206-mens-button-down-collar-knitted-pullover-sweater",
+    "color": "Charcoal",
+    "angle": "front",
+    "reference": "assets/img/gioberti/718da0e34319.webp",
+    "output": "assets/img/mens-studio/af-1206-mens-button-down-collar-knitted-pullover-sweater/charcoal/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M12",
+    "handle": "af-1206-mens-button-down-collar-knitted-pullover-sweater",
+    "color": "Charcoal",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/718da0e34319.webp",
+    "output": "assets/img/mens-studio/af-1206-mens-button-down-collar-knitted-pullover-sweater/charcoal/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M12",
+    "handle": "af-1206-mens-button-down-collar-knitted-pullover-sweater",
+    "color": "Charcoal",
+    "angle": "back",
+    "reference": "assets/img/gioberti/718da0e34319.webp",
+    "output": "assets/img/mens-studio/af-1206-mens-button-down-collar-knitted-pullover-sweater/charcoal/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M12",
+    "handle": "af-1206-mens-button-down-collar-knitted-pullover-sweater",
+    "color": "Olive",
+    "angle": "front",
+    "reference": "assets/img/gioberti/8209b3c143f7.webp",
+    "output": "assets/img/mens-studio/af-1206-mens-button-down-collar-knitted-pullover-sweater/olive/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M12",
+    "handle": "af-1206-mens-button-down-collar-knitted-pullover-sweater",
+    "color": "Olive",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/8209b3c143f7.webp",
+    "output": "assets/img/mens-studio/af-1206-mens-button-down-collar-knitted-pullover-sweater/olive/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M12",
+    "handle": "af-1206-mens-button-down-collar-knitted-pullover-sweater",
+    "color": "Olive",
+    "angle": "back",
+    "reference": "assets/img/gioberti/8209b3c143f7.webp",
+    "output": "assets/img/mens-studio/af-1206-mens-button-down-collar-knitted-pullover-sweater/olive/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M12",
+    "handle": "af-1206-mens-button-down-collar-knitted-pullover-sweater",
+    "color": "Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/05f4630f2978.webp",
+    "output": "assets/img/mens-studio/af-1206-mens-button-down-collar-knitted-pullover-sweater/navy/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M12",
+    "handle": "af-1206-mens-button-down-collar-knitted-pullover-sweater",
+    "color": "Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/05f4630f2978.webp",
+    "output": "assets/img/mens-studio/af-1206-mens-button-down-collar-knitted-pullover-sweater/navy/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M12",
+    "handle": "af-1206-mens-button-down-collar-knitted-pullover-sweater",
+    "color": "Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/05f4630f2978.webp",
+    "output": "assets/img/mens-studio/af-1206-mens-button-down-collar-knitted-pullover-sweater/navy/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M13",
+    "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+    "color": "Charcoal",
+    "angle": "front",
+    "reference": "assets/img/gioberti/218547c4ff25.webp",
+    "output": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/charcoal/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M13",
+    "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+    "color": "Charcoal",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/218547c4ff25.webp",
+    "output": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/charcoal/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M13",
+    "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+    "color": "Charcoal",
+    "angle": "back",
+    "reference": "assets/img/gioberti/218547c4ff25.webp",
+    "output": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/charcoal/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M13",
+    "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+    "color": "Brown",
+    "angle": "front",
+    "reference": "assets/img/gioberti/e26d99bd37d5.webp",
+    "output": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/brown/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M13",
+    "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+    "color": "Brown",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/e26d99bd37d5.webp",
+    "output": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/brown/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M13",
+    "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+    "color": "Brown",
+    "angle": "back",
+    "reference": "assets/img/gioberti/e26d99bd37d5.webp",
+    "output": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/brown/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M13",
+    "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+    "color": "Olive",
+    "angle": "front",
+    "reference": "assets/img/gioberti/66576a719c62.webp",
+    "output": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/olive/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M13",
+    "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+    "color": "Olive",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/66576a719c62.webp",
+    "output": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/olive/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M13",
+    "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+    "color": "Olive",
+    "angle": "back",
+    "reference": "assets/img/gioberti/66576a719c62.webp",
+    "output": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/olive/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M13",
+    "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+    "color": "Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/b41708310559.webp",
+    "output": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/navy/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M13",
+    "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+    "color": "Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/b41708310559.webp",
+    "output": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/navy/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M13",
+    "handle": "af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan",
+    "color": "Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/b41708310559.webp",
+    "output": "assets/img/mens-studio/af-1205-mens-long-sleeve-button-up-shawl-collar-cardigan/navy/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Heather Charcoal",
+    "angle": "front",
+    "reference": "assets/img/gioberti/623829bca632.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/heather-charcoal/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Heather Charcoal",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/623829bca632.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/heather-charcoal/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Heather Charcoal",
+    "angle": "back",
+    "reference": "assets/img/gioberti/623829bca632.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/heather-charcoal/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Gray",
+    "angle": "front",
+    "reference": "assets/img/gioberti/75402d28500f.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/gray/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Gray",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/75402d28500f.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/gray/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Gray",
+    "angle": "back",
+    "reference": "assets/img/gioberti/75402d28500f.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/gray/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Khaki",
+    "angle": "front",
+    "reference": "assets/img/gioberti/7062ecc9e901.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/khaki/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Khaki",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/7062ecc9e901.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/khaki/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Khaki",
+    "angle": "back",
+    "reference": "assets/img/gioberti/7062ecc9e901.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/khaki/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Red",
+    "angle": "front",
+    "reference": "assets/img/gioberti/f112c73c605f.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/red/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Red",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/f112c73c605f.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/red/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Red",
+    "angle": "back",
+    "reference": "assets/img/gioberti/f112c73c605f.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/red/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Olive",
+    "angle": "front",
+    "reference": "assets/img/gioberti/d053054f848a.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/olive/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Olive",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/d053054f848a.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/olive/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Olive",
+    "angle": "back",
+    "reference": "assets/img/gioberti/d053054f848a.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/olive/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Royal",
+    "angle": "front",
+    "reference": "assets/img/gioberti/a3e404edbd88.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/royal/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Royal",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/a3e404edbd88.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/royal/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Royal",
+    "angle": "back",
+    "reference": "assets/img/gioberti/a3e404edbd88.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/royal/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Turquoise",
+    "angle": "front",
+    "reference": "assets/img/gioberti/34534854a830.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/turquoise/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Turquoise",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/34534854a830.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/turquoise/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Turquoise",
+    "angle": "back",
+    "reference": "assets/img/gioberti/34534854a830.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/turquoise/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Dark Blue",
+    "angle": "front",
+    "reference": "assets/img/gioberti/1c871e104098.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/dark-blue/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Dark Blue",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/1c871e104098.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/dark-blue/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Dark Blue",
+    "angle": "back",
+    "reference": "assets/img/gioberti/1c871e104098.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/dark-blue/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/801c3bd4079d.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/navy/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/801c3bd4079d.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/navy/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M14",
+    "handle": "fs-902-mens-half-zip-polar-fleece-jacket",
+    "color": "Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/801c3bd4079d.webp",
+    "output": "assets/img/mens-studio/fs-902-mens-half-zip-polar-fleece-jacket/navy/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Heather Charcoal",
+    "angle": "front",
+    "reference": "assets/img/gioberti/b07b3276472a.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/heather-charcoal/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Heather Charcoal",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/b07b3276472a.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/heather-charcoal/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Heather Charcoal",
+    "angle": "back",
+    "reference": "assets/img/gioberti/b07b3276472a.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/heather-charcoal/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Gray",
+    "angle": "front",
+    "reference": "assets/img/gioberti/de376a8a4ad2.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/gray/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Gray",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/de376a8a4ad2.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/gray/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Gray",
+    "angle": "back",
+    "reference": "assets/img/gioberti/de376a8a4ad2.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/gray/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Red",
+    "angle": "front",
+    "reference": "assets/img/gioberti/f12643205add.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/red/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Red",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/f12643205add.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/red/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Red",
+    "angle": "back",
+    "reference": "assets/img/gioberti/f12643205add.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/red/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Royal Blue",
+    "angle": "front",
+    "reference": "assets/img/gioberti/23316cd235b1.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/royal-blue/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Royal Blue",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/23316cd235b1.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/royal-blue/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Royal Blue",
+    "angle": "back",
+    "reference": "assets/img/gioberti/23316cd235b1.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/royal-blue/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Turquoise",
+    "angle": "front",
+    "reference": "assets/img/gioberti/9209f04aaa9c.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/turquoise/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Turquoise",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/9209f04aaa9c.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/turquoise/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Turquoise",
+    "angle": "back",
+    "reference": "assets/img/gioberti/9209f04aaa9c.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/turquoise/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/51e3a9985e33.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/navy/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/51e3a9985e33.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/navy/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M15",
+    "handle": "fs-901-mens-full-zip-polar-fleece-jacket",
+    "color": "Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/51e3a9985e33.webp",
+    "output": "assets/img/mens-studio/fs-901-mens-full-zip-polar-fleece-jacket/navy/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Charcoal Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/6e8b44fe01e7.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/charcoal-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Charcoal Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/6e8b44fe01e7.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/charcoal-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Charcoal Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/6e8b44fe01e7.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/charcoal-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Gray",
+    "angle": "front",
+    "reference": "assets/img/gioberti/6189310b6132.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/gray/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Gray",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/6189310b6132.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/gray/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Gray",
+    "angle": "back",
+    "reference": "assets/img/gioberti/6189310b6132.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/gray/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Gray Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/0ca3906fc5eb.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/gray-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Gray Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/0ca3906fc5eb.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/gray-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Gray Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/0ca3906fc5eb.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/gray-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Coffee Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/038b053a81b7.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/coffee-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Coffee Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/038b053a81b7.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/coffee-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Coffee Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/038b053a81b7.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/coffee-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Red",
+    "angle": "front",
+    "reference": "assets/img/gioberti/d8d82a18cbb3.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/red/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Red",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/d8d82a18cbb3.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/red/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Red",
+    "angle": "back",
+    "reference": "assets/img/gioberti/d8d82a18cbb3.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/red/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Red Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/0dde2fcdee3f.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/red-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Red Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/0dde2fcdee3f.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/red-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Red Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/0dde2fcdee3f.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/red-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Olive",
+    "angle": "front",
+    "reference": "assets/img/gioberti/b87812ac2555.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/olive/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Olive",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/b87812ac2555.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/olive/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Olive",
+    "angle": "back",
+    "reference": "assets/img/gioberti/b87812ac2555.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/olive/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Blue Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/5a8d7a64cb9a.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/blue-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Blue Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/5a8d7a64cb9a.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/blue-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Blue Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/5a8d7a64cb9a.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/blue-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/9249715603fa.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/navy/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/9249715603fa.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/navy/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M16",
+    "handle": "mens-knitted-pullover-sweater",
+    "color": "Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/9249715603fa.webp",
+    "output": "assets/img/mens-studio/mens-knitted-pullover-sweater/navy/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Gray Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/a300bdeaf43f.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/gray-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Gray Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/a300bdeaf43f.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/gray-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Gray Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/a300bdeaf43f.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/gray-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Coffee Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/e8b49fb5e4e6.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/coffee-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Coffee Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/e8b49fb5e4e6.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/coffee-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Coffee Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/e8b49fb5e4e6.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/coffee-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Red Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/dfed6eb7b716.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/red-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Red Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/dfed6eb7b716.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/red-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Red Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/dfed6eb7b716.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/red-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Red",
+    "angle": "front",
+    "reference": "assets/img/gioberti/7c407b6cac08.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/red/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Red",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/7c407b6cac08.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/red/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Red",
+    "angle": "back",
+    "reference": "assets/img/gioberti/7c407b6cac08.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/red/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Blue Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/141ee8f5e384.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/blue-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Blue Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/141ee8f5e384.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/blue-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Blue Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/141ee8f5e384.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/blue-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/c605c4b29f0a.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/navy/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/c605c4b29f0a.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/navy/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M17",
+    "handle": "mens-knitted-quarter-zip-sweater",
+    "color": "Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/c605c4b29f0a.webp",
+    "output": "assets/img/mens-studio/mens-knitted-quarter-zip-sweater/navy/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Gray Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/6396610c8e0f.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/gray-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Gray Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/6396610c8e0f.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/gray-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Gray Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/6396610c8e0f.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/gray-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Coffee Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/9f13beada9c2.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/coffee-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Coffee Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/9f13beada9c2.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/coffee-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Coffee Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/9f13beada9c2.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/coffee-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Red",
+    "angle": "front",
+    "reference": "assets/img/gioberti/db06fe3ab367.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/red/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Red",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/db06fe3ab367.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/red/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Red",
+    "angle": "back",
+    "reference": "assets/img/gioberti/db06fe3ab367.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/red/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Blue Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/7878ada768de.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/blue-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Blue Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/7878ada768de.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/blue-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Blue Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/7878ada768de.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/blue-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/cf5b6f0d3357.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/navy/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/cf5b6f0d3357.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/navy/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M18",
+    "handle": "mens-knitted-turtleneck-sweater",
+    "color": "Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/cf5b6f0d3357.webp",
+    "output": "assets/img/mens-studio/mens-knitted-turtleneck-sweater/navy/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Gray Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/8c3b5900c69e.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/gray-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Gray Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/8c3b5900c69e.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/gray-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Gray Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/8c3b5900c69e.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/gray-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Coffee Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/8eb285872406.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/coffee-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Coffee Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/8eb285872406.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/coffee-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Coffee Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/8eb285872406.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/coffee-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Red",
+    "angle": "front",
+    "reference": "assets/img/gioberti/a01a1464b31a.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/red/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Red",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/a01a1464b31a.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/red/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Red",
+    "angle": "back",
+    "reference": "assets/img/gioberti/a01a1464b31a.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/red/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Blue Ombr\u00e9",
+    "angle": "front",
+    "reference": "assets/img/gioberti/c4e5e1584e26.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/blue-ombr/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Blue Ombr\u00e9",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/c4e5e1584e26.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/blue-ombr/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Blue Ombr\u00e9",
+    "angle": "back",
+    "reference": "assets/img/gioberti/c4e5e1584e26.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/blue-ombr/back.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/9b0985b39a89.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/navy/front.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/9b0985b39a89.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/navy/threequarter.webp"
+  },
+  {
+    "category": "men-sweaters",
+    "model": "M19",
+    "handle": "mens-knitted-v-neck-sweater",
+    "color": "Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/9b0985b39a89.webp",
+    "output": "assets/img/mens-studio/mens-knitted-v-neck-sweater/navy/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "50-Charcoal/White",
+    "angle": "front",
+    "reference": "assets/img/gioberti/ff0850a5b354.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/50-charcoal-white/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "50-Charcoal/White",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/ff0850a5b354.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/50-charcoal-white/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "50-Charcoal/White",
+    "angle": "back",
+    "reference": "assets/img/gioberti/ff0850a5b354.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/50-charcoal-white/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "52-Charcoal/Gray",
+    "angle": "front",
+    "reference": "assets/img/gioberti/46bf862f9aa9.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/52-charcoal-gray/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "52-Charcoal/Gray",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/46bf862f9aa9.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/52-charcoal-gray/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "52-Charcoal/Gray",
+    "angle": "back",
+    "reference": "assets/img/gioberti/46bf862f9aa9.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/52-charcoal-gray/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "49-Brown/Black",
+    "angle": "front",
+    "reference": "assets/img/gioberti/4ecc162534db.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/49-brown-black/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "49-Brown/Black",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/4ecc162534db.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/49-brown-black/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "49-Brown/Black",
+    "angle": "back",
+    "reference": "assets/img/gioberti/4ecc162534db.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/49-brown-black/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "56-Blue/Navy Checkered",
+    "angle": "front",
+    "reference": "assets/img/gioberti/4c1f22cc9741.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/56-blue-navy-checkered/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "56-Blue/Navy Checkered",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/4c1f22cc9741.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/56-blue-navy-checkered/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "56-Blue/Navy Checkered",
+    "angle": "back",
+    "reference": "assets/img/gioberti/4c1f22cc9741.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/56-blue-navy-checkered/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "51-Navy/Gray",
+    "angle": "front",
+    "reference": "assets/img/gioberti/b2ecbe2f8e13.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/51-navy-gray/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "51-Navy/Gray",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/b2ecbe2f8e13.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/51-navy-gray/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M20",
+    "handle": "ja-904-men-flannel-jacket-w-hood",
+    "color": "51-Navy/Gray",
+    "angle": "back",
+    "reference": "assets/img/gioberti/b2ecbe2f8e13.webp",
+    "output": "assets/img/mens-studio/ja-904-men-flannel-jacket-w-hood/51-navy-gray/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Charcoal/White",
+    "angle": "front",
+    "reference": "assets/img/gioberti/cb56726194ed.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/charcoal-white/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Charcoal/White",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/cb56726194ed.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/charcoal-white/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Charcoal/White",
+    "angle": "back",
+    "reference": "assets/img/gioberti/cb56726194ed.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/charcoal-white/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Charcoal/Gray",
+    "angle": "front",
+    "reference": "assets/img/gioberti/c8ca3fe77690.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/charcoal-gray/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Charcoal/Gray",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/c8ca3fe77690.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/charcoal-gray/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Charcoal/Gray",
+    "angle": "back",
+    "reference": "assets/img/gioberti/c8ca3fe77690.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/charcoal-gray/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Charcoal Checkered",
+    "angle": "front",
+    "reference": "assets/img/gioberti/3f46e772d0c4.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/charcoal-checkered/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Charcoal Checkered",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/3f46e772d0c4.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/charcoal-checkered/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Charcoal Checkered",
+    "angle": "back",
+    "reference": "assets/img/gioberti/3f46e772d0c4.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/charcoal-checkered/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Brown/Black",
+    "angle": "front",
+    "reference": "assets/img/gioberti/3f4ffa8ab899.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/brown-black/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Brown/Black",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/3f4ffa8ab899.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/brown-black/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Brown/Black",
+    "angle": "back",
+    "reference": "assets/img/gioberti/3f4ffa8ab899.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/brown-black/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Red/Black",
+    "angle": "front",
+    "reference": "assets/img/gioberti/c070bf44dc2f.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/red-black/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Red/Black",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/c070bf44dc2f.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/red-black/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Red/Black",
+    "angle": "back",
+    "reference": "assets/img/gioberti/c070bf44dc2f.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/red-black/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Green/Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/a15766fd51c4.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/green-navy/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Green/Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/a15766fd51c4.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/green-navy/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Green/Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/a15766fd51c4.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/green-navy/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Blue/Navy Checkered",
+    "angle": "front",
+    "reference": "assets/img/gioberti/4d94352d297a.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/blue-navy-checkered/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Blue/Navy Checkered",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/4d94352d297a.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/blue-navy-checkered/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Blue/Navy Checkered",
+    "angle": "back",
+    "reference": "assets/img/gioberti/4d94352d297a.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/blue-navy-checkered/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Navy/Gray",
+    "angle": "front",
+    "reference": "assets/img/gioberti/610c42466c2b.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/navy-gray/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Navy/Gray",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/610c42466c2b.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/navy-gray/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M21",
+    "handle": "ja-903-men-flannel-jacket-removable-hood",
+    "color": "Navy/Gray",
+    "angle": "back",
+    "reference": "assets/img/gioberti/610c42466c2b.webp",
+    "output": "assets/img/mens-studio/ja-903-men-flannel-jacket-removable-hood/navy-gray/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Black",
+    "angle": "front",
+    "reference": "assets/img/gioberti/7fd207320830.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/black/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Black",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/7fd207320830.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/black/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Black",
+    "angle": "back",
+    "reference": "assets/img/gioberti/7fd207320830.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/black/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Charcoal",
+    "angle": "front",
+    "reference": "assets/img/gioberti/2f21e3dc0b48.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/charcoal/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Charcoal",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/2f21e3dc0b48.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/charcoal/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Charcoal",
+    "angle": "back",
+    "reference": "assets/img/gioberti/2f21e3dc0b48.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/charcoal/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Brown",
+    "angle": "front",
+    "reference": "assets/img/gioberti/60a07b5f2ac2.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/brown/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Brown",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/60a07b5f2ac2.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/brown/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Brown",
+    "angle": "back",
+    "reference": "assets/img/gioberti/60a07b5f2ac2.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/brown/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Forest Green",
+    "angle": "front",
+    "reference": "assets/img/gioberti/a0e640d7920d.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/forest-green/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Forest Green",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/a0e640d7920d.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/forest-green/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Forest Green",
+    "angle": "back",
+    "reference": "assets/img/gioberti/a0e640d7920d.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/forest-green/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Olive",
+    "angle": "front",
+    "reference": "assets/img/gioberti/c2057d292e52.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/olive/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Olive",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/c2057d292e52.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/olive/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M22",
+    "handle": "cj-95-mens-soft-courduroy-shirt-jacket",
+    "color": "Olive",
+    "angle": "back",
+    "reference": "assets/img/gioberti/c2057d292e52.webp",
+    "output": "assets/img/mens-studio/cj-95-mens-soft-courduroy-shirt-jacket/olive/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Black",
+    "angle": "front",
+    "reference": "assets/img/gioberti/75238c646c32.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/black/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Black",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/75238c646c32.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/black/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Black",
+    "angle": "back",
+    "reference": "assets/img/gioberti/75238c646c32.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/black/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Charcoal",
+    "angle": "front",
+    "reference": "assets/img/gioberti/f453a42535e2.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/charcoal/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Charcoal",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/f453a42535e2.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/charcoal/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Charcoal",
+    "angle": "back",
+    "reference": "assets/img/gioberti/f453a42535e2.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/charcoal/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Camel",
+    "angle": "front",
+    "reference": "assets/img/gioberti/8f9c5cf3fb10.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/camel/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Camel",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/8f9c5cf3fb10.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/camel/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Camel",
+    "angle": "back",
+    "reference": "assets/img/gioberti/8f9c5cf3fb10.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/camel/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Brown",
+    "angle": "front",
+    "reference": "assets/img/gioberti/79971ff3cfeb.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/brown/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Brown",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/79971ff3cfeb.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/brown/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Brown",
+    "angle": "back",
+    "reference": "assets/img/gioberti/79971ff3cfeb.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/brown/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Olive",
+    "angle": "front",
+    "reference": "assets/img/gioberti/7be400f4cc6e.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/olive/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Olive",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/7be400f4cc6e.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/olive/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M23",
+    "handle": "ja-908-mens-padded-suede-bomber-jacket",
+    "color": "Olive",
+    "angle": "back",
+    "reference": "assets/img/gioberti/7be400f4cc6e.webp",
+    "output": "assets/img/mens-studio/ja-908-mens-padded-suede-bomber-jacket/olive/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Black",
+    "angle": "front",
+    "reference": "assets/img/gioberti/39688b090a09.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/black/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Black",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/39688b090a09.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/black/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Black",
+    "angle": "back",
+    "reference": "assets/img/gioberti/39688b090a09.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/black/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Charcoal",
+    "angle": "front",
+    "reference": "assets/img/gioberti/2f61b9b14170.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/charcoal/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Charcoal",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/2f61b9b14170.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/charcoal/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Charcoal",
+    "angle": "back",
+    "reference": "assets/img/gioberti/2f61b9b14170.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/charcoal/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Gray",
+    "angle": "front",
+    "reference": "assets/img/gioberti/efe7ba9210e1.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/gray/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Gray",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/efe7ba9210e1.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/gray/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Gray",
+    "angle": "back",
+    "reference": "assets/img/gioberti/efe7ba9210e1.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/gray/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Khaki",
+    "angle": "front",
+    "reference": "assets/img/gioberti/2b2ffbfa1dd0.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/khaki/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Khaki",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/2b2ffbfa1dd0.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/khaki/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Khaki",
+    "angle": "back",
+    "reference": "assets/img/gioberti/2b2ffbfa1dd0.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/khaki/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Brown",
+    "angle": "front",
+    "reference": "assets/img/gioberti/0f2198d5735d.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/brown/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Brown",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/0f2198d5735d.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/brown/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Brown",
+    "angle": "back",
+    "reference": "assets/img/gioberti/0f2198d5735d.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/brown/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Olive",
+    "angle": "front",
+    "reference": "assets/img/gioberti/9ffd5278fbf3.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/olive/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Olive",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/9ffd5278fbf3.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/olive/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Olive",
+    "angle": "back",
+    "reference": "assets/img/gioberti/9ffd5278fbf3.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/olive/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/96c913a4e356.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/navy/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/96c913a4e356.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/navy/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/96c913a4e356.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/navy/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Copper",
+    "angle": "front",
+    "reference": "assets/img/gioberti/be4b6c9f77c6.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/copper/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Copper",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/be4b6c9f77c6.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/copper/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M24",
+    "handle": "cj-94-mens-twill-multi-pocket-cargo-shirt-jacket",
+    "color": "Copper",
+    "angle": "back",
+    "reference": "assets/img/gioberti/be4b6c9f77c6.webp",
+    "output": "assets/img/mens-studio/cj-94-mens-twill-multi-pocket-cargo-shirt-jacket/copper/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Black",
+    "angle": "front",
+    "reference": "assets/img/gioberti/232a3c0e7439.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/black/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Black",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/232a3c0e7439.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/black/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Black",
+    "angle": "back",
+    "reference": "assets/img/gioberti/232a3c0e7439.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/black/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Charcoal",
+    "angle": "front",
+    "reference": "assets/img/gioberti/142613f15b95.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/charcoal/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Charcoal",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/142613f15b95.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/charcoal/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Charcoal",
+    "angle": "back",
+    "reference": "assets/img/gioberti/142613f15b95.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/charcoal/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Gray",
+    "angle": "front",
+    "reference": "assets/img/gioberti/b1e6ae03e1a6.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/gray/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Gray",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/b1e6ae03e1a6.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/gray/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Gray",
+    "angle": "back",
+    "reference": "assets/img/gioberti/b1e6ae03e1a6.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/gray/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Khaki",
+    "angle": "front",
+    "reference": "assets/img/gioberti/58f0b07528c8.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/khaki/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Khaki",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/58f0b07528c8.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/khaki/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Khaki",
+    "angle": "back",
+    "reference": "assets/img/gioberti/58f0b07528c8.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/khaki/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Brown",
+    "angle": "front",
+    "reference": "assets/img/gioberti/79c75605b5c4.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/brown/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Brown",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/79c75605b5c4.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/brown/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Brown",
+    "angle": "back",
+    "reference": "assets/img/gioberti/79c75605b5c4.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/brown/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Olive",
+    "angle": "front",
+    "reference": "assets/img/gioberti/b9d16e3cdf67.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/olive/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Olive",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/b9d16e3cdf67.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/olive/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Olive",
+    "angle": "back",
+    "reference": "assets/img/gioberti/b9d16e3cdf67.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/olive/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/244c4a06555d.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/navy/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/244c4a06555d.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/navy/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/244c4a06555d.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/navy/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Copper",
+    "angle": "front",
+    "reference": "assets/img/gioberti/16a920752c12.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/copper/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Copper",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/16a920752c12.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/copper/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M25",
+    "handle": "cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining",
+    "color": "Copper",
+    "angle": "back",
+    "reference": "assets/img/gioberti/16a920752c12.webp",
+    "output": "assets/img/mens-studio/cj-93-mens-twill-shirt-bomber-jacket-with-flannel-lining/copper/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Black",
+    "angle": "front",
+    "reference": "assets/img/gioberti/c475817ed4b4.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/black/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Black",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/c475817ed4b4.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/black/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Black",
+    "angle": "back",
+    "reference": "assets/img/gioberti/c475817ed4b4.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/black/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Charcoal",
+    "angle": "front",
+    "reference": "assets/img/gioberti/23a81754a7d1.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/charcoal/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Charcoal",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/23a81754a7d1.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/charcoal/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Charcoal",
+    "angle": "back",
+    "reference": "assets/img/gioberti/23a81754a7d1.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/charcoal/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Gray",
+    "angle": "front",
+    "reference": "assets/img/gioberti/e5f573e6a8c3.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/gray/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Gray",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/e5f573e6a8c3.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/gray/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Gray",
+    "angle": "back",
+    "reference": "assets/img/gioberti/e5f573e6a8c3.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/gray/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Khaki",
+    "angle": "front",
+    "reference": "assets/img/gioberti/316dab47afd3.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/khaki/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Khaki",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/316dab47afd3.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/khaki/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Khaki",
+    "angle": "back",
+    "reference": "assets/img/gioberti/316dab47afd3.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/khaki/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Brown",
+    "angle": "front",
+    "reference": "assets/img/gioberti/a1987750ca63.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/brown/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Brown",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/a1987750ca63.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/brown/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Brown",
+    "angle": "back",
+    "reference": "assets/img/gioberti/a1987750ca63.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/brown/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Olive",
+    "angle": "front",
+    "reference": "assets/img/gioberti/8a7d206bd13f.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/olive/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Olive",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/8a7d206bd13f.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/olive/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Olive",
+    "angle": "back",
+    "reference": "assets/img/gioberti/8a7d206bd13f.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/olive/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/66faf115cbe5.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/navy/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/66faf115cbe5.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/navy/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/66faf115cbe5.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/navy/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Copper",
+    "angle": "front",
+    "reference": "assets/img/gioberti/dc97898bd0bf.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/copper/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Copper",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/dc97898bd0bf.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/copper/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M26",
+    "handle": "cj-97-mens-twill-shirt-jacket-with-flannel-lining",
+    "color": "Copper",
+    "angle": "back",
+    "reference": "assets/img/gioberti/dc97898bd0bf.webp",
+    "output": "assets/img/mens-studio/cj-97-mens-twill-shirt-jacket-with-flannel-lining/copper/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Black",
+    "angle": "front",
+    "reference": "assets/img/gioberti/bc683368bc8b.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/black/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Black",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/bc683368bc8b.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/black/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Black",
+    "angle": "back",
+    "reference": "assets/img/gioberti/bc683368bc8b.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/black/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Charcoal",
+    "angle": "front",
+    "reference": "assets/img/gioberti/535b138e976e.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/charcoal/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Charcoal",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/535b138e976e.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/charcoal/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Charcoal",
+    "angle": "back",
+    "reference": "assets/img/gioberti/535b138e976e.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/charcoal/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Gray",
+    "angle": "front",
+    "reference": "assets/img/gioberti/c3bbf4126199.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/gray/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Gray",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/c3bbf4126199.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/gray/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Gray",
+    "angle": "back",
+    "reference": "assets/img/gioberti/c3bbf4126199.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/gray/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Brown",
+    "angle": "front",
+    "reference": "assets/img/gioberti/91a0db7a68a5.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/brown/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Brown",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/91a0db7a68a5.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/brown/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Brown",
+    "angle": "back",
+    "reference": "assets/img/gioberti/91a0db7a68a5.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/brown/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Orange",
+    "angle": "front",
+    "reference": "assets/img/gioberti/ef0146fd6ec9.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/orange/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Orange",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/ef0146fd6ec9.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/orange/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Orange",
+    "angle": "back",
+    "reference": "assets/img/gioberti/ef0146fd6ec9.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/orange/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Red",
+    "angle": "front",
+    "reference": "assets/img/gioberti/5c1bd15d8801.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/red/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Red",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/5c1bd15d8801.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/red/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Red",
+    "angle": "back",
+    "reference": "assets/img/gioberti/5c1bd15d8801.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/red/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Green",
+    "angle": "front",
+    "reference": "assets/img/gioberti/efa4aecd8ead.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/green/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Green",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/efa4aecd8ead.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/green/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Green",
+    "angle": "back",
+    "reference": "assets/img/gioberti/efa4aecd8ead.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/green/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Neon Green",
+    "angle": "front",
+    "reference": "assets/img/gioberti/1690b5a34c1b.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/neon-green/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Neon Green",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/1690b5a34c1b.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/neon-green/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Neon Green",
+    "angle": "back",
+    "reference": "assets/img/gioberti/1690b5a34c1b.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/neon-green/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Olive",
+    "angle": "front",
+    "reference": "assets/img/gioberti/775786d3b6ee.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/olive/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Olive",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/775786d3b6ee.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/olive/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Olive",
+    "angle": "back",
+    "reference": "assets/img/gioberti/775786d3b6ee.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/olive/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Royal Blue",
+    "angle": "front",
+    "reference": "assets/img/gioberti/104b5204a94a.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/royal-blue/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Royal Blue",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/104b5204a94a.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/royal-blue/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Royal Blue",
+    "angle": "back",
+    "reference": "assets/img/gioberti/104b5204a94a.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/royal-blue/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Turquoise",
+    "angle": "front",
+    "reference": "assets/img/gioberti/d374934e0067.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/turquoise/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Turquoise",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/d374934e0067.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/turquoise/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Turquoise",
+    "angle": "back",
+    "reference": "assets/img/gioberti/d374934e0067.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/turquoise/back.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Navy",
+    "angle": "front",
+    "reference": "assets/img/gioberti/fa5d1211b3eb.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/navy/front.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Navy",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/fa5d1211b3eb.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/navy/threequarter.webp"
+  },
+  {
+    "category": "men-jackets",
+    "model": "M27",
+    "handle": "ja-945-mens-waterproof-front-zip-hooded-rain-jacket",
+    "color": "Navy",
+    "angle": "back",
+    "reference": "assets/img/gioberti/fa5d1211b3eb.webp",
+    "output": "assets/img/mens-studio/ja-945-mens-waterproof-front-zip-hooded-rain-jacket/navy/back.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M28",
+    "handle": "lj-980-mens-motorcycle-leather-jacket",
+    "color": "Black",
+    "angle": "front",
+    "reference": "assets/img/gioberti/fb777c1211a4.webp",
+    "output": "assets/img/mens-studio/lj-980-mens-motorcycle-leather-jacket/black/front.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M28",
+    "handle": "lj-980-mens-motorcycle-leather-jacket",
+    "color": "Black",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/fb777c1211a4.webp",
+    "output": "assets/img/mens-studio/lj-980-mens-motorcycle-leather-jacket/black/threequarter.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M28",
+    "handle": "lj-980-mens-motorcycle-leather-jacket",
+    "color": "Black",
+    "angle": "back",
+    "reference": "assets/img/gioberti/fb777c1211a4.webp",
+    "output": "assets/img/mens-studio/lj-980-mens-motorcycle-leather-jacket/black/back.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M28",
+    "handle": "lj-980-mens-motorcycle-leather-jacket",
+    "color": "Hazelnut",
+    "angle": "front",
+    "reference": "assets/img/gioberti/c24b917c5731.webp",
+    "output": "assets/img/mens-studio/lj-980-mens-motorcycle-leather-jacket/hazelnut/front.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M28",
+    "handle": "lj-980-mens-motorcycle-leather-jacket",
+    "color": "Hazelnut",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/c24b917c5731.webp",
+    "output": "assets/img/mens-studio/lj-980-mens-motorcycle-leather-jacket/hazelnut/threequarter.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M28",
+    "handle": "lj-980-mens-motorcycle-leather-jacket",
+    "color": "Hazelnut",
+    "angle": "back",
+    "reference": "assets/img/gioberti/c24b917c5731.webp",
+    "output": "assets/img/mens-studio/lj-980-mens-motorcycle-leather-jacket/hazelnut/back.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M29",
+    "handle": "lj-900-mens-sheepskin-leather-jacket",
+    "color": "Black",
+    "angle": "front",
+    "reference": "assets/img/gioberti/062d0f48e450.webp",
+    "output": "assets/img/mens-studio/lj-900-mens-sheepskin-leather-jacket/black/front.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M29",
+    "handle": "lj-900-mens-sheepskin-leather-jacket",
+    "color": "Black",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/062d0f48e450.webp",
+    "output": "assets/img/mens-studio/lj-900-mens-sheepskin-leather-jacket/black/threequarter.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M29",
+    "handle": "lj-900-mens-sheepskin-leather-jacket",
+    "color": "Black",
+    "angle": "back",
+    "reference": "assets/img/gioberti/062d0f48e450.webp",
+    "output": "assets/img/mens-studio/lj-900-mens-sheepskin-leather-jacket/black/back.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M29",
+    "handle": "lj-900-mens-sheepskin-leather-jacket",
+    "color": "Brown",
+    "angle": "front",
+    "reference": "assets/img/gioberti/759e3dca2ebe.webp",
+    "output": "assets/img/mens-studio/lj-900-mens-sheepskin-leather-jacket/brown/front.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M29",
+    "handle": "lj-900-mens-sheepskin-leather-jacket",
+    "color": "Brown",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/759e3dca2ebe.webp",
+    "output": "assets/img/mens-studio/lj-900-mens-sheepskin-leather-jacket/brown/threequarter.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M29",
+    "handle": "lj-900-mens-sheepskin-leather-jacket",
+    "color": "Brown",
+    "angle": "back",
+    "reference": "assets/img/gioberti/759e3dca2ebe.webp",
+    "output": "assets/img/mens-studio/lj-900-mens-sheepskin-leather-jacket/brown/back.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M29",
+    "handle": "lj-900-mens-sheepskin-leather-jacket",
+    "color": "Hazelnut",
+    "angle": "front",
+    "reference": "assets/img/gioberti/1368998e3539.webp",
+    "output": "assets/img/mens-studio/lj-900-mens-sheepskin-leather-jacket/hazelnut/front.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M29",
+    "handle": "lj-900-mens-sheepskin-leather-jacket",
+    "color": "Hazelnut",
+    "angle": "threequarter",
+    "reference": "assets/img/gioberti/1368998e3539.webp",
+    "output": "assets/img/mens-studio/lj-900-mens-sheepskin-leather-jacket/hazelnut/threequarter.webp"
+  },
+  {
+    "category": "men-leather-jackets",
+    "model": "M29",
+    "handle": "lj-900-mens-sheepskin-leather-jacket",
+    "color": "Hazelnut",
+    "angle": "back",
+    "reference": "assets/img/gioberti/1368998e3539.webp",
+    "output": "assets/img/mens-studio/lj-900-mens-sheepskin-leather-jacket/hazelnut/back.webp"
+  }
+]

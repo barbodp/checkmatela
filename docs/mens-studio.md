@@ -163,3 +163,5 @@ Smooth genuine SHEEPSKIN leather jacket, simple band collar/full zip, two side h
 
 ## Reference roles and fidelity
 Initial models are generated from physical descriptions. Flat garment photos supply clothing only. Where a supplier photo contains a human model, create the fictional identity independently first, then use that identity as reference 1 and the garment photo as reference 2; ignore the supplier person's identity. Use supplied actual rear product photos wherever available. Color names never override source pixels. Keep every color gallery separate, with front, three-quarter, and single straight-on back before original product photos. Jewelry, labels and hangtags are excluded. No marble or multi-angle composites.
+
+AF-1205 elbow patches: use actual rear reference for both the back and three-quarter patch construction. Patches are dark coffee-brown matte faux suede, tall rounded rectangles with straight sides and rounded corners, not ovals. Preserve them across every body color.
