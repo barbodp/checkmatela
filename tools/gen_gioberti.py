@@ -297,7 +297,7 @@ def cat_files(dept, group):
 
 def card(it, with_cat=False):
     pic = img(cover(it), "-c")
-    if it['cat'] in ('men-casual-shirts', 'men-flannel-shirts'):
+    if it['cat'] in ('men-casual-shirts', 'men-flannel-shirts', 'men-polo-shirts', 'men-sweaters', 'men-jackets', 'men-leather-jackets'):
         pic = casual_studio.cover(it, cover(it)) or pic
     n = len(it["all_colours"])
     label = CATS[it["cat"]][2]
@@ -409,7 +409,7 @@ def build_landing(dept, group, built):
 def gallery(it):
     ims = photos(it)
     first_key = cover(it)
-    if it['cat'] in ('men-casual-shirts', 'men-flannel-shirts'):
+    if it['cat'] in ('men-casual-shirts', 'men-flannel-shirts', 'men-polo-shirts', 'men-sweaters', 'men-jackets', 'men-leather-jackets'):
         return casual_studio.gallery(it, ims, first_key)
     first = next((im for im in ims if im["key"] == first_key), ims[0])
     thumbs = "".join(f'<button type="button" class="pdp-thumb{" is-active" if im is first else ""}" data-src="{img(im["key"])}" data-w="{im["w"]}" data-h="{im["h"]}"{f' data-colour="{esc(im["colours"][0])}"' if len(im.get("colours") or []) == 1 else ""}{f' data-sleeve="{im["sleeve"]}"' if im.get("sleeve") else ""} aria-label="Show photo {n} of {len(ims)}"><img src="{img(im["key"], "-t")}" alt="" loading="lazy" width="72" height="72"></button>'
